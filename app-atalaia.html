@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Apartamento</title>
+    <style>
+        /* --- ESTILOS GENERALES --- */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+        header { background-color: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        h1 { margin: 0; font-size: 1.2rem; }
+        #lang-btn { background-color: #e67e22; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .container { padding: 20px; max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
+        
+        /* PANTALLAS */
+        .screen { display: none; animation: fadeIn 0.3s; }
+        .screen.active { display: block; }
+
+        /* MENÚ */
+        .menu-btn { display: block; width: 100%; padding: 20px; margin-bottom: 15px; background-color: white; border: 1px solid #ddd; border-radius: 10px; text-align: left; font-size: 1.1rem; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid #3498db; transition: transform 0.2s; }
+        .menu-btn:active { transform: scale(0.98); }
+
+        /* CABECERA INTERNA */
+        .header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .header-row h2 { margin: 0; font-size: 1.4rem; }
+        .back-btn { background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 0; font-size: 0.9rem; }
+
+        /* ESTILOS ELECTRODOMÉSTICOS */
+        .sub-menu-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        .sub-btn { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }
+        .sub-btn.active-sub { background-color: #3498db; color: white; border-color: #2980b9; }
+        .text-frame { background-color: white; border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.6; }
+        .appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; }
+        .sub-section { display: none; }
+        .sub-section.visible { display: block; animation: fadeIn 0.3s; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div id="app-title" data-key="titulo_app">Guía del Huésped</div>
+        <button id="lang-btn" onclick="toggleLanguage()">EN</button>
+    </header>
+
+    <div class="container">
+        <div id="home" class="screen active">
+            <h2 data-key="bienvenida">Bienvenido</h2>
+            <p data-key="selecciona">Selecciona una opción:</p>
+            <button class="menu-btn" onclick="showSection('appliances')">📺 <span data-key="btn_electro">Electrodomésticos</span></button>
+            <button class="menu-btn" onclick="showSection('restaurants')">🍷 <span data-key="btn_restaurantes">Restaurantes</span></button>
+            <button class="menu-btn" onclick="showSection('activities')">🚶 <span data-key="btn_actividades">Actividades</span></button>
+            <button class="menu-btn" onclick="showSection('tips')">💡 <span data-key="btn_tips">Tips</span></button>
+        </div>
+
+        <div id="appliances" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <h2 data-key="titulo_electro">Electrodomésticos</h2>
+            </div>
+            <hr>
+            <div class="sub-menu-container">
+                <button class="sub-btn active-sub" onclick="showAppliance('lavadora', this)"><span data-key="sub_lavadora">Lavadora</span></button>
+                <button class="sub-btn" onclick="showAppliance('toldo', this)"><span data-key="sub_toldo">Toldo</span></button>
+                <button class="sub-btn" onclick="showAppliance('calefaccion', this)"><span data-key="sub_calefaccion">Calefacción</span></button>
+                <button class="sub-btn" onclick="showAppliance('otros', this)"><span data-key="sub_otros">Otros</span></button>
+            </div>
+
+            <div id="lavadora" class="sub-section visible">
+                <div class="text-frame">
+                    <strong data-key="lavadora_titulo">Cómo usar:</strong><br>
+                    <span data-key="lavadora_desc">Texto lavadora</span>
+                </div>
+                <img data-key="lavadora_img" src="images/wash_seq_es.png" alt="FOTO LAVADORA" class="appliance-img">
+            </div>
+
+            <div id="toldo" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="toldo_titulo">Precaución:</strong><br>
+                    <span data-key="toldo_desc">Texto toldo</span>
+                </div>
+                <img data-key="toldo_img" src="images/awning_es.png" alt="FOTO TOLDO" class="appliance-img">
+            </div>
+
+            <div id="calefaccion" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="calefaccion_titulo">Termostato:</strong><br>
+                    <span data-key="calefaccion_desc">Texto calefaccion</span>
+                </div>
+                <img data-key="calefaccion_img" src="images/heating_es.png" alt="FOTO CALEFACCION" class="appliance-img">
+            </div>
+
+            <div id="otros" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="otros_titulo">Varios:</strong><br>
+                    <span data-key="otros_desc">Texto otros</span>
+                </div>
+                <img data-key="otros_img" src="images/otros_es.jpg" alt="FOTO OTROS" class="appliance-img">
+            </div>
+        </div>
+
+        <div id="restaurants" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <h2 data-key="titulo_restaurantes">Restaurantes</h2>
+            </div>
+            <hr>
+            <ul>
+                <li><strong data-key="rest_1_nombre">Bar:</strong> <span data-key="rest_1_desc">Desc</span></li>
+                <li><strong data-key="rest_2_nombre">Restaurante:</strong> <span data-key="rest_2_desc">Desc</span></li>
+            </ul>
+        </div>
+
+        <div id="activities" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <h2 data-key="titulo_actividades">Actividades</h2>
+            </div>
+            <hr>
+            <p data-key="act_1">Actividad 1</p>
+            <p data-key="act_2">Actividad 2</p>
+        </div>
+
+        <div id="tips" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <h2 data-key="titulo_tips">Tips</h2>
+            </div>
+            <hr>
+            <ul>
+                <li data-key="tip_1">Tip 1</li>
+                <li data-key="tip_2">Tip 2</li>
+                <li data-key="tip_3">Tip 3</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="es.js"></script>
+    <script src="en.js"></script>
+
+    <script>
+        let currentLang = 'es'; 
+        document.addEventListener('DOMContentLoaded', () => { updateText(); });
+
+        function showSection(sectionId) {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function showAppliance(subId, btnElement) {
+            const subSections = document.querySelectorAll('.sub-section');
+            subSections.forEach(sub => sub.classList.remove('visible'));
+            document.getElementById(subId).classList.add('visible');
+            if(btnElement) {
+                const buttons = document.querySelectorAll('.sub-btn');
+                buttons.forEach(btn => btn.classList.remove('active-sub'));
+                btnElement.classList.add('active-sub');
+            }
+        }
+
+        function toggleLanguage() {
+            if (currentLang === 'es') {
+                currentLang = 'en';
+                document.getElementById('lang-btn').innerText = 'ES';
+            } else {
+                currentLang = 'es';
+                document.getElementById('lang-btn').innerText = 'EN';
+            }
+            updateText();
+        }
+
+        function updateText() {
+            const translations = (currentLang === 'es') ? ES : EN;
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[key]) {
+                    if (el.tagName === 'IMG') {
+                        el.src = translations[key];
+                    } else {
+                        el.innerText = translations[key];
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
