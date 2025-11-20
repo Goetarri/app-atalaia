@@ -1,14 +1,14 @@
 const EN = {
     "titulo_app": "Atalaia Terrace - Guest Guide",
-    "bienvenida": "Welcome to your temporary home",
+    "bienvenida": "Welcome to your home in Donostia!",
     "selecciona": "Select an option:",
-    "btn_electro": "Appliance Instructions",
+    "btn_electro": "How to use home appliances",
     "btn_restaurantes": "Bars & Restaurants",
     "btn_actividades": "Local Activities",
-    "btn_tips": "Tips for your stay",
+    "btn_tips": "Tips and Practical Info",
     "btn_atras": "Back",
 
-    "titulo_electro": "Appliances",
+    "titulo_electro": "Instructions",
     "sub_lavadora": "Washer",
     "sub_toldo": "Awning",
     "sub_calefaccion": "Heating",

@@ -9,7 +9,7 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
         header { background-color: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
         h1 { margin: 0; font-size: 1.2rem; }
-        #lang-btn { background-color: #e67e22; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        #lang-btn { background-color: #050d2e; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .container { padding: 20px; max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
         
         /* PANTALLAS */
@@ -27,7 +27,42 @@
 
         /* ESTILOS ELECTRODOMÉSTICOS */
         .sub-menu-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
-        .sub-btn { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }
+        /*.sub-btn { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }*/
+        /* --- ESTILOS DE BOTONES CON ICONOS --- */
+        .sub-btn {
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            padding: 8px 15px;       /* Un poco más de espacio lateral */
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            
+            /* Alineación Flex para icono + texto */
+            display: flex;
+            align-items: center;
+            gap: 8px;                /* Espacio entre el icono y el texto */
+        }
+
+        /* Estilo para el icono pequeño dentro del botón */
+        .btn-icon {
+            width: 20px;             /* Tamaño del icono */
+            height: 20px;
+            object-fit: contain;     /* Asegura que el icono no se deforme */
+            display: block;
+        }
+
+        .sub-btn.active-sub {
+            background-color: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        
+        /* Opcional: Invertir color del icono si es negro cuando el botón está activo (azul) */
+        /*.sub-btn.active-sub .btn-icon {
+            filter: brightness(0) invert(1); /* Vuelve el icono blanco */
+        /*}*/
+
         .sub-btn.active-sub { background-color: #3498db; color: white; border-color: #2980b9; }
         .text-frame { background-color: white; border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.6; }
         .appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; }
@@ -41,7 +76,7 @@
 
     <header>
         <div id="app-title" data-key="titulo_app">Guía Atalaia Terrace</div>
-        <button id="lang-btn" onclick="toggleLanguage()">EN</button>
+        <button id="lang-btn" onclick="toggleLanguage()">EN 🇬🇧</button>
     </header>
 
     <div class="container">
@@ -50,7 +85,7 @@
             <p data-key="selecciona">Selecciona una opción:</p>
             <button class="menu-btn" onclick="showSection('appliances')">📺 <span data-key="btn_electro">Electrodomésticos</span></button>
             <button class="menu-btn" onclick="showSection('restaurants')">🍷 <span data-key="btn_restaurantes">Restaurantes</span></button>
-            <button class="menu-btn" onclick="showSection('activities')">🚶 <span data-key="btn_actividades">Actividades</span></button>
+            <button class="menu-btn" onclick="showSection('activities')">🚣‍♀️ <span data-key="btn_actividades">Actividades</span></button>
             <button class="menu-btn" onclick="showSection('tips')">💡 <span data-key="btn_tips">Tips</span></button>
         </div>
 
@@ -61,10 +96,27 @@
             </div>
             <hr>
             <div class="sub-menu-container">
-                <button class="sub-btn active-sub" onclick="showAppliance('lavadora', this)"><span data-key="sub_lavadora">Lavadora</span></button>
-                <button class="sub-btn" onclick="showAppliance('toldo', this)"><span data-key="sub_toldo">Toldo</span></button>
-                <button class="sub-btn" onclick="showAppliance('calefaccion', this)"><span data-key="sub_calefaccion">Calefacción</span></button>
-                <button class="sub-btn" onclick="showAppliance('otros', this)"><span data-key="sub_otros">Otros</span></button>
+                
+                <button class="sub-btn active-sub" onclick="showAppliance('lavadora', this)">
+                    <img src="images/ic_lavadora.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_lavadora">Lavadora</span>
+                </button>
+
+                <button class="sub-btn" onclick="showAppliance('toldo', this)">
+                    <img src="images/ic_toldo.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_toldo">Toldo</span>
+                </button>
+
+                <button class="sub-btn" onclick="showAppliance('calefaccion', this)">
+                    <img src="images/ic_calefaccion.png"btn-icon" alt="icon">
+                    <span data-key="sub_calefaccion">Calefacción</span>
+                </button>
+
+                <button class="sub-btn" onclick="showAppliance('otros', this)">
+                    <img src="images/ic_wifi.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_otros">Otros</span>
+                </button>
+
             </div>
 
             <div id="lavadora" class="sub-section visible">
@@ -164,10 +216,10 @@
         function toggleLanguage() {
             if (currentLang === 'es') {
                 currentLang = 'en';
-                document.getElementById('lang-btn').innerText = 'ES';
+                document.getElementById('lang-btn').innerText = 'ES 🇪🇸';
             } else {
                 currentLang = 'es';
-                document.getElementById('lang-btn').innerText = 'EN';
+                document.getElementById('lang-btn').innerText = 'EN 🇬🇧';
             }
             updateText();
         }

@@ -1,14 +1,14 @@
 const ES = {
     "titulo_app": "Atalaia Terrace - Guia del Huésped",
-    "bienvenida": "Bienvenido a tu hogar temporal",
+    "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
-    "btn_electro": "Instrucciones Electrodomésticos",
+    "btn_electro": "Como usar los aparatos de casa",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades Locales",
-    "btn_tips": "Tips para tu estancia",
+    "btn_tips": "Información Útil",
     "btn_atras": "Atrás",
 
-    "titulo_electro": "Electrodomésticos",
+    "titulo_electro": "Instrucciones",
     "sub_lavadora": "Lavadora",
     "sub_toldo": "Toldo",
     "sub_calefaccion": "Calefacción",
