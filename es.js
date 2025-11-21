@@ -17,7 +17,11 @@ const ES = {
 
     "lavadora_titulo": "Cómo utilizar la lavadora:",
     "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón '⏯' para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
-    "lavadora_img": "images/wash_seq_es.png", 
+    "lavadora_img": [
+        "images/wash_01_es.png", "images/wash_02_es.png", "images/wash_03_es.png",
+        "images/wash_04_es.png", "images/wash_05_es.png", "images/wash_06_es.png",
+        "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
+    ],
 
     "toldo_titulo": "Como funcionan los toldos:",
     "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde.\nPara desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.\nSi se levanta viento fuerte, no hay que preocuparse, los toldos se recogerán automáticamente para evitar daños.",

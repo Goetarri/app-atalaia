@@ -16,8 +16,13 @@ const EN = {
     "sub_otros": "Others",
 
     "lavadora_titulo": "How to use the washer:",
-    "lavadora_desc": "1. Empty pockets.\n2. Place clothes inside the drum.\n3. Add detergent pill inside the drum.\n4. Close the door.\n5. Select the program by turning the knob. Most common program is 'Sinteticos (synthetics)'.\n6. Select temperature and time. Pressing the 'Speed/Perfect' button reduces washing time.\n7. Press '⏯' button to start the washer.\n8. Once washing is finished, turn the knob back to the top (stop) position.\n9. Open the door and take out the clothes.",    "lavadora_img": "images/wash_seq_en.png", 
-
+    "lavadora_desc": "1. Empty pockets.\n2. Place clothes inside the drum.\n3. Add detergent pill inside the drum.\n4. Close the door.\n5. Select the program by turning the knob. Most common program is 'Sinteticos (synthetics)'.\n6. Select temperature and time. Pressing the 'Speed/Perfect' button reduces washing time.\n7. Press '⏯' button to start the washer.\n8. Once washing is finished, turn the knob back to the top (stop) position.\n9. Open the door and take out the clothes.",
+    "lavadora_img": [
+        "images/wash_01_en.png", "images/wash_02_en.png", "images/wash_03_en.png",
+        "images/wash_04_en.png", "images/wash_05_en.png", "images/wash_06_en.png",
+        "images/wash_07_en.png", "images/wash_08_en.png", "images/wash_09_en.png"
+    ],
+  
     "toldo_titulo": "How to control the awnings:",
     "toldo_desc": "The awnings are controlled from the keypad located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. \nTo extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level.\nIn case of strong wind, there's nothing to worry about, the awings will retract automatically to avoid damage.",
     "toldo_img": "images/awning_en.png",
