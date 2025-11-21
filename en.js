@@ -23,7 +23,7 @@ const EN = {
     "toldo_img": "images/awning_en.png",
 
     "calefaccion_titulo": "How to turn the heating on:",
-    "calefaccion_desc": "The heating is controlled from the thermostat located in the living room, just to the left of the bedroom door. It has two dials: the top one turns the heating on or off, and the bottom one allows you to adjust the temperature. The recommended temperature is 22ºC and is indicated by the dot on the lower knob.\n\nThe top dial has three possible positions:\n\n - Left (Moon Icon): Heating OFF.\n\n - Center (Sun Icon): Heating ON. The desired temperature is regulated using the lower dial. Turn wheel clockwise to increase temperature.\n\n - Right (Clock Icon): Used to program the heating. If you wish to program it, please let us know and we will be happy to help you.",
+    "calefaccion_desc": "The heating is controlled from the thermostat located in the living room, just to the left of the bedroom door. It has two dials: the top one turns the heating on or off, and the bottom one controls the temperature. \n\nThe top dial has three possible positions:\n\n - Left (Moon Icon): Heating OFF.\n\n - Center (Sun Icon): Heating ON. The desired temperature is regulated using the lower dial. The comfort temperature (22ºC) is indicated with a dot on the lower knob.\n\n - Right (Clock Icon): Used to program the heating. If you wish to program it, please let us know and we will be happy to help you.",
     "calefaccion_img": "images/heating_en.png",
 
     "otros_titulo": "Misc:",
