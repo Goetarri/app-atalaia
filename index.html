@@ -28,26 +28,34 @@
         /* ESTILOS ELECTRODOMÉSTICOS */
         .sub-menu-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
         /*.sub-btn { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }*/
-        /* --- ESTILOS DE BOTONES CON ICONOS --- */
+        
+        /* --- ESTILOS DE BOTONES (MODIFICADO: ICONO ARRIBA) --- */
         .sub-btn {
             background-color: #ecf0f1;
             border: 1px solid #bdc3c7;
-            padding: 8px 15px;       /* Un poco más de espacio lateral */
-            border-radius: 20px;
+            padding: 10px;           /* Padding uniforme */
+            border-radius: 15px;     /* Bordes un poco más cuadrados */
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.8rem;       /* Texto un pelín más pequeño para que quepa */
             transition: background 0.2s;
             
-            /* Alineación Flex para icono + texto */
+            /* --- AQUÍ ESTÁ EL CAMBIO MÁGICO --- */
             display: flex;
-            align-items: center;
-            gap: 8px;                /* Espacio entre el icono y el texto */
+            flex-direction: column;  /* Pone el icono encima del texto */
+            align-items: center;     /* Centra todo horizontalmente */
+            justify-content: center; /* Centra todo verticalmente */
+            gap: 5px;                /* Espacio entre icono y texto */
+            
+            /* Opcional: Darles un tamaño fijo para que se vean uniformes */
+            width: 85px;             
+            height: 75px;
+            text-align: center;      
         }
 
         /* Estilo para el icono pequeño dentro del botón */
         .btn-icon {
-            width: 20px;             /* Tamaño del icono */
-            height: 20px;
+            width: 28px;             /* Tamaño del icono */
+            height: 28px;
             object-fit: contain;     /* Asegura que el icono no se deforme */
             display: block;
         }
@@ -59,12 +67,27 @@
         }
         
         /* Opcional: Invertir color del icono si es negro cuando el botón está activo (azul) */
-        /*.sub-btn.active-sub .btn-icon {
+        .sub-btn.active-sub .btn-icon {
             filter: brightness(0) invert(1); /* Vuelve el icono blanco */
-        /*}*/
+        }
 
         .sub-btn.active-sub { background-color: #3498db; color: white; border-color: #2980b9; }
-        .text-frame { background-color: white; border: 1px solid #ccc; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.6; }
+        .text-frame { 
+            background-color: white; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+            line-height: 1.6;
+        }
+        /* NUEVA REGLA: Aplica los saltos de línea SOLO al texto descriptivo */
+        .text-frame span {
+            white-space: pre-line; 
+            display: block;       /* Asegura que ocupe el ancho disponible */
+            margin-top: 5px;      /* Un pequeño espacio entre título y texto */
+            text-align: justify;
+        }
         .appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; }
         .sub-section { display: none; }
         .sub-section.visible { display: block; animation: fadeIn 0.3s; }
@@ -108,8 +131,13 @@
                 </button>
 
                 <button class="sub-btn" onclick="showAppliance('calefaccion', this)">
-                    <img src="images/ic_calefaccion.png"btn-icon" alt="icon">
+                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="icon">
                     <span data-key="sub_calefaccion">Calefacción</span>
+                </button>
+
+                <button class="sub-btn" onclick="showAppliance('persiana', this)">
+                    <img src="images/ic_persiana.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_persiana">Persiana</span>
                 </button>
 
                 <button class="sub-btn" onclick="showAppliance('otros', this)">
@@ -120,35 +148,42 @@
             </div>
 
             <div id="lavadora" class="sub-section visible">
+                <img data-key="lavadora_img" src="images/wash_seq_es.png" alt="FOTO LAVADORA" class="appliance-img">
                 <div class="text-frame">
                     <strong data-key="lavadora_titulo">Cómo usar:</strong><br>
                     <span data-key="lavadora_desc">Texto lavadora</span>
                 </div>
-                <img data-key="lavadora_img" src="images/wash_seq_es.png" alt="FOTO LAVADORA" class="appliance-img">
             </div>
 
             <div id="toldo" class="sub-section">
+                <img data-key="toldo_img" src="images/awning_es.png" alt="FOTO TOLDO" class="appliance-img">
                 <div class="text-frame">
                     <strong data-key="toldo_titulo">Precaución:</strong><br>
                     <span data-key="toldo_desc">Texto toldo</span>
                 </div>
-                <img data-key="toldo_img" src="images/awning_es.png" alt="FOTO TOLDO" class="appliance-img">
             </div>
 
             <div id="calefaccion" class="sub-section">
+                <img data-key="calefaccion_img" src="images/heating_es.png" alt="FOTO CALEFACCION" class="appliance-img">
                 <div class="text-frame">
                     <strong data-key="calefaccion_titulo">Termostato:</strong><br>
                     <span data-key="calefaccion_desc">Texto calefaccion</span>
                 </div>
-                <img data-key="calefaccion_img" src="images/heating_es.png" alt="FOTO CALEFACCION" class="appliance-img">
             </div>
 
+            <div id="persiana" class="sub-section">
+                <img data-key="persiana_img" src="images/persiana_es.png" alt="FOTO PERSIANA" class="appliance-img">
+                <div class="text-frame">
+                    <strong data-key="persiana_titulo">Persiana:</strong><br>
+                    <span data-key="persiana_desc">Texto persiana</span>
+                </div>
+            </div>
             <div id="otros" class="sub-section">
+                <img data-key="otros_img" src="images/otros_es.png" alt="FOTO OTROS" class="appliance-img">
                 <div class="text-frame">
                     <strong data-key="otros_titulo">Varios:</strong><br>
                     <span data-key="otros_desc">Texto otros</span>
                 </div>
-                <img data-key="otros_img" src="images/otros_es.jpg" alt="FOTO OTROS" class="appliance-img">
             </div>
         </div>
 
