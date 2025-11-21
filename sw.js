@@ -9,26 +9,26 @@ const urlsToCache = [
   `${BASE_URL}/es.js`,
   `${BASE_URL}/en.js`,
   // Las imágenes también deben usar la URL base
-  `${BASE_URL}./images/icon-192x192.png`, 
-  `${BASE_URL}./images/icon-512x512.png`,
+  `${BASE_URL}/images/icon-192x192.png`, 
+  `${BASE_URL}/images/icon-512x512.png`,
 
   // ... añadir todas las demás imágenes usadas (lavadora, toldo, etc.)
   // Ejemplo de otra imagen:
-    `${BASE_URL}./images/awning_es.png`,
-    `${BASE_URL}./images/awning_en.png`,
-    `${BASE_URL}./images/heating_es.png`,
-    `${BASE_URL}./images/heating_en.png`,
-    `${BASE_URL}./images/wash_seq_es.png`,
-    `${BASE_URL}./images/wash_seq_en.png`,
-    `${BASE_URL}./images/ic_actividades.png`,
-    `${BASE_URL}./images/ic_calefaccion.png`,
-    `${BASE_URL}./images/ic_electrodomestico.png`,
-    `${BASE_URL}./images/ic_lavadora.png`,
-    `${BASE_URL}./images/ic_persiana.png`,
-    `${BASE_URL}./images/ic_restaurante.png`,
-    `${BASE_URL}./images/ic_tips.png`,
-    `${BASE_URL}./images/ic_toldo.png`,
-    `${BASE_URL}./images/ic_wifi.png`
+    `${BASE_URL}/images/awning_es.png`,
+    `${BASE_URL}/images/awning_en.png`,
+    `${BASE_URL}/images/heating_es.png`,
+    `${BASE_URL}/images/heating_en.png`,
+    `${BASE_URL}/images/wash_seq_es.png`,
+    `${BASE_URL}/images/wash_seq_en.png`,
+    `${BASE_URL}/images/ic_actividades.png`,
+    `${BASE_URL}/images/ic_calefaccion.png`,
+    `${BASE_URL}/images/ic_electrodomestico.png`,
+    `${BASE_URL}/images/ic_lavadora.png`,
+    `${BASE_URL}/images/ic_persiana.png`,
+    `${BASE_URL}/images/ic_restaurante.png`,
+    `${BASE_URL}/images/ic_tips.png`,
+    `${BASE_URL}/images/ic_toldo.png`,
+    `${BASE_URL}/images/ic_wifi.png`
 ];
 
 // 1. Instalación: Almacenar los archivos estáticos en caché
