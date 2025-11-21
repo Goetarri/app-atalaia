@@ -1,6 +1,6 @@
 // Nombre de la caché para el control de versiones
 const CACHE_NAME = 'guest-app-v1';
-const BASE_URL = 'https://goetarri.github.io/app-atalaia/'; // <-- ¡DEFINE ESTA VARIABLE! PON LA URL DE PAGES DE GITHUB
+const BASE_URL = 'https://goetarri.github.io/app-atalaia'; // <-- ¡DEFINE ESTA VARIABLE! PON LA URL DE PAGES DE GITHUB
 
 // Lista de archivos que queremos almacenar en caché
 const urlsToCache = [
