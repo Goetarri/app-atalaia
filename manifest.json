@@ -1,6 +1,6 @@
 {
   "name": "Atalaia Guest App",
-  "short_name": "Atalaia",
+  "short_name": "AtalaiaApp",
   "description": "Info App for guests staying at Atalaia Terrace in Donostia.",
   "start_url": "https://goetarri.github.io/app-atalaia/",
   "scope": "https://goetarri.github.io/app-atalaia/",
