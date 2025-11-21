@@ -1,12 +1,12 @@
 const EN = {
-    "titulo_app": "Atalaia Terrace - Guest Guide",
+    "titulo_app": "Atalaia Terrace - Guest App",
     "bienvenida": "Welcome to your home in Donostia!",
     "selecciona": "Select an option:",
-    "btn_electro": "How to use home appliances",
+    "btn_electro": "How things work at home",
     "btn_restaurantes": "Bars & Restaurants",
-    "btn_actividades": "Local Activities",
-    "btn_tips": "Tips and Practical Info",
-    "btn_atras": "Back",
+    "btn_actividades": "Activities",
+    "btn_tips": "Practical Information",
+    "btn_atras": "",
 
     "titulo_electro": "Instructions",
     "sub_lavadora": "Washer",

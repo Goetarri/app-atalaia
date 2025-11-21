@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía del Apartamento</title>
+
+    <link rel="manifest" href="/manifest.json">
+
     <style>
         /* --- ESTILOS GENERALES --- */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
@@ -17,7 +20,25 @@
         .screen.active { display: block; }
 
         /* MENÚ */
-        .menu-btn { display: block; width: 100%; padding: 20px; margin-bottom: 15px; background-color: white; border: 1px solid #ddd; border-radius: 10px; text-align: left; font-size: 1.1rem; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid #3498db; transition: transform 0.2s; }
+        /* MENÚ (MODIFICADO) */
+        .menu-btn { 
+            display: flex;               /* 1. Habilita el Flexbox */
+            align-items: center;         /* 2. Centra verticalmente el icono y el texto */
+            gap: 15px;                   /* 3. Añade espacio entre el icono y el texto */
+
+            width: 100%; 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            background-color: white; 
+            border: 1px solid #ddd; 
+            border-radius: 10px; 
+            text-align: left; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            border-left: 5px solid #3498db; 
+            transition: transform 0.2s; 
+        }
         .menu-btn:active { transform: scale(0.98); }
 
         /* CABECERA INTERNA */
@@ -93,6 +114,13 @@
         .sub-section.visible { display: block; animation: fadeIn 0.3s; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    
+        /* --- ESTILO PARA EL ICONO DE FLECHA --- */
+        .arrow-icon {
+            font-size: 1.5rem; /* Puedes ajustar este valor: 1.2rem (pequeño), 1.8rem (grande) */
+            line-height: 1;    /* Asegura que no haya espacio extra arriba/abajo de la flecha */
+        }
+
     </style>
 </head>
 <body>
@@ -106,15 +134,35 @@
         <div id="home" class="screen active">
             <h2 data-key="bienvenida">Bienvenido</h2>
             <p data-key="selecciona">Selecciona una opción:</p>
-            <button class="menu-btn" onclick="showSection('appliances')">📺 <span data-key="btn_electro">Electrodomésticos</span></button>
-            <button class="menu-btn" onclick="showSection('restaurants')">🍷 <span data-key="btn_restaurantes">Restaurantes</span></button>
-            <button class="menu-btn" onclick="showSection('activities')">🚣‍♀️ <span data-key="btn_actividades">Actividades</span></button>
-            <button class="menu-btn" onclick="showSection('tips')">💡 <span data-key="btn_tips">Tips</span></button>
+
+            <button class="menu-btn" onclick="showSection('appliances')">
+                <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
+                <span data-key="btn_electro">Electrodomésticos</span>
+            </button>
+
+            <button class="menu-btn" onclick="showSection('restaurants')">
+                <img src="images/ic_restaurante.png" class="btn-icon" alt="icon">
+                <span data-key="btn_restaurantes">Restaurantes</span>
+            </button>
+
+            <button class="menu-btn" onclick="showSection('activities')">
+                <img src="images/ic_actividades.png" class="btn-icon" alt="icon">
+                <span data-key="btn_actividades">Actividades</span>
+            </button>
+
+            <button class="menu-btn" onclick="showSection('tips')">
+                <img src="images/ic_tips.png" class="btn-icon" alt="icon">
+                <span data-key="btn_tips">Tips</span>
+            </button>
         </div>
 
         <div id="appliances" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <button class="back-btn" onclick="showSection('home')">
+                    <span class="arrow-icon">⬅</span>
+                    <span data-key="btn_atras"></span>
+                </button>
+
                 <h2 data-key="titulo_electro">Electrodomésticos</h2>
             </div>
             <hr>
@@ -189,7 +237,11 @@
 
         <div id="restaurants" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <button class="back-btn" onclick="showSection('home')">
+                    <span class="arrow-icon">⬅</span>
+                    <data-key="btn_atras"></span>
+                </button>
+
                 <h2 data-key="titulo_restaurantes">Restaurantes</h2>
             </div>
             <hr>
@@ -201,7 +253,11 @@
 
         <div id="activities" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <button class="back-btn" onclick="showSection('home')">
+                    <span class="arrow-icon">⬅</span>
+                    <span data-key="btn_atras"></span>
+                </button>
+
                 <h2 data-key="titulo_actividades">Actividades</h2>
             </div>
             <hr>
@@ -211,7 +267,11 @@
 
         <div id="tips" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">⬅ <span data-key="btn_atras">Atrás</span></button>
+                <button class="back-btn" onclick="showSection('home')">
+                    <span class="arrow-icon">⬅</span>
+                    <span data-key="btn_atras"></span>
+                </button>
+
                 <h2 data-key="titulo_tips">Tips</h2>
             </div>
             <hr>
@@ -262,15 +322,34 @@
         function updateText() {
             const translations = (currentLang === 'es') ? ES : EN;
             const elements = document.querySelectorAll('[data-key]');
+            
             elements.forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[key]) {
+                
+                // CAMBIO CLAVE: Comprobar si la *clave* existe, no si el *valor* es true/false
+                if (key in translations) { 
+                    const value = translations[key];
+
                     if (el.tagName === 'IMG') {
-                        el.src = translations[key];
+                        el.src = value;
                     } else {
-                        el.innerText = translations[key];
+                        // Aplica el valor (vacío o no) al texto
+                        el.innerText = value;
                     }
                 }
+            });
+        }
+
+        // --- REGISTRO DEL SERVICE WORKER (PWA) ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registrado con éxito: ', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Fallo en el registro de ServiceWorker: ', error);
+                    });
             });
         }
     </script>
