@@ -19,7 +19,7 @@ const EN = {
     "lavadora_img": "images/wash_seq_en.png", 
 
     "toldo_titulo": "How to control the awnings:",
-    "toldo_desc": "The awnings are controlled from the keypad located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\n\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. To extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level.tract if windy.",
+    "toldo_desc": "The awnings are controlled from the keypad located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\n\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. To extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level.",
     "toldo_img": "images/awning_en.png",
 
     "calefaccion_titulo": "How to turn the heating on:",
