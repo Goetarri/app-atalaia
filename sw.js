@@ -1,34 +1,33 @@
 // Nombre de la caché para el control de versiones
-const CACHE_NAME = 'guest-app-v1';
-const BASE_URL = 'https://goetarri.github.io/app-atalaia'; // <-- ¡DEFINE ESTA VARIABLE! PON LA URL DE PAGES DE GITHUB
+const CACHE_NAME = 'atalaia-app-v2';
 
 // Lista de archivos que queremos almacenar en caché
 const urlsToCache = [
-  `${BASE_URL}/`,
-  `${BASE_URL}/index.html`,
-  `${BASE_URL}/es.js`,
-  `${BASE_URL}/en.js`,
+  './',
+  './index.html',
+  './es.js',
+  './en.js',
+
   // Las imágenes también deben usar la URL base
-  `${BASE_URL}/images/icon-192x192.png`, 
-  `${BASE_URL}/images/icon-512x512.png`,
+  './images/icon-192x192.png', 
+  './images/icon-512x512.png',
 
   // ... añadir todas las demás imágenes usadas (lavadora, toldo, etc.)
-  // Ejemplo de otra imagen:
-    `${BASE_URL}/images/awning_es.png`,
-    `${BASE_URL}/images/awning_en.png`,
-    `${BASE_URL}/images/heating_es.png`,
-    `${BASE_URL}/images/heating_en.png`,
-    `${BASE_URL}/images/wash_seq_es.png`,
-    `${BASE_URL}/images/wash_seq_en.png`,
-    `${BASE_URL}/images/ic_actividades.png`,
-    `${BASE_URL}/images/ic_calefaccion.png`,
-    `${BASE_URL}/images/ic_electrodomestico.png`,
-    `${BASE_URL}/images/ic_lavadora.png`,
-    `${BASE_URL}/images/ic_persiana.png`,
-    `${BASE_URL}/images/ic_restaurante.png`,
-    `${BASE_URL}/images/ic_tips.png`,
-    `${BASE_URL}/images/ic_toldo.png`,
-    `${BASE_URL}/images/ic_wifi.png`
+  './images/awning_es.png',
+  './images/awning_en.png',
+  './images/heating_es.png',
+  './images/heating_en.png',
+  './images/wash_seq_es.png',
+  './images/wash_seq_en.png',
+  './images/ic_actividades.png',
+  './images/ic_calefaccion.png',
+  './images/ic_electrodomestico.png',
+  './images/ic_lavadora.png',
+  './images/ic_persiana.png',
+  './images/ic_restaurante.png',
+  './images/ic_tips.png',
+  './images/ic_toldo.png',
+  './images/ic_wifi.png'
 ];
 
 // 1. Instalación: Almacenar los archivos estáticos en caché

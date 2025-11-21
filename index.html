@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atalaia Guest App</title>
 
-    <link rel="manifest" href="https://goetarri.github.io/app-atalaia/manifest.json">
+    <link rel="manifest" href="./manifest.json">
 
     <style>
         /* --- ESTILOS GENERALES --- */
@@ -343,7 +343,7 @@
         // --- REGISTRO DEL SERVICE WORKER (PWA) ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('https://goetarri.github.io/app-atalaia/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado con éxito: ', registration.scope);
                     })
