@@ -23,7 +23,7 @@ const ES = {
     "toldo_img": "images/awning_es.png",
 
     "calefaccion_titulo": "Como poner la calefacción:",
-    "calefaccion_desc": "La calefacción se controla desde el termostato ubicado en la sala, justo a la izquierda de la puerta del dormitorio. Tiene dos ruedas, la superior enciende o apaga la calefacción y la de abajo permite regular la temperatura. La temperatura recomendada es de 22ºC y viene indicada por el punto del regulador de la parte inferior.\n\nEn cuanto al mando superior, tiene tres posibles posiciones:\n\n - Izquierda (icono luna): calefacción APAGADA\n\n - Centro (icono sol): calefacción ENCENDIDA. La temperatura deseada se regula con la rueda inferior. Girar en sentido horario para aumentar la temperatura.\n\n - Derecha (icono reloj): sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
+    "calefaccion_desc": "La calefacción se controla desde el termostato ubicado en la sala, justo a la izquierda de la puerta del dormitorio. Tiene dos ruedas, la superior enciende o apaga la calefacción y la de abajo permite regular la temperatura. La temperatura recomendada es de 22ºC y viene indicada por el punto del regulador de la parte inferior.\n\nEn cuanto al mando superior, tiene tres posibles posiciones:\n\n - Izquierda (icono luna): calefacción APAGADA\n\n - Centro (icono sol): calefacción ENCENDIDA.\n\n - Derecha (icono reloj): sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
     "calefaccion_img": "images/heating_es.png",
 
     "otros_titulo": "Varios:",
