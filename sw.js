@@ -17,10 +17,9 @@ const urlsToCache = [
   './images/awning_en.png',
   './images/heating_es.png',
   './images/heating_en.png',
-  //'./images/wash_seq_es.png',
-  //'./images/wash_seq_en.png',
   './images/persiana_es.png',
   './images/persiana_en.png',
+  './images/wifi.jpg',
   './images/wash_01_es.png',
   './images/wash_02_es.png',
   './images/wash_03_es.png',
@@ -51,6 +50,7 @@ const urlsToCache = [
   './images/ic_restaurante.png',
   './images/ic_tips.png',
   './images/ic_toldo.png',
+  './images/ic_info.png',
   './images/ic_wifi.png'
 ];
 

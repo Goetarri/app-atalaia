@@ -3,9 +3,10 @@ const ES = {
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
     "btn_electro": "Como funciona todo en casa",
+    "btn_info": "Información Práctica",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades",
-    "btn_tips": "Información Útil",
+    "btn_tips": "Consejos",
     "btn_atras": "",
 
     "titulo_electro": "Instrucciones",
@@ -13,7 +14,7 @@ const ES = {
     "sub_toldo": "Toldo",
     "sub_calefaccion": "Calefacción",
     "sub_persiana": "Persiana",
-    "sub_otros": "Otros",
+    "sub_otros": "Wifi",
 
     "lavadora_titulo": "Cómo utilizar la lavadora:",
     "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón '⏯' para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
@@ -23,6 +24,16 @@ const ES = {
         "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
     ],
 
+    "titulo_info": "Teléfonos de Interés",
+    "info_intro": "En caso de emergencia o necesidad, aquí tiene los números de contacto más importantes de la zona:",
+
+    "tel_emergencias": "Emergencias (Genérico)",
+    "tel_ambulancia": "Ambulancia (Sanidad)",
+    "tel_ertzaintza": "Ertzaintza (Policía Vasca)",
+    "tel_municipal": "Policía Municipal",
+    "tel_bomberos": "Bomberos",
+    "tel_taxi": "Radio Taxi",
+    
     "toldo_titulo": "Como funcionan los toldos:",
     "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde.\nPara desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.\nSi se levanta viento fuerte, no hay que preocuparse, los toldos se recogerán automáticamente para evitar daños.",
     "toldo_img": "images/awning_es.png",
@@ -35,9 +46,9 @@ const ES = {
     "persiana_desc": "La persiana de la habitación se maneja con la correa ubicada a la izquierda de la puerta. Para levantarla, tirar de la correa hacia arriba. Para bajarla, desbloquear la correa tirado de la parte de abajo hacia uno mismo, y acompañarla hacia arriba. No tirar directamente hacia arriba, porque la persiana está bloqueada para evitar que deslice.",
     "persiana_img": "images/persiana_es.png",
 
-    "otros_titulo": "Varios:",
-    "otros_desc": "Secador en el baño.",
-    "otros_img": "images/otros_es.png",
+    "otros_titulo": "Como conectarse al wifi:",
+    "otros_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: WLAN-1L4N\n- Contraseña: IL74An5No9\n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
+    "otros_img": "images/wifi.jpg",
 
     "titulo_restaurantes": "Comer y Beber",
     "rest_1_nombre": "Bar La Plaza:",

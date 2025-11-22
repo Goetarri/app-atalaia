@@ -236,6 +236,76 @@
             from {transform:scale(0)} 
             to {transform:scale(1)}
         }
+
+        /* --- ESTILOS PARA LA TABLA DE INFORMACIÓN PRÁCTICA --- */
+        #info-table {
+            width: 100%;
+            border-collapse: collapse; 
+            margin-top: 15px; 
+            border-top: 1px solid #ddd;
+        }
+        #info-table td {
+            padding: 10px 0; 
+            border-bottom: 1px solid #eee;
+        }
+        #info-table tr:last-child td {
+            border-bottom: none; 
+        }
+        .tel-col-icon {
+            width: 40px; 
+            text-align: center;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .tel-col-number {
+            text-align: right;
+            font-weight: bold;
+        }
+        .tel-col-number a {
+            color: #2c3e50; /* Color de enlace distintivo */
+            text-decoration: none;
+        }
+
+        // --- FUNCIONALIDAD DE LA TABLA DE TELÉFONOS ---
+
+        function updateInfoTable() {
+            const translations = (currentLang === 'es') ? ES : EN;
+            const table = document.getElementById('info-table');
+            if (!table) return; 
+
+            table.innerHTML = ''; 
+
+            // Estructura: [Icono, Clave de Traducción, Número de Teléfono]
+            const infoData = [
+                ['🚨', 'tel_emergencias', '112'], 
+                ['🚑', 'tel_ambulancia', '112'], 
+                ['🚓', 'tel_ertzaintza', '112'], 
+                ['🚔', 'tel_municipal', '092'], 
+                ['🔥', 'tel_bomberos', '080'],
+                ['🚕', 'tel_taxi', '943404040'] // Número de taxi de ejemplo
+            ];
+
+            infoData.forEach(data => {
+                const [icon, key, number] = data;
+                const serviceName = translations[key] || key;
+                
+                const row = table.insertRow();
+                
+                // Columna 1: Icono
+                const iconCell = row.insertCell(0);
+                iconCell.className = 'tel-col-icon';
+                iconCell.innerHTML = icon;
+
+                // Columna 2: Nombre del Servicio
+                const nameCell = row.insertCell(1);
+                nameCell.innerText = serviceName;
+
+                // Columna 3: Número y Enlace de Llamada
+                const numberCell = row.insertCell(2);
+                numberCell.className = 'tel-col-number';
+                numberCell.innerHTML = `<a href="tel:${number}">${number}</a>`;
+            });
+        }
     </style>
 </head>
 <body>
@@ -253,6 +323,11 @@
             <button class="menu-btn" onclick="showSection('appliances')">
                 <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
                 <span data-key="btn_electro">Electrodomésticos</span>
+            </button>
+
+            <button class="menu-btn" onclick="showSection('info-practica')">
+                <img src="images/ic_info.png" class="btn-icon" alt="icon">
+                <span data-key="btn_info">Información Práctica</span>
             </button>
 
             <button class="menu-btn" onclick="showSection('restaurants')">
@@ -341,11 +416,30 @@
                 </div>
             </div>
             <div id="otros" class="sub-section">
-                <img data-key="otros_img" src="images/otros_es.png" alt="FOTO OTROS" class="appliance-img">
                 <div class="text-frame">
                     <strong data-key="otros_titulo">Varios:</strong><br>
                     <span data-key="otros_desc">Texto otros</span>
                 </div>
+                <img data-key="otros_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img">
+            </div>
+        </div>
+
+        <div id="info-practica" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showSection('home')">
+                    <span class="arrow-icon">⬅</span>
+                    <span data-key="btn_atras"></span>
+                </button>
+
+                <h2 data-key="titulo_info">Teléfonos de Interés</h2>
+            </div>
+            <hr>
+            
+            <div class="text-frame">
+                <p data-key="info_intro" style="margin-top: 0;"></p>
+                
+                <table id="info-table">
+                    </table>
             </div>
         </div>
 
@@ -465,6 +559,9 @@
             
             // Llama a la nueva función para actualizar la cuadrícula de la lavadora
             updateWasherGrid();
+
+            // --- NUEVO: Llama a la función para actualizar la tabla de info práctica ---
+            updateInfoTable();
         }
         
         // --- FUNCIONALIDAD DEL GRID DE LA LAVADORA Y EL MODAL ---
@@ -519,6 +616,47 @@
                     .catch(error => {
                         console.log('Fallo en el registro de ServiceWorker: ', error);
                     });
+            });
+        }
+
+        // --- FUNCIONALIDAD DE LA TABLA DE TELÉFONOS ---
+
+        function updateInfoTable() {
+            const translations = (currentLang === 'es') ? ES : EN;
+            const table = document.getElementById('info-table');
+            if (!table) return; 
+
+            table.innerHTML = ''; 
+
+            // Estructura: [Icono, Clave de Traducción, Número de Teléfono]
+            const infoData = [
+                ['🚨', 'tel_emergencias', '112'], 
+                ['🚑', 'tel_ambulancia', '061'], 
+                ['🚓', 'tel_ertzaintza', '088'], 
+                ['🚔', 'tel_municipal', '092'], 
+                ['🔥', 'tel_bomberos', '080'],
+                ['🚕', 'tel_taxi', '943 464646 /943 404040'] // Número de taxi de ejemplo
+            ];
+
+            infoData.forEach(data => {
+                const [icon, key, number] = data;
+                const serviceName = translations[key] || key;
+                
+                const row = table.insertRow();
+                
+                // Columna 1: Icono
+                const iconCell = row.insertCell(0);
+                iconCell.className = 'tel-col-icon';
+                iconCell.innerHTML = icon;
+
+                // Columna 2: Nombre del Servicio
+                const nameCell = row.insertCell(1);
+                nameCell.innerText = serviceName;
+
+                // Columna 3: Número y Enlace de Llamada
+                const numberCell = row.insertCell(2);
+                numberCell.className = 'tel-col-number';
+                numberCell.innerHTML = `<a href="tel:${number}">${number}</a>`;
             });
         }
     </script>
