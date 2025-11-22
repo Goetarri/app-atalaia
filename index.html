@@ -10,7 +10,18 @@
     <style>
         /* --- ESTILOS GENERALES --- */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background-color: #2c3e50; color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        header { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky; /* Ya estaba 'sticky', pero se recomienda cambiar a 'fixed' si es la cabecera principal */
+            top: 0; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            z-index: 100; /* Asegura que siempre esté arriba */
+        }
         h1 { margin: 0; font-size: 1.2rem; }
         #lang-btn { background-color: #050d2e; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .container { padding: 20px; max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
@@ -42,13 +53,38 @@
         .menu-btn:active { transform: scale(0.98); }
 
         /* CABECERA INTERNA */
-        .header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .header-row { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 10px; 
+            
+            /* --- CAMBIOS PARA HACERLO STICKY --- */
+            position: sticky; 
+            top: 60px; 
+            background-color: #f4f4f9; /* Fondo para cubrir contenido */
+            padding-top: 20px;       /* Ajuste para moverlo un poco más abajo */
+            z-index: 90;             /* Menos que el header principal (100), pero más que el sub-menú (50) */
+        }
         .header-row h2 { margin: 0; font-size: 1.4rem; }
         .back-btn { background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 0; font-size: 0.9rem; }
 
         /* ESTILOS ELECTRODOMÉSTICOS */
-        .sub-menu-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
-        /*.sub-btn { background-color: #ecf0f1; border: 1px solid #bdc3c7; padding: 8px 12px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }*/
+        
+        .sub-menu-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            margin-bottom: 20px; 
+            justify-content: center; 
+            
+            /*--- CAMBIOS PARA HACERLO STICKY --- */
+            position: sticky;        /* La propiedad clave */
+            top: 110px;               /* Pégalo a 60px del borde superior (justo debajo del header fijo) */
+            background-color: #f4f4f9; /* IMPORTANTE: Añade el color de fondo del body para tapar el contenido que pasa por debajo */
+            padding-top: 10px;       /* Ajuste de espacio */
+            z-index: 50;             /* Asegura que quede por encima del contenido que se desplaza */
+        }
         
         /* --- ESTILOS DE BOTONES (MODIFICADO: ICONO ARRIBA) --- */
         .sub-btn {
@@ -57,7 +93,7 @@
             padding: 10px;           /* Padding uniforme */
             border-radius: 15px;     /* Bordes un poco más cuadrados */
             cursor: pointer;
-            font-size: 0.8rem;       /* Texto un pelín más pequeño para que quepa */
+            font-size: 0.7rem;       /* Texto un pelín más pequeño para que quepa */
             transition: background 0.2s;
             
             /* --- AQUÍ ESTÁ EL CAMBIO MÁGICO --- */
@@ -68,15 +104,15 @@
             gap: 5px;                /* Espacio entre icono y texto */
             
             /* Opcional: Darles un tamaño fijo para que se vean uniformes */
-            width: 85px;             
-            height: 75px;
+            width: 70px;             
+            height: 60px;
             text-align: center;      
         }
 
         /* Estilo para el icono pequeño dentro del botón */
         .btn-icon {
-            width: 28px;             /* Tamaño del icono */
-            height: 28px;
+            width: 20px;             /* Tamaño del icono */
+            height: 20px;
             object-fit: contain;     /* Asegura que el icono no se deforme */
             display: block;
         }
@@ -369,6 +405,9 @@
 
     <script>
         let currentLang = 'es'; 
+        let currentImageIndex = 0; // NUEVA variable para rastrear la imagen actual
+        let currentImagePaths = []; // NUEVA variable para el array de rutas
+        
         document.addEventListener('DOMContentLoaded', () => { updateText(); });
 
         function showSection(sectionId) {
