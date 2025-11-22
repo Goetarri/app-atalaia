@@ -47,7 +47,7 @@ const EN = {
     "persiana_img": "images/persiana_en.png",
 
     "otros_titulo": "How to connect to the wifi network:",
-    "otros_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9. You can also connect to the wifi by scanning the following QR code. If you have any problems connecting, please do not hesitate to contact us.",
+    "otros_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9.\nYou can also connect to the wifi by scanning the following QR code. If you find problems, please do not hesitate to contact us.",
     "otros_img": "images/wifi.jpg",
 
     "titulo_restaurantes": "Eat & Drink",

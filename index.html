@@ -85,35 +85,90 @@
             padding-top: 10px;       /* Ajuste de espacio */
             z-index: 50;             /* Asegura que quede por encima del contenido que se desplaza */
         }
-        
-        /* --- ESTILOS DE BOTONES (MODIFICADO: ICONO ARRIBA) --- */
+
+        /* --- CLASE DE SUB-BOTONES PRINCIPAL (NUEVA BARRA FIJA) --- */
+        .sub-btn-group {
+            /* Hacemos la barra fija en la parte inferior */
+            position: fixed; 
+            bottom: 0; 
+            left: 0;
+            width: 100%;
+            display: flex; /* Permite que los botones se repartan el espacio */
+            background-color: #2c3e50; /* Color de fondo similar al header */
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            z-index: 90; /* Asegura que esté sobre el contenido */
+            padding: 0; /* Elimina padding que pudiera causar separación */
+        }
+
+        /* --- ESTILOS DE BOTONES INDIVIDUALES --- */
+/* --- CLASE DE SUB-BOTONES PRINCIPAL (Barra Fija) --- */
+        .sub-btn-group {
+            position: fixed; 
+            bottom: 0; 
+            left: 0;
+            width: 100%;
+            display: flex; 
+            /* Quitamos el color de fondo para que los botones individuales lo definan */
+            background-color: white; 
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+            z-index: 90; 
+            padding: 0; 
+        }
+
+        /* --- ESTILOS DE BOTONES INDIVIDUALES (Fondo Blanco, Texto Azul) --- */
         .sub-btn {
-            background-color: #ecf0f1;
-            border: 1px solid #bdc3c7;
-            padding: 10px;           /* Padding uniforme */
-            border-radius: 15px;     /* Bordes un poco más cuadrados */
+            flex-grow: 1; 
+            border: none;
+            border-radius: 0; 
+            padding: 10px 5px; 
+            margin: 0; 
             cursor: pointer;
-            font-size: 0.7rem;       /* Texto un pelín más pequeño para que quepa */
-            transition: background 0.2s;
             
-            /* --- AQUÍ ESTÁ EL CAMBIO MÁGICO --- */
+            /* NUEVOS ESTILOS POR DEFECTO */
+            background-color: white; 
+            color: #2c3e50; /* Texto azul oscuro */
+            
+            transition: all 0.2s; /* Transición suave para todos los cambios */
+            text-align: center;
+            font-size: 0.8rem;
+            height: 60px; 
             display: flex;
-            flex-direction: column;  /* Pone el icono encima del texto */
-            align-items: center;     /* Centra todo horizontalmente */
-            justify-content: center; /* Centra todo verticalmente */
-            gap: 5px;                /* Espacio entre icono y texto */
-            
-            /* Opcional: Darles un tamaño fijo para que se vean uniformes */
-            width: 70px;             
-            height: 60px;
-            text-align: center;      
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Iconos de los botones NO activos (Invertir color a azul oscuro) */
+        .sub-btn .btn-icon {
+            filter: invert(18%) sepia(21%) saturate(1312%) hue-rotate(179deg) brightness(97%) contrast(92%);
+        }
+
+        /* --- ESTILOS DEL BOTÓN ACTIVO (Fondo Azul, Texto Blanco) --- */
+        .sub-btn.active, .sub-btn:hover {
+            background-color: #2c3e50; /* Fondo azul oscuro */
+            color: white; /* Texto blanco */
+        }
+        
+        /* Iconos del botón ACTIVO o en HOVER (Invertir color a blanco) */
+        .sub-btn.active .btn-icon, .sub-btn:hover .btn-icon {
+            filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
+        }
+
+        .sub-btn:hover {
+            background-color: #34495e; /* Un poco más claro al pasar el ratón */
+        }
+
+        /* Aseguramos que el contenido sea desplazable */
+        #appliances .container {
+            padding-bottom: 70px; /* Deja espacio para la barra de 60px + un poco de margen */
         }
 
         /* Estilo para el icono pequeño dentro del botón */
         .btn-icon {
-            width: 20px;             /* Tamaño del icono */
-            height: 20px;
-            object-fit: contain;     /* Asegura que el icono no se deforme */
+            width: 24px;             /* Tamaño del ANCHO del icono */
+            height: 24px;            /* Tamaño del ALTO del icono */
+            object-fit: contain;
+            margin-bottom: 2px; /* Espacio entre el icono y el texto */
             display: block;
         }
 
@@ -356,34 +411,6 @@
                 <h2 data-key="titulo_electro">Electrodomésticos</h2>
             </div>
             <hr>
-            <div class="sub-menu-container">
-                
-                <button class="sub-btn active-sub" onclick="showAppliance('lavadora', this)">
-                    <img src="images/ic_lavadora.png" class="btn-icon" alt="icon">
-                    <span data-key="sub_lavadora">Lavadora</span>
-                </button>
-
-                <button class="sub-btn" onclick="showAppliance('toldo', this)">
-                    <img src="images/ic_toldo.png" class="btn-icon" alt="icon">
-                    <span data-key="sub_toldo">Toldo</span>
-                </button>
-
-                <button class="sub-btn" onclick="showAppliance('calefaccion', this)">
-                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="icon">
-                    <span data-key="sub_calefaccion">Calefacción</span>
-                </button>
-
-                <button class="sub-btn" onclick="showAppliance('persiana', this)">
-                    <img src="images/ic_persiana.png" class="btn-icon" alt="icon">
-                    <span data-key="sub_persiana">Persiana</span>
-                </button>
-
-                <button class="sub-btn" onclick="showAppliance('otros', this)">
-                    <img src="images/ic_wifi.png" class="btn-icon" alt="icon">
-                    <span data-key="sub_otros">Otros</span>
-                </button>
-
-            </div>
             <div id="lavadora" class="sub-section visible">
                 <div class="text-frame">
                     <strong data-key="lavadora_titulo">Cómo usar:</strong><br>
@@ -421,6 +448,29 @@
                     <span data-key="otros_desc">Texto otros</span>
                 </div>
                 <img data-key="otros_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img">
+            </div>
+
+            <div class="sub-btn-group">
+                <button class="sub-btn" onclick="showAppliance('lavadora')">
+                    <img src="images/ic_lavadora.png" class="btn-icon" alt="Washer icon">
+                    <span data-key="sub_lavadora">Lavadora</span>
+                </button>
+                <button class="sub-btn" onclick="showAppliance('toldo')">
+                    <img src="images/ic_toldo.png" class="btn-icon" alt="Awning icon">
+                    <span data-key="sub_toldo">Toldo</span>
+                </button>
+                <button class="sub-btn" onclick="showAppliance('calefaccion')">
+                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="Heating icon">
+                    <span data-key="sub_calefaccion">Calefacción</span>
+                </button>
+                <button class="sub-btn" onclick="showAppliance('persiana')">
+                    <img src="images/ic_persiana.png" class="btn-icon" alt="Blinds icon">
+                    <span data-key="sub_persiana">Persiana</span>
+                </button>
+                <button class="sub-btn" onclick="showAppliance('otros')">
+                    <img src="images/ic_wifi.png" class="btn-icon" alt="Other icon">
+                    <span data-key="sub_otros">Wifi</span>
+                </button>
             </div>
         </div>
 
@@ -501,7 +551,8 @@
         let currentLang = 'es'; 
         let currentImageIndex = 0; // NUEVA variable para rastrear la imagen actual
         let currentImagePaths = []; // NUEVA variable para el array de rutas
-        
+        let currentAppliance = 'lavadora';
+
         document.addEventListener('DOMContentLoaded', () => { updateText(); });
 
         function showSection(sectionId) {
@@ -511,18 +562,49 @@
             window.scrollTo(0,0);
         }
 
-        function showAppliance(subId, btnElement) {
-            const subSections = document.querySelectorAll('.sub-section');
-            subSections.forEach(sub => sub.classList.remove('visible'));
-            document.getElementById(subId).classList.add('visible');
-            if(btnElement) {
-                const buttons = document.querySelectorAll('.sub-btn');
-                buttons.forEach(btn => btn.classList.remove('active-sub'));
-                btnElement.classList.add('active-sub');
+        function showAppliance(applianceId) {
+            
+            // 1. GESTIÓN DE CLASES (CORRECCIÓN CRÍTICA)
+            
+            // a. Obtener todos los botones de la barra inferior
+            const buttons = document.querySelectorAll('.sub-btn-group .sub-btn');
+            
+            // b. Desactivar todos los botones
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // c. Activar el botón correcto
+            // Se busca el botón que tiene el onclick con el ID de electrodoméstico correcto
+            const activeButton = document.querySelector(`.sub-btn[onclick*="'${applianceId}'"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
             }
-            // Importante: Si mostramos la lavadora, recargar las imágenes del grid
-            if (subId === 'lavadora') {
+
+            // 2. CARGA DEL CONTENIDO
+            currentAppliance = applianceId;
+            const translations = (currentLang === 'es') ? ES : EN;
+            const contentDiv = document.getElementById('appliance-content');
+            contentDiv.innerHTML = ''; // Limpiar contenido anterior
+
+            const titleKey = `sub_${applianceId}`;
+            const descKey = `${applianceId}_desc`;
+            const imgKey = `${applianceId}_img`;
+            
+            contentDiv.innerHTML += `<h3 data-key="${titleKey}">${translations[titleKey] || titleKey}</h3>`;
+            
+            // Reemplazar \n por <br> para saltos de línea en la descripción
+            const descContent = translations[descKey] ? translations[descKey].replace(/\\n/g, '<br>') : descKey;
+            contentDiv.innerHTML += `<p>${descContent}</p>`;
+
+            // Si es lavadora, cargar la cuadrícula de imágenes
+            if (applianceId === 'lavadora') {
+                contentDiv.innerHTML += '<div id="washer-grid" class="image-grid"></div>';
                 updateWasherGrid();
+            } 
+            // Si no es lavadora, cargar imagen simple (toldo, calefaccion, etc.)
+            else if (translations[imgKey]) {
+                contentDiv.innerHTML += `<img src="${translations[imgKey]}" class="full-width-img" alt="${applianceId} illustration">`;
             }
         }
 
@@ -566,6 +648,7 @@
         
         // --- FUNCIONALIDAD DEL GRID DE LA LAVADORA Y EL MODAL ---
 
+        
         function updateWasherGrid() {
             const translations = (currentLang === 'es') ? ES : EN;
             const gridContainer = document.getElementById('washer-grid');
@@ -609,6 +692,7 @@
         // --- REGISTRO DEL SERVICE WORKER (PWA) ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
+                showAppliance('lavadora'); // Mostrar lavadora por defecto al cargar
                 navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado con éxito: ', registration.scope);
