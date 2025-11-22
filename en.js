@@ -27,12 +27,12 @@ const EN = {
     "titulo_info": "Useful Phone Numbers",
     "info_intro": "In case of emergency or need, here are the most important contact numbers in the area:",
 
-    "tel_emergencias": "Emergency (General)",
-    "tel_ambulancia": "Ambulance (Health)",
+    "tel_emergencias": "Emergency",
+    "tel_ambulancia": "Ambulance",
     "tel_ertzaintza": "Ertzaintza (Basque Police)",
     "tel_municipal": "Local Police",
     "tel_bomberos": "Firefighters",
-    "tel_taxi": "Radio Taxi",
+    "tel_taxi": "Taxi",
 
     "toldo_titulo": "How to control the awnings:",
     "toldo_desc": "The awnings are controlled from the keypad located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. \nTo extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level.\nIn case of strong wind, there's nothing to worry about, the awings will retract automatically to avoid damage.",

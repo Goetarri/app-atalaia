@@ -25,15 +25,15 @@ const ES = {
     ],
 
     "titulo_info": "Teléfonos de Interés",
-    "info_intro": "En caso de emergencia o necesidad, aquí tiene los números de contacto más importantes de la zona:",
+    "info_intro": "En caso de emergencia o necesidad, aquí teneis los números de contacto más importantes de la zona:",
 
-    "tel_emergencias": "Emergencias (Genérico)",
-    "tel_ambulancia": "Ambulancia (Sanidad)",
+    "tel_emergencias": "Emergencias",
+    "tel_ambulancia": "Ambulancia",
     "tel_ertzaintza": "Ertzaintza (Policía Vasca)",
     "tel_municipal": "Policía Municipal",
     "tel_bomberos": "Bomberos",
-    "tel_taxi": "Radio Taxi",
-    
+    "tel_taxi": "Taxi",
+
     "toldo_titulo": "Como funcionan los toldos:",
     "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde.\nPara desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.\nSi se levanta viento fuerte, no hay que preocuparse, los toldos se recogerán automáticamente para evitar daños.",
     "toldo_img": "images/awning_es.png",
