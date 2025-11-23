@@ -17,10 +17,10 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            position: sticky; /* Ya estaba 'sticky', pero se recomienda cambiar a 'fixed' si es la cabecera principal */
+            position: sticky; 
             top: 0; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-            z-index: 100; /* Asegura que siempre esté arriba */
+            z-index: 100; 
         }
         h1 { margin: 0; font-size: 1.2rem; }
         #lang-btn { background-color: #050d2e; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
@@ -31,11 +31,10 @@
         .screen.active { display: block; }
 
         /* MENÚ */
-        /* MENÚ (MODIFICADO) */
         .menu-btn { 
-            display: flex;               /* 1. Habilita el Flexbox */
-            align-items: center;         /* 2. Centra verticalmente el icono y el texto */
-            gap: 15px;                   /* 3. Añade espacio entre el icono y el texto */
+            display: flex;               
+            align-items: center;         
+            gap: 15px;                   
 
             width: 100%; 
             padding: 20px; 
@@ -59,12 +58,11 @@
             gap: 15px; 
             margin-bottom: 10px; 
             
-            /* --- CAMBIOS PARA HACERLO STICKY --- */
             position: sticky; 
             top: 60px; 
-            background-color: #f4f4f9; /* Fondo para cubrir contenido */
-            padding-top: 20px;       /* Ajuste para moverlo un poco más abajo */
-            z-index: 90;             /* Menos que el header principal (100), pero más que el sub-menú (50) */
+            background-color: #f4f4f9; 
+            padding-top: 20px;       
+            z-index: 90;             
         }
         .header-row h2 { margin: 0; font-size: 1.4rem; }
         .back-btn { background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 0; font-size: 0.9rem; }
@@ -78,12 +76,11 @@
             margin-bottom: 20px; 
             justify-content: center; 
             
-            /*--- CAMBIOS PARA HACERLO STICKY --- */
-            position: sticky;        /* La propiedad clave */
-            top: 110px;               /* Pégalo a 60px del borde superior (justo debajo del header fijo) */
-            background-color: #f4f4f9; /* IMPORTANTE: Añade el color de fondo del body para tapar el contenido que pasa por debajo */
-            padding-top: 10px;       /* Ajuste de espacio */
-            z-index: 50;             /* Asegura que quede por encima del contenido que se desplaza */
+            position: sticky;        
+            top: 110px;               
+            background-color: #f4f4f9; 
+            padding-top: 10px;       
+            z-index: 50;             
         }
 
         /* --- CLASE DE SUB-BOTONES PRINCIPAL (Barra Fija) --- */
@@ -93,14 +90,13 @@
             left: 0;
             width: 100%;
             display: flex; 
-            /* Quitamos el color de fondo para que los botones individuales lo definan */
             background-color: white; 
             box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
             z-index: 90; 
             padding: 0; 
         }
 
-        /* --- ESTILOS DE BOTONES INDIVIDUALES (Fondo Blanco, Texto Azul) --- */
+        /* --- ESTILOS DE BOTONES INDIVIDUALES --- */
         .sub-btn {
             flex-grow: 1; 
             border: none;
@@ -108,12 +104,9 @@
             padding: 10px 5px; 
             margin: 0; 
             cursor: pointer;
-            
-            /* NUEVOS ESTILOS POR DEFECTO */
             background-color: white; 
-            color: #2c3e50; /* Texto azul oscuro */
-            
-            transition: all 0.2s; /* Transición suave para todos los cambios */
+            color: #2c3e50; 
+            transition: all 0.2s; 
             text-align: center;
             font-size: 0.8rem;
             height: 60px; 
@@ -123,45 +116,39 @@
             align-items: center;
         }
         
-        /* Iconos de los botones NO activos (Gris Claro para info-practica, Azul Oscuro para appliances) */
         .sub-btn .btn-icon {
             filter: invert(18%) sepia(21%) saturate(1312%) hue-rotate(179deg) brightness(97%) contrast(92%);
         }      
 
-        /* --- ESTILOS DEL BOTÓN ACTIVO (Fondo Azul, Texto Blanco) --- */
         .sub-btn.active, .sub-btn:hover {
-            background-color: #2c3e50; /* Fondo azul oscuro */
-            color: white; /* Texto blanco */
+            background-color: #2c3e50; 
+            color: white; 
         }
         
-        /* Iconos del botón ACTIVO o en HOVER (Invertir color a blanco) */
         .sub-btn.active .btn-icon, .sub-btn:hover .btn-icon {
             filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
         }
 
         .sub-btn:hover {
-            background-color: #34495e; /* Un poco más claro al pasar el ratón */
+            background-color: #34495e; 
         }
 
-        /* Aseguramos que el contenido sea desplazable */
         #appliances .container {
-            padding-bottom: 70px; /* Deja espacio para la barra de 60px + un poco de margen */
+            padding-bottom: 70px; 
         }
 
-        /* Estilo para el icono pequeño dentro del botón */
         .btn-icon {
-            width: 24px;             /* Tamaño del ANCHO del icono */
-            height: 24px;            /* Tamaño del ALTO del icono */
+            width: 24px;             
+            height: 24px;            
             object-fit: contain;
-            margin-bottom: 2px; /* Espacio entre el icono y el texto */
+            margin-bottom: 2px; 
             display: block;
         }
         
-        /* --- ESTILOS ESPECÍFICOS PARA IMAGEN DE WIFI (25% más pequeña) --- */
         .wifi-img-small { 
-            max-width: 75%; /* Reduce el ancho al 75% del contenedor */
-            display: block;  /* Asegura que el margen auto funcione */
-            margin-left: auto; /* Centra la imagen */
+            max-width: 75%; 
+            display: block;  
+            margin-left: auto; 
             margin-right: auto;
         }
 
@@ -171,12 +158,10 @@
             border-color: #2980b9;
         }
         
-        /* Opcional: Invertir color del icono si es negro cuando el botón está activo (azul) */
         .sub-btn.active-sub .btn-icon {
-            filter: brightness(0) invert(1); /* Vuelve el icono blanco */
+            filter: brightness(0) invert(1); 
         }
 
-        .sub-btn.active-sub { background-color: #3498db; color: white; border-color: #2980b9; }
         .text-frame { 
             background-color: white; 
             border: 1px solid #ccc; 
@@ -186,11 +171,10 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
             line-height: 1.6;
         }
-        /* NUEVA REGLA: Aplica los saltos de línea SOLO al texto descriptivo */
         .text-frame span {
             white-space: pre-line; 
-            display: block;       /* Asegura que ocupe el ancho disponible */
-            margin-top: 5px;      /* Un pequeño espacio entre título y texto */
+            display: block;       
+            margin-top: 5px;      
             text-align: justify;
         }
         .appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; }
@@ -199,7 +183,6 @@
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     
-        /* --- ESTILO PARA EL ICONO DE FLECHA --- */
         .arrow-icon {
             font-size: 1.5rem; 
             line-height: 1;    
@@ -218,13 +201,10 @@
             overflow: hidden;
             border-radius: 5px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            
-            /* --- NUEVOS ESTILOS PARA HACER EL CONTENEDOR CUADRADO --- */
             position: relative; 
             width: 100%;
             padding-bottom: 100%; 
         }
-        /* La imagen se posiciona absolutamente dentro del contenedor cuadrado */
         .grid-item img {
             position: absolute; 
             top: 0;
@@ -240,7 +220,7 @@
             transform: scale(1.05); 
         }
         
-        /* --- ESTILOS DEL MODAL (Ventana Emergente) --- */
+        /* --- ESTILOS DEL MODAL --- */
         .modal {
             display: none; 
             position: fixed; 
@@ -251,7 +231,6 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgb(0,0,0); 
             background-color: rgba(0,0,0,0.9); 
         }
         .modal-content {
@@ -262,7 +241,6 @@
             animation-name: zoom;
             animation-duration: 0.6s;
         }
-        /* El botón de cerrar (x) */
         .close-btn {
             position: absolute;
             top: 15px;
@@ -273,25 +251,21 @@
             transition: 0.3s;
             cursor: pointer;
         }
-        .close-btn:hover,
-        .close-btn:focus {
+        .close-btn:hover, .close-btn:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
         }
-        /* Animación de zoom */
         @keyframes zoom {
             from {transform:scale(0)} 
             to {transform:scale(1)}
         }
 
         /* --- ESTILOS PARA LAS TABLAS DE INFORMACIÓN PRÁCTICA --- */
-        /* Aseguramos que el contenido sea desplazable */
         #info-practica .container {
-            padding-bottom: 70px; /* Deja espacio para la barra de 60px + un poco de margen */
+            padding-bottom: 70px; 
         }
 
-        /* --- Estilo de la nueva clase activa para info-practica --- */
         .sub-btn.active-info-practica { 
             background-color: #2c3e50;
             color: white;
@@ -300,36 +274,38 @@
             filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
         }
 
-        /* Estilos base para ambas tablas de información */
-        #info-table, #address-table {
+        /* CAMBIO: Añadido #hospital-table a los selectores */
+        #info-table, #address-table, #hospital-table {
             width: 100%;
             border-collapse: collapse; 
             margin-top: 15px; 
             border-top: 1px solid #ddd;
-            /* La tabla de direcciones no está en un text-frame, añadimos bordes de caja */
             border-radius: 8px;
             margin-bottom: 15px; 
         }
-        /* Estilo para hacer las filas cliqueables y activas */
-        #address-table tr {
+        
+        /* Estilo para hacer las filas cliqueables y activas (Añadido #hospital-table) */
+        #address-table tr, #hospital-table tr {
             cursor: pointer;
             transition: background-color 0.1s;
         }
-        #address-table tr:hover {
+        #address-table tr:hover, #hospital-table tr:hover {
             background-color: #f0f0f0;
         }
+
         .address-row-active {
-            background-color: #e0eaf0; /* Color de fondo para la fila seleccionada */
+            background-color: #e0eaf0; 
         }
-        #info-table td, #address-table td {
+
+        /* CAMBIO: Añadido #hospital-table td a los selectores */
+        #info-table td, #address-table td, #hospital-table td {
             padding: 10px 0; 
             border-bottom: 1px solid #eee;
         }
-        #info-table tr:last-child td, #address-table tr:last-child td {
+        #info-table tr:last-child td, #address-table tr:last-child td, #hospital-table tr:last-child td {
             border-bottom: none; 
         }
         
-        /* Estilos de columnas reutilizables */
         .tel-col-icon {
             width: 40px; 
             text-align: center;
@@ -341,11 +317,10 @@
             font-weight: bold;
         }
         .tel-col-number a {
-            color: #2c3e50; /* Color de enlace distintivo */
+            color: #2c3e50; 
             text-decoration: none;
         }
         
-        /* --- ESTILOS ESPECÍFICOS PARA LA TABLA DE DIRECCIONES --- */
         .address-name {
             font-weight: bold;
             display: block;
@@ -356,7 +331,6 @@
             display: block;
         }
         
-        /* --- ESTILOS ESPECÍFICOS PARA EL MAPA --- */
         #map-container {
             margin-top: 20px;
             padding: 15px;
@@ -453,16 +427,6 @@
                 </div>
             </div>
             
-            <!-- WIFI COMENTADO PARA EVITAR QUE SEA VISIBLE
-            <div id="wifi" class="sub-section">
-                <div class="text-frame">
-                    <strong data-key="wifi_titulo">Varios:</strong><br>
-                    <span data-key="wifi_desc">Texto wifi</span>
-                </div>
-                <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="FOTO wifi" class="appliance-img wifi-img-small">
-            </div>
-            -->
-
             <div class="sub-btn-group">
                 <button class="sub-btn active" onclick="showAppliance('lavadora')">
                     <img src="images/ic_lavadora.png" class="btn-icon" alt="Washer icon">
@@ -480,13 +444,6 @@
                     <img src="images/ic_persiana.png" class="btn-icon" alt="Blinds icon">
                     <span data-key="sub_persiana">Persiana</span>
                 </button>
-
-                <!-- WIFI COMENTADO PARA EVITAR QUE SEA VISIBLE (si se descomenta, descomentar también la sección correspondiente arriba)
-                <button class="sub-btn" onclick="showAppliance('wifi')">
-                    <img src="images/ic_wifi.png" class="btn-icon" alt="Other icon">
-                    <span data-key="sub_wifi">Wifi</span>
-                </button>
-                -->
             </div>
         </div>
 
@@ -543,6 +500,22 @@
                 <div class="text-frame">
                     <p data-key="info_intro" style="margin-top: 0;"></p>
                     <table id="info-table"></table>
+
+                </div>
+                <!-- CAMBIO: Nueva tabla añadida aquí -->
+                <table id="hospital-table"></table>
+                <div id="hospital-map-container">
+                    <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
+                    <iframe id="google-map-embed-hospital" 
+                            width="100%" 
+                            height="300" 
+                            frameborder="0" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer" 
+                            src="">
+                    </iframe>
                 </div>
             </div>
 
@@ -619,9 +592,9 @@
 
     <script>
         let currentLang = 'es'; 
-        let currentImageIndex = 0; // NUEVA variable para rastrear la imagen actual
-        let currentImagePaths = []; // NUEVA variable para el array de rutas
-        let currentAppliance = 'lavadora'; // Variable para rastrear el electrodoméstico activo
+        let currentImageIndex = 0; 
+        let currentImagePaths = []; 
+        let currentAppliance = 'lavadora'; 
 
         document.addEventListener('DOMContentLoaded', () => { updateText(); });
 
@@ -631,47 +604,34 @@
             document.getElementById(sectionId).classList.add('active');
             window.scrollTo(0,0);
             
-            // FIX: Asegura que 'lavadora' sea seleccionada por defecto al entrar en Electrodomésticos.
             if (sectionId === 'appliances') {
                 showAppliance('lavadora');
             }
 
-            // Mantiene el comportamiento anterior para 'info-practica'
             if (sectionId === 'info-practica') {
                 showPracticalInfo('info');
             }
         }
 
         function showAppliance(applianceId) {
-            
-            // 1. GESTIÓN DE CLASES (Toolbar Buttons)
-            // SCOPE: Seleccionar solo los botones dentro de la barra de #appliances
             const buttons = document.querySelectorAll('#appliances .sub-btn-group .sub-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Activar el botón correcto
             const activeButton = document.querySelector(`#appliances .sub-btn[onclick*="'${applianceId}'"]`);
             if (activeButton) {
                 activeButton.classList.add('active');
             }
             
-            // 2. GESTIÓN DE SECCIONES (Content Blocks)
-            // SCOPE: Seleccionar todas las sub-secciones dentro de #appliances
             const subSections = document.querySelectorAll('#appliances .sub-section');
-            
-            // Ocultar todas las sub-secciones
             subSections.forEach(section => section.classList.remove('visible'));
             
-            // Mostrar la sección correcta
             const targetSection = document.getElementById(applianceId);
             if (targetSection) {
                 targetSection.classList.add('visible');
             }
 
-            // Se mantiene el seguimiento del electrodoméstico activo
             currentAppliance = applianceId; 
 
-            // Recalcular la cuadrícula de la lavadora si es necesario
             if (applianceId === 'lavadora') {
                 updateWasherGrid();
             }
@@ -680,39 +640,34 @@
         }
 
         function showPracticalInfo(infoId) {
-            // 1. GESTIÓN DE CLASES (Toolbar Buttons)
             const buttons = document.querySelectorAll('#info-practica .sub-btn-group .sub-btn');
             buttons.forEach(btn => btn.classList.remove('active-info-practica'));
 
-            // Buscar el botón correcto por su atributo onclick o data-key para activarlo
             const activeButton = document.querySelector(`#info-practica .sub-btn[onclick*="'${infoId}'"]`);
             if (activeButton) {
                 activeButton.classList.add('active-info-practica');
             }
 
-            // 2. GESTIÓN DE SECCIONES (Content Blocks)
             const subSections = document.querySelectorAll('#info-practica .sub-section');
             subSections.forEach(section => section.classList.remove('visible-info-practica'));
-            subSections.forEach(section => section.style.display = 'none'); // Ocultar todos
+            subSections.forEach(section => section.style.display = 'none'); 
 
-            // Mostrar la sección correcta
             const targetSection = document.getElementById(`info-${infoId}`);
             if (targetSection) {
                 targetSection.classList.add('visible-info-practica');
                 targetSection.style.display = 'block';
             }
             
-            // Recalcular la tabla de info práctica solo cuando se muestra Emergencia
             if (infoId === 'emergency') {
                 updateInfoTable();
+                updateHospitalTable();
             }
             
-            // Recalcular la tabla de direcciones y el mapa solo cuando se muestra Info
             if (infoId === 'info') {
                 updateAddressTable();
             }
 
-            window.scrollTo(0, 0); // Ir al inicio de la sección
+            window.scrollTo(0, 0); 
         }
 
         function toggleLanguage() {
@@ -724,20 +679,16 @@
                 document.getElementById('lang-btn').innerText = 'EN 🇬🇧';
             }
             updateText();
-            // Se elimina la llamada redundante a updateText()
             
-            // RE-DISPLAY CURRENTLY ACTIVE APPLIANCE TO UPDATE TEXT
             const appliancesScreen = document.getElementById('appliances');
             if (appliancesScreen.classList.contains('active')) {
-                // Llama a showAppliance con el último electrodoméstico activo para refrescar su texto e imagen.
                 showAppliance(currentAppliance);
             }
 
-            // Recalcular la tabla después de cambiar el idioma, por si la sección de emergencia está activa.
             if (document.getElementById('info-emergency').style.display === 'block') {
                 updateInfoTable();
+                updateHospitalTable();
             }
-            // Recalcular la tabla de direcciones después de cambiar el idioma, por si la sección de info está activa.
             if (document.getElementById('info-info').style.display === 'block') {
                 updateAddressTable();
             }
@@ -753,39 +704,28 @@
                 if (key in translations) { 
                     const value = translations[key];
 
-                    // **IMPORTANTE**: Saltamos el manejo de IMG general y 'lavadora_img' aquí,
-                    // ya que ahora se manejará con updateWasherGrid y showAppliance.
                     if (el.tagName === 'IMG' && key !== 'lavadora_img') {
                         el.src = value;
                     } else if (key !== 'lavadora_img') { 
-                        // Permite saltos de línea en el texto (ya gestionado por el CSS white-space: pre-line)
                         el.innerText = value;
                     }
                 }
             });
             
-            // Llama a la nueva función para actualizar la cuadrícula de la lavadora
             updateWasherGrid();
-
-            // Llama a la función para actualizar la tabla de info práctica
             updateInfoTable();
-            
-            // Llama a la función para actualizar la tabla de direcciones y el mapa
+            updateHospitalTable(); // CAMBIO: Añadido aquí
             updateAddressTable();
         }
         
-        // --- FUNCIONALIDAD DEL GRID DE LA LAVADORA Y EL MODAL ---
-
         
         function updateWasherGrid() {
             const translations = (currentLang === 'es') ? ES : EN;
             const gridContainer = document.getElementById('washer-grid');
             
-            // Solo si el contenedor existe y tenemos las rutas
             if (gridContainer && translations.lavadora_img) {
-                // lavadora_img ahora es un array de rutas de imagen
                 const imagePaths = translations.lavadora_img; 
-                gridContainer.innerHTML = ''; // Limpiar el contenido anterior
+                gridContainer.innerHTML = ''; 
 
                 imagePaths.forEach(path => {
                     const item = document.createElement('div');
@@ -794,7 +734,6 @@
                     const img = document.createElement('img');
                     img.src = path;
                     img.alt = 'Paso de lavadora';
-                    // Al hacer click, llama a openModal con la ruta de la imagen
                     img.onclick = () => openModal(path); 
                     
                     item.appendChild(img);
@@ -817,11 +756,8 @@
         }
 
 
-        // --- REGISTRO DEL SERVICE WORKER (PWA) ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // Se elimina la llamada a showAppliance('lavadora') aquí.
-                // Ahora se llama en showSection('appliances') cuando el usuario navega.
                 navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado con éxito: ', registration.scope);
@@ -841,7 +777,6 @@
 
             table.innerHTML = ''; 
 
-            // Estructura: [Icono, Clave de Traducción, Número de Teléfono]
             const infoData = [
                 ['🚨', 'tel_emergencias', '112'], 
                 ['🚑', 'tel_ambulancia', '061'], 
@@ -856,23 +791,74 @@
                 
                 const row = table.insertRow();
                 
-                // Columna 1: Icono
                 const iconCell = row.insertCell(0);
                 iconCell.className = 'tel-col-icon';
                 iconCell.innerHTML = icon;
 
-                // Columna 2: Nombre del Servicio
                 const nameCell = row.insertCell(1);
                 nameCell.innerText = serviceName;
 
-                // Columna 3: Número y Enlace de Llamada
                 const numberCell = row.insertCell(2);
                 numberCell.className = 'tel-col-number';
                 numberCell.innerHTML = `<a href="tel:${number.replace(/<br>/g, '')}">${number}</a>`;
             });
         }
+
+        // --- FUNCIÓN PARA LA TABLA DE HOSPITALES ---
+        function updateHospitalTable() {
+            const translations = (currentLang === 'es') ? ES : EN;
+            const table = document.getElementById('hospital-table');
+            if (!table) return; 
+
+            table.innerHTML = ''; 
+
+            const hospitalData = [
+                ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia / San Sebastián, Gipuzkoa'],
+                ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia / San Sebastián, Gipuzkoa']
+            ];
+
+            hospitalData.forEach(data => {
+                const [icon, nameKey, descKey, telKey, mapQuery] = data;
+                
+                const name = translations[nameKey] || nameKey;
+                const description = translations[descKey] || descKey;
+                const number = telKey ? (translations[telKey] || '') : '';
+                const phoneDisplay = number ? number : '';
+                const telLink = number ? number.replace(/ /g, '').replace(/<br>/g, '') : '';
+                
+                const row = table.insertRow();
+                
+                row.onclick = function() {
+                    // Pasamos la fila 'this' para que el mapa sepa qué fila resaltar y qué nombre mostrar
+                    showHospitalLocationOnMap(mapQuery, this, name); 
+                };
+                
+                const iconCell = row.insertCell(0);
+                iconCell.className = 'tel-col-icon';
+                iconCell.innerHTML = icon;
+
+                const nameCell = row.insertCell(1);
+                nameCell.className = 'address-col-text'; // Clase para formato vertical
+                nameCell.innerHTML = `<span class="address-name">${name}</span><span class="address-desc">${description}</span>`; // Clases internas para estilo de texto
+
+                const numberCell = row.insertCell(2);
+                numberCell.className = 'tel-col-number';
+                if (number) {
+                    numberCell.innerHTML = `<a href="tel:${telLink}">${phoneDisplay}</a>`;
+                } else {
+                    numberCell.innerText = '';
+                }
+            });
+
+            // ******* CAMBIO CLAVE PARA INICIALIZACIÓN IDÉNTICA *******
+            // Inicializar el mapa con el primer elemento si la sección está visible
+            if (hospitalData.length > 0 && document.getElementById('info-emergency').classList.contains('visible-info-practica')) {
+                // Llama a la función para mostrar el primer hospital y resaltarlo
+                showHospitalLocationOnMap(hospitalData[0][4], table.rows[0], translations[hospitalData[0][1]]);
+            }
+        }
+
         
-        // --- NUEVA FUNCIONALIDAD DE LA TABLA DE DIRECCIONES Y MAPA ---
         function updateAddressTable() {
             const translations = (currentLang === 'es') ? ES : EN;
             const table = document.getElementById('address-table');
@@ -880,16 +866,14 @@
 
             table.innerHTML = ''; 
 
-            // Estructura: [Icono, Clave de Nombre, Clave de Descripción, Clave de Teléfono (opcional), Query de Mapa (Nueva)]
-            // El Query de Mapa incluye la dirección para una búsqueda precisa en Google Maps
+            // CAMBIO: Se han eliminado 'addr_ambulatorio' y 'addr_hospital' de aquí
             const addressData = [
                 ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia / San Sebastián, Gipuzkoa'],
                 ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia / San Sebastián, Gipuzkoa'], 
                 ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'De Francia Ibilbidea, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
                 ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia / San Sebastián, Gipuzkoa'],
-                ['🚕', 'addr_taxi2', 'addr_taxi2_desc', 'addr_taxi_tel', 'Padre Larroca Kalea, 1, 20001 Donostia / San Sebastián, Gipuzkoa'],
-                ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia / San Sebastián, Gipuzkoa'],
-                ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia / San Sebastián, Gipuzkoa'],
+                //['🚕', 'addr_taxi2', 'addr_taxi2_desc', 'addr_taxi_tel', 'Padre Larroca Kalea, 1, 20001 Donostia / San Sebastián, Gipuzkoa'],
+                // MOVIDO: Hospital y Ambulatorio ahora están en updateHospitalTable
                 ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia / San Sebastián, Gipuzkoa'],
                 ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia / San Sebastián, Gipuzkoa']
             ];
@@ -901,27 +885,22 @@
                 const description = translations[descKey] || descKey;
                 const number = telKey ? (translations[telKey] || '') : '';
                 const phoneDisplay = number ? number : '';
-                // Quita todos los espacios para el enlace 'tel:'
                 const telLink = number ? number.replace(/ /g, '').replace(/<br>/g, '') : '';
                 
                 const row = table.insertRow();
                 
-                // Agregar manejador de clic a la fila, pasando la consulta de mapa y la fila
                 row.onclick = function() {
                     showLocationOnMap(mapQuery, this);
                 };
                 
-                // Columna 1: Icono
                 const iconCell = row.insertCell(0);
                 iconCell.className = 'tel-col-icon';
                 iconCell.innerHTML = icon;
 
-                // Columna 2: Nombre y Dirección/Descripción
                 const nameCell = row.insertCell(1);
                 nameCell.className = 'address-col-text';
                 nameCell.innerHTML = `<span class="address-name">${name}</span><span class="address-desc">${description}</span>`;
 
-                // Columna 3: Número de Teléfono (con enlace si existe)
                 const numberCell = row.insertCell(2);
                 numberCell.className = 'tel-col-number';
                 if (number) {
@@ -931,7 +910,6 @@
                 }
             });
             
-            // Al cargar la tabla, inicializa el mapa con la primera dirección o un centro por defecto.
             if (addressData.length > 0) {
                 showLocationOnMap(addressData[0][4], table.rows[0]);
             }
@@ -942,21 +920,49 @@
             const mapIframe = document.getElementById('google-map-embed');
             const mapTitle = document.querySelector('#map-container h3');
             
-            // URL base para un mapa incrustado usando el parámetro 'q=' (query) para búsqueda
-            // 'z=15' para nivel de zoom 15, 'output=embed' para el iframe
             const baseUrl = 'https://maps.google.com/maps?q=';
             const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
 
             mapIframe.src = finalUrl;
             
-            // Resaltar la fila activa
             const allRows = document.querySelectorAll('#address-table tr');
             allRows.forEach(row => row.classList.remove('address-row-active'));
             if (clickedRow) {
                 clickedRow.classList.add('address-row-active');
             }
 
-            // Actualizar el título del mapa
+            if (clickedRow && mapTitle) {
+                const nameElement = clickedRow.querySelector('.address-name');
+                const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
+                if (nameElement) {
+                    mapTitle.innerText = `${baseTitle}${nameElement.innerText}`;
+                } else {
+                     mapTitle.innerText = translations['mapa_titulo'];
+                }
+            } else if (mapTitle) {
+                 mapTitle.innerText = translations['mapa_titulo'];
+            }
+        }
+
+        function showHospitalLocationOnMap(query, clickedRow, name) {
+            const translations = (currentLang === 'es') ? ES : EN; 
+            const mapIframe = document.getElementById('google-map-embed-hospital'); 
+            const mapTitle = document.querySelector('#hospital-map-container h3'); 
+            
+            // Usamos la misma base URL que la otra función
+            const baseUrl = 'https://maps.google.com/maps?q=';
+            const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
+
+            mapIframe.src = finalUrl;
+            
+            // Remueve la clase activa de todas las filas y la añade a la fila clicada
+            const allRows = document.querySelectorAll('#hospital-table tr'); 
+            allRows.forEach(row => row.classList.remove('address-row-active'));
+            if (clickedRow) {
+                clickedRow.classList.add('address-row-active');
+            }
+
+            // Lógica de Título idéntica a showLocationOnMap (usando la fila clicada)
             if (clickedRow && mapTitle) {
                 const nameElement = clickedRow.querySelector('.address-name');
                 const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';

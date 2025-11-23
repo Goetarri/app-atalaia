@@ -69,8 +69,8 @@ const ES = {
     "addr_taxi_desc": "Paseo de Colon, 16-20",
     "addr_taxi_tel": "+34 943 46 46 46<br>+34 943 40 40 40",
 
-    "addr_taxi2": "Parada de Taxi Padre Larroca",
-    "addr_taxi2_desc": "Padre Larroca St, 1",
+    //"addr_taxi2": "Parada de Taxi Padre Larroca",
+    //"addr_taxi2_desc": "Padre Larroca St, 1",
 
     // Content for 'Wifi' tab
     "wifi_titulo": "Cómo conectarse al wifi:",
