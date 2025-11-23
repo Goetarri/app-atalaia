@@ -51,7 +51,10 @@ const urlsToCache = [
   './images/ic_tips.png',
   './images/ic_toldo.png',
   './images/ic_info.png',
-  './images/ic_wifi.png'
+  './images/ic_wifi.png',
+  './images/ic_directions.png',
+  './images/ic_telefono.png',
+  './images/ic_hospital.png'
 ];
 
 // 1. Instalación: Almacenar los archivos estáticos en caché

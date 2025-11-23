@@ -123,10 +123,10 @@
             align-items: center;
         }
         
-        /* Iconos de los botones NO activos (Invertir color a azul oscuro) */
+        /* Iconos de los botones NO activos (Gris Claro para info-practica, Azul Oscuro para appliances) */
         .sub-btn .btn-icon {
             filter: invert(18%) sepia(21%) saturate(1312%) hue-rotate(179deg) brightness(97%) contrast(92%);
-        }
+        }      
 
         /* --- ESTILOS DEL BOTÓN ACTIVO (Fondo Azul, Texto Blanco) --- */
         .sub-btn.active, .sub-btn:hover {
@@ -155,6 +155,14 @@
             object-fit: contain;
             margin-bottom: 2px; /* Espacio entre el icono y el texto */
             display: block;
+        }
+        
+        /* --- ESTILOS ESPECÍFICOS PARA IMAGEN DE WIFI (25% más pequeña) --- */
+        .wifi-img-small { 
+            max-width: 75%; /* Reduce el ancho al 75% del contenedor */
+            display: block;  /* Asegura que el margen auto funcione */
+            margin-left: auto; /* Centra la imagen */
+            margin-right: auto;
         }
 
         .sub-btn.active-sub {
@@ -193,8 +201,8 @@
     
         /* --- ESTILO PARA EL ICONO DE FLECHA --- */
         .arrow-icon {
-            font-size: 1.5rem; /* Puedes ajustar este valor: 1.2rem (pequeño), 1.8rem (grande) */
-            line-height: 1;    /* Asegura que no haya espacio extra arriba/abajo de la flecha */
+            font-size: 1.5rem; 
+            line-height: 1;    
         }
         
         /* --- ESTILOS DE GALERÍA DE IMÁGENES 3x3 --- */
@@ -212,24 +220,24 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             
             /* --- NUEVOS ESTILOS PARA HACER EL CONTENEDOR CUADRADO --- */
-            position: relative; /* Necesario para que el pseudo-elemento funcione */
+            position: relative; 
             width: 100%;
-            padding-bottom: 100%; /* El 100% del ancho crea un cuadrado */
+            padding-bottom: 100%; 
         }
         /* La imagen se posiciona absolutamente dentro del contenedor cuadrado */
         .grid-item img {
-            position: absolute; /* Rellena el espacio del padre (.grid-item) */
+            position: absolute; 
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Mantiene la consistencia de llenado */
+            object-fit: contain; 
             display: block;
             transition: transform 0.3s;
         }
 
         .grid-item img:hover {
-            transform: scale(1.05); /* Efecto zoom al pasar el ratón */
+            transform: scale(1.05); 
         }
         
         /* --- ESTILOS DEL MODAL (Ventana Emergente) --- */
@@ -277,15 +285,13 @@
             to {transform:scale(1)}
         }
 
-        /* --- ESTILOS PARA LA TABLA DE INFORMACIÓN PRÁCTICA --- */
+        /* --- ESTILOS PARA LAS TABLAS DE INFORMACIÓN PRÁCTICA --- */
         /* Aseguramos que el contenido sea desplazable */
-        /* ... (Existing rules for #appliances .container) ... */
-        /* NUEVA REGLA para la barra fija de info-practica */
         #info-practica .container {
             padding-bottom: 70px; /* Deja espacio para la barra de 60px + un poco de margen */
         }
 
-        /* --- Estilo de la nueva clase activa para info-practica (usará los mismos estilos de .sub-btn.active) --- */
+        /* --- Estilo de la nueva clase activa para info-practica --- */
         .sub-btn.active-info-practica { 
             background-color: #2c3e50;
             color: white;
@@ -293,19 +299,37 @@
         .sub-btn.active-info-practica .btn-icon {
             filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
         }
-        #info-table {
+
+        /* Estilos base para ambas tablas de información */
+        #info-table, #address-table {
             width: 100%;
             border-collapse: collapse; 
             margin-top: 15px; 
             border-top: 1px solid #ddd;
+            /* La tabla de direcciones no está en un text-frame, añadimos bordes de caja */
+            border-radius: 8px;
+            margin-bottom: 15px; 
         }
-        #info-table td {
+        /* Estilo para hacer las filas cliqueables y activas */
+        #address-table tr {
+            cursor: pointer;
+            transition: background-color 0.1s;
+        }
+        #address-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        .address-row-active {
+            background-color: #e0eaf0; /* Color de fondo para la fila seleccionada */
+        }
+        #info-table td, #address-table td {
             padding: 10px 0; 
             border-bottom: 1px solid #eee;
         }
-        #info-table tr:last-child td {
+        #info-table tr:last-child td, #address-table tr:last-child td {
             border-bottom: none; 
         }
+        
+        /* Estilos de columnas reutilizables */
         .tel-col-icon {
             width: 40px; 
             text-align: center;
@@ -319,6 +343,33 @@
         .tel-col-number a {
             color: #2c3e50; /* Color de enlace distintivo */
             text-decoration: none;
+        }
+        
+        /* --- ESTILOS ESPECÍFICOS PARA LA TABLA DE DIRECCIONES --- */
+        .address-name {
+            font-weight: bold;
+            display: block;
+        }
+        .address-desc {
+            font-size: 0.9em;
+            color: #666;
+            display: block;
+        }
+        
+        /* --- ESTILOS ESPECÍFICOS PARA EL MAPA --- */
+        #map-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        #map-container h3 {
+            font-size: 1rem;
+            margin-top: 0;
+            color: #2c3e50;
         }
     </style>
 </head>
@@ -403,10 +454,10 @@
             </div>
             <div id="otros" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="info_wifi_titulo">Varios:</strong><br>
-                    <span data-key="info_wifi_desc">Texto otros</span>
+                    <strong data-key="otros_titulo">Varios:</strong><br>
+                    <span data-key="otros_desc">Texto otros</span>
                 </div>
-                <img data-key="info_wifi_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img">
+                <img data-key="otros_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img wifi-img-small">
             </div>
 
             <div class="sub-btn-group">
@@ -449,15 +500,29 @@
                     <strong data-key="info_info_titulo">Consejos Locales:</strong><br>
                     <span data-key="info_info_desc">Texto Info.</span>
                 </div>
-                <img data-key="info_info_img" src="images/info_tips_es.png" alt="Información práctica" class="appliance-img">
+                
+                <table id="address-table"></table> 
+                <div id="map-container">
+                    <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
+                    <iframe id="google-map-embed" 
+                            width="100%" 
+                            height="300" 
+                            frameborder="0" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer" 
+                            src="">
+                    </iframe>
+                </div>
             </div>
 
             <div id="info-wifi" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="info_wifi_titulo">Como conectarse al wifi:</strong><br>
-                    <span data-key="info_wifi_desc">Texto wifi.</span>
+                    <strong data-key="otros_titulo">Como conectarse al wifi:</strong><br>
+                    <span data-key="otros_desc">Texto wifi.</span>
                 </div>
-                <img data-key="info_wifi_img" src="images/wifi.jpg" alt="Código QR Wifi" class="appliance-img">
+                <img data-key="otros_img" src="images/wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
             </div>
 
             <div id="info-hospitals" class="sub-section">
@@ -470,24 +535,23 @@
 
             <div id="info-emergency" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="info_emergency_titulo">Hospitales:</strong><br>
-                    <p data-key="info_emergency_desc" style="margin-top: 0;"></p>
+                    <p data-key="info_intro" style="margin-top: 0;"></p>
                     <table id="info-table"></table>
                 </div>
             </div>
 
             <div class="sub-btn-group">
                 <button class="sub-btn active-info-practica" onclick="showPracticalInfo('info')">
-                    <img src="images/ic_info.png" class="btn-icon" alt="Info icon">
+                    <img src="images/ic_directions.png" class="btn-icon" alt="Direction icon">
                     <span data-key="sub_info">Info</span>
+                </button>
+                <button class="sub-btn" onclick="showPracticalInfo('emergency')">
+                    <img src="images/ic_telefono.png" class="btn-icon" alt="Emergency icon">
+                    <span data-key="sub_emergency">Emergencia</span>
                 </button>
                 <button class="sub-btn" onclick="showPracticalInfo('wifi')">
                     <img src="images/ic_wifi.png" class="btn-icon" alt="Wifi icon">
                     <span data-key="sub_otros">Wifi</span>
-                </button>
-                <button class="sub-btn" onclick="showPracticalInfo('emergency')">
-                    <img src="images/ic_emergencia.png" class="btn-icon" alt="Emergency icon">
-                    <span data-key="sub_emergency">Emergencia</span>
                 </button>
                 <button class="sub-btn" onclick="showPracticalInfo('hospitals')">
                     <img src="images/ic_hospital.png" class="btn-icon" alt="Hospital icon">
@@ -632,11 +696,16 @@
                 targetSection.style.display = 'block';
             }
             
-            // NEW: Recalcular la tabla de info práctica solo cuando se muestra Emergencia
+            // Recalcular la tabla de info práctica solo cuando se muestra Emergencia
             if (infoId === 'emergency') {
                 updateInfoTable();
             }
             
+            // Recalcular la tabla de direcciones y el mapa solo cuando se muestra Info
+            if (infoId === 'info') {
+                updateAddressTable();
+            }
+
             window.scrollTo(0, 0); // Ir al inicio de la sección
         }
 
@@ -658,9 +727,13 @@
                 showAppliance(currentAppliance);
             }
 
-            // NEW: Recalcular la tabla después de cambiar el idioma, por si la sección de emergencia está activa.
+            // Recalcular la tabla después de cambiar el idioma, por si la sección de emergencia está activa.
             if (document.getElementById('info-emergency').style.display === 'block') {
                 updateInfoTable();
+            }
+            // Recalcular la tabla de direcciones después de cambiar el idioma, por si la sección de info está activa.
+            if (document.getElementById('info-info').style.display === 'block') {
+                updateAddressTable();
             }
         }
 
@@ -688,8 +761,11 @@
             // Llama a la nueva función para actualizar la cuadrícula de la lavadora
             updateWasherGrid();
 
-            // --- NUEVO: Llama a la función para actualizar la tabla de info práctica ---
+            // Llama a la función para actualizar la tabla de info práctica
             updateInfoTable();
+            
+            // Llama a la función para actualizar la tabla de direcciones y el mapa
+            updateAddressTable();
         }
         
         // --- FUNCIONALIDAD DEL GRID DE LA LAVADORA Y EL MODAL ---
@@ -789,6 +865,104 @@
                 numberCell.className = 'tel-col-number';
                 numberCell.innerHTML = `<a href="tel:${number.replace(/<br>/g, '')}">${number}</a>`;
             });
+        }
+        
+        // --- NUEVA FUNCIONALIDAD DE LA TABLA DE DIRECCIONES Y MAPA ---
+        function updateAddressTable() {
+            const translations = (currentLang === 'es') ? ES : EN;
+            const table = document.getElementById('address-table');
+            if (!table) return; 
+
+            table.innerHTML = ''; 
+
+            // Estructura: [Icono, Clave de Nombre, Clave de Descripción, Clave de Teléfono (opcional), Query de Mapa (Nueva)]
+            // El Query de Mapa incluye la dirección para una búsqueda precisa en Google Maps
+            const addressData = [
+                ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia / San Sebastián, Gipuzkoa'],
+                ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia / San Sebastián, Gipuzkoa'], 
+                ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'De Francia Ibilbidea, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
+                ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia / San Sebastián, Gipuzkoa'],
+                ['🚕', 'addr_taxi2', 'addr_taxi2_desc', 'addr_taxi_tel', 'Padre Larroca Kalea, 1, 20001 Donostia / San Sebastián, Gipuzkoa'],
+                ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia / San Sebastián, Gipuzkoa'],
+                ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia / San Sebastián, Gipuzkoa'],
+                ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia / San Sebastián, Gipuzkoa'],
+                ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia / San Sebastián, Gipuzkoa']
+            ];
+
+            addressData.forEach(data => {
+                const [icon, nameKey, descKey, telKey, mapQuery] = data;
+                
+                const name = translations[nameKey] || nameKey;
+                const description = translations[descKey] || descKey;
+                const number = telKey ? (translations[telKey] || '') : '';
+                const phoneDisplay = number ? number : '';
+                // Quita todos los espacios para el enlace 'tel:'
+                const telLink = number ? number.replace(/ /g, '').replace(/<br>/g, '') : '';
+                
+                const row = table.insertRow();
+                
+                // Agregar manejador de clic a la fila, pasando la consulta de mapa y la fila
+                row.onclick = function() {
+                    showLocationOnMap(mapQuery, this);
+                };
+                
+                // Columna 1: Icono
+                const iconCell = row.insertCell(0);
+                iconCell.className = 'tel-col-icon';
+                iconCell.innerHTML = icon;
+
+                // Columna 2: Nombre y Dirección/Descripción
+                const nameCell = row.insertCell(1);
+                nameCell.className = 'address-col-text';
+                nameCell.innerHTML = `<span class="address-name">${name}</span><span class="address-desc">${description}</span>`;
+
+                // Columna 3: Número de Teléfono (con enlace si existe)
+                const numberCell = row.insertCell(2);
+                numberCell.className = 'tel-col-number';
+                if (number) {
+                    numberCell.innerHTML = `<a href="tel:${telLink}">${phoneDisplay}</a>`;
+                } else {
+                    numberCell.innerText = '';
+                }
+            });
+            
+            // Al cargar la tabla, inicializa el mapa con la primera dirección o un centro por defecto.
+            if (addressData.length > 0) {
+                showLocationOnMap(addressData[0][4], table.rows[0]);
+            }
+        }
+        
+        function showLocationOnMap(query, clickedRow) {
+            const translations = (currentLang === 'es') ? ES : EN; 
+            const mapIframe = document.getElementById('google-map-embed');
+            const mapTitle = document.querySelector('#map-container h3');
+            
+            // URL base para un mapa incrustado usando el parámetro 'q=' (query) para búsqueda
+            // 'z=15' para nivel de zoom 15, 'output=embed' para el iframe
+            const baseUrl = 'https://maps.google.com/maps?q=';
+            const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
+
+            mapIframe.src = finalUrl;
+            
+            // Resaltar la fila activa
+            const allRows = document.querySelectorAll('#address-table tr');
+            allRows.forEach(row => row.classList.remove('address-row-active'));
+            if (clickedRow) {
+                clickedRow.classList.add('address-row-active');
+            }
+
+            // Actualizar el título del mapa
+            if (clickedRow && mapTitle) {
+                const nameElement = clickedRow.querySelector('.address-name');
+                const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
+                if (nameElement) {
+                    mapTitle.innerText = `${baseTitle}${nameElement.innerText}`;
+                } else {
+                     mapTitle.innerText = translations['mapa_titulo'];
+                }
+            } else if (mapTitle) {
+                 mapTitle.innerText = translations['mapa_titulo'];
+            }
         }
     </script>
     
