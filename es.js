@@ -2,7 +2,7 @@ const ES = {
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
-    "btn_electro": "Cómo funcionan las cosas",
+    "btn_electro": "Cómo funcionan las cosas en casa",
     "btn_info": "Información Útil",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades",
@@ -14,7 +14,7 @@ const ES = {
     "sub_toldo": "Toldo",
     "sub_calefaccion": "Calefacción",
     "sub_persiana": "Persiana",
-    "sub_otros": "Wifi",
+    "sub_wifi": "Wifi",
 
     "lavadora_titulo": "Cómo utilizar la lavadora:",
     "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón '⏯' para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
@@ -73,9 +73,9 @@ const ES = {
     "addr_taxi2_desc": "Padre Larroca St, 1",
 
     // Content for 'Wifi' tab
-    "otros_titulo": "Cómo conectarse al wifi:",
-    "otros_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: WLAN-1L4N\n- Contraseña: IL74An5No9\n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
-    "otros_img": "images/wifi.jpg",
+    "wifi_titulo": "Cómo conectarse al wifi:",
+    "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: WLAN-1L4N\n- Contraseña: IL74An5No9\n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
+    "wifi_img": "images/QR_wifi.jpg",
     
     // Content for 'Hospitals' tab
     "info_hospitals_titulo": "Hospitales cercanos", // NEW

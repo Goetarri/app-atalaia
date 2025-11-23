@@ -452,13 +452,16 @@
                     <span data-key="persiana_desc">Texto persiana</span>
                 </div>
             </div>
-            <div id="otros" class="sub-section">
+            
+            <!-- WIFI COMENTADO PARA EVITAR QUE SEA VISIBLE
+            <div id="wifi" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="otros_titulo">Varios:</strong><br>
-                    <span data-key="otros_desc">Texto otros</span>
+                    <strong data-key="wifi_titulo">Varios:</strong><br>
+                    <span data-key="wifi_desc">Texto wifi</span>
                 </div>
-                <img data-key="otros_img" src="images/QR_wifi.jpg" alt="FOTO OTROS" class="appliance-img wifi-img-small">
+                <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="FOTO wifi" class="appliance-img wifi-img-small">
             </div>
+            -->
 
             <div class="sub-btn-group">
                 <button class="sub-btn active" onclick="showAppliance('lavadora')">
@@ -477,10 +480,13 @@
                     <img src="images/ic_persiana.png" class="btn-icon" alt="Blinds icon">
                     <span data-key="sub_persiana">Persiana</span>
                 </button>
-                <button class="sub-btn" onclick="showAppliance('otros')">
+
+                <!-- WIFI COMENTADO PARA EVITAR QUE SEA VISIBLE (si se descomenta, descomentar también la sección correspondiente arriba)
+                <button class="sub-btn" onclick="showAppliance('wifi')">
                     <img src="images/ic_wifi.png" class="btn-icon" alt="Other icon">
-                    <span data-key="sub_otros">Wifi</span>
+                    <span data-key="sub_wifi">Wifi</span>
                 </button>
+                -->
             </div>
         </div>
 
@@ -519,10 +525,10 @@
 
             <div id="info-wifi" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="otros_titulo">Como conectarse al wifi:</strong><br>
-                    <span data-key="otros_desc">Texto wifi.</span>
+                    <strong data-key="wifi_titulo">Como conectarse al wifi:</strong><br>
+                    <span data-key="wifi_desc">Texto wifi.</span>
                 </div>
-                <img data-key="otros_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
+                <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
             </div>
 
             <div id="info-hospitals" class="sub-section">
@@ -549,13 +555,13 @@
                     <img src="images/ic_telefono.png" class="btn-icon" alt="Emergency icon">
                     <span data-key="sub_emergency">Emergencia</span>
                 </button>
-                <button class="sub-btn" onclick="showPracticalInfo('wifi')">
-                    <img src="images/ic_wifi.png" class="btn-icon" alt="Wifi icon">
-                    <span data-key="sub_otros">Wifi</span>
-                </button>
                 <button class="sub-btn" onclick="showPracticalInfo('hospitals')">
                     <img src="images/ic_hospital.png" class="btn-icon" alt="Hospital icon">
                     <span data-key="sub_hospitals">Hospitales</span>
+                </button>
+                <button class="sub-btn" onclick="showPracticalInfo('wifi')">
+                    <img src="images/ic_wifi.png" class="btn-icon" alt="Wifi icon">
+                    <span data-key="sub_wifi">Wifi</span>
                 </button>
             </div>
         </div>
@@ -841,8 +847,7 @@
                 ['🚑', 'tel_ambulancia', '061'], 
                 ['🚓', 'tel_ertzaintza', '088'], 
                 ['🚔', 'tel_municipal', '092'], 
-                ['🔥', 'tel_bomberos', '080'],
-                ['🚕', 'tel_taxi', '943 464646<br>943 404040'] 
+                ['🔥', 'tel_bomberos', '080']
             ];
 
             infoData.forEach(data => {

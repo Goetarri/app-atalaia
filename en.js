@@ -14,7 +14,7 @@ const EN = {
     "sub_toldo": "Awning",
     "sub_calefaccion": "Heating",
     "sub_persiana": "Blinds",
-    "sub_otros": "Wifi",
+    "sub_wifi": "Wifi",
 
     "lavadora_titulo": "How to use the washer:",
     "lavadora_desc": "1. Empty pockets.\n2. Place clothes inside the drum.\n3. Add detergent pill inside the drum.\n4. Close the door.\n5. Select the program by turning the knob. Most common program is 'Sinteticos (synthetics)'.\n6. Select temperature and time. Pressing the 'Speed/Perfect' button reduces washing time.\n7. Press '⏯' button to start the washer.\n8. Once washing is finished, turn the knob back to the top (stop) position.\n9. Open the door and take out the clothes.",
@@ -26,7 +26,7 @@ const EN = {
 
 
 // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
-    "sub_info": "Info", // NEW
+    "sub_info": "Locations", // NEW
     "sub_emergency": "Emergency", // NEW
     "sub_hospitals": "Hospitals", // NEW
 
@@ -74,10 +74,10 @@ const EN = {
     "addr_taxi_desc": "Padre Larroca St, 1",
     "addr_taxi_tel": "+34 943 46 46 46\n+34 943 40 40 40",
 
-    // Content for 'Wifi' tab (using existing 'otros' keys for now)
-    "otros_titulo": "How to connect to the wifi network:",
-    "otros_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9.\nYou can also connect to the wifi by scanning the following QR code. If you find problems, please do not hesitate to contact us.",
-    "otros_img": "images/wifi.jpg",
+    // Content for 'Wifi' tab (using existing 'wifi' keys for now)
+    "wifi_titulo": "How to connect to the wifi network:",
+    "wifi_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9.\nYou can also connect to the wifi by scanning the following QR code. If you find problems, please do not hesitate to contact us.",
+    "wifi_img": "images/QR_wifi.jpg",
 
     // Content for 'Hospitals' tab
     "info_hospitals_titulo": "Nearby Hospitals", // NEW
