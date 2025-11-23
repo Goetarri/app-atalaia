@@ -24,8 +24,32 @@ const EN = {
         "images/wash_07_en.png", "images/wash_08_en.png", "images/wash_09_en.png"
     ],
 
-    "titulo_info": "Useful Phone Numbers",
-    "info_intro": "In case of emergency or need, here are the most important contact numbers in the area:",
+
+// --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
+    "sub_info": "Info", // NEW
+    "sub_emergency": "Emergency", // NEW
+    "sub_hospitals": "Hospitals", // NEW
+
+    "titulo_info": "Practical Information", // Title for the main screen
+    
+    // Content for 'Info' tab
+    "info_info_titulo": "Local Tips", // NEW
+    "info_info_desc": "Tap water is drinkable, but some guests prefer bottled water.\nRemember to turn off lights and the air conditioning when leaving the flat.\nCheck-out time is strictly at 11:00 AM.", // NEW, combining old tips
+    "info_info_img": "images/info_tips_en.png", // NEW placeholder image
+
+    // Content for 'Wifi' tab (using existing 'otros' content)
+    "info_wifi_titulo": "How to connect to the wifi network:",
+    "info_wifi_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9.\nYou can also connect to the wifi by scanning the following QR code. Should tou have problems, please do not hesitate to contact us.",
+    "info_wifi_img": "images/wifi.jpg",
+
+    // Content for 'Emergency' tab (using existing 'titulo_info' and table structure)
+    "info_emergency_titulo": "Useful Phone Numbers", // NEW
+    "info_emergency_desc": "In case of emergency or need, here are the most important contact numbers in the area:",
+
+    // Content for 'Hospitals' tab
+    "info_hospitals_titulo": "Closest Hospitals and Medical Centers", // NEW
+    "info_hospitals_desc": "For non-emergencies, you can visit the local medical center.\nFor serious emergencies, the closest hospital is Hospital Universitario Donostia (about 15 minutes by car).\n\n**Hospital Universitario Donostia**\n*Address: Paseo Dr. Beguiristain, s/n*\n*Phone: +34 943 00 70 00*", // NEW
+    "info_hospitals_img": "images/hospital_en.png", // NEW placeholder image
 
     "tel_emergencias": "Emergency",
     "tel_ambulancia": "Ambulance",

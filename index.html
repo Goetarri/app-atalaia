@@ -86,22 +86,7 @@
             z-index: 50;             /* Asegura que quede por encima del contenido que se desplaza */
         }
 
-        /* --- CLASE DE SUB-BOTONES PRINCIPAL (NUEVA BARRA FIJA) --- */
-        .sub-btn-group {
-            /* Hacemos la barra fija en la parte inferior */
-            position: fixed; 
-            bottom: 0; 
-            left: 0;
-            width: 100%;
-            display: flex; /* Permite que los botones se repartan el espacio */
-            background-color: #2c3e50; /* Color de fondo similar al header */
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-            z-index: 90; /* Asegura que esté sobre el contenido */
-            padding: 0; /* Elimina padding que pudiera causar separación */
-        }
-
-        /* --- ESTILOS DE BOTONES INDIVIDUALES --- */
-/* --- CLASE DE SUB-BOTONES PRINCIPAL (Barra Fija) --- */
+        /* --- CLASE DE SUB-BOTONES PRINCIPAL (Barra Fija) --- */
         .sub-btn-group {
             position: fixed; 
             bottom: 0; 
@@ -293,6 +278,21 @@
         }
 
         /* --- ESTILOS PARA LA TABLA DE INFORMACIÓN PRÁCTICA --- */
+        /* Aseguramos que el contenido sea desplazable */
+        /* ... (Existing rules for #appliances .container) ... */
+        /* NUEVA REGLA para la barra fija de info-practica */
+        #info-practica .container {
+            padding-bottom: 70px; /* Deja espacio para la barra de 60px + un poco de margen */
+        }
+
+        /* --- Estilo de la nueva clase activa para info-practica (usará los mismos estilos de .sub-btn.active) --- */
+        .sub-btn.active-info-practica { 
+            background-color: #2c3e50;
+            color: white;
+        }
+        .sub-btn.active-info-practica .btn-icon {
+            filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
+        }
         #info-table {
             width: 100%;
             border-collapse: collapse; 
@@ -319,47 +319,6 @@
         .tel-col-number a {
             color: #2c3e50; /* Color de enlace distintivo */
             text-decoration: none;
-        }
-
-        // --- FUNCIONALIDAD DE LA TABLA DE TELÉFONOS ---
-
-        function updateInfoTable() {
-            const translations = (currentLang === 'es') ? ES : EN;
-            const table = document.getElementById('info-table');
-            if (!table) return; 
-
-            table.innerHTML = ''; 
-
-            // Estructura: [Icono, Clave de Traducción, Número de Teléfono]
-            const infoData = [
-                ['🚨', 'tel_emergencias', '112'], 
-                ['🚑', 'tel_ambulancia', '112'], 
-                ['🚓', 'tel_ertzaintza', '112'], 
-                ['🚔', 'tel_municipal', '092'], 
-                ['🔥', 'tel_bomberos', '080'],
-                ['🚕', 'tel_taxi', '943404040'] // Número de taxi de ejemplo
-            ];
-
-            infoData.forEach(data => {
-                const [icon, key, number] = data;
-                const serviceName = translations[key] || key;
-                
-                const row = table.insertRow();
-                
-                // Columna 1: Icono
-                const iconCell = row.insertCell(0);
-                iconCell.className = 'tel-col-icon';
-                iconCell.innerHTML = icon;
-
-                // Columna 2: Nombre del Servicio
-                const nameCell = row.insertCell(1);
-                nameCell.innerText = serviceName;
-
-                // Columna 3: Número y Enlace de Llamada
-                const numberCell = row.insertCell(2);
-                numberCell.className = 'tel-col-number';
-                numberCell.innerHTML = `<a href="tel:${number}">${number}</a>`;
-            });
         }
     </style>
 </head>
@@ -408,10 +367,10 @@
                     <span data-key="btn_atras"></span>
                 </button>
 
-                <h2 data-key="titulo_electro">Electrodomésticos</h2>
+                <h2 data-key="titulo_electro">Instrucciones</h2>
             </div>
             <hr>
-            <div id="lavadora" class="sub-section visible">
+            <div id="lavadora" class="sub-section"> 
                 <div class="text-frame">
                     <strong data-key="lavadora_titulo">Cómo usar:</strong><br>
                     <span data-key="lavadora_desc">Texto lavadora</span>
@@ -444,14 +403,14 @@
             </div>
             <div id="otros" class="sub-section">
                 <div class="text-frame">
-                    <strong data-key="otros_titulo">Varios:</strong><br>
-                    <span data-key="otros_desc">Texto otros</span>
+                    <strong data-key="info_wifi_titulo">Varios:</strong><br>
+                    <span data-key="info_wifi_desc">Texto otros</span>
                 </div>
-                <img data-key="otros_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img">
+                <img data-key="info_wifi_img" src="images/wifi.jpg" alt="FOTO OTROS" class="appliance-img">
             </div>
 
             <div class="sub-btn-group">
-                <button class="sub-btn" onclick="showAppliance('lavadora')">
+                <button class="sub-btn active" onclick="showAppliance('lavadora')">
                     <img src="images/ic_lavadora.png" class="btn-icon" alt="Washer icon">
                     <span data-key="sub_lavadora">Lavadora</span>
                 </button>
@@ -481,15 +440,59 @@
                     <span data-key="btn_atras"></span>
                 </button>
 
-                <h2 data-key="titulo_info">Teléfonos de Interés</h2>
+                <h2 data-key="titulo_info">Teléfonos de Interés</h2> 
             </div>
             <hr>
             
-            <div class="text-frame">
-                <p data-key="info_intro" style="margin-top: 0;"></p>
-                
-                <table id="info-table">
-                    </table>
+            <div id="info-info" class="sub-section visible-info-practica">
+                <div class="text-frame">
+                    <strong data-key="info_info_titulo">Consejos Locales:</strong><br>
+                    <span data-key="info_info_desc">Texto Info.</span>
+                </div>
+                <img data-key="info_info_img" src="images/info_tips_es.png" alt="Información práctica" class="appliance-img">
+            </div>
+
+            <div id="info-wifi" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="info_wifi_titulo">Como conectarse al wifi:</strong><br>
+                    <span data-key="info_wifi_desc">Texto wifi.</span>
+                </div>
+                <img data-key="info_wifi_img" src="images/wifi.jpg" alt="Código QR Wifi" class="appliance-img">
+            </div>
+
+            <div id="info-hospitals" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="info_hospitals_titulo">Hospitales:</strong><br>
+                    <span data-key="info_hospitals_desc">Texto hospitales.</span>
+                </div>
+                <img data-key="info_hospitals_img" src="images/hospital_es.png" alt="Hospital" class="appliance-img">
+            </div>
+
+            <div id="info-emergency" class="sub-section">
+                <div class="text-frame">
+                    <strong data-key="info_emergency_titulo">Hospitales:</strong><br>
+                    <p data-key="info_emergency_desc" style="margin-top: 0;"></p>
+                    <table id="info-table"></table>
+                </div>
+            </div>
+
+            <div class="sub-btn-group">
+                <button class="sub-btn active-info-practica" onclick="showPracticalInfo('info')">
+                    <img src="images/ic_info.png" class="btn-icon" alt="Info icon">
+                    <span data-key="sub_info">Info</span>
+                </button>
+                <button class="sub-btn" onclick="showPracticalInfo('wifi')">
+                    <img src="images/ic_wifi.png" class="btn-icon" alt="Wifi icon">
+                    <span data-key="sub_otros">Wifi</span>
+                </button>
+                <button class="sub-btn" onclick="showPracticalInfo('emergency')">
+                    <img src="images/ic_emergencia.png" class="btn-icon" alt="Emergency icon">
+                    <span data-key="sub_emergency">Emergencia</span>
+                </button>
+                <button class="sub-btn" onclick="showPracticalInfo('hospitals')">
+                    <img src="images/ic_hospital.png" class="btn-icon" alt="Hospital icon">
+                    <span data-key="sub_hospitals">Hospitales</span>
+                </button>
             </div>
         </div>
 
@@ -497,7 +500,7 @@
             <div class="header-row">
                 <button class="back-btn" onclick="showSection('home')">
                     <span class="arrow-icon">⬅</span>
-                    <data-key="btn_atras"></span>
+                    <span data-key="btn_atras"></span>
                 </button>
 
                 <h2 data-key="titulo_restaurantes">Restaurantes</h2>
@@ -544,14 +547,11 @@
     <script src="es.js"></script>
     <script src="en.js"></script>
 
-    <script src="es.js"></script>
-    <script src="en.js"></script>
-
     <script>
         let currentLang = 'es'; 
         let currentImageIndex = 0; // NUEVA variable para rastrear la imagen actual
         let currentImagePaths = []; // NUEVA variable para el array de rutas
-        let currentAppliance = 'lavadora';
+        let currentAppliance = 'lavadora'; // Variable para rastrear el electrodoméstico activo
 
         document.addEventListener('DOMContentLoaded', () => { updateText(); });
 
@@ -560,52 +560,84 @@
             screens.forEach(screen => screen.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
             window.scrollTo(0,0);
+            
+            // FIX: Asegura que 'lavadora' sea seleccionada por defecto al entrar en Electrodomésticos.
+            if (sectionId === 'appliances') {
+                showAppliance('lavadora');
+            }
+
+            // Mantiene el comportamiento anterior para 'info-practica'
+            if (sectionId === 'info-practica') {
+                showPracticalInfo('info');
+            }
         }
 
         function showAppliance(applianceId) {
             
-            // 1. GESTIÓN DE CLASES (CORRECCIÓN CRÍTICA)
-            
-            // a. Obtener todos los botones de la barra inferior
-            const buttons = document.querySelectorAll('.sub-btn-group .sub-btn');
-            
-            // b. Desactivar todos los botones
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
+            // 1. GESTIÓN DE CLASES (Toolbar Buttons)
+            // SCOPE: Seleccionar solo los botones dentro de la barra de #appliances
+            const buttons = document.querySelectorAll('#appliances .sub-btn-group .sub-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
 
-            // c. Activar el botón correcto
-            // Se busca el botón que tiene el onclick con el ID de electrodoméstico correcto
-            const activeButton = document.querySelector(`.sub-btn[onclick*="'${applianceId}'"]`);
+            // Activar el botón correcto
+            const activeButton = document.querySelector(`#appliances .sub-btn[onclick*="'${applianceId}'"]`);
             if (activeButton) {
                 activeButton.classList.add('active');
             }
-
-            // 2. CARGA DEL CONTENIDO
-            currentAppliance = applianceId;
-            const translations = (currentLang === 'es') ? ES : EN;
-            const contentDiv = document.getElementById('appliance-content');
-            contentDiv.innerHTML = ''; // Limpiar contenido anterior
-
-            const titleKey = `sub_${applianceId}`;
-            const descKey = `${applianceId}_desc`;
-            const imgKey = `${applianceId}_img`;
             
-            contentDiv.innerHTML += `<h3 data-key="${titleKey}">${translations[titleKey] || titleKey}</h3>`;
+            // 2. GESTIÓN DE SECCIONES (Content Blocks)
+            // SCOPE: Seleccionar todas las sub-secciones dentro de #appliances
+            const subSections = document.querySelectorAll('#appliances .sub-section');
             
-            // Reemplazar \n por <br> para saltos de línea en la descripción
-            const descContent = translations[descKey] ? translations[descKey].replace(/\\n/g, '<br>') : descKey;
-            contentDiv.innerHTML += `<p>${descContent}</p>`;
-
-            // Si es lavadora, cargar la cuadrícula de imágenes
-            if (applianceId === 'lavadora') {
-                contentDiv.innerHTML += '<div id="washer-grid" class="image-grid"></div>';
-                updateWasherGrid();
-            } 
-            // Si no es lavadora, cargar imagen simple (toldo, calefaccion, etc.)
-            else if (translations[imgKey]) {
-                contentDiv.innerHTML += `<img src="${translations[imgKey]}" class="full-width-img" alt="${applianceId} illustration">`;
+            // Ocultar todas las sub-secciones
+            subSections.forEach(section => section.classList.remove('visible'));
+            
+            // Mostrar la sección correcta
+            const targetSection = document.getElementById(applianceId);
+            if (targetSection) {
+                targetSection.classList.add('visible');
             }
+
+            // Se mantiene el seguimiento del electrodoméstico activo
+            currentAppliance = applianceId; 
+
+            // Recalcular la cuadrícula de la lavadora si es necesario
+            if (applianceId === 'lavadora') {
+                updateWasherGrid();
+            }
+            
+            window.scrollTo(0, 0); 
+        }
+
+        function showPracticalInfo(infoId) {
+            // 1. GESTIÓN DE CLASES (Toolbar Buttons)
+            const buttons = document.querySelectorAll('#info-practica .sub-btn-group .sub-btn');
+            buttons.forEach(btn => btn.classList.remove('active-info-practica'));
+
+            // Buscar el botón correcto por su atributo onclick o data-key para activarlo
+            const activeButton = document.querySelector(`#info-practica .sub-btn[onclick*="'${infoId}'"]`);
+            if (activeButton) {
+                activeButton.classList.add('active-info-practica');
+            }
+
+            // 2. GESTIÓN DE SECCIONES (Content Blocks)
+            const subSections = document.querySelectorAll('#info-practica .sub-section');
+            subSections.forEach(section => section.classList.remove('visible-info-practica'));
+            subSections.forEach(section => section.style.display = 'none'); // Ocultar todos
+
+            // Mostrar la sección correcta
+            const targetSection = document.getElementById(`info-${infoId}`);
+            if (targetSection) {
+                targetSection.classList.add('visible-info-practica');
+                targetSection.style.display = 'block';
+            }
+            
+            // NEW: Recalcular la tabla de info práctica solo cuando se muestra Emergencia
+            if (infoId === 'emergency') {
+                updateInfoTable();
+            }
+            
+            window.scrollTo(0, 0); // Ir al inicio de la sección
         }
 
         function toggleLanguage() {
@@ -617,6 +649,19 @@
                 document.getElementById('lang-btn').innerText = 'EN 🇬🇧';
             }
             updateText();
+            // Se elimina la llamada redundante a updateText()
+            
+            // RE-DISPLAY CURRENTLY ACTIVE APPLIANCE TO UPDATE TEXT
+            const appliancesScreen = document.getElementById('appliances');
+            if (appliancesScreen.classList.contains('active')) {
+                // Llama a showAppliance con el último electrodoméstico activo para refrescar su texto e imagen.
+                showAppliance(currentAppliance);
+            }
+
+            // NEW: Recalcular la tabla después de cambiar el idioma, por si la sección de emergencia está activa.
+            if (document.getElementById('info-emergency').style.display === 'block') {
+                updateInfoTable();
+            }
         }
 
         function updateText() {
@@ -630,10 +675,11 @@
                     const value = translations[key];
 
                     // **IMPORTANTE**: Saltamos el manejo de IMG general y 'lavadora_img' aquí,
-                    // ya que ahora se manejará con updateWasherGrid.
+                    // ya que ahora se manejará con updateWasherGrid y showAppliance.
                     if (el.tagName === 'IMG' && key !== 'lavadora_img') {
                         el.src = value;
                     } else if (key !== 'lavadora_img') { 
+                        // Permite saltos de línea en el texto (ya gestionado por el CSS white-space: pre-line)
                         el.innerText = value;
                     }
                 }
@@ -692,7 +738,8 @@
         // --- REGISTRO DEL SERVICE WORKER (PWA) ---
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                showAppliance('lavadora'); // Mostrar lavadora por defecto al cargar
+                // Se elimina la llamada a showAppliance('lavadora') aquí.
+                // Ahora se llama en showSection('appliances') cuando el usuario navega.
                 navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registrado con éxito: ', registration.scope);
@@ -719,7 +766,7 @@
                 ['🚓', 'tel_ertzaintza', '088'], 
                 ['🚔', 'tel_municipal', '092'], 
                 ['🔥', 'tel_bomberos', '080'],
-                ['🚕', 'tel_taxi', '943 464646<br>943 404040'] // Número de taxi de ejemplo
+                ['🚕', 'tel_taxi', '943 464646<br>943 404040'] 
             ];
 
             infoData.forEach(data => {
@@ -740,7 +787,7 @@
                 // Columna 3: Número y Enlace de Llamada
                 const numberCell = row.insertCell(2);
                 numberCell.className = 'tel-col-number';
-                numberCell.innerHTML = `<a href="tel:${number}">${number}</a>`;
+                numberCell.innerHTML = `<a href="tel:${number.replace(/<br>/g, '')}">${number}</a>`;
             });
         }
     </script>

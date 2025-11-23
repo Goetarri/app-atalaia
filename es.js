@@ -3,7 +3,7 @@ const ES = {
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
     "btn_electro": "Como funciona todo en casa",
-    "btn_info": "Información Práctica",
+    "btn_info": "Información Útil",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades",
     "btn_tips": "Consejos",
@@ -24,7 +24,33 @@ const ES = {
         "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
     ],
 
-    "titulo_info": "Teléfonos de Interés",
+    // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
+    "sub_info": "Info", // NEW
+    "sub_emergency": "Emergencia", // NEW
+    "sub_hospitals": "Hospitales", // NEW
+
+    "titulo_info": "Información Útil", // Title for the main screen
+
+    // Content for 'Info' tab
+    "info_info_titulo": "Consejos Locales", // NEW
+    "info_info_desc": "El agua del grifo es potable, aunque algunos huéspedes prefieren embotellada.\nRecordar apagar las luces y el aire acondicionado al salir del apartamento.\nLa hora de check-out es estrictamente a las 11:00h.", // NEW, combining old tips
+    "info_info_img": "images/info_tips_es.png", // NEW placeholder image
+
+    // Content for 'Wifi' tab (using existing 'otros' content)
+    "info_wifi_titulo": "Como conectarse al wifi:",
+    "info_wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: WLAN-1L4N\n- Contraseña: IL74An5No9\n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
+    "info_wifi_img": "images/wifi.jpg",
+
+    // Content for 'Emergency' tab (using existing 'titulo_info' and table structure)
+    "info_emergency_titulo": "Teléfonos de interés", // NEW
+    "info_emergency_desc": "En caso de emergencia o necesidad, aquí teneis los números de contacto más importantes de la zona:",
+
+    // Content for 'Hospitals' tab
+    "info_hospitals_titulo": "Hospitales y Centros Médicos Cercanos", // NEW
+    "info_hospitals_desc": "Para no emergencias, pueden acudir al centro médico local.\nPara emergencias graves, el hospital más cercano es el Hospital Universitario Donostia (a unos 15 minutos en coche).\n\n**Hospital Universitario Donostia**\n*Dirección: Paseo Dr. Beguiristain, s/n*\n*Teléfono: +34 943 00 70 00*", // NEW
+    "info_hospitals_img": "images/hospital_es.png", // NEW placeholder image
+
+    // Content for 'Emergency' tab (using existing 'titulo_info' and table structure)
     "info_intro": "En caso de emergencia o necesidad, aquí teneis los números de contacto más importantes de la zona:",
 
     "tel_emergencias": "Emergencias",
