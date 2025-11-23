@@ -19,7 +19,7 @@ const urlsToCache = [
   './images/heating_en.png',
   './images/persiana_es.png',
   './images/persiana_en.png',
-  './images/wifi.jpg',
+  './images/QR_wifi.jpg',
   './images/wash_01_es.png',
   './images/wash_02_es.png',
   './images/wash_03_es.png',
