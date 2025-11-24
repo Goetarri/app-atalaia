@@ -26,16 +26,16 @@ const EN = {
 
 
 // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
-    "sub_info": "Locations", // NEW
-    "sub_emergency": "Emergency", // NEW
-    "sub_hospitals": "Hospitals", // NEW
+    "sub_info": "Locations", 
+    "sub_emergency": "Emergency", 
+    "sub_hospitals": "Hospitals", 
 
     "titulo_info": "Practical Information", // Title for the main screen
     
     // Content for 'Info' tab
     "info_info_titulo": "Directions:", // NEW
     "info_info_desc": "The table below shows point of interest around the city. Pressing on any of them will show you it's location on the map.", // NEW, combining old tips
-    "mapa_titulo": "Click on an address to view it on the map.", // NUEVA CLAVE
+    "mapa_titulo": "Click on an address to view it on the map.",
 
     // --- NEW KEYS FOR ADDRESS TABLE ---
     "addr_home": "Atalaia Terrace",
@@ -44,19 +44,19 @@ const EN = {
 
     "addr_ambulatorio": "Gros Ambulatory Center",
     "addr_ambulatorio_desc": "Navarra Av., 14",
-    "addr_ambulatorio_tel": "+34 943 00 79 09",
+    "addr_ambulatorio_tel": "943 00 79 09",
 
     "addr_hospital": "Donostia Central Hospital",
     "addr_hospital_desc": "Beguiristain Doktorea Pkwy.",
-    "addr_hospital_tel": "+34 943 00 70 00",
+    "addr_hospital_tel": "943 00 70 00",
 
     "addr_pharmacy": "Closest Pharmacy:<br>Cabezudo Pharmacy",
     "addr_pharmacy_desc": "San Francisco St, 54",
-    "addr_pharmacy_tel": "+34 943 27 54 48",
+    "addr_pharmacy_tel": "943 27 54 48",
 
-    "addr_pharmacy24H": "24H Pharmacy:<br>Plaza Guipuzcoa Pharmacy",
+    "addr_pharmacy24H": "24H Pharmacy: Plaza Guipuzcoa",
     "addr_pharmacy24H_desc": "Idiakez St, 4",
-    "addr_pharmacy24H_tel": "+34 943 42 70 50",
+    "addr_pharmacy24H_tel": "943 42 70 50",
 
     "addr_train": "Central Train Station<br>(Adif - Renfe)",
     "addr_train_desc": "Francia Av, 22",
@@ -79,9 +79,9 @@ const EN = {
     "wifi_img": "images/QR_wifi.jpg",
 
     // Content for 'Hospitals' tab
-    "info_hospitals_titulo": "Nearby Hospitals", // NEW
+    "info_hospitals_titulo": "Nearby Hospitals",
     "info_hospitals_desc": "Donostia University Hospital (HULD):\n- Address: P.º Dr. Beguiristain, 117\n- Phone: +34 943 00 70 00\n\nQuirónsalud Donostia:\n- Address: P.º Dr. Beguiristain, 105\n- Phone: +34 943 47 41 90", // NEW
-    "info_hospitals_img": "images/hospital_en.png", // NEW placeholder image
+    "info_hospitals_img": "images/hospital_en.png", 
 
     // Content for 'Emergency' tab
     "info_intro": "Free emergency calls from any phone:",

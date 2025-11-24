@@ -25,16 +25,15 @@ const ES = {
     ],
 
     // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
-    "sub_info": "Direcciones", // NEW
-    "sub_emergency": "Teléfonos", // NEW
-    "sub_hospitals": "Hospitales", // NEW
+    "sub_info": "Direcciones", 
+    "sub_emergency": "Teléfonos", 
 
     "titulo_info": "Información Útil", // Title for the main screen
 
     // Content for 'Info' tab
-    "info_info_titulo": "Direcciones:", // NEW
+    "info_info_titulo": "Direcciones:", 
     "info_info_desc": "En la siguiente tabla podeis encontar las direcciones de diferentes puntos de interés de la ciudad. Pulsando en cualquiera de ellas podrás ver su ubicación. ", // NEW, combining old tips
-    "mapa_titulo": "Haz clic en una dirección para verla en el mapa.", // NUEVA CLAVE
+    "mapa_titulo": "Haz clic en una dirección para verla en el mapa.", 
 
     // --- NEW KEYS FOR ADDRESS TABLE ---
     "addr_home": "Atalaia Terrace",
@@ -43,19 +42,19 @@ const ES = {
 
     "addr_ambulatorio": "Ambulatorio de Gros",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
-    "addr_ambulatorio_tel": "+34 943 00 79 09",
+    "addr_ambulatorio_tel": "943 00 79 09",
 
     "addr_hospital": "Hospital Donostia",
     "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
-    "addr_hospital_tel": "+34 943 00 70 00",
+    "addr_hospital_tel": "943 00 70 00",
 
-    "addr_pharmacy": "Farmacia Cabezudo (más cercana)",
+    "addr_pharmacy": "Farmacia Cabezudo",
     "addr_pharmacy_desc": "C/ San Francisco, 54",
-    "addr_pharmacy_tel": "+34 943 42 70 50",
+    "addr_pharmacy_tel": "943 42 70 50",
 
-    "addr_pharmacy24H": "Farmacia 24H Plaza Guipuzcoa",
+    "addr_pharmacy24H": "Farmacia 24H: Plaza Guipuzcoa",
     "addr_pharmacy24H_desc": "C/ Idiakez, 4",
-    "addr_pharmacy24H_tel": "+34 943 42 70 50",
+    "addr_pharmacy24H_tel": "943 42 70 50",
 
     "addr_train": "Estación de Tren (Adif - Renfe)",
     "addr_train_desc": "Pº de Francia, 22",
@@ -65,9 +64,9 @@ const ES = {
     "addr_bus_desc": "Pº Federico García Lorca, 1",
     "addr_bus_tel": "",
 
-    "addr_taxi": "Parada de Taxi Paseo de Colon",
+    "addr_taxi": "Parada de Taxi",
     "addr_taxi_desc": "Paseo de Colon, 16-20",
-    "addr_taxi_tel": "+34 943 46 46 46<br>+34 943 40 40 40",
+    "addr_taxi_tel": "943 46 46 46<br>943 40 40 40",
 
     //"addr_taxi2": "Parada de Taxi Padre Larroca",
     //"addr_taxi2_desc": "Padre Larroca St, 1",
@@ -78,9 +77,9 @@ const ES = {
     "wifi_img": "images/QR_wifi.jpg",
     
     // Content for 'Hospitals' tab
-    "info_hospitals_titulo": "Hospitales cercanos", // NEW
+    "info_hospitals_titulo": "Hospitales cercanos", 
     "info_hospitals_desc": "Hospital Universitario Donostia (HULD):\n- Dirección: P.º Dr. Beguiristain, 117\n- Teléfono: +34 943 00 70 00\n\nQuirónsalud Donostia:\n- Dirección: P.º Dr. Beguiristain, 105\n- Teléfono: +34 943 47 41 90", // NEW
-    "info_hospitals_img": "images/hospital_es.png", // NEW placeholder image
+    "info_hospitals_img": "images/hospital_es.png", 
 
     // Content for 'Emergency' tab
     "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",
