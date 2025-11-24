@@ -24,7 +24,15 @@
         }
         h1 { margin: 0; font-size: 1.2rem; }
         #lang-btn { background-color: #050d2e; border: none; color: white; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
-        .container { padding: 20px; max-width: 600px; margin: 0 auto; padding-bottom: 50px; }
+
+        .container { 
+            /* Cambia esto: */
+            padding: 10px 20px; /* Antes era 20px */
+            
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding-bottom: 50px; 
+        }
         
         /* PANTALLAS */
         .screen { display: none; animation: fadeIn 0.3s; }
@@ -61,7 +69,7 @@
             position: sticky; 
             top: 60px; 
             background-color: #f4f4f9; 
-            padding-top: 20px;       
+            padding-top: 5px;       
             z-index: 90;             
         }
         .header-row h2 { margin: 0; font-size: 1.4rem; }
@@ -274,7 +282,6 @@
             filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
         }
 
-        /* CAMBIO: Añadido #hospital-table a los selectores */
         #info-table, #address-table, #hospital-table {
             width: 100%;
             border-collapse: collapse; 
@@ -284,7 +291,7 @@
             margin-bottom: 15px; 
         }
         
-        /* Estilo para hacer las filas cliqueables y activas (Añadido #hospital-table) */
+        /* Estilo para hacer las filas cliqueables y activas */
         #address-table tr, #hospital-table tr {
             cursor: pointer;
             transition: background-color 0.1s;
@@ -297,7 +304,6 @@
             background-color: #e0eaf0; 
         }
 
-        /* CAMBIO: Añadido #hospital-table td a los selectores */
         #info-table td, #address-table td, #hospital-table td {
             padding: 10px 0; 
             border-bottom: 1px solid #eee;
@@ -331,7 +337,7 @@
             display: block;
         }
         
-        #map-container {
+        #map-container, #hospital-map-container {
             margin-top: 20px;
             padding: 15px;
             background-color: white; 
@@ -340,7 +346,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             text-align: center;
         }
-        #map-container h3 {
+        #map-container h3, #hospital-map-container h3 {
             font-size: 1rem;
             margin-top: 0;
             color: #2c3e50;
@@ -493,17 +499,8 @@
                     <strong data-key="info_hospitals_titulo">Hospitales:</strong><br>
                     <span data-key="info_hospitals_desc">Texto hospitales.</span>
                 </div>
-                <img data-key="info_hospitals_img" src="images/hospital_es.png" alt="Hospital" class="appliance-img">
-            </div>
-
-            <div id="info-emergency" class="sub-section">
-                <div class="text-frame">
-                    <p data-key="info_intro" style="margin-top: 0;"></p>
-                    <table id="info-table"></table>
-
-                </div>
-                <!-- CAMBIO: Nueva tabla añadida aquí -->
                 <table id="hospital-table"></table>
+               
                 <div id="hospital-map-container">
                     <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
                     <iframe id="google-map-embed-hospital" 
@@ -519,14 +516,21 @@
                 </div>
             </div>
 
+            <div id="info-emergency" class="sub-section">
+                <div class="text-frame">
+                    <p data-key="info_intro" style="margin-top: 0;"></p>
+                    <table id="info-table"></table>
+                </div>
+            </div>
+
             <div class="sub-btn-group">
-                <button class="sub-btn active-info-practica" onclick="showPracticalInfo('info')">
-                    <img src="images/ic_directions.png" class="btn-icon" alt="Direction icon">
-                    <span data-key="sub_info">Info</span>
-                </button>
                 <button class="sub-btn" onclick="showPracticalInfo('emergency')">
                     <img src="images/ic_telefono.png" class="btn-icon" alt="Emergency icon">
                     <span data-key="sub_emergency">Emergencia</span>
+                </button>
+                <button class="sub-btn active-info-practica" onclick="showPracticalInfo('info')">
+                    <img src="images/ic_directions.png" class="btn-icon" alt="Direction icon">
+                    <span data-key="sub_info">Info</span>
                 </button>
                 <button class="sub-btn" onclick="showPracticalInfo('hospitals')">
                     <img src="images/ic_hospital.png" class="btn-icon" alt="Hospital icon">
@@ -609,7 +613,7 @@
             }
 
             if (sectionId === 'info-practica') {
-                showPracticalInfo('info');
+                showPracticalInfo('emergency');
             }
         }
 
@@ -660,6 +664,9 @@
             
             if (infoId === 'emergency') {
                 updateInfoTable();
+            }
+            // CAMBIO: Ahora actualizamos hospitales cuando se selecciona 'hospitals'
+            if (infoId === 'hospitals') {
                 updateHospitalTable();
             }
             
@@ -687,6 +694,9 @@
 
             if (document.getElementById('info-emergency').style.display === 'block') {
                 updateInfoTable();
+            }
+            // CAMBIO: Chequeamos si la sección visible es hospitales
+            if (document.getElementById('info-hospitals').style.display === 'block') {
                 updateHospitalTable();
             }
             if (document.getElementById('info-info').style.display === 'block') {
@@ -714,7 +724,7 @@
             
             updateWasherGrid();
             updateInfoTable();
-            updateHospitalTable(); // CAMBIO: Añadido aquí
+            updateHospitalTable(); 
             updateAddressTable();
         }
         
@@ -850,9 +860,8 @@
                 }
             });
 
-            // ******* CAMBIO CLAVE PARA INICIALIZACIÓN IDÉNTICA *******
-            // Inicializar el mapa con el primer elemento si la sección está visible
-            if (hospitalData.length > 0 && document.getElementById('info-emergency').classList.contains('visible-info-practica')) {
+            // CAMBIO CLAVE: Comprobar ahora si 'info-hospitals' es la visible para inicializar el mapa
+            if (hospitalData.length > 0 && document.getElementById('info-hospitals').classList.contains('visible-info-practica')) {
                 // Llama a la función para mostrar el primer hospital y resaltarlo
                 showHospitalLocationOnMap(hospitalData[0][4], table.rows[0], translations[hospitalData[0][1]]);
             }
@@ -866,13 +875,11 @@
 
             table.innerHTML = ''; 
 
-            // CAMBIO: Se han eliminado 'addr_ambulatorio' y 'addr_hospital' de aquí
             const addressData = [
                 ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia / San Sebastián, Gipuzkoa'],
                 ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia / San Sebastián, Gipuzkoa'], 
                 ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'De Francia Ibilbidea, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
                 ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia / San Sebastián, Gipuzkoa'],
-                //['🚕', 'addr_taxi2', 'addr_taxi2_desc', 'addr_taxi_tel', 'Padre Larroca Kalea, 1, 20001 Donostia / San Sebastián, Gipuzkoa'],
                 // MOVIDO: Hospital y Ambulatorio ahora están en updateHospitalTable
                 ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia / San Sebastián, Gipuzkoa'],
                 ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia / San Sebastián, Gipuzkoa']
@@ -949,20 +956,17 @@
             const mapIframe = document.getElementById('google-map-embed-hospital'); 
             const mapTitle = document.querySelector('#hospital-map-container h3'); 
             
-            // Usamos la misma base URL que la otra función
             const baseUrl = 'https://maps.google.com/maps?q=';
             const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
 
             mapIframe.src = finalUrl;
             
-            // Remueve la clase activa de todas las filas y la añade a la fila clicada
             const allRows = document.querySelectorAll('#hospital-table tr'); 
             allRows.forEach(row => row.classList.remove('address-row-active'));
             if (clickedRow) {
                 clickedRow.classList.add('address-row-active');
             }
 
-            // Lógica de Título idéntica a showLocationOnMap (usando la fila clicada)
             if (clickedRow && mapTitle) {
                 const nameElement = clickedRow.querySelector('.address-name');
                 const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
@@ -978,7 +982,7 @@
     </script>
     
     <div id="myModal" class="modal" onclick="closeModal()">
-        <span class="close-btn">&times;</span>
+        <span class="close-btn">×</span>
         <img class="modal-content" id="img01">
     </div>
 </body>

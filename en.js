@@ -33,8 +33,8 @@ const EN = {
     "titulo_info": "Practical Information", // Title for the main screen
     
     // Content for 'Info' tab
-    "info_info_titulo": "Directions:", // NEW
-    "info_info_desc": "The table below shows point of interest around the city. Pressing on any of them will show you it's location on the map.", // NEW, combining old tips
+    "info_info_titulo": "Useful Directions:", // NEW
+    "info_info_desc": "Press on any of them to see it's location on the map.",
     "mapa_titulo": "Click on an address to view it on the map.",
 
     // --- NEW KEYS FOR ADDRESS TABLE ---
@@ -80,8 +80,7 @@ const EN = {
 
     // Content for 'Hospitals' tab
     "info_hospitals_titulo": "Nearby Hospitals",
-    "info_hospitals_desc": "Donostia University Hospital (HULD):\n- Address: P.º Dr. Beguiristain, 117\n- Phone: +34 943 00 70 00\n\nQuirónsalud Donostia:\n- Address: P.º Dr. Beguiristain, 105\n- Phone: +34 943 47 41 90", // NEW
-    "info_hospitals_img": "images/hospital_en.png", 
+    "info_hospitals_desc": "", // NEW
 
     // Content for 'Emergency' tab
     "info_intro": "Free emergency calls from any phone:",

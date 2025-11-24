@@ -3,7 +3,7 @@ const ES = {
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
     "btn_electro": "Cómo funcionan las cosas en casa",
-    "btn_info": "Información Útil",
+    "btn_info": "Información Práctica",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades",
     "btn_tips": "Consejos",
@@ -26,13 +26,13 @@ const ES = {
 
     // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
     "sub_info": "Direcciones", 
-    "sub_emergency": "Teléfonos", 
+    "sub_emergency": "Emergencia", 
 
     "titulo_info": "Información Útil", // Title for the main screen
 
     // Content for 'Info' tab
-    "info_info_titulo": "Direcciones:", 
-    "info_info_desc": "En la siguiente tabla podeis encontar las direcciones de diferentes puntos de interés de la ciudad. Pulsando en cualquiera de ellas podrás ver su ubicación. ", // NEW, combining old tips
+    "info_info_titulo": "Direcciones útiles:", 
+    "info_info_desc": "Pulsa en cualquiera de ellas para ver su ubicación en el mapa. ",
     "mapa_titulo": "Haz clic en una dirección para verla en el mapa.", 
 
     // --- NEW KEYS FOR ADDRESS TABLE ---
@@ -78,8 +78,7 @@ const ES = {
     
     // Content for 'Hospitals' tab
     "info_hospitals_titulo": "Hospitales cercanos", 
-    "info_hospitals_desc": "Hospital Universitario Donostia (HULD):\n- Dirección: P.º Dr. Beguiristain, 117\n- Teléfono: +34 943 00 70 00\n\nQuirónsalud Donostia:\n- Dirección: P.º Dr. Beguiristain, 105\n- Teléfono: +34 943 47 41 90", // NEW
-    "info_hospitals_img": "images/hospital_es.png", 
+    "info_hospitals_desc": "",
 
     // Content for 'Emergency' tab
     "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",
