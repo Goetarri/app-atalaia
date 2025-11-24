@@ -50,15 +50,15 @@ const EN = {
     "addr_hospital_desc": "Beguiristain Doktorea Pkwy.",
     "addr_hospital_tel": "+34 943 00 70 00",
 
-    "addr_pharmacy": "Cabezudo Pharmacy (closest)",
+    "addr_pharmacy": "Closest Pharmacy:<br>Cabezudo Pharmacy",
     "addr_pharmacy_desc": "San Francisco St, 54",
     "addr_pharmacy_tel": "+34 943 27 54 48",
 
-    "addr_pharmacy24H": "Plaza Guipuzcoa 24H Pharmacy",
+    "addr_pharmacy24H": "24H Pharmacy:<br>Plaza Guipuzcoa Pharmacy",
     "addr_pharmacy24H_desc": "Idiakez St, 4",
     "addr_pharmacy24H_tel": "+34 943 42 70 50",
 
-    "addr_train": "Central Train Station (Adif - Renfe)",
+    "addr_train": "Central Train Station<br>(Adif - Renfe)",
     "addr_train_desc": "Francia Av, 22",
     "addr_train_tel": "",
 
@@ -66,9 +66,9 @@ const EN = {
     "addr_bus_desc": "Federico Garcia Lorca Pkwy., 1",
     "addr_bus_tel": "",
 
-    "addr_taxi": "Taxi Stand Paseo de Colon",
+    "addr_taxi": "Taxi Stand",
     "addr_taxi_desc": "Paseo de Colon, 16-20",
-    "addr_taxi_tel": "+34 943 46 46 46<br>+34 943 40 40 40",
+    "addr_taxi_tel": "943 46 46 46<br>943 40 40 40",
 
     //"addr_taxi": "Taxi Stand Padre Larroca",
     //"addr_taxi2_desc": "Padre Larroca St, 1",
