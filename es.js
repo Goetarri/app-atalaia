@@ -2,7 +2,7 @@ const ES = {
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "selecciona": "Selecciona una opción:",
-    "btn_electro": "Cómo funcionan las cosas en casa",
+    "btn_electro": "Cómo funcionan los aparatos",
     "btn_info": "Información Práctica",
     "btn_restaurantes": "Bares y Restaurantes",
     "btn_actividades": "Actividades",
