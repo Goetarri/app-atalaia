@@ -183,7 +183,7 @@ function openModal(index) {
     // Actualizamos el índice global
     currentImageIndex = index;
     
-    modal.style.display = "block";
+    modal.style.display = "flex";
     updateModalImage(); 
 }
 
