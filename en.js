@@ -42,7 +42,7 @@ const EN = {
     "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
     "addr_homw_tel": "",
 
-    "addr_ambulatorio": "Gros Ambulatory Center",
+    "addr_ambulatorio": "Gros Outpatient Center",
     "addr_ambulatorio_desc": "Navarra Av., 14",
     "addr_ambulatorio_tel": "943 00 79 09",
 
@@ -75,7 +75,7 @@ const EN = {
 
     // Content for 'Wifi' tab (using existing 'wifi' keys for now)
     "wifi_titulo": "How to connect to the wifi network:",
-    "wifi_desc": "Our wifi network and password are shown next:\n- Network: WLAN-1L4N\n- Password: IL74An5No9.\nYou can also connect to the wifi by scanning the following QR code. If you find problems, please do not hesitate to contact us.",
+    "wifi_desc": "Our wifi network and password are shown next:\n- Network: -\n- Password: .\nYou can also connect to the wifi by scanning the following QR code. If you find problems, please do not hesitate to contact us.",
     "wifi_img": "images/QR_wifi.jpg",
 
     // Content for 'Hospitals' tab

@@ -28,7 +28,7 @@ const ES = {
     "sub_info": "Direcciones", 
     "sub_emergency": "Emergencia", 
 
-    "titulo_info": "Información Útil", // Title for the main screen
+    "titulo_info": "Información Práctica", // Title for the main screen
 
     // Content for 'Info' tab
     "info_info_titulo": "Direcciones útiles:", 
@@ -73,7 +73,7 @@ const ES = {
 
     // Content for 'Wifi' tab
     "wifi_titulo": "Cómo conectarse al wifi:",
-    "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: WLAN-1L4N\n- Contraseña: IL74An5No9\n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
+    "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: n- Contraseña: \n También os podeis conectar escaneando el siguiente codigo QR. Si teneis cualquier problema, no dudeis en contactarnos.",
     "wifi_img": "images/QR_wifi.jpg",
     
     // Content for 'Hospitals' tab

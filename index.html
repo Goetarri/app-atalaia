@@ -227,7 +227,39 @@
         .grid-item img:hover {
             transform: scale(1.05); 
         }
-        
+
+        /* Flechas de navegación para el modal */
+        .modal-nav {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            z-index: 201; /* Encima de la imagen */
+            background-color: rgba(0,0,0,0.3); /* Fondo semitransparente */
+        }
+
+        .modal-nav.prev { left: 0; border-radius: 3px 0 0 3px; }
+        .modal-nav.next { right: 0; border-radius: 3px 0 0 3px; }
+
+        .modal-nav:hover { background-color: rgba(0,0,0,0.8); }
+
+        /* Ajuste para que la imagen no capture el evento de arrastre nativo del navegador */
+        .modal-content {
+            -webkit-user-drag: none;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
         /* --- ESTILOS DEL MODAL --- */
         .modal {
             display: none; 
@@ -465,11 +497,12 @@
             <hr>
             
             <div id="info-info" class="sub-section visible-info-practica">
+                <!-- QUITADO. Descomentar si quieres volver a ponerlo.
                 <div class="text-frame">
                     <strong data-key="info_info_titulo">Consejos Locales:</strong><br>
                     <span data-key="info_info_desc">Texto Info.</span>
                 </div>
-                
+                -->
                 <div id="map-container">
                     <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
                     <iframe id="google-map-embed" 
@@ -495,10 +528,13 @@
             </div>
 
             <div id="info-hospitals" class="sub-section">
+                <!-- QUITADO. Descomentar si quieres volver a ponerlo.
                 <div class="text-frame">
                     <strong data-key="info_hospitals_titulo">Hospitales:</strong><br>
                     <span data-key="info_hospitals_desc">Texto hospitales.</span>
                 </div>
+                 -->
+
                 <table id="hospital-table"></table>
                
                 <div id="hospital-map-container">
@@ -734,23 +770,25 @@
             const gridContainer = document.getElementById('washer-grid');
             
             if (gridContainer && translations.lavadora_img) {
-                const imagePaths = translations.lavadora_img; 
+                // Guardamos las rutas actuales en la variable global que ya tenías declarada
+                currentImagePaths = translations.lavadora_img; 
                 gridContainer.innerHTML = ''; 
 
-                imagePaths.forEach(path => {
+                currentImagePaths.forEach((path, index) => {
                     const item = document.createElement('div');
                     item.className = 'grid-item';
                     
                     const img = document.createElement('img');
                     img.src = path;
-                    img.alt = 'Paso de lavadora';
-                    img.onclick = () => openModal(path); 
+                    img.alt = 'Paso de lavadora ' + (index + 1);
+                    // AQUÍ EL CAMBIO: Pasamos el 'index' en vez del 'path'
+                    img.onclick = () => openModal(index); 
                     
                     item.appendChild(img);
                     gridContainer.appendChild(item);
                 });
+              }       
             }
-        }
 
         function openModal(imageSrc) {
             const modal = document.getElementById("myModal");
@@ -979,11 +1017,93 @@
                  mapTitle.innerText = translations['mapa_titulo'];
             }
         }
+
+        // --- LÓGICA DE LA GALERÍA CON SWIPE ---
+
+        // Variables para detectar el swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function openModal(index) {
+            const modal = document.getElementById("myModal");
+            const modalImg = document.getElementById("img01");
+            
+            // Actualizamos el índice global
+            currentImageIndex = index;
+            
+            modal.style.display = "block";
+            updateModalImage(); // Función auxiliar para cargar la imagen
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Función para cambiar de imagen (1 para siguiente, -1 para anterior)
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            // Lógica circular (si llegas al final, vuelve al principio y viceversa)
+            if (currentImageIndex >= currentImagePaths.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = currentImagePaths.length - 1;
+            }
+
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            const modalImg = document.getElementById("img01");
+            // Aseguramos que currentImagePaths tenga datos
+            if (currentImagePaths && currentImagePaths.length > 0) {
+                modalImg.src = currentImagePaths[currentImageIndex];
+            }
+        }
+
+        // --- EVENT LISTENERS PARA SWIPE (TACTIL) ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // ... tu código existente de updateText ...
+
+            // Añadir listeners al Modal para detectar el dedo
+            const modalElement = document.getElementById("myModal");
+
+            modalElement.addEventListener('touchstart', e => {
+                // Guardamos donde empieza el toque
+                touchStartX = e.changedTouches[0].screenX;
+            }, {passive: true});
+
+            modalElement.addEventListener('touchend', e => {
+                // Guardamos donde termina el toque
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, {passive: true});
+        });
+
+        function handleSwipe() {
+            // Umbral mínimo para considerar que es un swipe (50px)
+            const threshold = 50;
+
+            if (touchEndX < touchStartX - threshold) {
+                // Deslizó hacia la izquierda -> Siguiente foto
+                changeImage(1); 
+            }
+            
+            if (touchEndX > touchStartX + threshold) {
+                // Deslizó hacia la derecha -> Foto anterior
+                changeImage(-1);
+            }
+        }
     </script>
     
     <div id="myModal" class="modal" onclick="closeModal()">
-        <span class="close-btn">×</span>
-        <img class="modal-content" id="img01">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <a class="modal-nav prev" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</a>
+        <a class="modal-nav next" onclick="event.stopPropagation(); changeImage(1)">&#10095;</a>
+        
+        <img class="modal-content" id="img01" onclick="event.stopPropagation()"> 
     </div>
 </body>
 </html>
