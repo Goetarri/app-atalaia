@@ -4,9 +4,9 @@ const EN = {
     "selecciona": "Select an option:",
     "btn_electro": "How things work at home",
     "btn_info": "Practical Information",
-    "btn_restaurantes": "Bars & Restaurants",
+    "btn_restaurantes": "Eat & Drink",
     "btn_actividades": "Activities",
-    "btn_tips": "Practical Information",
+    "btn_tips": "Tips",
     "btn_atras": "",
 
     "titulo_electro": "Instructions",
@@ -23,14 +23,13 @@ const EN = {
         "images/wash_04_en.png", "images/wash_05_en.png", "images/wash_06_en.png",
         "images/wash_07_en.png", "images/wash_08_en.png", "images/wash_09_en.png"
     ],
-
-
-// --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
-    "sub_info": "Locations", 
+    
+    // --- NEW KEYS FOR PRACTICAL INFO SCREEN ---
+    "titulo_info": "Practical Information", // Title for the main screen
+    "sub_info": "Directions ", 
     "sub_emergency": "Emergency", 
     "sub_hospitals": "Hospitals", 
 
-    "titulo_info": "Practical Information", // Title for the main screen
     
     // Content for 'Info' tab
     "info_info_titulo": "Useful Directions:", // NEW
