@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atalaia Guest App</title>
-
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,189 +15,112 @@
     </header>
 
     <div class="container">
-        <div id="home" class="screen active">
-            <h2 data-key="bienvenida">Bienvenido</h2>
-            <p data-key="selecciona">Selecciona una opción:</p>
+        
+        <div id="welcome" class="screen active">
+            <div class="text-frame welcome-frame">
+                <h2 data-key="bienvenida">Welcome</h2> 
+                <span data-key="bienvenida_desc">Texto de bienvenida</span>
+            </div>
 
-            <button class="menu-btn" onclick="showSection('appliances')">
-                <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
-                <span data-key="btn_electro">Electrodomésticos</span>
-            </button>
-
-            <button class="menu-btn" onclick="showSection('restaurants')">
-                <img src="images/ic_restaurante.png" class="btn-icon" alt="icon">
-                <span data-key="btn_restaurantes">Restaurantes</span>
-            </button>
-            
-            
-            <button class="menu-btn" onclick="showSection('activities')">
-                <img src="images/ic_actividades.png" class="btn-icon" alt="icon">
-                <span data-key="btn_actividades">Actividades</span>
-            </button>
-            
-            <button class="menu-btn" onclick="showSection('info-practica')">
-                <img src="images/ic_info.png" class="btn-icon" alt="icon">
-                <span data-key="btn_info">Información Práctica</span>
-            </button>
-            
-            <button class="menu-btn" onclick="showSection('tips')">
-                <img src="images/ic_tips.png" class="btn-icon" alt="icon">
-                <span data-key="btn_tips">Tips</span>
+            <button class="menu-btn vertical-btn" onclick="showWifiScreen()">
+                <img src="images/ic_wifi.png" class="btn-icon-large" alt="icon">
+                <span data-key="btn_home_wifi">Wifi</span>
+                <span class="arrow-right">➜</span>
             </button>
         </div>
 
         <div id="appliances" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">
+                <button id="back-to-appliance-menu" class="back-btn" onclick="showApplianceMenu()" style="display:none;">
                     <span class="arrow-icon">⬅</span>
-                    <span data-key="btn_atras"></span>
+                    <span data-key="btn_atras_menu">Volver al menú</span>
                 </button>
 
-                <h2 data-key="titulo_electro">Instrucciones</h2>
+            <h2 data-key="titulo_electro">Instrucciones</h2>
             </div>
             <hr>
-            <div id="lavadora" class="sub-section"> 
-                <div class="text-frame">
-                    <strong data-key="lavadora_titulo">Cómo usar:</strong><br>
-                    <span data-key="lavadora_desc">Texto lavadora</span>
-                </div>
-                <div id="washer-grid" class="image-grid"></div>
-            </div>
 
-            <div id="toldo" class="sub-section">
-                <img data-key="toldo_img" src="images/awning_es.png" alt="FOTO TOLDO" class="appliance-img">
-                <div class="text-frame">
-                    <strong data-key="toldo_titulo">Precaución:</strong><br>
-                    <span data-key="toldo_desc">Texto toldo</span>
-                </div>
-            </div>
-
-            <div id="calefaccion" class="sub-section">
-                <img data-key="calefaccion_img" src="images/heating_es.png" alt="FOTO CALEFACCION" class="appliance-img">
-                <div class="text-frame">
-                    <strong data-key="calefaccion_titulo">Termostato:</strong><br>
-                    <span data-key="calefaccion_desc">Texto calefaccion</span>
-                </div>
-            </div>
-
-            <div id="persiana" class="sub-section">
-                <img data-key="persiana_img" src="images/persiana_es.png" alt="FOTO PERSIANA" class="appliance-img">
-                <div class="text-frame">
-                    <strong data-key="persiana_titulo">Persiana:</strong><br>
-                    <span data-key="persiana_desc">Texto persiana</span>
-                </div>
-            </div>
-            
-            <div class="sub-btn-group">
-                <button class="sub-btn active" onclick="showAppliance('lavadora')">
-                    <img src="images/ic_lavadora.png" class="btn-icon" alt="Washer icon">
+            <div id="appliances-menu" class="vertical-menu">
+                <button class="menu-btn" onclick="showAppliance('lavadora')">
+                    <img src="images/ic_lavadora.png" class="btn-icon" alt="icon">
                     <span data-key="sub_lavadora">Lavadora</span>
                 </button>
-                <button class="sub-btn" onclick="showAppliance('toldo')">
-                    <img src="images/ic_toldo.png" class="btn-icon" alt="Awning icon">
-                    <span data-key="sub_toldo">Toldo</span>
-                </button>
-                <button class="sub-btn" onclick="showAppliance('calefaccion')">
-                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="Heating icon">
+                <button class="menu-btn" onclick="showAppliance('calefaccion')">
+                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="icon">
                     <span data-key="sub_calefaccion">Calefacción</span>
                 </button>
-                <button class="sub-btn" onclick="showAppliance('persiana')">
-                    <img src="images/ic_persiana.png" class="btn-icon" alt="Blinds icon">
-                    <span data-key="sub_persiana">Persiana</span>
+                <button class="menu-btn" onclick="showAppliance('toldo')">
+                    <img src="images/ic_toldo.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_toldo">Toldos</span>
                 </button>
+                <button class="menu-btn" onclick="showAppliance('persiana')">
+                    <img src="images/ic_persiana.png" class="btn-icon" alt="icon">
+                    <span data-key="sub_persiana">Persianas</span>
+                </button>
+            </div>
+
+            <button id="back-to-appliance-menu" class="back-btn" onclick="backToApplianceMenu()" style="display:none; margin-bottom:10px;">
+                <span class="arrow-icon">⬅</span> <span data-key="btn_atras_menu">Volver</span>
+            </button>
+
+            <div id="lavadora-content" class="appliance-content" style="display: block;">
+                <div class="detail-header">
+                    <h3 data-key="lavadora_titulo"></h3>
+                </div>
+                <hr>
+                <p data-key="lavadora_desc"></p>
+                <div id="washer-grid" class="grid-container"></div>
+                <div class="spacer-80"></div>
+            </div>
+
+            <div id="toldo-content" class="appliance-content" style="display: none;">
+                <div class="detail-header">
+                    <h3 data-key="toldo_titulo"></h3>
+                </div>
+                <hr>
+                <img data-key="toldo_img" class="appliance-img" alt="Toldo">
+                <p data-key="toldo_desc"></p>
+                <div class="spacer-80"></div>
+            </div>
+
+            <div id="calefaccion-content" class="appliance-content" style="display: none;">
+                <div class="detail-header">
+                    <h3 data-key="calefaccion_titulo"></h3>
+                </div>
+                <hr>
+                <img data-key="calefaccion_img" class="appliance-img" alt="Calefacción">
+                <p data-key="calefaccion_desc"></p>
+                <div class="spacer-80"></div>
+            </div>
+
+            <div id="persiana-content" class="appliance-content" style="display: none;">
+                <div class="detail-header">
+                    <h3 data-key="persiana_titulo"></h3>
+                </div>
+                <hr>
+                <img data-key="persiana_img" class="appliance-img" alt="Persiana">
+                <p data-key="persiana_desc"></p>
+                <div class="spacer-80"></div>
             </div>
         </div>
 
-        <div id="info-practica" class="screen">
+        <div id="wifi-screen" class="screen">
             <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">
-                    <span class="arrow-icon">⬅</span>
-                    <span data-key="btn_atras"></span>
+                <button class="back-btn" onclick="showTab('home')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
                 </button>
-
-                <h2 data-key="titulo_info">Teléfonos de Interés</h2> 
+                <h2 data-key="sub_wifi">Wifi</h2>
             </div>
             <hr>
-            
-            <div id="info-info" class="sub-section visible-info-practica">
-                <div id="map-container">
-                    <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
-                    <iframe id="google-map-embed" 
-                    width="100%" 
-                    height="300" 
-                    frameborder="0" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer" 
-                    src="">
-                </iframe>
+            <div class="text-frame">
+                <strong data-key="wifi_titulo">Como conectarse al wifi:</strong><br>
+                <span data-key="wifi_desc">Texto wifi.</span>
             </div>
-            <table id="address-table"></table> 
-        </div>
-
-            <div id="info-wifi" class="sub-section">
-                <div class="text-frame">
-                    <strong data-key="wifi_titulo">Como conectarse al wifi:</strong><br>
-                    <span data-key="wifi_desc">Texto wifi.</span>
-                </div>
-                <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
-            </div>
-
-            <div id="info-hospitals" class="sub-section">
-                <table id="hospital-table"></table>
-               
-                <div id="hospital-map-container">
-                    <h3 data-key="mapa_titulo">Haz clic en una dirección para verla en el mapa.</h3>
-                    <iframe id="google-map-embed-hospital" 
-                            width="100%" 
-                            height="300" 
-                            frameborder="0" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer" 
-                            src="">
-                    </iframe>
-                </div>
-            </div>
-
-            <div id="info-emergency" class="sub-section">
-                <div class="text-frame">
-                    <p data-key="info_intro" style="margin-top: 0;"></p>
-                    <table id="info-table"></table>
-                </div>
-            </div>
-
-            <div class="sub-btn-group">
-                <button class="sub-btn" onclick="showPracticalInfo('emergency')">
-                    <img src="images/ic_telefono.png" class="btn-icon" alt="Emergency icon">
-                    <span data-key="sub_emergency">Emergencia</span>
-                </button>
-                <button class="sub-btn active-info-practica" onclick="showPracticalInfo('info')">
-                    <img src="images/ic_directions.png" class="btn-icon" alt="Direction icon">
-                    <span data-key="sub_info">Info</span>
-                </button>
-                <button class="sub-btn" onclick="showPracticalInfo('hospitals')">
-                    <img src="images/ic_hospital.png" class="btn-icon" alt="Hospital icon">
-                    <span data-key="sub_hospitals">Hospitales</span>
-                </button>
-                <button class="sub-btn" onclick="showPracticalInfo('wifi')">
-                    <img src="images/ic_wifi.png" class="btn-icon" alt="Wifi icon">
-                    <span data-key="sub_wifi">Wifi</span>
-                </button>
-            </div>
+            <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
         </div>
 
         <div id="restaurants" class="screen">
-            <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">
-                    <span class="arrow-icon">⬅</span>
-                    <span data-key="btn_atras"></span>
-                </button>
-
-                <h2 data-key="titulo_restaurantes">Restaurantes</h2>
-            </div>
+            <h2 data-key="titulo_restaurantes">Restaurantes</h2>
             <hr>
             <ul>
                 <li><strong data-key="rest_1_nombre">Bar:</strong> <span data-key="rest_1_desc">Desc</span></li>
@@ -207,34 +129,73 @@
         </div>
 
         <div id="activities" class="screen">
-            <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">
-                    <span class="arrow-icon">⬅</span>
-                    <span data-key="btn_atras"></span>
-                </button>
-
-                <h2 data-key="titulo_actividades">Actividades</h2>
-            </div>
+            <h2 data-key="titulo_actividades">Actividades</h2>
             <hr>
             <p data-key="act_1">Actividad 1</p>
             <p data-key="act_2">Actividad 2</p>
         </div>
 
-        <div id="tips" class="screen">
-            <div class="header-row">
-                <button class="back-btn" onclick="showSection('home')">
-                    <span class="arrow-icon">⬅</span>
-                    <span data-key="btn_atras"></span>
+        <div id="tips-main" class="screen">
+             <div class="header-row">
+                 <button id="back-to-tips-menu" class="back-btn" onclick="backToTipsMenu()" style="display:none;">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras">Atrás</span>
                 </button>
-
-                <h2 data-key="titulo_tips">Tips</h2>
+                 <h2 id="tips-title" data-key="titulo_info">Información Práctica</h2>
             </div>
             <hr>
-            <ul>
-                <li data-key="tip_1">Tip 1</li>
-                <li data-key="tip_2">Tip 2</li>
-                <li data-key="tip_3">Tip 3</li>
-            </ul>
+            
+            <div id="tips-menu" class="vertical-menu">
+                <button class="menu-btn" onclick="showTipDetail('emergency', 'btn_menu_emergencias')">
+                    <img src="images/ic_telefono.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_emergencias">Emergencia</span>
+                </button>
+                
+                <button class="menu-btn" onclick="showTipDetail('info', 'btn_menu_direcciones')">
+                    <img src="images/ic_directions.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_direcciones">Direcciones</span>
+                </button>
+                
+                <button class="menu-btn" onclick="showTipDetail('hospitals', 'btn_menu_hospitales')">
+                    <img src="images/ic_hospital.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_hospitales">Hospitales</span>
+                </button>
+                
+                <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos')">
+                    <img src="images/ic_tips.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_consejos">Consejos</span>
+                </button>
+            </div>
+
+            <div id="info-emergency" class="sub-section" style="display: none;">
+                <div class="text-frame">
+                    <p data-key="info_intro" style="margin-top: 0;"></p>
+                    <table id="info-table"></table>
+                </div>
+            </div>
+
+            <div id="info-info" class="sub-section" style="display: none;">
+                <div id="map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+                <table id="address-table"></table> 
+            </div>
+
+            <div id="info-hospitals" class="sub-section" style="display: none;">
+                <table id="hospital-table"></table>
+                <div id="hospital-map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed-hospital" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+            </div>
+
+            <div id="info-consejos" class="sub-section" style="display: none;">
+                 <ul>
+                    <li data-key="tip_1">Tip 1</li>
+                    <li data-key="tip_2">Tip 2</li>
+                    <li data-key="tip_3">Tip 3</li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -242,13 +203,38 @@
         <span class="close-btn" onclick="closeModal()">×</span>
         <a class="modal-nav prev" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</a>
         <a class="modal-nav next" onclick="event.stopPropagation(); changeImage(1)">&#10095;</a>
-        
         <img class="modal-content" id="img01" onclick="event.stopPropagation()">
     </div>
+
+<nav class="bottom-nav">
+    <button class="nav-item active" onclick="showTab('welcome')" data-target="welcome">
+        <img src="images/ic_home.png" class="nav-icon-img" alt="Welcome">
+        <span data-key="nav_welcome">Welcome</span>
+    </button>
+    
+    <button class="nav-item" onclick="showTab('appliances')" data-target="appliances">
+        <img src="images/ic_electrodomestico.png" class="nav-icon-img" alt="Home">
+        <span data-key="nav_home">Home</span>
+    </button>
+    
+    <button class="nav-item" onclick="showTab('restaurants')" data-target="restaurants">
+        <img src="images/ic_restaurante.png" class="nav-icon-img" alt="Eat">
+        <span data-key="nav_eat">Comer</span>
+    </button>
+    
+    <button class="nav-item" onclick="showTab('activities')" data-target="activities">
+        <img src="images/ic_activities.png" class="nav-icon-img" alt="Activities">
+        <span data-key="nav_activities">Actividades</span>
+    </button>
+    
+    <button class="nav-item" onclick="showTab('tips-main')" data-target="tips-main">
+        <img src="images/ic_tips.png" class="nav-icon-img" alt="Tips">
+        <span data-key="nav_tips">Tips</span>
+    </button>
+</nav>
 
     <script src="es.js"></script>
     <script src="en.js"></script>
     <script src="script.js"></script>
-
 </body>
 </html>

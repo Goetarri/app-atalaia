@@ -1,5 +1,7 @@
 /* --- ESTILOS GENERALES --- */
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; padding-bottom: 70px; /* Espacio para la barra inferior */ }
+
+/* HEADER */
 header { 
     background-color: #2c3e50; 
     color: white; 
@@ -19,145 +21,92 @@ h1 { margin: 0; font-size: 1.2rem; }
     padding: 10px 20px;
     max-width: 600px; 
     margin: 0 auto; 
-    padding-bottom: 50px; 
 }
 
 /* PANTALLAS */
 .screen { display: none; animation: fadeIn 0.3s; }
 .screen.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-/* MENÚ */
+/* BARRA DE NAVEGACIÓN INFERIOR (NUEVO) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 1px solid #eee;
+}
+
+.nav-item {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #95a5a6;
+    font-size: 0.75rem;
+    cursor: pointer;
+    width: 25%;
+    height: 100%;
+
+    /* CAMBIOS CLAVE PARA ELIMINAR SOMBRAS/FONDOS INACTIVOS */
+    background-color: transparent; /* Asegura un fondo transparente, sin color gris */
+    box-shadow: none; /* Elimina cualquier sombra sutil individual del botón */
+    transition: all 0.2s ease; /* Mantenemos la transición */
+}
+
+/* 1. Estilo al pasar el ratón (Hover) */
+.bottom-nav .nav-item:hover:not(.active) {
+    background-color: #e0e0e0; /* Un gris sutil para previsualizar el clic */
+}
+
+/* 2. Estilo al SELECCIONAR (Clase 'active') */
+.bottom-nav .nav-item.active {
+    background-color: #2c3e50; /* Azul oscuro (mismo que el header) */
+    color: white;             /* Texto blanco */
+}
+
+/* 3. Invertir el color del ícono para que sea blanco */
+.bottom-nav .nav-item.active .nav-icon-img {
+    /* Aplica un filtro CSS para convertir el ícono a blanco */
+    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.nav-item.active { color: #2c3e50; font-weight: bold; }
+.nav-icon { font-size: 1.2rem; margin-bottom: 3px; }
+
+/* MENÚS DE BOTONES VERTICALES */
 .menu-btn { 
     display: flex;               
     align-items: center;         
     gap: 15px;                   
-
     width: 100%; 
-    padding: 20px; 
+    padding: 15px; 
     margin-bottom: 15px; 
     background-color: white; 
     border: 1px solid #ddd; 
     border-radius: 10px; 
     text-align: left; 
-    font-size: 1.1rem; 
+    font-size: 1rem; 
     cursor: pointer; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
     border-left: 5px solid #3498db; 
     transition: transform 0.2s; 
 }
 .menu-btn:active { transform: scale(0.98); }
+.btn-icon { width: 24px; height: 24px; object-fit: contain; }
+.btn-icon-large { width: 32px; height: 32px; object-fit: contain; }
+.arrow-right { margin-left: auto; color: #ccc; }
 
-/* CABECERA INTERNA */
-.header-row { 
-    display: flex; 
-    align-items: center; 
-    gap: 15px; 
-    margin-bottom: 10px; 
-    
-    position: sticky; 
-    top: 60px; 
-    background-color: #f4f4f9; 
-    padding-top: 5px;       
-    z-index: 90;             
-}
-.header-row h2 { margin: 0; font-size: 1.4rem; }
-.back-btn { background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-bottom: 0; font-size: 0.9rem; }
-
-/* ESTILOS ELECTRODOMÉSTICOS */
-
-.sub-menu-container { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 10px; 
-    margin-bottom: 20px; 
-    justify-content: center; 
-    
-    position: sticky;        
-    top: 110px;               
-    background-color: #f4f4f9; 
-    padding-top: 10px;       
-    z-index: 50;             
-}
-
-/* --- CLASE DE SUB-BOTONES PRINCIPAL (Barra Fija) --- */
-.sub-btn-group {
-    position: fixed; 
-    bottom: 0; 
-    left: 0;
-    width: 100%;
-    display: flex; 
-    background-color: white; 
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    z-index: 90; 
-    padding: 0; 
-}
-
-/* --- ESTILOS DE BOTONES INDIVIDUALES --- */
-.sub-btn {
-    flex-grow: 1; 
-    border: none;
-    border-radius: 0; 
-    padding: 10px 5px; 
-    margin: 0; 
-    cursor: pointer;
-    background-color: white; 
-    color: #2c3e50; 
-    transition: all 0.2s; 
-    text-align: center;
-    font-size: 0.8rem;
-    height: 60px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.sub-btn .btn-icon {
-    filter: invert(18%) sepia(21%) saturate(1312%) hue-rotate(179deg) brightness(97%) contrast(92%);
-}      
-
-.sub-btn.active, .sub-btn:hover {
-    background-color: #2c3e50; 
-    color: white; 
-}
-
-.sub-btn.active .btn-icon, .sub-btn:hover .btn-icon {
-    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
-}
-
-.sub-btn:hover {
-    background-color: #34495e; 
-}
-
-#appliances .container {
-    padding-bottom: 70px; 
-}
-
-.btn-icon {
-    width: 24px;             
-    height: 24px;            
-    object-fit: contain;
-    margin-bottom: 2px; 
-    display: block;
-}
-
-.wifi-img-small { 
-    max-width: 75%; 
-    display: block;  
-    margin-left: auto; 
-    margin-right: auto;
-}
-
-.sub-btn.active-sub {
-    background-color: #3498db;
-    color: white;
-    border-color: #2980b9;
-}
-
-.sub-btn.active-sub .btn-icon {
-    filter: brightness(0) invert(1); 
-}
-
+/* TEXT FRAMES */
 .text-frame { 
     background-color: white; 
     border: 1px solid #ccc; 
@@ -167,219 +116,129 @@ h1 { margin: 0; font-size: 1.2rem; }
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
     line-height: 1.6;
 }
-.text-frame span {
-    white-space: pre-line; 
-    display: block;       
-    margin-top: 5px;      
-    text-align: justify;
-}
-.appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; }
-.sub-section { display: none; }
+.welcome-frame { border-left: 5px solid #2ecc71; }
+.text-frame span { white-space: pre-line; display: block; margin-top: 5px; text-align: justify; }
+
+/* SUB-SECCIONES Y DETALLES */
+.sub-section { display: none; } /* Oculto por defecto */
 .sub-section.visible { display: block; animation: fadeIn 0.3s; }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; margin-bottom: 10px;}
+.wifi-img-small { max-width: 75%; margin: 0 auto; }
 
-.arrow-icon {
-    font-size: 1.5rem; 
-    line-height: 1;    
-}
-
-/* --- ESTILOS DE GALERÍA DE IMÁGENES 3x3 --- */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 0px; 
-    margin-bottom: 20px;
+/* Header interno para volver atrás */
+.header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.header-row h2 { margin: 0; font-size: 1.4rem; }
+.back-btn { 
+    background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; 
+    padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; 
+    display: flex; align-items: center; gap: 5px;
 }
 
-.grid-item {
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    position: relative; 
-    width: 100%;
-    padding-bottom: 100%; 
-}
-.grid-item img {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain; 
-    display: block;
-    transition: transform 0.3s;
-}
+/* IMAGENES GRID (Lavadora) */
+.image-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 20px; }
+.grid-item { cursor: pointer; position: relative; width: 100%; padding-bottom: 100%; }
+.grid-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
-.grid-item img:hover {
-    transform: scale(1.05); 
-}
+/* MODAL (Sin cambios funcionales, solo ajustes visuales) */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); flex-direction: column; justify-content: center; align-items: center; }
+.modal-content { margin: auto; display: block; max-width: 95%; max-height: 80vh; object-fit: contain; }
+.close-btn { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; cursor: pointer; z-index: 2001;}
+.modal-nav { cursor: pointer; position: absolute; top: 50%; color: white; font-weight: bold; font-size: 30px; padding: 10px; background: rgba(0,0,0,0.5); user-select: none; }
+.modal-nav.prev { left: 10px; }
+.modal-nav.next { right: 10px; }
 
-/* --- ESTILOS DEL MODAL --- */
-/* --- ESTILOS DEL MODAL --- */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 200; 
-    /* Eliminamos el padding-top antiguo */
-    padding-top: 0; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: hidden; /* Evitamos scroll si no es necesario */
-    background-color: rgba(0,0,0,0.9); 
-    
-    /* PROPIEDADES NUEVAS PARA CENTRAR */
-    flex-direction: column;
-    justify-content: center; /* Centrado Horizontal */
-    align-items: center;     /* Centrado Vertical */
-}
+/* TABLAS */
+table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; }
+td { padding: 12px; border-bottom: 1px solid #eee; }
+tr:last-child td { border-bottom: none; }
 
-.modal-content {
-    margin: auto;
-    display: block;
-    /* Ajustamos el tamaño para que respete el alto de la pantalla */
-    width: auto;
-    max-width: 95%;
-    max-height: 90vh; /* Máximo 90% del alto de la pantalla */
-    object-fit: contain; /* Asegura que la imagen no se deforme */
-    
-    animation-name: zoom;
-    animation-duration: 0.6s;
-    
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    z-index: 202; /* Asegurar que esté por encima de todo */
-}
-.close-btn:hover, .close-btn:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Flechas de navegación para el modal */
-.modal-nav {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    -webkit-user-select: none;
-    z-index: 201; /* Encima de la imagen */
-    background-color: rgba(0,0,0,0.3);
-}
-
-.modal-nav.prev { left: 0; border-radius: 3px 0 0 3px; }
-.modal-nav.next { right: 0; border-radius: 3px 0 0 3px; }
-
-.modal-nav:hover { background-color: rgba(0,0,0,0.8); }
-
-@keyframes zoom {
-    from {transform:scale(0)} 
-    to {transform:scale(1)}
-}
-
-/* --- ESTILOS PARA LAS TABLAS DE INFORMACIÓN PRÁCTICA --- */
-#info-practica .container {
-    padding-bottom: 70px; 
-}
-
-.sub-btn.active-info-practica { 
-    background-color: #2c3e50;
-    color: white;
-}
-.sub-btn.active-info-practica .btn-icon {
-    filter: invert(100%) sepia(0%) saturate(7497%) hue-rotate(247deg) brightness(101%) contrast(101%);
-}
-
-#info-table, #address-table, #hospital-table {
-    width: 100%;
-    border-collapse: collapse; 
-    margin-top: 15px; 
-    border-top: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 15px; 
-}
-
-/* Estilo para hacer las filas cliqueables y activas */
+/* ESTILOS PARA LAS FILAS CLICABLES (Direcciones/Hospitales) */
 #address-table tr, #hospital-table tr {
     cursor: pointer;
-    transition: background-color 0.1s;
+    /* Suaviza la transición de color y sombra */
+    transition: background-color 0.2s, box-shadow 0.2s; 
 }
 #address-table tr:hover, #hospital-table tr:hover {
     background-color: #f0f0f0;
 }
-
+/* CLASE PARA LA FILA SELECCIONADA (Efecto "sombra" gris) */
 .address-row-active {
-    background-color: #e0eaf0; 
+    background-color: #e6e6e6; /* Gris claro para indicar selección */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra interior sutil */
+}
+.tel-col-icon { width: 30px; font-size: 1.2rem; text-align: center; }
+.tel-col-number { text-align: right; font-weight: bold; }
+.tel-col-number a { color: #2c3e50; text-decoration: none; }
+
+/* MAPAS */
+#map-container, #hospital-map-container { margin-top: 15px; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 8px; }
+
+/* Control tamaño iconos de la barra de herramientas inferior */
+.nav-icon-img {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+    margin-bottom: 4px;
+    /* Opcional: Si tus iconos son negros y los quieres grises cuando no están activos */
+    /*opacity: 0.6; 
+    transition: opacity 0.3s;*/
 }
 
-#info-table td, #address-table td, #hospital-table td {
-    padding: 10px 0; 
-    border-bottom: 1px solid #eee;
-}
-#info-table tr:last-child td, #address-table tr:last-child td, #hospital-table tr:last-child td {
-    border-bottom: none; 
+.nav-item.active .nav-icon-img {
+    opacity: 1; /* Se ven full color al estar activos */
+    transform: scale(1.1); /* Un pequeño efecto pop */
 }
 
-.tel-col-icon {
-    width: 40px; 
-    text-align: center;
-    font-size: 1.5rem;
-    line-height: 1;
-}
-.tel-col-number {
-    text-align: right;
-    font-weight: bold;
-}
-.tel-col-number a {
-    color: #2c3e50; 
-    text-decoration: none;
+/* --- ENCABEZADO DE DETALLE DE APARATOS --- */
+.detail-header {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el botón y el título */
+    gap: 10px; /* Espacio entre el botón y el título */
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
-.address-name {
-    font-weight: bold;
-    display: block;
-}
-.address-desc {
-    font-size: 0.9em;
-    color: #666;
-    display: block;
+.detail-header h3 {
+    margin: 0;
+    font-size: 1.1rem; /* Ajusta el tamaño para que encaje bien */
 }
 
-#map-container, #hospital-map-container {
+/* --- ESTILOS PARA LA LAVADORA (Grid 3x3) --- */
+
+/* 1. Contenedor de la cuadrícula de imágenes */
+#washer-grid {
+    display: grid;
+    /* Define 3 columnas de ancho flexible e igual */
+    grid-template-columns: repeat(3, 1fr); 
+    /* CAMBIO CLAVE: Forzar 0px de espacio entre filas */
+    row-gap: 0px;
+    /* Mantenemos el espacio horizontal para que no se peguen lateralmente */
+    column-gap: 10px;
+
     margin-top: 20px;
-    padding: 15px;
-    background-color: white; 
-    border: 1px solid #ccc; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    text-align: center;
+    margin-bottom: 10px;
 }
-#map-container h3, #hospital-map-container h3 {
-    font-size: 1rem;
-    margin-top: 0;
-    color: #2c3e50;
+
+
+/* 2. Estilo de la imagen dentro de cada celda */
+#washer-grid .grid-item img {
+    /* Hace que la imagen ocupe todo el ancho de su contenedor (la celda de la cuadrícula) */
+    width: 100%;
+    /* Altura automática para mantener el aspecto y evitar que se amontonen */
+    height: auto; 
+    /* Asegura que la imagen cubra el espacio manteniendo su relación de aspecto */
+    object-fit: cover; 
+    /* Permite que la imagen sea clickeable y tenga un aspecto limpio */
+    cursor: pointer;
+    border-radius: 5px; 
+}
+
+/* Opcional: Asegurar que el contenedor sea cuadrado para un diseño uniforme */
+#washer-grid .grid-item {
+    aspect-ratio: 1 / 1; /* Mantiene la relación de aspecto 1:1 (cuadrado) */
+    overflow: hidden;
+    /* NUEVO: Aseguramos que no haya margen vertical extra en los contenedores de las imágenes */
+    margin: 0; 
+    padding: 0;
 }

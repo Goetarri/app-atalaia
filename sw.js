@@ -1,5 +1,5 @@
 // Nombre de la caché para el control de versiones
-const CACHE_NAME = 'atalaia-app-v4';
+const CACHE_NAME = 'atalaia-app-v5';
 
 // Lista de archivos que queremos almacenar en caché
 const urlsToCache = [
@@ -42,7 +42,8 @@ const urlsToCache = [
   
   // Iconos de la app
   './images/ic_bienvenida.png',
-  './images/ic_actividades.png',
+  './images/ic_home.png',
+  './images/ic_activities.png',
   './images/ic_calefaccion.png',
   './images/ic_electrodomestico.png',
   './images/ic_lavadora.png',

@@ -1,129 +1,191 @@
 let currentLang = 'es'; 
 let currentImageIndex = 0; 
 let currentImagePaths = []; 
-let currentAppliance = 'lavadora'; 
 
-// Variables para detectar el swipe
+// Variables swipe
 let touchStartX = 0;
 let touchEndX = 0;
 
 document.addEventListener('DOMContentLoaded', () => { 
     updateText(); 
-
-    // Añadir listeners al Modal para detectar el dedo
-    const modalElement = document.getElementById("myModal");
-
-    if (modalElement) {
-        modalElement.addEventListener('touchstart', e => {
-            // Guardamos donde empieza el toque
-            touchStartX = e.changedTouches[0].screenX;
-        }, {passive: true});
-
-        modalElement.addEventListener('touchend', e => {
-            // Guardamos donde termina el toque
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, {passive: true});
-    }
+    setupModal();
 });
 
-function showSection(sectionId) {
+/* --- NAVEGACIÓN PRINCIPAL (BOTTOM BAR) --- */
+function showTab(sectionId) {
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => screen.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
     window.scrollTo(0,0);
     
+    // ... (Tu lógica para resetear 'appliances' y 'tips-main' debe mantenerse aquí) ...
     if (sectionId === 'appliances') {
-        showAppliance('lavadora');
+        showApplianceMenu(); // <-- SOLUCIÓN: Llama a la función que SÓLO muestra el menú
     }
-
-    if (sectionId === 'info-practica') {
-        showPracticalInfo('emergency');
+    if (sectionId === 'tips-main') {
+        backToTipsMenu(); 
     }
+    
+    // 3. Lógica para actualizar la barra inferior (ACTUALIZADA)
+    const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+    navItems.forEach(item => {
+        item.classList.remove('active');
+        
+        // ¡CAMBIO CLAVE! Comprueba si el 'data-target' del botón coincide con el 'sectionId'
+        if (item.getAttribute('data-target') === sectionId) {
+            item.classList.add('active');
+        }
+    });
 }
 
+/* --- LOGICA PANTALLA HOME --- */
+function openInstructionsMenu() {
+    showTab('appliances');
+    // Aseguramos que se ve el menú y no un detalle anterior
+    backToApplianceMenu();
+}
+
+function showWifiScreen() {
+    // Mostramos la pantalla dedicada de wifi
+    // Nota: Visualmente mantenemos la pestaña 'Home' activa en la barra
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(s => s.classList.remove('active'));
+    document.getElementById('wifi-screen').classList.add('active');
+    window.scrollTo(0,0);
+}
+
+/* --- LÓGICA DE APARATOS ESPECÍFICOS (Detalle) --- */
+/* --- LÓGICA DE APARATOS ESPECÍFICOS (Detalle) --- */
 function showAppliance(applianceId) {
+    document.getElementById('back-to-appliance-menu').style.display = 'block';
+
+    // 1. OCULTAR el menú de botones
+    const menu = document.getElementById('appliances-menu');
+    if (menu) {
+        menu.style.display = 'none';
+    }
+
+    // 2. Oculta todos los contenidos detallados (para limpiar la vista)
+    const contents = document.querySelectorAll('#appliances .appliance-content');
+    contents.forEach(content => content.style.display = 'none');
+    
+    // 3. Muestra SÓLO el contenido del electrodoméstico actual
+    // El ID será 'lavadora-content' si applianceId es 'lavadora'
+    const contentToShow = document.getElementById(applianceId + '-content');
+    if (contentToShow) {
+        contentToShow.style.display = 'block'; // <--- ¡ESTA ES LA LÍNEA CLAVE PARA QUE SE VEA!
+    }
+
+    // 4. Lógica para actualizar los botones (sub-menú de cada aparato)
     const buttons = document.querySelectorAll('#appliances .sub-btn-group .sub-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
 
-    const activeButton = document.querySelector(`#appliances .sub-btn[onclick*="'${applianceId}'"]`);
+    const activeButton = document.querySelector(`#appliances .sub-btn[data-appliance="${applianceId}"]`);
     if (activeButton) {
         activeButton.classList.add('active');
     }
-    
-    const subSections = document.querySelectorAll('#appliances .sub-section');
-    subSections.forEach(section => section.classList.remove('visible'));
-    
-    const targetSection = document.getElementById(applianceId);
-    if (targetSection) {
-        targetSection.classList.add('visible');
-    }
 
-    currentAppliance = applianceId; 
-
+    // 5. Lógica de rejilla de lavadora (mantener la funcionalidad existente)
     if (applianceId === 'lavadora') {
         updateWasherGrid();
     }
     
-    window.scrollTo(0, 0); 
+    // 6. Actualizar la variable global (si existe)
+    if (typeof currentAppliance !== 'undefined') {
+        currentAppliance = applianceId;
+    }
 }
 
-function showPracticalInfo(infoId) {
-    const buttons = document.querySelectorAll('#info-practica .sub-btn-group .sub-btn');
-    buttons.forEach(btn => btn.classList.remove('active-info-practica'));
-
-    const activeButton = document.querySelector(`#info-practica .sub-btn[onclick*="'${infoId}'"]`);
-    if (activeButton) {
-        activeButton.classList.add('active-info-practica');
-    }
-
-    const subSections = document.querySelectorAll('#info-practica .sub-section');
-    subSections.forEach(section => section.classList.remove('visible-info-practica'));
-    subSections.forEach(section => section.style.display = 'none'); 
-
-    const targetSection = document.getElementById(`info-${infoId}`);
-    if (targetSection) {
-        targetSection.classList.add('visible-info-practica');
-        targetSection.style.display = 'block';
+/* --- NAVEGACIÓN DENTRO DE APPLIANCES --- */
+function showApplianceMenu() {
+    // NUEVA LÍNEA: Ocultar el botón de volver al menú
+    const backBtn = document.getElementById('back-to-appliance-menu');
+    if (backBtn) {
+        backBtn.style.display = 'none';
     }
     
-    if (infoId === 'emergency') {
-        updateInfoTable();
-    }
-    if (infoId === 'hospitals') {
-        updateHospitalTable();
-    }
-    if (infoId === 'info') {
-        updateAddressTable();
+    // 1. Muestra el menú principal de botones
+    const menu = document.getElementById('appliances-menu');
+    if (menu) {
+        menu.style.display = 'block'; 
     }
 
-    window.scrollTo(0, 0); 
+    // 2. Oculta TODOS los contenidos detallados, ¡incluyendo lavadora-content!
+    const contents = document.querySelectorAll('#appliances .appliance-content');
+    contents.forEach(content => content.style.display = 'none'); 
 }
 
+function backToApplianceMenu() {
+    // Ocultar detalles
+    const sections = document.querySelectorAll('#appliances .sub-section');
+    sections.forEach(s => s.classList.remove('visible'));
+    
+    // Ocultar botón volver
+    document.getElementById('back-to-appliance-menu').style.display = 'none';
+
+    // Mostrar menú
+    document.getElementById('appliances-menu').style.display = 'block';
+}
+
+/* --- LOGICA PANTALLA TIPS (Información Práctica) --- */
+// MODIFICADA: Ahora acepta 'titleKey' para cambiar el encabezado
+function showTipDetail(tipId, titleKey) {
+    const targetId = 'info-' + tipId;
+    
+    // 1. CAMBIAR TÍTULO
+    const translations = (currentLang === 'es') ? ES : EN;
+    const tipsTitle = document.getElementById('tips-title');
+    if (tipsTitle) {
+        // Establece el título con el texto traducido del botón pulsado
+        tipsTitle.innerText = translations[titleKey] || translations['titulo_info'];
+    }
+
+    // 2. Ocultar menú
+    document.getElementById('tips-menu').style.display = 'none';
+    
+    // 3. Mostrar botón volver
+    document.getElementById('back-to-tips-menu').style.display = 'flex';
+
+    // 4. Mostrar sección
+    const sections = document.querySelectorAll('#tips-main .sub-section');
+    sections.forEach(s => s.style.display = 'none'); 
+
+    const target = document.getElementById(targetId);
+    if(target) target.style.display = 'block';
+
+    // Cargar datos dinámicos si es necesario
+    if (tipId === 'emergency') updateInfoTable();
+    if (tipId === 'info') updateAddressTable();
+    if (tipId === 'hospitals') updateHospitalTable();
+}
+
+// MODIFICADA: Restablece el título por defecto
+function backToTipsMenu() {
+    // 1. RESETEAR TÍTULO
+    const translations = (currentLang === 'es') ? ES : EN;
+    const tipsTitle = document.getElementById('tips-title');
+    if (tipsTitle) {
+        // Vuelve al texto principal "Información Práctica"
+        tipsTitle.innerText = translations['titulo_info'];
+    }
+    
+    // 2. Ocultar detalles
+    const sections = document.querySelectorAll('#tips-main .sub-section');
+    sections.forEach(s => s.style.display = 'none');
+    
+    // 3. Ocultar botón volver
+    document.getElementById('back-to-tips-menu').style.display = 'none';
+    
+    // 4. Mostrar menú
+    document.getElementById('tips-menu').style.display = 'block';
+}
+
+
+/* --- IDIOMA --- */
 function toggleLanguage() {
-    if (currentLang === 'es') {
-        currentLang = 'en';
-        document.getElementById('lang-btn').innerText = 'ES 🇪🇸';
-    } else {
-        currentLang = 'es';
-        document.getElementById('lang-btn').innerText = 'EN 🇬🇧';
-    }
+    currentLang = (currentLang === 'es') ? 'en' : 'es';
+    document.getElementById('lang-btn').innerText = (currentLang === 'es') ? 'EN 🇬🇧' : 'ES 🇪🇸';
     updateText();
-    
-    const appliancesScreen = document.getElementById('appliances');
-    if (appliancesScreen.classList.contains('active')) {
-        showAppliance(currentAppliance);
-    }
-
-    if (document.getElementById('info-emergency').style.display === 'block') {
-        updateInfoTable();
-    }
-    if (document.getElementById('info-hospitals').style.display === 'block') {
-        updateHospitalTable();
-    }
-    if (document.getElementById('info-info').style.display === 'block') {
-        updateAddressTable();
-    }
 }
 
 function updateText() {
@@ -132,307 +194,167 @@ function updateText() {
     
     elements.forEach(el => {
         const key = el.getAttribute('data-key');
-        
-        if (key in translations) { 
-            const value = translations[key];
-
+        if (key in translations) {
             if (el.tagName === 'IMG' && key !== 'lavadora_img') {
-                el.src = value;
-            } else if (key !== 'lavadora_img') { 
-                el.innerText = value;
+                el.src = translations[key];
+            } else if (key !== 'lavadora_img') {
+                el.innerText = translations[key];
             }
         }
     });
-    
+
+    // Actualizar contenidos dinámicos si están visibles
     updateWasherGrid();
     updateInfoTable();
-    updateHospitalTable(); 
     updateAddressTable();
+    updateHospitalTable();
 }
 
-
-function updateWasherGrid() {
-    const translations = (currentLang === 'es') ? ES : EN;
-    const gridContainer = document.getElementById('washer-grid');
-    
-    if (gridContainer && translations.lavadora_img) {
-        currentImagePaths = translations.lavadora_img; 
-        gridContainer.innerHTML = ''; 
-
-        currentImagePaths.forEach((path, index) => {
-            const item = document.createElement('div');
-            item.className = 'grid-item';
-            
-            const img = document.createElement('img');
-            img.src = path;
-            img.alt = 'Paso de lavadora ' + (index + 1);
-            // Pasamos el index para saber qué foto abrir
-            img.onclick = () => openModal(index); 
-            
-            item.appendChild(img);
-            gridContainer.appendChild(item);
-        });
-    }
-}
-
-// --- FUNCIONES DEL MODAL Y GALERÍA ---
-
-function openModal(index) {
-    const modal = document.getElementById("myModal");
-    
-    // Actualizamos el índice global
-    currentImageIndex = index;
-    
-    modal.style.display = "flex";
-    updateModalImage(); 
-}
-
-function closeModal() {
-    const modal = document.getElementById("myModal");
-    modal.style.display = "none";
-}
-
-function changeImage(direction) {
-    currentImageIndex += direction;
-
-    // Lógica circular
-    if (currentImageIndex >= currentImagePaths.length) {
-        currentImageIndex = 0;
-    } else if (currentImageIndex < 0) {
-        currentImageIndex = currentImagePaths.length - 1;
-    }
-
-    updateModalImage();
-}
-
-function updateModalImage() {
-    const modalImg = document.getElementById("img01");
-    if (currentImagePaths && currentImagePaths.length > 0) {
-        modalImg.src = currentImagePaths[currentImageIndex];
-    }
-}
-
-function handleSwipe() {
-    // Umbral mínimo (50px)
-    const threshold = 50;
-
-    if (touchEndX < touchStartX - threshold) {
-        // Swipe Izquierda -> Siguiente
-        changeImage(1); 
-    }
-    
-    if (touchEndX > touchStartX + threshold) {
-        // Swipe Derecha -> Anterior
-        changeImage(-1);
-    }
-}
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(registration => {
-                console.log('ServiceWorker registrado con éxito: ', registration.scope);
-            })
-            .catch(error => {
-                console.log('Fallo en el registro de ServiceWorker: ', error);
-            });
-    });
-}
-
-// --- FUNCIONALIDAD DE LA TABLA DE TELÉFONOS ---
-
+/* --- TABLAS Y DATOS (Igual que antes, adaptado selectores) --- */
 function updateInfoTable() {
     const translations = (currentLang === 'es') ? ES : EN;
     const table = document.getElementById('info-table');
-    if (!table) return; 
-
-    table.innerHTML = ''; 
-
-    const infoData = [
+    if (!table) return;
+    table.innerHTML = '';
+    
+    const data = [
         ['🚨', 'tel_emergencias', '112'], 
         ['🚑', 'tel_ambulancia', '061'], 
         ['🚓', 'tel_ertzaintza', '088'], 
         ['🚔', 'tel_municipal', '092'], 
         ['🔥', 'tel_bomberos', '080']
     ];
-
-    infoData.forEach(data => {
-        const [icon, key, number] = data;
-        const serviceName = translations[key] || key;
-        
-        const row = table.insertRow();
-        
-        const iconCell = row.insertCell(0);
-        iconCell.className = 'tel-col-icon';
-        iconCell.innerHTML = icon;
-
-        const nameCell = row.insertCell(1);
-        nameCell.innerText = serviceName;
-
-        const numberCell = row.insertCell(2);
-        numberCell.className = 'tel-col-number';
-        numberCell.innerHTML = `<a href="tel:${number.replace(/<br>/g, '')}">${number}</a>`;
+    
+    data.forEach(item => {
+        let row = table.insertRow();
+        row.innerHTML = `<td class="tel-col-icon">${item[0]}</td>
+                         <td>${translations[item[1]] || item[1]}</td>
+                         <td class="tel-col-number"><a href="tel:${item[2]}">${item[2]}</a></td>`;
     });
 }
 
-// --- FUNCIÓN PARA LA TABLA DE HOSPITALES ---
+function updateAddressTable() {
+    // Lógica idéntica a tu original, asegurando que apunta a 'address-table'
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('address-table');
+    if (!table) return;
+    table.innerHTML = '';
+
+    const addressData = [
+        ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
+        ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
+        ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
+        ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia'],
+        ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia'],
+        ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia']
+    ];
+
+    populateMapTable(table, addressData, 'google-map-embed', '#map-container h3', translations);
+}
+
 function updateHospitalTable() {
     const translations = (currentLang === 'es') ? ES : EN;
     const table = document.getElementById('hospital-table');
-    if (!table) return; 
-
-    table.innerHTML = ''; 
+    if (!table) return;
+    table.innerHTML = '';
 
     const hospitalData = [
-        ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia / San Sebastián, Gipuzkoa'],
-        ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia / San Sebastián, Gipuzkoa']
+        ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia'],
+        ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia']
     ];
 
-    hospitalData.forEach(data => {
+    populateMapTable(table, hospitalData, 'google-map-embed-hospital', '#hospital-map-container h3', translations);
+}
+
+// Función helper para no repetir código de tablas
+// AÑADIMOS EL PARÁMETRO 'clickedRow' a la función showMap
+function populateMapTable(table, dataSet, iframeId, titleSelector, translations) {
+    dataSet.forEach(data => {
         const [icon, nameKey, descKey, telKey, mapQuery] = data;
-        
         const name = translations[nameKey] || nameKey;
-        const description = translations[descKey] || descKey;
-        const number = telKey ? (translations[telKey] || '') : '';
-        const phoneDisplay = number ? number : '';
-        const telLink = number ? number.replace(/ /g, '').replace(/<br>/g, '') : '';
+        const desc = translations[descKey] || descKey;
+        const tel = telKey ? (translations[telKey] || '') : '';
         
         const row = table.insertRow();
+        // USAMOS 'this' para pasar la referencia de la fila al manejador de eventos
+        row.onclick = function() { showMap(iframeId, titleSelector, mapQuery, name, this); };
         
-        row.onclick = function() {
-            showHospitalLocationOnMap(mapQuery, this, name); 
-        };
-        
-        const iconCell = row.insertCell(0);
-        iconCell.className = 'tel-col-icon';
-        iconCell.innerHTML = icon;
-
-        const nameCell = row.insertCell(1);
-        nameCell.className = 'address-col-text'; 
-        nameCell.innerHTML = `<span class="address-name">${name}</span><span class="address-desc">${description}</span>`;
-
-        const numberCell = row.insertCell(2);
-        numberCell.className = 'tel-col-number';
-        if (number) {
-            numberCell.innerHTML = `<a href="tel:${telLink}">${phoneDisplay}</a>`;
-        } else {
-            numberCell.innerText = '';
-        }
+        row.innerHTML = `<td class="tel-col-icon">${icon}</td>
+                         <td><b>${name}</b><br><small style="color:#666">${desc}</small></td>
+                         <td class="tel-col-number"><a href="tel:${tel.replace(/\s/g,'')}">${tel}</a></td>`;
     });
-
-    if (hospitalData.length > 0 && document.getElementById('info-hospitals').classList.contains('visible-info-practica')) {
-        showHospitalLocationOnMap(hospitalData[0][4], table.rows[0], translations[hospitalData[0][1]]);
+    
+    // Cargar el primero por defecto y darle la clase 'active'
+    if (dataSet.length > 0) {
+        const firstRow = table.rows[0];
+        showMap(iframeId, titleSelector, dataSet[0][4], translations[dataSet[0][1]], firstRow);
     }
 }
 
+// MODIFICADA: Acepta 'clickedRow' como nuevo parámetro
+function showMap(iframeId, titleSelector, query, name, clickedRow) {
+    const iframe = document.getElementById(iframeId);
+    
+    // Aseguramos la URL del mapa
+    if (iframe) iframe.src = `https://maps.google.com/maps?q=$${encodeURIComponent(query)}&z=15&output=embed`;
+    
+    // --- LÓGICA PARA RESALTAR LA FILA ---
+    // 1. Determinar qué tabla estamos usando
+    const tableId = (iframeId === 'google-map-embed') ? 'address-table' : 'hospital-table';
+    
+    // 2. Desactivar todas las filas activas en esa tabla
+    const allRows = document.querySelectorAll(`#${tableId} tr`);
+    allRows.forEach(row => row.classList.remove('address-row-active'));
 
-function updateAddressTable() {
+    // 3. Activar la fila pulsada (o la primera si es la carga inicial)
+    if (clickedRow) {
+        clickedRow.classList.add('address-row-active');
+    }
+    // ------------------------------------------
+
+    const title = document.querySelector(titleSelector);
+    if (title) {
+        const prefix = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
+        title.innerText = prefix + name;
+    }
+}
+
+/* --- IMAGENES Y MODAL (LAVADORA) --- */
+function updateWasherGrid() {
     const translations = (currentLang === 'es') ? ES : EN;
-    const table = document.getElementById('address-table');
-    if (!table) return; 
+    const grid = document.getElementById('washer-grid');
+    if (!grid || !translations.lavadora_img) return;
 
-    table.innerHTML = ''; 
+    currentImagePaths = translations.lavadora_img;
+    grid.innerHTML = '';
 
-    const addressData = [
-        ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia / San Sebastián, Gipuzkoa'],
-        ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia / San Sebastián, Gipuzkoa'], 
-        ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'De Francia Ibilbidea, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
-        ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia / San Sebastián, Gipuzkoa'],
-        ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia / San Sebastián, Gipuzkoa'],
-        ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia / San Sebastián, Gipuzkoa']
-    ];
-
-    addressData.forEach(data => {
-        const [icon, nameKey, descKey, telKey, mapQuery] = data;
-        
-        const name = translations[nameKey] || nameKey;
-        const description = translations[descKey] || descKey;
-        const number = telKey ? (translations[telKey] || '') : '';
-        const phoneDisplay = number ? number : '';
-        const telLink = number ? number.replace(/ /g, '').replace(/<br>/g, '') : '';
-        
-        const row = table.insertRow();
-        
-        row.onclick = function() {
-            showLocationOnMap(mapQuery, this);
-        };
-        
-        const iconCell = row.insertCell(0);
-        iconCell.className = 'tel-col-icon';
-        iconCell.innerHTML = icon;
-
-        const nameCell = row.insertCell(1);
-        nameCell.className = 'address-col-text';
-        nameCell.innerHTML = `<span class="address-name">${name}</span><span class="address-desc">${description}</span>`;
-
-        const numberCell = row.insertCell(2);
-        numberCell.className = 'tel-col-number';
-        if (number) {
-            numberCell.innerHTML = `<a href="tel:${telLink}">${phoneDisplay}</a>`;
-        } else {
-            numberCell.innerText = '';
-        }
+    currentImagePaths.forEach((path, idx) => {
+        const div = document.createElement('div');
+        div.className = 'grid-item';
+        div.innerHTML = `<img src="${path}" onclick="openModal(${idx})">`;
+        grid.appendChild(div);
     });
-    
-    if (addressData.length > 0) {
-        showLocationOnMap(addressData[0][4], table.rows[0]);
-    }
 }
 
-function showLocationOnMap(query, clickedRow) {
-    const translations = (currentLang === 'es') ? ES : EN; 
-    const mapIframe = document.getElementById('google-map-embed');
-    const mapTitle = document.querySelector('#map-container h3');
+function setupModal() {
+    const modal = document.getElementById("myModal");
+    if(!modal) return;
     
-    const baseUrl = 'https://maps.google.com/maps?q=';
-    const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
-
-    mapIframe.src = finalUrl;
-    
-    const allRows = document.querySelectorAll('#address-table tr');
-    allRows.forEach(row => row.classList.remove('address-row-active'));
-    if (clickedRow) {
-        clickedRow.classList.add('address-row-active');
-    }
-
-    if (clickedRow && mapTitle) {
-        const nameElement = clickedRow.querySelector('.address-name');
-        const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
-        if (nameElement) {
-            mapTitle.innerText = `${baseTitle}${nameElement.innerText}`;
-        } else {
-             mapTitle.innerText = translations['mapa_titulo'];
-        }
-    } else if (mapTitle) {
-         mapTitle.innerText = translations['mapa_titulo'];
-    }
+    modal.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX, {passive: true});
+    modal.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX < touchStartX - 50) changeImage(1);
+        if (touchEndX > touchStartX + 50) changeImage(-1);
+    }, {passive: true});
 }
 
-function showHospitalLocationOnMap(query, clickedRow, name) {
-    const translations = (currentLang === 'es') ? ES : EN; 
-    const mapIframe = document.getElementById('google-map-embed-hospital'); 
-    const mapTitle = document.querySelector('#hospital-map-container h3'); 
-    
-    const baseUrl = 'https://maps.google.com/maps?q=';
-    const finalUrl = `${baseUrl}${encodeURIComponent(query)}&z=15&output=embed`; 
-
-    mapIframe.src = finalUrl;
-    
-    const allRows = document.querySelectorAll('#hospital-table tr'); 
-    allRows.forEach(row => row.classList.remove('address-row-active'));
-    if (clickedRow) {
-        clickedRow.classList.add('address-row-active');
-    }
-
-    if (clickedRow && mapTitle) {
-        const nameElement = clickedRow.querySelector('.address-name');
-        const baseTitle = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
-        if (nameElement) {
-            mapTitle.innerText = `${baseTitle}${nameElement.innerText}`;
-        } else {
-             mapTitle.innerText = translations['mapa_titulo'];
-        }
-    } else if (mapTitle) {
-         mapTitle.innerText = translations['mapa_titulo'];
-    }
+function openModal(index) {
+    currentImageIndex = index;
+    document.getElementById("myModal").style.display = "flex";
+    document.getElementById("img01").src = currentImagePaths[currentImageIndex];
+}
+function closeModal() { document.getElementById("myModal").style.display = "none"; }
+function changeImage(dir) {
+    currentImageIndex = (currentImageIndex + dir + currentImagePaths.length) % currentImagePaths.length;
+    document.getElementById("img01").src = currentImagePaths[currentImageIndex];
 }
