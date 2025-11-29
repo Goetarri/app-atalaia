@@ -8,7 +8,7 @@ const EN = {
     "nav_home": "Home",
     "nav_eat": "Eat",
     "nav_activities": "Activities",
-    "nav_tips": "Tips",
+    "nav_tips": "Information",
 
     // HOME BUTTONS
     "btn_home_instrucciones": "House Instructions",
