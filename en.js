@@ -68,32 +68,55 @@ const EN = {
 
     "info_info_titulo": "Useful Directions:", 
     "mapa_titulo": "Click on an address to view it on the map.",
+
     "addr_home": "Atalaia Terrace",
     "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
-    "addr_ambulatorio": "Gros Outpatient Center",
+    "addr_home_tel": "",
+
+    "addr_ambulatorio": "Gros Outpatient Clinic",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
-    "addr_bengoetxea": "Emergency Care Center (5pm-8am, Sundays 24h)",
+    "addr_ambulatorio_tel": "+34943007909",
+
+    "addr_bengoetxea": "Emergencies Center (5pm-8am, Sundays 24h)",
     "addr_bengoetxea_desc": "Bengoetxea, 4",
+    "addr_bengoetxea_tel": "+34943006537",
+
     "addr_hospital": "Donostia Central Hospital",
-    "addr_hospital_desc": "Paseo Beguiristain Doktorea",
+    "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
+    "addr_hospital_tel": "+34943007000",
+
     "addr_policlinica": "Policlinica Gipuzkoa (Private Hospital)",
     "addr_policlinica_desc": "Paseo de Miramon, 174.",
-    "addr_pharmacy": "Closest Pharmacy",
-    "addr_pharmacy_desc": "San Francisco, 54",
+    "addr_policlinica_tel": "+34943002800",
+
+    "addr_pharmacy": "Nearest Pharmacy",
+    "addr_pharmacy_desc": "C/ San Francisco, 54",
+    "addr_pharmacy_tel": "+34943275448",
+
     "addr_pharmacy24H": "24H Pharmacy",
-    "addr_pharmacy24H_desc": "Idiakez, 4",
-    "addr_train": "Central Train Station (Adif)",
-    "addr_train_desc": "Avenida de Francia, 22",
-    "addr_train2": "Central Train Station<br>(Euskotren)",
-    "addr_train_desc2": "Plaza Easo, 9",
-    "addr_bus": "Bus Terminal",
-    "addr_bus_desc": "Federico Garcia Lorca, 1",
+    "addr_pharmacy24H_desc": "C/ Idiakez, 4",
+    "addr_pharmacy24H_tel": "+34943427050",
+
+    "addr_train": "Central Train Station",
+    "addr_train_desc": "Pº de Francia, 22",    
+    "addr_train_tel": "+34912320320",
+
+    "addr_train2": "Euskotren Station",
+    "addr_train2_desc": "Plaza Easo, 9",
+    "addr_train2_tel": "+34944333333",
+
+    "addr_bus": "Central Bus Station",
+    "addr_bus_desc": "Pº Federico García Lorca, 1",
+    "addr_bus_tel": "+34943475150",
+
     "addr_taxi": "Taxi Stand",
     "addr_taxi_desc": "Paseo de Colon, 16-20",
+    "addr_taxi_tel": "+34943464646",
 
     "info_hospitals_titulo": "Nearby Hospitals",
     "info_intro": "Free emergency calls from any phone:",
     "tel_emergencias": "Emergency",
+    "tel_titulo": "Phone",
     "tel_ambulancia": "Ambulance",
     "tel_ertzaintza": "Ertzaintza (Basque Police)",
     "tel_municipal": "Local Police",

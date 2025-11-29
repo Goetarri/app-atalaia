@@ -167,7 +167,9 @@ tr:last-child td { border-bottom: none; }
     background-color: #e6e6e6; /* Gris claro para indicar selección */
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Sombra interior sutil */
 }
-.tel-col-icon { width: 30px; font-size: 1.2rem; text-align: center; }
+
+/* ESTILOS PARA LA COLUMNA DE TELÉFONO */
+.tel-col-icon { width: 40px; font-size: 1.8rem; text-align: center; } /*Controlar aspecto de los iconos*/
 .tel-col-number { text-align: right; font-weight: bold; }
 .tel-col-number a { color: #2c3e50; text-decoration: none; }
 

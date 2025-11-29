@@ -18,8 +18,8 @@ const ES = {
     "addr_piso_desc": "Segundo Izpizua, 7 - 7D<br>20001 Donostia",
 
     // BARRA INFERIOR
-    "nav_welcome": "Atalaia",
-    "nav_home": "Instrucciones",
+    "nav_welcome": "Welcome",
+    "nav_home": "Atalaia",
     "nav_eat": "Comer",
     "nav_activities": "Actividades",
     "nav_tips": "Información",
@@ -74,26 +74,47 @@ const ES = {
     // Tablas de direcciones (Mantener tus claves existentes addr_home, addr_ambulatorio, etc.)
     "addr_home": "Atalaia Terrace",
     "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
+    "addr_home_tel": "",
+
     "addr_ambulatorio": "Ambulatorio de Gros",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
+    "addr_ambulatorio_tel": "943007909",
+
     "addr_bengoetxea": "Casa de Socorro (17:00-8:00, Domingos 24h)",
     "addr_bengoetxea_desc": "Bengoetxea, 4",
+    "addr_bengoetxea_tel": "943006537",
+
     "addr_hospital": "Hospital Donostia",
     "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
+    "addr_hospital_tel": "943007000",
+
     "addr_policlinica": "Policlinica Gipuzkoa (Hospital Privado)",
     "addr_policlinica_desc": "Paseo de Miramon, 174.",
+    "addr_policlinica_tel": "943002800",
+
     "addr_pharmacy": "Farmacia más cercana",
     "addr_pharmacy_desc": "C/ San Francisco, 54",
+    "addr_pharmacy_tel": "943275448",
+
     "addr_pharmacy24H": "Farmacia 24H",
     "addr_pharmacy24H_desc": "C/ Idiakez, 4",
-    "addr_train": "Estación de Tren (Adif - Renfe)",
+    "addr_pharmacy24H_tel": "943427050",
+
+    "addr_train": "Estación de Tren Adif",
     "addr_train_desc": "Pº de Francia, 22",    
-    "addr_train2": "Estación de Tren (Euskotren)",
-    "addr_train_desc2": "Plaza Easo, 9",
+    "addr_train_tel": "912320320",
+
+    "addr_train2": "Estación de Euskotren",
+    "addr_train2_desc": "Plaza Easo, 9",
+    "addr_train2_tel": "944333333",
+
     "addr_bus": "Estación de Autobuses",
     "addr_bus_desc": "Pº Federico García Lorca, 1",
+    "addr_bus_tel": "943475150",
+
     "addr_taxi": "Parada de Taxi",
     "addr_taxi_desc": "Paseo de Colon, 16-20",
+    "addr_taxi_tel": "943464646",
 
     "info_hospitals_titulo": "Hospitales cercanos", 
     "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",

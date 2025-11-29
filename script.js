@@ -1,6 +1,7 @@
 let currentLang = 'es'; 
 let currentImageIndex = 0; 
 let currentImagePaths = []; 
+let currentTipInfo = { titleKey: null, tipId: null };
 
 // Variables swipe
 let touchStartX = 0;
@@ -56,6 +57,10 @@ function showWifiScreen() {
 
 /* --- LÓGICA DE APARATOS ESPECÍFICOS (Detalle) --- */
 function showAppliance(applianceId) {
+    // Ocultar el botón de "Atrás" a Atalaia y mostrar el de "Atrás al Menú"
+    const backToAtalaiaBtn = document.querySelector('#appliances .header-row .back-btn[onclick="showTab(\'atalaia\')"]');
+    if (backToAtalaiaBtn) backToAtalaiaBtn.style.display = 'none';
+    
     document.getElementById('back-to-appliance-menu').style.display = 'block';
 
     // 1. OCULTAR el menú de botones
@@ -97,12 +102,12 @@ function showAppliance(applianceId) {
 
 /* --- NAVEGACIÓN DENTRO DE APPLIANCES --- */
 function showApplianceMenu() {
-    // NUEVA LÍNEA: Ocultar el botón de volver al menú
-    const backBtn = document.getElementById('back-to-appliance-menu');
-    if (backBtn) {
-        backBtn.style.display = 'none';
-    }
-    
+    // Mostrar el botón de "Atrás" a Atalaia y ocultar el de "Atrás al Menú"
+    const backToAtalaiaBtn = document.querySelector('#appliances .header-row .back-btn[onclick="showTab(\'atalaia\')"]');
+    if (backToAtalaiaBtn) backToAtalaiaBtn.style.display = 'block';
+
+    document.getElementById('back-to-appliance-menu').style.display = 'none';
+
     // 1. Muestra el menú principal de botones
     const menu = document.getElementById('appliances-menu');
     if (menu) {
@@ -114,22 +119,19 @@ function showApplianceMenu() {
     contents.forEach(content => content.style.display = 'none'); 
 }
 
-function backToApplianceMenu() {
-    // Ocultar detalles
-    const sections = document.querySelectorAll('#appliances .sub-section');
-    sections.forEach(s => s.classList.remove('visible'));
-    
-    // Ocultar botón volver
-    document.getElementById('back-to-appliance-menu').style.display = 'none';
-
-    // Mostrar menú
-    document.getElementById('appliances-menu').style.display = 'block';
-}
-
 /* --- LOGICA PANTALLA TIPS (Información Práctica) --- */
 // MODIFICADA: Ahora acepta 'titleKey' para cambiar el encabezado
 function showTipDetail(tipId, titleKey) {
     const targetId = 'info-' + tipId;
+
+    // --- CORRECCIÓN ---
+    // 1. Primero, asegúrate de que la pantalla principal de 'tips' esté activa.
+    const screens = document.querySelectorAll('.screen');
+    screens.forEach(screen => screen.classList.remove('active'));
+    document.getElementById('tips-main').classList.add('active');
+
+    // Guardar el estado actual
+    currentTipInfo = { titleKey: titleKey, tipId: tipId };
     
     // 1. CAMBIAR TÍTULO
     const translations = (currentLang === 'es') ? ES : EN;
@@ -160,6 +162,18 @@ function showTipDetail(tipId, titleKey) {
 
 // MODIFICADA: Restablece el título por defecto
 function backToTipsMenu() {
+    // --- CORRECCIÓN ---
+    // Si estamos volviendo desde la sección 'consejos', que ahora se lanza desde 'atalaia',
+    // debemos volver a la pantalla 'atalaia' en lugar de al menú de tips.
+    const consejosSection = document.getElementById('info-consejos');
+    if (consejosSection && consejosSection.style.display === 'block') {
+        showTab('atalaia');
+        return; // Salimos de la función para evitar que se ejecute el código de abajo.
+    }
+
+    // Limpiar el estado al volver al menú
+    currentTipInfo = { titleKey: null, tipId: null };
+
     // 1. RESETEAR TÍTULO
     const translations = (currentLang === 'es') ? ES : EN;
     const tipsTitle = document.getElementById('tips-title');
@@ -202,6 +216,12 @@ function updateText() {
         }
     });
 
+    // RE-APLICAR TÍTULO ESPECÍFICO DE TIPS SI ES NECESARIO
+    if (currentTipInfo.titleKey) {
+        const tipsTitle = document.getElementById('tips-title');
+        if (tipsTitle) tipsTitle.innerText = translations[currentTipInfo.titleKey];
+    }
+
     // Actualizar contenidos dinámicos si están visibles
     updateWasherGrid();
     updateInfoTable();
@@ -209,27 +229,6 @@ function updateText() {
     updateHospitalTable();
     updateOwnerContactTable();
     updateApartmentAddressTable();
-
-    // --- NUEVA LÓGICA PARA MANTENER EL TÍTULO EN SUBSECCIONES DE TIPS/INFORMACIÓN ---
-    const tipsSections = ['emergency', 'info', 'hospitals', 'consejos'];
-    
-    for (const tipId of tipsSections) {
-        const sectionElement = document.getElementById('info-' + tipId);
-        // Comprobar si la sección está visible (display !== 'none')
-        if (sectionElement && sectionElement.style.display !== 'none') {
-            let titleKey = '';
-
-            // Mapear el ID de la subsección con la clave del botón de menú
-            if (tipId === 'emergency') titleKey = 'btn_menu_emergencias';
-            else if (tipId === 'info') titleKey = 'btn_menu_direcciones';
-            else if (tipId === 'hospitals') titleKey = 'btn_menu_hospitales';
-            else if (tipId === 'consejos') titleKey = 'btn_menu_consejos';
-            
-            // Re-ejecutar showTipDetail para actualizar el título y los contenidos dinámicos
-            showTipDetail(tipId, titleKey);
-            break; // Salir del bucle una vez que se encuentra la sección activa
-        }
-    }
 }
 
 /* --- TABLAS Y DATOS (Igual que antes, adaptado selectores) --- */
@@ -244,7 +243,8 @@ function updateInfoTable() {
         ['🚑', 'tel_ambulancia', '061'], 
         ['🚓', 'tel_ertzaintza', '088'], 
         ['🚔', 'tel_municipal', '092'], 
-        ['🔥', 'tel_bomberos', '080']
+        ['🔥', 'tel_bomberos', '080'],
+
     ];
     
     data.forEach(item => {
@@ -266,7 +266,7 @@ function updateAddressTable() {
         ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
         ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
         ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
-        ['🚉', 'addr_train2', 'addr_train_desc2', 'addr_train_tel2', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],
+        ['🚉', 'addr_train2', 'addr_train2_desc', 'addr_train2_tel', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],
         ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia']
     ];
     
@@ -305,8 +305,11 @@ function populateMapTable(table, dataSet, iframeId, titleSelector, translations)
         row.onclick = function() { showMap(iframeId, titleSelector, mapQuery, name, this); };
         
         row.innerHTML = `<td class="tel-col-icon">${icon}</td>
-                         <td><b>${name}</b><br><small style="color:#666">${desc}</small></td>
-                         <td class="tel-col-number"><a href="tel:${tel.replace(/\s/g,'')}">${tel}</a></td>`;
+                         <td>
+                            <b>${name}</b><br>
+                            <small style="color:#666">${desc}</small><br>
+                            <small><a href="tel:${tel.replace(/\s/g,'')}">${tel}</a></small>
+                         </td>`;
     });
     
     // Cargar el primero por defecto y darle la clase 'active'
