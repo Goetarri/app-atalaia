@@ -2,7 +2,21 @@ const ES = {
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
     "bienvenida_desc": "Esperamos que disfrutes de tu estancia. Aquí tienes toda la información necesaria.",
-    
+    "bienvenida_desc2": "Si necesitas contactar con nosotros, aquí tienes nuestros números:",
+    "bienvenida_desc3": "Y esta es la dirección completa del apartamento:",
+
+    // --- NUEVAS CLAVES DE CONTACTO ---
+    "titulo_contacto_owner": "Contacto Rápido",
+    "owner_name_igor": "Igor",
+    "owner_name_leti": "Leti",
+    "owner_tel_igor": "655 709 191",
+    "owner_tel_leti": "655 709 192",
+
+    // --- NUEVAS CLAVES DE UBICACIÓN DEL APARTAMENTO (WELCOME) ---
+    "titulo_piso": "Tu Apartamento",
+    "addr_piso_name": "Atalaia Terrace",
+    "addr_piso_desc": "Segundo Izpizua, 7<br>20001 Donostia",
+
     // BARRA INFERIOR
     "nav_welcome": "Atalaia",
     "nav_home": "Instrucciones",
@@ -62,8 +76,12 @@ const ES = {
     "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
     "addr_ambulatorio": "Ambulatorio de Gros",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
+    "addr_bengoetxea": "Casa de Socorro (17:00-8:00, Domingos 24h)",
+    "addr_bengoetxea_desc": "Bengoetxea, 4",
     "addr_hospital": "Hospital Donostia",
     "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
+    "addr_policlinica": "Policlinica Gipuzkoa (Hospital Privado)",
+    "addr_policlinica_desc": "Paseo de Miramon, 174.",
     "addr_pharmacy": "Farmacia más cercana",
     "addr_pharmacy_desc": "C/ San Francisco, 54",
     "addr_pharmacy24H": "Farmacia 24H",

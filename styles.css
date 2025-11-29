@@ -260,3 +260,17 @@ tr:last-child td { border-bottom: none; }
     /* Mantenemos display: block; como soporte, aunque vertical-align es más efectivo aquí */
     display: block; 
 }
+
+/* --- ESTILO PARA AUMENTAR EL ICONO DE PIN DE UBICACIÓN --- */
+.pin-icon {
+    font-size: 2.2rem; /* Puedes ajustar este valor si lo quieres aún más grande */
+}
+
+/* --- ESTILO PARA LA TABLA DE DIRECCIÓN DEL APARTAMENTO (BORDE) --- */
+#apartment-address-table {
+    /* 1. Aplica el borde negro definitivo a la estructura de la tabla */
+    border: 1px solid #000; /* NEGRO PURO */
+    border-radius: 8px;
+    border-collapse: collapse;
+    width: 100%;
+}

@@ -207,6 +207,29 @@ function updateText() {
     updateInfoTable();
     updateAddressTable();
     updateHospitalTable();
+    updateOwnerContactTable();
+    updateApartmentAddressTable();
+
+    // --- NUEVA LÓGICA PARA MANTENER EL TÍTULO EN SUBSECCIONES DE TIPS/INFORMACIÓN ---
+    const tipsSections = ['emergency', 'info', 'hospitals', 'consejos'];
+    
+    for (const tipId of tipsSections) {
+        const sectionElement = document.getElementById('info-' + tipId);
+        // Comprobar si la sección está visible (display !== 'none')
+        if (sectionElement && sectionElement.style.display !== 'none') {
+            let titleKey = '';
+
+            // Mapear el ID de la subsección con la clave del botón de menú
+            if (tipId === 'emergency') titleKey = 'btn_menu_emergencias';
+            else if (tipId === 'info') titleKey = 'btn_menu_direcciones';
+            else if (tipId === 'hospitals') titleKey = 'btn_menu_hospitales';
+            else if (tipId === 'consejos') titleKey = 'btn_menu_consejos';
+            
+            // Re-ejecutar showTipDetail para actualizar el título y los contenidos dinámicos
+            showTipDetail(tipId, titleKey);
+            break; // Salir del bucle una vez que se encuentra la sección activa
+        }
+    }
 }
 
 /* --- TABLAS Y DATOS (Igual que antes, adaptado selectores) --- */
@@ -260,7 +283,9 @@ function updateHospitalTable() {
         ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia'],
         ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia'],
         ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia'],
-        ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia']
+        ['🏥', 'addr_bengoetxea', 'addr_bengoetxea_desc', 'addr_ambulatorio_tel', 'Bengoetxea Kalea, 4, 20004 Donostia / San Sebastián, Gipuzkoa'],
+        ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia'],
+        ['🏥', 'addr_policlinica', 'addr_policlinica_desc', 'addr_policlinica_tel', 'P.º de Miramón, 174, 20014 Donostia / San Sebastián, Gipuzkoa']
     ];
 
     populateMapTable(table, hospitalData, 'google-map-embed-hospital', '#hospital-map-container h3', translations);
@@ -360,4 +385,46 @@ function closeModal() { document.getElementById("myModal").style.display = "none
 function changeImage(dir) {
     currentImageIndex = (currentImageIndex + dir + currentImagePaths.length) % currentImagePaths.length;
     document.getElementById("img01").src = currentImagePaths[currentImageIndex];
+}
+
+function updateOwnerContactTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('owner-contact-table');
+    if (!table) return;
+    table.innerHTML = '';
+    
+    const data = [
+        ['🧔🏻', 'owner_name_igor', 'owner_tel_igor'], 
+        ['👩🏻', 'owner_name_leti', 'owner_tel_leti'], 
+    ];
+    
+    // Usamos el mismo formato de fila que la tabla de emergencias.
+    data.forEach(item => {
+        const telNumber = translations[item[2]] ? translations[item[2]].replace(/\s/g, '') : '';
+        
+        let row = table.insertRow();
+        row.innerHTML = `<td class="tel-col-icon">${item[0]}</td>
+                         <td><b>${translations[item[1]] || item[1]}</b></td>
+                         <td class="tel-col-number"><a href="tel:${telNumber}">${translations[item[2]] || item[2]}</a></td>`;
+    });
+}
+
+function updateApartmentAddressTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('apartment-address-table');
+    if (!table) return;
+    
+    table.innerHTML = ''; // Limpiar la tabla antes de rellenar
+    
+    // Recuperar las claves de traducción
+    const name = translations['addr_piso_name'] || 'Atalaia Terrace';
+    const address = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
+
+    // Insertar la fila
+    let row = table.insertRow();
+    
+    // Aplicamos el formato de la tabla de direcciones: una celda para el texto y una celda para el ícono/flecha.
+    // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
+    row.innerHTML = `<td class="arrow-right pin-icon">🏠</td>
+                    <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`; // Usamos el pin de ubicación para diferenciar.
 }
