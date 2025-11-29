@@ -273,4 +273,18 @@ tr:last-child td { border-bottom: none; }
     border-radius: 8px;
     border-collapse: collapse;
     width: 100%;
+    overflow: visible; /* AÑADIDO: Evita que el borde sea recortado por estilos generales */
+}
+
+/* --- ESTILO PARA LOS BORDES INTERNOS DE LA TABLA DE DIRECCIÓN --- */
+#apartment-address-table td:not(:first-child) {
+    /* Aplica un borde negro a la izquierda de todas las celdas EXCEPTO la primera */
+    border-left: 1px solid #000; /* NEGRO PURO */
+    text-align: center; /* Centra el texto de la columna de la dirección */
+}
+
+/* --- ESTILO PARA AJUSTAR EL ANCHO DE LA COLUMNA DEL ICONO --- */
+#apartment-address-table .pin-icon {
+    width: 1%; /* Fuerza a la columna a ser lo más estrecha posible */
+    text-align: center; /* Centra el icono en su celda */
 }

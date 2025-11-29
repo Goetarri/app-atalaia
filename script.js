@@ -425,6 +425,6 @@ function updateApartmentAddressTable() {
     
     // Aplicamos el formato de la tabla de direcciones: una celda para el texto y una celda para el ícono/flecha.
     // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
-    row.innerHTML = `<td class="arrow-right pin-icon">🏠</td>
-                    <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`; // Usamos el pin de ubicación para diferenciar.
+    row.innerHTML = `<td class="pin-icon">🏠</td>
+                     <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`;
 }
