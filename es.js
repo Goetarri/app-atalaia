@@ -15,9 +15,9 @@ const ES = {
     "btn_home_wifi": "Acceso Wifi",
 
     // BOTONES TIPS (Menú)
-    "btn_menu_emergencias": "Emergencias",
-    "btn_menu_direcciones": "Direcciones",
-    "btn_menu_hospitales": "Hospitales",
+    "btn_menu_emergencias": "Números de Emergencias",
+    "btn_menu_direcciones": "¿Necesitas transporte?",
+    "btn_menu_hospitales": "¿Necesitas asistencia sanitaria?",
     "btn_menu_consejos": "Consejos",
 
     "titulo_info": "Información Práctica",
@@ -55,7 +55,7 @@ const ES = {
 
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
-    "mapa_titulo": "Haz clic en una dirección para verla en el mapa.",
+    //"mapa_titulo": "Haz clic en una dirección para verla en el mapa.",
     
     // Tablas de direcciones (Mantener tus claves existentes addr_home, addr_ambulatorio, etc.)
     "addr_home": "Atalaia Terrace",
@@ -64,12 +64,14 @@ const ES = {
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
     "addr_hospital": "Hospital Donostia",
     "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
-    "addr_pharmacy": "Farmacia Cabezudo",
+    "addr_pharmacy": "Farmacia más cercana",
     "addr_pharmacy_desc": "C/ San Francisco, 54",
-    "addr_pharmacy24H": "Farmacia 24H: Plaza Guipuzcoa",
+    "addr_pharmacy24H": "Farmacia 24H",
     "addr_pharmacy24H_desc": "C/ Idiakez, 4",
     "addr_train": "Estación de Tren (Adif - Renfe)",
-    "addr_train_desc": "Pº de Francia, 22",
+    "addr_train_desc": "Pº de Francia, 22",    
+    "addr_train2": "Estación de Tren (Euskotren)",
+    "addr_train_desc2": "Plaza Easo, 9",
     "addr_bus": "Estación de Autobuses",
     "addr_bus_desc": "Pº Federico García Lorca, 1",
     "addr_taxi": "Parada de Taxi",

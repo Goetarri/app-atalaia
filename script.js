@@ -55,7 +55,6 @@ function showWifiScreen() {
 }
 
 /* --- LÓGICA DE APARATOS ESPECÍFICOS (Detalle) --- */
-/* --- LÓGICA DE APARATOS ESPECÍFICOS (Detalle) --- */
 function showAppliance(applianceId) {
     document.getElementById('back-to-appliance-menu').style.display = 'block';
 
@@ -244,11 +243,10 @@ function updateAddressTable() {
         ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
         ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
         ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
-        ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia'],
-        ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia'],
-        ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia']
+        ['🚉', 'addr_train2', 'addr_train_desc2', 'addr_train_tel2', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],
+        ['🚕', 'addr_taxi', 'addr_taxi_desc', 'addr_taxi_tel', 'Kolon Pasealekua, 16-20, 20002 Donostia']
     ];
-
+    
     populateMapTable(table, addressData, 'google-map-embed', '#map-container h3', translations);
 }
 
@@ -257,8 +255,10 @@ function updateHospitalTable() {
     const table = document.getElementById('hospital-table');
     if (!table) return;
     table.innerHTML = '';
-
+    
     const hospitalData = [
+        ['💊', 'addr_pharmacy', 'addr_pharmacy_desc', 'addr_pharmacy_tel', 'San Frantzisko Kalea, 54, 20002 Donostia'],
+        ['💊', 'addr_pharmacy24H', 'addr_pharmacy24H_desc', 'addr_pharmacy24H_tel', 'Idiakez Kalea, 4, 20004 Donostia'],
         ['🏥', 'addr_ambulatorio', 'addr_ambulatorio_desc', 'addr_ambulatorio_tel', 'Nafarroa Hiribidea, 14, 20013 Donostia'],
         ['🏥', 'addr_hospital', 'addr_hospital_desc', 'addr_hospital_tel', 'Begiristain Doktorea Pasealekua, s/n, 20014 Donostia']
     ];
@@ -296,8 +296,11 @@ function showMap(iframeId, titleSelector, query, name, clickedRow) {
     const iframe = document.getElementById(iframeId);
     
     // Aseguramos la URL del mapa
-    if (iframe) iframe.src = `https://maps.google.com/maps?q=$${encodeURIComponent(query)}&z=15&output=embed`;
-    
+if (iframe) {
+        // La URL mantiene el formato original de tu aplicación, solo se corrige la sintaxis.
+        iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=15&output=embed`;
+    }
+
     // --- LÓGICA PARA RESALTAR LA FILA ---
     // 1. Determinar qué tabla estamos usando
     const tableId = (iframeId === 'google-map-embed') ? 'address-table' : 'hospital-table';

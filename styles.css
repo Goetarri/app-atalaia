@@ -172,7 +172,23 @@ tr:last-child td { border-bottom: none; }
 .tel-col-number a { color: #2c3e50; text-decoration: none; }
 
 /* MAPAS */
-#map-container, #hospital-map-container { margin-top: 15px; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 8px; }
+#map-container, #hospital-map-container {
+    /* Efecto pegajoso */
+    position: sticky;
+    top: 60px; /* Altura aproximada de tu Header azul para que no se solapen */
+    
+    /* Aseguramos que se vea bien por encima de la lista */
+    z-index: 90; 
+    background: white; /* Fondo sólido para que las letras de la tabla no se vean a través */
+    
+    /* Ajustes estéticos para que encaje bien al estar fijo */
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eee; /* Una pequeña línea para separarlo visualmente de la lista */
+    
+    /* Mantenemos tu bloqueo de interacción anterior si lo deseas */
+    pointer-events: none; 
+}
 
 /* Control tamaño iconos de la barra de herramientas inferior */
 .nav-icon-img {
