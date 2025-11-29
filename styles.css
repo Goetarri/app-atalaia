@@ -51,7 +51,7 @@ h1 { margin: 0; font-size: 1.2rem; }
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #95a5a6;
+    color: #000000;
     font-size: 0.75rem;
     cursor: pointer;
     width: 25%;
@@ -211,34 +211,36 @@ tr:last-child td { border-bottom: none; }
     display: grid;
     /* Define 3 columnas de ancho flexible e igual */
     grid-template-columns: repeat(3, 1fr); 
-    /* CAMBIO CLAVE: Forzar 0px de espacio entre filas */
-    row-gap: 0px;
-    /* Mantenemos el espacio horizontal para que no se peguen lateralmente */
-    column-gap: 10px;
+    background-color: white;
 
-    margin-top: 20px;
-    margin-bottom: 10px;
+    gap: 4px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
-
-/* 2. Estilo de la imagen dentro de cada celda */
-#washer-grid .grid-item img {
-    /* Hace que la imagen ocupe todo el ancho de su contenedor (la celda de la cuadrícula) */
-    width: 100%;
-    /* Altura automática para mantener el aspecto y evitar que se amontonen */
-    height: auto; 
-    /* Asegura que la imagen cubra el espacio manteniendo su relación de aspecto */
-    object-fit: cover; 
-    /* Permite que la imagen sea clickeable y tenga un aspecto limpio */
-    cursor: pointer;
-    border-radius: 5px; 
-}
-
-/* Opcional: Asegurar que el contenedor sea cuadrado para un diseño uniforme */
+/* 2. Ajuste de los elementos internos (Contenedor de cada imagen) */
 #washer-grid .grid-item {
-    aspect-ratio: 1 / 1; /* Mantiene la relación de aspecto 1:1 (cuadrado) */
+    aspect-ratio: 3/ 2; 
     overflow: hidden;
-    /* NUEVO: Aseguramos que no haya margen vertical extra en los contenedores de las imágenes */
     margin: 0; 
     padding: 0;
+
+    border: 1px solid hsl(0, 0%, 0%);
+}
+
+/* 3. Estilo de la imagen dentro de cada celda */
+#washer-grid .grid-item img {
+    width: 100%;
+    height: 100%; 
+    
+    /* Mantiene la imagen completa dentro del cuadrado */
+    object-fit: contain;
+    
+    cursor: pointer;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+
+    /* Mantenemos display: block; como soporte, aunque vertical-align es más efectivo aquí */
+    display: block; 
 }
