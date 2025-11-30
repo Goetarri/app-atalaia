@@ -17,25 +17,30 @@
     <div class="container">
         
         <div id="welcome" class="screen active">
-            <div class="text-frame welcome-frame">
-                <h2 data-key="bienvenida">Welcome</h2> 
-                <span data-key="bienvenida_desc">Texto de bienvenida</span>
+            <div class="header-row">
+                 <h2 data-key="bienvenida">Welcome</h2> 
+             </div>
+            <hr>
+            <div class="text-frame">
+                <div id="owner-contact-table-container">
+                    <p data-key="bienvenida_desc">Texto de bienvenida</span>
+                    <table id="owner-contact-table"></table>
+                </div>
+                
+                <div id="apartment-address-table-container">
+                    <p data-key="bienvenida_desc2">Texto de bienvenida2</span>
+                    <table id="apartment-address-table"></table> 
+                    <p data-key="bienvenida_desc3">Texto de bienvenida3</span>
+                </div>
             </div>
-
-            <div id="owner-contact-table-container">
-                <h3 data-key="titulo_contacto_owner">Contacto</h3>
-                <span data-key="bienvenida_desc2">Texto de bienvenida2</span>
-                <table id="owner-contact-table"></table>
-            </div>
-
-            <div id="apartment-address-table-container">
-                <span data-key="bienvenida_desc3">Texto de bienvenida3</span>
-                <table id="apartment-address-table"></table> 
-            </div>
-
+            
         </div>
 
         <div id="atalaia" class="screen">
+            <div class="header-row">
+                <h2 id="tips-title" data-key="titulo_home">Información Práctica</h2>
+            </div>
+            <hr>
             <div class="vertical-menu">
                 <button class="menu-btn" onclick="showWifiScreen()">
                     <img src="images/ic_wifi.png" class="btn-icon" alt="icon">
@@ -145,7 +150,9 @@
         </div>
 
         <div id="restaurants" class="screen">
-            <h2 data-key="titulo_restaurantes">Restaurantes</h2>
+            <div class="header-row">
+                <h2 data-key="titulo_restaurantes">Restaurantes</h2>
+            </div>
             <hr>
             <ul>
                 <li><strong data-key="rest_1_nombre">Bar:</strong> <span data-key="rest_1_desc">Desc</span></li>
@@ -154,10 +161,12 @@
         </div>
 
         <div id="activities" class="screen">
-            <h2 data-key="titulo_actividades">Actividades</h2>
-            <hr>
-            <p data-key="act_1">Actividad 1</p>
-            <p data-key="act_2">Actividad 2</p>
+            <div class="header-row">
+                <h2 data-key="titulo_actividades">Actividades</h2>
+            </div>
+                <hr>
+                <p data-key="act_1">Actividad 1</p>
+                <p data-key="act_2">Actividad 2</p>
         </div>
 
         <div id="tips-main" class="screen">

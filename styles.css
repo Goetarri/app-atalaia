@@ -115,20 +115,31 @@ h1 { margin: 0; font-size: 1.2rem; }
     margin-bottom: 15px; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
     line-height: 1.6;
+    font-size: 1.2rem; /* Adjust this value to change the font size for all text frames */
 }
-.welcome-frame { border-left: 5px solid #2ecc71; }
-.text-frame span { white-space: pre-line; display: block; margin-top: 5px; text-align: justify; }
+
+.welcome-frame { border-left: 5px solid #2ecc71; font-size: 1.4rem; }
 
 /* SUB-SECCIONES Y DETALLES */
 .sub-section { display: none; } /* Oculto por defecto */
 .sub-section.visible { display: block; animation: fadeIn 0.3s; }
 
+.appliance-content { 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    padding: 15px; 
+    margin-bottom: 15px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
+    line-height: 1.6;
+    font-size: 1.2rem; /* Adjust this value to change the font size for all text frames */
+}
 .appliance-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; display: block; margin-bottom: 10px;}
 .wifi-img-small { max-width: 75%; margin: 0 auto; }
 
 /* Header interno para volver atrás */
 .header-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-.header-row h2 { margin: 0; font-size: 1.4rem; }
+.header-row h2 { margin: 0; font-size: 1.5rem; }
 .back-btn { 
     background-color: transparent; border: 1px solid #2c3e50; color: #2c3e50; 
     padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; 
@@ -219,7 +230,7 @@ tr:last-child td { border-bottom: none; }
 
 .detail-header h3 {
     margin: 0;
-    font-size: 1.1rem; /* Ajusta el tamaño para que encaje bien */
+    font-size: 2rem; /* Ajusta el tamaño para que encaje bien */
 }
 
 /* --- ESTILOS PARA LA LAVADORA (Grid 3x3) --- */
@@ -276,6 +287,7 @@ tr:last-child td { border-bottom: none; }
     border-collapse: collapse;
     width: 100%;
     overflow: visible; /* AÑADIDO: Evita que el borde sea recortado por estilos generales */
+    margin-bottom: 15px; /* Espacio inferior añadido */
 }
 
 /* --- ESTILO PARA LOS BORDES INTERNOS DE LA TABLA DE DIRECCIÓN --- */

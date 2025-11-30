@@ -1,9 +1,9 @@
 const ES = {
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenido a tu casa en Donostia!",
-    "bienvenida_desc": "Esperamos que disfrutes de tu estancia. Aquí tienes toda la información necesaria.",
-    "bienvenida_desc2": "Si necesitas contactar con nosotros, aquí tienes nuestros números:",
-    "bienvenida_desc3": "Y esta es la dirección completa del apartamento:",
+    "bienvenida_desc": "Hemos recopilado información útil para que puedas aprovechar al máximo tu visita a San Sebastián. Si necesitas contactar con nosotros, aquí tienes nuestros números:",
+    "bienvenida_desc2": "Y esta es la dirección completa del apartamento por si la necesitarais:",
+    "bienvenida_desc3": "Os deseamos una agradable estancia y no dudéis en contactarnos si tenéis alguna pregunta o necesitáis ayuda.",
 
     // --- NUEVAS CLAVES DE CONTACTO ---
     "titulo_contacto_owner": "Contacto Rápido",
