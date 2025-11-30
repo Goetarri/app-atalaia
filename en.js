@@ -1,7 +1,7 @@
 const EN = {
     "titulo_app": "Atalaia Terrace - Guest App",
     "bienvenida": "Welcome to your home in Donostia!",
-    "bienvenida_desc": "We have collected here helpful information so that you can take the most out of your visit to San Sebastian. Should you need to contact us, here are our numbers:",
+    "bienvenida_desc": "We have collected in this App helpful information so that you can take the most out of your visit to San Sebastian. User the toolbar at the bottom to navigate through the different information screens.Any suggestion to improve the App is welcome.\n\n First of all, Should you need to contact us, here are our numbers:",
     "bienvenida_desc2": "And this is the full address of the apartment:",
     "bienvenida_desc3": "We wish you a pleasant stay and please do not hesitate to reach out if you have any questions or need assistance.",
 
@@ -16,6 +16,9 @@ const EN = {
     "titulo_piso": "Your Apartment",
     "addr_piso_name": "Atalaia Terrace",
     "addr_piso_desc": "Segundo Izpizua, 7 - 7D<br>20001 Donostia",
+
+    // --- CLAVES PARA LA PANTALLA HOME ---
+    "titulo_home": "Home Instructions",
 
     // BOTTOM BAR
     "nav_welcome": "Welcome",

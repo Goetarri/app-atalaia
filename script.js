@@ -407,7 +407,7 @@ function updateOwnerContactTable() {
         
         let row = table.insertRow();
         row.innerHTML = `<td class="tel-col-icon">${item[0]}</td>
-                         <td><b>${translations[item[1]] || item[1]}</b></td>
+                         <td>${translations[item[1]] || item[1]}</td>
                          <td class="tel-col-number"><a href="tel:${telNumber}">${translations[item[2]] || item[2]}</a></td>`;
     });
 }
@@ -421,13 +421,20 @@ function updateApartmentAddressTable() {
     
     // Recuperar las claves de traducción
     const name = translations['addr_piso_name'] || 'Atalaia Terrace';
-    const address = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
+    const addressText = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
+    const mapQuery = 'Segundo Izpizua Kalea, 7, 20001 Donostia';
 
     // Insertar la fila
     let row = table.insertRow();
+    row.style.cursor = 'pointer';
+    row.onclick = () => {
+        // Abre Google Maps en una nueva pestaña con la dirección del apartamento.
+        window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`, '_blank');
+    };
     
     // Aplicamos el formato de la tabla de direcciones: una celda para el texto y una celda para el ícono/flecha.
     // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
     row.innerHTML = `<td class="pin-icon">🏠</td>
-                     <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`;
+                     <td><b>${name}</b><br><small style="color:#666">${addressText}</small></td>
+                     <td class="arrow-icon">›</td>`;
 }

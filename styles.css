@@ -108,6 +108,7 @@ h1 { margin: 0; font-size: 1.2rem; }
 
 /* TEXT FRAMES */
 .text-frame { 
+    text-align: justify;
     background-color: white; 
     border: 1px solid #ccc; 
     border-radius: 8px; 
@@ -163,6 +164,13 @@ h1 { margin: 0; font-size: 1.2rem; }
 table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; }
 td { padding: 12px; border-bottom: 1px solid #eee; }
 tr:last-child td { border-bottom: none; }
+
+/* Reducir espaciado vertical en tablas específicas */
+#owner-contact-table td,
+#info-table td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
 
 /* ESTILOS PARA LAS FILAS CLICABLES (Direcciones/Hospitales) */
 #address-table tr, #hospital-table tr {
@@ -276,7 +284,7 @@ tr:last-child td { border-bottom: none; }
 
 /* --- ESTILO PARA AUMENTAR EL ICONO DE PIN DE UBICACIÓN --- */
 .pin-icon {
-    font-size: 2.2rem; /* Puedes ajustar este valor si lo quieres aún más grande */
+    font-size: 2.5rem; /* Puedes ajustar este valor si lo quieres aún más grande */
 }
 
 /* --- ESTILO PARA LA TABLA DE DIRECCIÓN DEL APARTAMENTO (BORDE) --- */
@@ -299,6 +307,7 @@ tr:last-child td { border-bottom: none; }
 
 /* --- ESTILO PARA AJUSTAR EL ANCHO DE LA COLUMNA DEL ICONO --- */
 #apartment-address-table .pin-icon {
-    width: 1%; /* Fuerza a la columna a ser lo más estrecha posible */
+    aspect-ratio: 1/1;
+    /*width: 1%; /* Fuerza a la columna a ser lo más estrecha posible */
     text-align: center; /* Centra el icono en su celda */
 }
