@@ -121,14 +121,14 @@ function showApplianceMenu() {
 
 /* --- LOGICA PANTALLA TIPS (Información Práctica) --- */
 // MODIFICADA: Ahora acepta 'titleKey' para cambiar el encabezado
-function showTipDetail(tipId, titleKey) {
+function showTipDetail(tipId, titleKey, origin = 'tips') {
     const targetId = 'info-' + tipId;
 
     // --- CORRECCIÓN ---
     // 1. Primero, asegúrate de que la pantalla principal de 'tips' esté activa.
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => screen.classList.remove('active'));
-    document.getElementById('tips-main').classList.add('active');
+    document.getElementById('tips-main').classList.add('active'); 
 
     // Guardar el estado actual
     currentTipInfo = { titleKey: titleKey, tipId: tipId };
@@ -163,14 +163,14 @@ function showTipDetail(tipId, titleKey) {
 // MODIFICADA: Restablece el título por defecto
 function backToTipsMenu() {
     // --- CORRECCIÓN ---
-    // Si estamos volviendo desde la sección 'consejos', que ahora se lanza desde 'atalaia',
-    // debemos volver a la pantalla 'atalaia' en lugar de al menú de tips.
-    const consejosSection = document.getElementById('info-consejos');
-    if (consejosSection && consejosSection.style.display === 'block') {
+    // Si venimos de 'consejos' (que se lanza desde 'atalaia'), volvemos a 'atalaia'.
+    if (currentTipInfo.tipId === 'consejos') {
         showTab('atalaia');
-        return; // Salimos de la función para evitar que se ejecute el código de abajo.
+        // Limpiamos el estado para que la navegación futura sea normal.
+        currentTipInfo = { titleKey: null, tipId: null };
+        return;
     }
-
+    
     // Limpiar el estado al volver al menú
     currentTipInfo = { titleKey: null, tipId: null };
 
@@ -263,7 +263,6 @@ function updateAddressTable() {
     table.innerHTML = '';
 
     const addressData = [
-        ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
         ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
         ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
         ['🚉', 'addr_train2', 'addr_train2_desc', 'addr_train2_tel', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],

@@ -19,7 +19,7 @@ const ES = {
     "addr_piso_desc": "Segundo Izpizua, 7 - 7D<br>20001 Donostia",
 
     // --- CLAVES PARA LA PANTALLA HOME ---
-    "titulo_home": "Home Instructions",
+    "titulo_home": "Información del Apartamento",
 
     // BARRA INFERIOR
     "nav_welcome": "Welcome",

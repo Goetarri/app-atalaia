@@ -238,7 +238,7 @@ tr:last-child td { border-bottom: none; }
 
 .detail-header h3 {
     margin: 0;
-    font-size: 2rem; /* Ajusta el tamaño para que encaje bien */
+    font-size: 1.2rem; /* Ajusta el tamaño para que encaje bien */
 }
 
 /* --- ESTILOS PARA LA LAVADORA (Grid 3x3) --- */
