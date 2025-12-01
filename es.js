@@ -68,9 +68,14 @@ const ES = {
 
     // WIFI
     "wifi_titulo": "Cómo conectarse al wifi:",
-    "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:\n- Red: Atalaia_Guest\n- Contraseña: [TU_CLAVE]\n También os podéis conectar escaneando el siguiente código QR.",
+    "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:",
+    "wifi_network_label": "Network",
+    "wifi_password_label": "Password",
+    "wifi_network_value": "WLAN_1L4N",
+    "wifi_password_value": "IL74An5No9",
+    "wifi_desc2": "También os podéis conectar escaneando el siguiente código QR.",
     "wifi_img": "images/QR_wifi.jpg",
-
+    
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
     //"mapa_titulo": "Haz clic en una dirección para verla en el mapa.",

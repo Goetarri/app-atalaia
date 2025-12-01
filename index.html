@@ -23,15 +23,15 @@
             <hr>
             <div class="text-frame">
                 <div id="owner-contact-table-container">
-                    <p data-key="bienvenida_desc">Texto de bienvenida</span>
+                    <p data-key="bienvenida_desc">Texto de bienvenida</p>
                     <table id="owner-contact-table"></table>
                 </div>
                 
                 <div id="apartment-address-table-container">
-                    <p data-key="bienvenida_desc2">Texto de bienvenida2</span>
+                    <p data-key="bienvenida_desc2">Texto de bienvenida2</p>
                     <table id="apartment-address-table"></table> 
-                    <p data-key="bienvenida_desc3">Texto de bienvenida3</span>
-                    <p style="text-align: right" data-key="bienvenida_desc4">Texto de bienvenida4</span>
+                    <p data-key="bienvenida_desc3">Texto de bienvenida3</p>
+                    <p style="text-align: right" data-key="bienvenida_desc4">Texto de bienvenida4</p>
                     
                 </div>
             </div>
@@ -71,11 +71,26 @@
             <hr>
             <div class="text-frame">
                 <strong data-key="wifi_titulo"></strong><br>
-                <span data-key="wifi_desc"></span>
+                <p data-key="wifi_desc"></p>
+                <p data-key="wifi_desc2"></p>
+                <table class="wifi-table">
+                    <thead>
+                        <tr>
+                            <th data-key="wifi_network_label"></th>
+                            <th data-key="wifi_password_label"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-key="wifi_network_value"></td>
+                            <td data-key="wifi_password_value"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
             </div>
-            <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
         </div>
-
+        
         <div id="appliances" class="screen">
             <div class="header-row">
                 <!-- Este botón llevará de vuelta a la pantalla 'atalaia' -->

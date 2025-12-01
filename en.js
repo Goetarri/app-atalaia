@@ -67,7 +67,12 @@ const EN = {
     "persiana_img": "images/persiana_en.png",
 
     "wifi_titulo": "How to connect to the wifi network:",
-    "wifi_desc": "Our wifi network and password are shown next:\n- Network: Atalaia_Guest\n- Password: [YOUR_PASS]\n You can also connect to the wifi by scanning the following QR code.",
+    "wifi_desc": "Our wifi network and password are shown next:",
+    "wifi_network_label": "Network",
+    "wifi_password_label": "Password",
+    "wifi_network_value": "WLAN_1L4N",
+    "wifi_password_value": "IL74An5No9",
+    "wifi_desc2": "You can also connect to the wifi by scanning the following QR code.",
     "wifi_img": "images/QR_wifi.jpg",
 
     "info_info_titulo": "Useful Directions:", 
