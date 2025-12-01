@@ -1,7 +1,7 @@
 let currentLang = 'es'; 
 let currentImageIndex = 0; 
 let currentImagePaths = []; 
-let currentTipInfo = { titleKey: null, tipId: null };
+let currentTipInfo = { titleKey: null, tipId: null, origin: null };
 
 // Variables swipe
 let touchStartX = 0;
@@ -22,9 +22,6 @@ function showTab(sectionId) {
     // ... (Tu lógica para resetear 'appliances' y 'tips-main' debe mantenerse aquí) ...
     if (sectionId === 'appliances') {
         showApplianceMenu(); // <-- SOLUCIÓN: Llama a la función que SÓLO muestra el menú
-    }
-    if (sectionId === 'tips-main') {
-        backToTipsMenu(); 
     }
     
     // 3. Lógica para actualizar la barra inferior (ACTUALIZADA)
@@ -121,17 +118,18 @@ function showApplianceMenu() {
 
 /* --- LOGICA PANTALLA TIPS (Información Práctica) --- */
 // MODIFICADA: Ahora acepta 'titleKey' para cambiar el encabezado
-function showTipDetail(tipId, titleKey, origin = 'tips') {
+function showTipDetail(tipId, titleKey, origin = 'tips-main') {
     const targetId = 'info-' + tipId;
 
     // --- CORRECCIÓN ---
     // 1. Primero, asegúrate de que la pantalla principal de 'tips' esté activa.
     const screens = document.querySelectorAll('.screen');
+    // Ocultamos todas las pantallas para evitar que se muestre la incorrecta brevemente.
     screens.forEach(screen => screen.classList.remove('active'));
-    document.getElementById('tips-main').classList.add('active'); 
+    document.getElementById('tips-main').classList.add('active');
 
     // Guardar el estado actual
-    currentTipInfo = { titleKey: titleKey, tipId: tipId };
+    currentTipInfo = { titleKey: titleKey, tipId: tipId, origin: origin };
     
     // 1. CAMBIAR TÍTULO
     const translations = (currentLang === 'es') ? ES : EN;
@@ -162,17 +160,15 @@ function showTipDetail(tipId, titleKey, origin = 'tips') {
 
 // MODIFICADA: Restablece el título por defecto
 function backToTipsMenu() {
-    // --- CORRECCIÓN ---
-    // Si venimos de 'consejos' (que se lanza desde 'atalaia'), volvemos a 'atalaia'.
-    if (currentTipInfo.tipId === 'consejos') {
+    // --- CORRECCIÓN DE NAVEGACIÓN ---
+    // Si el origen guardado es 'atalaia', volvemos a esa pantalla.
+    if (currentTipInfo.origin === 'atalaia') {
         showTab('atalaia');
-        // Limpiamos el estado para que la navegación futura sea normal.
-        currentTipInfo = { titleKey: null, tipId: null };
-        return;
+        return; // Importante salir para no ejecutar el resto de la función.
     }
-    
+
     // Limpiar el estado al volver al menú
-    currentTipInfo = { titleKey: null, tipId: null };
+    currentTipInfo = { titleKey: null, tipId: null, origin: null };
 
     // 1. RESETEAR TÍTULO
     const translations = (currentLang === 'es') ? ES : EN;
@@ -193,6 +189,29 @@ function backToTipsMenu() {
     document.getElementById('tips-menu').style.display = 'block';
 }
 
+// --- NUEVA FUNCIÓN ---
+// Se llama desde el botón de la barra de navegación.
+// Su única misión es mostrar la pantalla de tips y asegurarse de que se vea el menú principal.
+function resetToTipsMenu() {
+    // 1. Mostrar la pantalla principal de 'tips'
+    showTab('tips-main');
+
+    // 2. Limpiar cualquier estado de navegación anterior
+    currentTipInfo = { titleKey: null, tipId: null, origin: null };
+
+    // 3. Resetear el título al genérico
+    const translations = (currentLang === 'es') ? ES : EN;
+    const tipsTitle = document.getElementById('tips-title');
+    if (tipsTitle) {
+        tipsTitle.innerText = translations['titulo_info'];
+    }
+
+    // 4. Asegurarse de que el menú de tips es visible y los detalles están ocultos.
+    const sections = document.querySelectorAll('#tips-main .sub-section');
+    sections.forEach(s => s.style.display = 'none');
+    document.getElementById('back-to-tips-menu').style.display = 'none';
+    document.getElementById('tips-menu').style.display = 'block';
+}
 
 /* --- IDIOMA --- */
 function toggleLanguage() {
@@ -263,6 +282,7 @@ function updateAddressTable() {
     table.innerHTML = '';
 
     const addressData = [
+        ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
         ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
         ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
         ['🚉', 'addr_train2', 'addr_train2_desc', 'addr_train2_tel', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],
@@ -420,20 +440,13 @@ function updateApartmentAddressTable() {
     
     // Recuperar las claves de traducción
     const name = translations['addr_piso_name'] || 'Atalaia Terrace';
-    const addressText = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
-    const mapQuery = 'Segundo Izpizua Kalea, 7, 20001 Donostia';
+    const address = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
 
     // Insertar la fila
     let row = table.insertRow();
-    row.style.cursor = 'pointer';
-    row.onclick = () => {
-        // Abre Google Maps en una nueva pestaña con la dirección del apartamento.
-        window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`, '_blank');
-    };
     
     // Aplicamos el formato de la tabla de direcciones: una celda para el texto y una celda para el ícono/flecha.
     // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
     row.innerHTML = `<td class="pin-icon">🏠</td>
-                     <td><b>${name}</b><br><small style="color:#666">${addressText}</small></td>
-                     <td class="arrow-icon">›</td>`;
+                     <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`;
 }

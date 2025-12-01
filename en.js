@@ -1,6 +1,6 @@
 const EN = {
     "titulo_app": "Atalaia Terrace - Guest App",
-    "bienvenida": "Welcome to your home in Donostia!",
+    "bienvenida": "Welcome to Donostia!",
     "bienvenida_desc": "We have collected in this App helpful information so that you can take the most out of your visit to San Sebastian. User the toolbar at the bottom to navigate through the different information screens.\n\n First of all, Should you need to contact us, here are our numbers:",
     "bienvenida_desc2": "And this is the full address of the apartment:",
     "bienvenida_desc3": "We wish you a pleasant stay.",
