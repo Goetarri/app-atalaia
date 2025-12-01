@@ -190,7 +190,8 @@ tr:last-child td { border-bottom: none; }
 
 .wifi-table {
     width: 100%;
-    margin: 20px 0px;
+    height: auto;
+    /*margin: 20px 0px;*/
     border-collapse: collapse;
     text-align: center;
 }
