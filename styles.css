@@ -190,20 +190,19 @@ tr:last-child td { border-bottom: none; }
 
 .wifi-table {
     width: 100%;
-    height: auto;
-    /*margin: 20px 0px;*/
+    margin: 20px 0px;
     border-collapse: collapse;
     text-align: center;
-}
 
+}
 .wifi-table th, .wifi-table td {
-    padding: 10px;
-    border: 1px solid #cccccc80;
-    /*border-bottom: 1px solid #000000;*/
+    font-size: 1.2rem; /* Ajusta el tamaño de fuente */
+    color: #333; /* Color del texto */
+    text-align: center; /* Centra el texto en las celdas */
 }
 
 .wifi-table th {
-    background-color: #f2f2f2;
+    background-color: #dadada;
 }
 
 .qr-code {
