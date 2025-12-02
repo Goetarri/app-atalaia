@@ -23,6 +23,13 @@ function showTab(sectionId) {
     if (sectionId === 'appliances') {
         showApplianceMenu(); // <-- SOLUCIÓN: Llama a la función que SÓLO muestra el menú
     }
+
+    // Si volvemos a la pantalla 'atalaia', reseteamos su título.
+    if (sectionId === 'atalaia') {
+        const translations = (currentLang === 'es') ? ES : EN;
+        const atalaiaTitle = document.querySelector('#atalaia h2');
+        if (atalaiaTitle) atalaiaTitle.innerText = translations['titulo_home'];
+    }
     
     // 3. Lógica para actualizar la barra inferior (ACTUALIZADA)
     const navItems = document.querySelectorAll('.bottom-nav .nav-item');
@@ -118,17 +125,16 @@ function showApplianceMenu() {
 
 /* --- LOGICA PANTALLA TIPS (Información Práctica) --- */
 // MODIFICADA: Ahora acepta 'titleKey' para cambiar el encabezado
-function showTipDetail(tipId, titleKey, origin = 'tips-main') {
+function showTipDetail(tipId, titleKey, origin) {
     const targetId = 'info-' + tipId;
 
-    // --- CORRECCIÓN ---
-    // 1. Primero, asegúrate de que la pantalla principal de 'tips' esté activa.
-    const screens = document.querySelectorAll('.screen');
-    // Ocultamos todas las pantallas para evitar que se muestre la incorrecta brevemente.
-    screens.forEach(screen => screen.classList.remove('active'));
-    document.getElementById('tips-main').classList.add('active');
+    // Si se llama desde Atalaia, primero cambiamos a la pantalla de Información
+    if (origin === 'atalaia' || origin === 'activities') {
+        showTab('tips-main');
+    }
 
-    // Guardar el estado actual
+    // Guardar el estado actual para la navegación y el cambio de idioma
+    // Guardamos el origen para saber a dónde volver
     currentTipInfo = { titleKey: titleKey, tipId: tipId, origin: origin };
     
     // 1. CAMBIAR TÍTULO
@@ -148,7 +154,6 @@ function showTipDetail(tipId, titleKey, origin = 'tips-main') {
     // 4. Mostrar sección
     const sections = document.querySelectorAll('#tips-main .sub-section');
     sections.forEach(s => s.style.display = 'none'); 
-
     const target = document.getElementById(targetId);
     if(target) target.style.display = 'block';
 
@@ -162,12 +167,12 @@ function showTipDetail(tipId, titleKey, origin = 'tips-main') {
 function backToTipsMenu() {
     // --- CORRECCIÓN DE NAVEGACIÓN ---
     // Si el origen guardado es 'atalaia', volvemos a esa pantalla.
-    if (currentTipInfo.origin === 'atalaia') {
+    if (currentTipInfo && (currentTipInfo.origin === 'atalaia' || currentTipInfo.origin === 'activities')) {
+
         showTab('atalaia');
         return; // Importante salir para no ejecutar el resto de la función.
     }
 
-    // Limpiar el estado al volver al menú
     currentTipInfo = { titleKey: null, tipId: null, origin: null };
 
     // 1. RESETEAR TÍTULO
@@ -282,7 +287,6 @@ function updateAddressTable() {
     table.innerHTML = '';
 
     const addressData = [
-        ['🏠', 'addr_home', 'addr_home_desc', 'addr_home_tel', 'Segundo Izpizua Kalea, 7, 20001 Donostia'],
         ['🚌', 'addr_bus', 'addr_bus_desc', 'addr_bus_tel', 'Federico García Lorca Pasealekua, 1, 20012 Donostia'], 
         ['🚉', 'addr_train', 'addr_train_desc', 'addr_train_tel', 'Frantzia Pasealekua, 22, 20012 Donostia / San Sebastián, Gipuzkoa'],
         ['🚉', 'addr_train2', 'addr_train2_desc', 'addr_train2_tel', 'Easo Plaza, 9, 20006 Donostia / San Sebastián, Gipuzkoa'],

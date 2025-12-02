@@ -37,6 +37,7 @@ const ES = {
     "btn_menu_direcciones": "¿Necesitas transporte?",
     "btn_menu_hospitales": "¿Necesitas asistencia sanitaria?",
     "btn_menu_consejos": "Consejos",
+    "btn_menu_checkout": "Check-out",
 
     "titulo_info": "Información Práctica",
     "titulo_electro": "Instrucciones",
@@ -146,5 +147,9 @@ const ES = {
     "titulo_tips": "Consejos",
     "tip_1": "Tip 1",
     "tip_2": "Tip 2",
-    "tip_3": "Tip 3"
+    "tip_3": "Tip 3",
+
+    "checkout_title": "Instrucciones de Check-out",
+    "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!"
+
 };

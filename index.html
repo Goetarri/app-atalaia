@@ -40,7 +40,7 @@
 
         <div id="atalaia" class="screen">
             <div class="header-row">
-                <h2 id="tips-title" data-key="titulo_home">Información Práctica</h2>
+                <h2 data-key="titulo_home">Información del Apartamento</h2>
             </div>
             <hr>
             <div class="vertical-menu">
@@ -54,9 +54,9 @@
                     <span data-key="titulo_electro">Instrucciones</span>
                 </button>
 
-                <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos', 'atalaia')">
-                    <img src="images/ic_tips.png" class="btn-icon" alt="icon">
-                    <span data-key="btn_menu_consejos">Consejos</span>
+                <button class="menu-btn" onclick="showTipDetail('checkout', 'btn_menu_checkout', 'atalaia')">
+                    <img src="images/ic_info.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_checkout">Check-out</span>
                 </button>
             </div>
         </div>
@@ -181,9 +181,21 @@
             <div class="header-row">
                 <h2 data-key="titulo_actividades">Actividades</h2>
             </div>
-                <hr>
-                <p data-key="act_1">Actividad 1</p>
-                <p data-key="act_2">Actividad 2</p>
+            <hr>
+            <div class="vertical-menu">
+                <button class="menu-btn">
+                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <span data-key="act_1">Actividad 1</span>
+                </button>
+                <button class="menu-btn">
+                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <span data-key="act_2">Actividad 2</span>
+                </button>
+                <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos', 'activities')">
+                    <img src="images/ic_tips.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_consejos">Consejos</span>
+                </button>
+            </div>
         </div>
 
         <div id="tips-main" class="screen">
@@ -243,13 +255,10 @@
                 <table id="hospital-table"></table>
             </div>
 
-            <div id="info-consejos" class="sub-section" style="display: none;">
-                 <ul>
-                    <li data-key="tip_1">Tip 1</li>
-                    <li data-key="tip_2">Tip 2</li>
-                    <li data-key="tip_3">Tip 3</li>
-                </ul>
-            </div>
+            <div id="info-checkout" class="sub-section" style="display: none;">
+                <h3 data-key="checkout_title"></h3>
+                <p data-key="checkout_desc"></p>
+           </div>
         </div>
     </div>
 
