@@ -8,12 +8,12 @@ let touchStartX = 0;
 let touchEndX = 0;
 
 document.addEventListener('DOMContentLoaded', () => { 
-    updateText(); 
-    setupModal();
+    updateText();
+    setupModal(); 
 });
 
 /* --- NAVEGACIÓN PRINCIPAL (BOTTOM BAR) --- */
-function showTab(sectionId) {
+function showTab(sectionId, navTargetId) {
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => screen.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
@@ -32,12 +32,13 @@ function showTab(sectionId) {
     }
     
     // 3. Lógica para actualizar la barra inferior (ACTUALIZADA)
+    const navTarget = navTargetId || sectionId; // Usar navTargetId si se proporciona, si no, usar sectionId
     const navItems = document.querySelectorAll('.bottom-nav .nav-item');
     navItems.forEach(item => {
         item.classList.remove('active');
         
         // ¡CAMBIO CLAVE! Comprueba si el 'data-target' del botón coincide con el 'sectionId'
-        if (item.getAttribute('data-target') === sectionId) {
+        if (item.getAttribute('data-target') === navTarget) {
             item.classList.add('active');
         }
     });
@@ -129,8 +130,8 @@ function showTipDetail(tipId, titleKey, origin) {
     const targetId = 'info-' + tipId;
 
     // Si se llama desde Atalaia, primero cambiamos a la pantalla de Información
-    if (origin === 'atalaia' || origin === 'activities') {
-        showTab('tips-main');
+    if (origin === 'atalaia' || origin === 'activities') { 
+        showTab('tips-main', origin); // <-- CORRECCIÓN: Muestra la pantalla de tips, pero mantiene 'origin' como el botón activo.
     }
 
     // Guardar el estado actual para la navegación y el cambio de idioma
@@ -168,8 +169,8 @@ function backToTipsMenu() {
     // --- CORRECCIÓN DE NAVEGACIÓN ---
     // Si el origen guardado es 'atalaia', volvemos a esa pantalla.
     if (currentTipInfo && (currentTipInfo.origin === 'atalaia' || currentTipInfo.origin === 'activities')) {
-
-        showTab('atalaia');
+        // CORRECCIÓN: Volver a la pantalla de origen (Atalaia o Activities)
+        showTab(currentTipInfo.origin);
         return; // Importante salir para no ejecutar el resto de la función.
     }
 
