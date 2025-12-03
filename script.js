@@ -482,13 +482,21 @@ function updateApartmentAddressTable() {
     
     // Recuperar las claves de traducción
     const name = translations['addr_piso_name'] || 'Atalaia Terrace';
-    const address = translations['addr_piso_desc'] || 'Segundo Izpizua, 7<br>20001 Donostia';
+    const addressDisplay = (translations['addr_piso_desc'] || '').replace(/\n/g, '<br>');
+    const gmapsQuery = translations['addr_piso_gmaps'];
 
     // Insertar la fila
     let row = table.insertRow();
     
+    // Construir la URL de Google Maps si la clave existe
+    if (gmapsQuery) {
+        const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(gmapsQuery)}`;
+        row.onclick = () => window.open(mapUrl, '_blank');
+        row.style.cursor = 'pointer'; // Cambia el cursor para indicar que es clickeable
+    }
+
     // Aplicamos el formato de la tabla de direcciones: una celda para el texto y una celda para el ícono/flecha.
     // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
     row.innerHTML = `<td class="pin-icon">🏠</td>
-                     <td><b>${name}</b><br><small style="color:#666">${address}</small></td>`;
+                     <td><b>${name}</b><br><small style="color:#666">${addressDisplay}</small></td>`;
 }

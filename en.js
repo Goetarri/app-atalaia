@@ -16,8 +16,9 @@ const EN = {
     // --- NUEVAS CLAVES DE UBICACIÓN DEL APARTAMENTO (WELCOME) ---
     "titulo_piso": "Your Apartment",
     "addr_piso_name": "Atalaia Terrace",
-    "addr_piso_desc": "Segundo Izpizua, 7 - 7D<br>20001 Donostia",
-
+    "addr_piso_desc": "Segundo Izpizua, 7 - 7D\n20001 Donostia", // For display
+    "addr_piso_gmaps": "Segundo Izpizua 7, 20001 Donostia",
+    
     // --- CLAVES PARA LA PANTALLA HOME ---
     "titulo_home": "Home Instructions",
 
