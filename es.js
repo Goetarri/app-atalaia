@@ -34,6 +34,7 @@ const ES = {
     "btn_home_instrucciones": "Instrucciones de casa",
     "btn_menu_checkout": "Check-out",
     "btn_home_garbage": "Basura",
+    "btn_home_rules": "Normas de la casa",
     
     //Seccion Electrodomesticos
     "titulo_info": "Información Práctica",
@@ -47,6 +48,10 @@ const ES = {
     "garbage_title": "Gestión de Basuras",
     "garbage_desc": "Por favor, depositad la basura en los contenedores correspondientes que se encuentran en la calle. Hay contenedores para orgánico, papel, envases y vidrio. ¡Gracias por vuestra colaboración!",
 
+    //HOME RULES
+    "homerules_title": "Normas de la casa",
+    "homerules_desc": "Descripcion normativa",
+   
 
     // BOTONES TIPS (Menú)
     "btn_menu_emergencias": "Emergencias",

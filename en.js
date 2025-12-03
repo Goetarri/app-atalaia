@@ -3,7 +3,7 @@ const EN = {
     "bienvenida": "Welcome to Donostia!",
     "bienvenida_desc": "We have collected in this App helpful information so that you can take the most out of your visit to San Sebastian. User the toolbar at the bottom to navigate through the different information screens.\n\n First of all, Should you need to contact us, here are our numbers:",
     "bienvenida_desc2": "And this is the full address of the apartment:",
-    "bienvenida_desc3": "We wish you a pleasant stay.",
+    "bienvenida_desc3": "Do not hesitate to contact us for anything you might need. We'll be happy to help.\n\n We wish you a pleasant stay.",
     "bienvenida_desc4": "Leti and Igor",
 
     // --- NUEVAS CLAVES DE CONTACTO ---
@@ -34,10 +34,15 @@ const EN = {
     "btn_home_instrucciones": "Home Instructions",
     "btn_menu_checkout": "Check-out",
     "btn_home_garbage": "Garbage",
+    "btn_home_rules": "Home Rules",
 
     // --- GARBAGE SCREEN ---
     "garbage_title": "Garbage Disposal",
     "garbage_desc": "Please dispose of garbage in the corresponding containers on the street. There are separate bins for organic, paper, packaging, and glass. Thank you for your cooperation!",
+    
+    //HOME RULES
+    "homerules_title": "Home Rules",
+    "homerules_desc": "Description of Home Rules",
     
     // TIPS MENU BUTTONS
     "btn_menu_emergencias": "Emergency numbers",

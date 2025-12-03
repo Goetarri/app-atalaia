@@ -126,6 +126,7 @@ h1 { margin: 0; font-size: 1.2rem; }
 .sub-section.visible { display: block; animation: fadeIn 0.3s; }
 
 .appliance-content { 
+    text-align: justify;
     background-color: white; 
     border: 1px solid #ccc; 
     border-radius: 8px; 
