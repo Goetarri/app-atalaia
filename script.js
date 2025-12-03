@@ -219,6 +219,40 @@ function resetToTipsMenu() {
     document.getElementById('tips-menu').style.display = 'block';
 }
 
+/* --- LÓGICA PANTALLA ACTIVIDADES --- */
+function showActivityDetail(activityId) {
+    const targetId = 'act-' + activityId;
+
+    // 1. Ocultar el menú de botones de actividades
+    document.getElementById('activities-menu').style.display = 'none';
+
+    // 2. Mostrar el contenedor de detalles y el botón de "Atrás"
+    document.getElementById('back-to-activities-menu').style.display = 'flex';
+
+    // 3. Ocultar todas las sub-secciones de actividades (para limpiar)
+    const sections = document.querySelectorAll('#activities .sub-section');
+    sections.forEach(s => s.style.display = 'none');
+
+    // 4. Mostrar la sub-sección de la actividad correcta
+    const target = document.getElementById(targetId);
+    if(target) target.style.display = 'block';
+
+    window.scrollTo(0, 0);
+}
+
+function backToActivitiesMenu() {
+    // 1. Ocultar todas las sub-secciones de actividades
+    const sections = document.querySelectorAll('#activities .sub-section');
+    sections.forEach(s => s.style.display = 'none');
+
+    // 2. Ocultar el botón de "Atrás"
+    document.getElementById('back-to-activities-menu').style.display = 'none';
+
+    // 3. Mostrar el menú de botones de actividades
+    document.getElementById('activities-menu').style.display = 'block';
+}
+
+
 /* --- IDIOMA --- */
 function toggleLanguage() {
     currentLang = (currentLang === 'es') ? 'en' : 'es';
@@ -254,6 +288,9 @@ function updateText() {
     updateHospitalTable();
     updateOwnerContactTable();
     updateApartmentAddressTable();
+
+    // Si una pantalla de actividad está abierta, refrescar su contenido
+    // No es necesario hacer nada aquí, ya que el contenido de las actividades se actualiza con el resto del texto.
 }
 
 /* --- TABLAS Y DATOS (Igual que antes, adaptado selectores) --- */

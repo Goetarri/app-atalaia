@@ -29,44 +29,33 @@ const ES = {
     "nav_tips": "Información",
 
     // BOTONES HOME
-    "btn_home_instrucciones": "Instrucciones de la casa",
     "btn_home_wifi": "Acceso Wifi",
-
-    // BOTONES TIPS (Menú)
-    "btn_menu_emergencias": "Números de Emergencias",
-    "btn_menu_direcciones": "¿Necesitas transporte?",
-    "btn_menu_hospitales": "¿Necesitas asistencia sanitaria?",
-    "btn_menu_consejos": "Consejos",
+    "btn_home_instrucciones": "Instrucciones de casa",
     "btn_menu_checkout": "Check-out",
-
+    "btn_home_garbage": "Basura",
+    
+    //Seccion Electrodomesticos
     "titulo_info": "Información Práctica",
     "titulo_electro": "Instrucciones",
     "sub_lavadora": "Lavadora",
     "sub_toldo": "Toldo",
     "sub_calefaccion": "Calefacción",
     "sub_persiana": "Persiana",
+   
+    // --- PANTALLA BASURA ---
+    "garbage_title": "Gestión de Basuras",
+    "garbage_desc": "Por favor, depositad la basura en los contenedores correspondientes que se encuentran en la calle. Hay contenedores para orgánico, papel, envases y vidrio. ¡Gracias por vuestra colaboración!",
+
+
+    // BOTONES TIPS (Menú)
+    "btn_menu_emergencias": "Emergencias",
+    "btn_menu_direcciones": "Info de Transporte",
+    "btn_menu_hospitales": "Asistencia Médica",
+    
     
     "btn_atras": "Atrás",
     "btn_atras_menu": "Atrás",
-
-    // Mantener el resto de tu contenido existente...
-    "lavadora_titulo": "Cómo utilizar la lavadora:",
-    "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón ⏯ para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
-    "lavadora_img": [
-        "images/wash_01_es.png", "images/wash_02_es.png", "images/wash_03_es.png",
-        "images/wash_04_es.png", "images/wash_05_es.png", "images/wash_06_es.png",
-        "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
-    ],
-    "toldo_titulo": "Como funcionan los toldos:",
-    "toldo_desc": "Los toldos se controlan desde el teclado ubicado a la izquierda de la puerta del salón que da a la terraza. Bajar/Subir el toldo hasta que haga 'clic' para detenerse. Por favor, recoger los toldos si hace viento o salís del apartamento.",
-    "toldo_img": "images/awning_es.png",
-    "calefaccion_titulo": "Termostato de calefacción:",
-    "calefaccion_desc": "El termostato se encuentra en el pasillo. Para encender la calefacción, presionar el icono del Sol. La temperatura se regula con el dial inferior. La temperatura confort (22ºC) viene indicada por el punto del regulador de la parte inferior.\n- Derecha (icono reloj): sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
-    "calefaccion_img": "images/heating_es.png",
-    "persiana_titulo": "Como funciona la persiana:",
-    "persiana_desc": "La persiana de la habitación se maneja con la correa ubicada a la izquierda de la puerta. Para levantarla, tirar de la correa hacia arriba. Para bajarla, desbloquear la correa tirado de la parte de abajo hacia uno mismo, y acompañarla hacia arriba. No tirar directamente hacia arriba, porque la persiana está bloqueada para evitar que deslice.",
-    "persiana_img": "images/persiana_es.png",
-
+    
     // WIFI
     "wifi_titulo": "Cómo conectarse al wifi:",
     "wifi_desc": "A continuación se muestran la red y contraseña de nuestro wifi:",
@@ -77,6 +66,27 @@ const ES = {
     "wifi_desc2": "También os podéis conectar escaneando el siguiente código QR.",
     "wifi_img": "images/QR_wifi.jpg",
     
+    // Mantener el resto de tu contenido existente...
+    "lavadora_titulo": "Cómo utilizar la lavadora:",
+    "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón ⏯ para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
+    "lavadora_img": [
+        "images/wash_01_es.png", "images/wash_02_es.png", "images/wash_03_es.png",
+        "images/wash_04_es.png", "images/wash_05_es.png", "images/wash_06_es.png",
+        "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
+    ],
+    "toldo_titulo": "Como funcionan los toldos:",
+    "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde. Para desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.",
+    "toldo_img": "images/awning_es.png",
+    "calefaccion_titulo": "Termostato de calefacción:",
+    "calefaccion_desc": "El termostato se encuentra en la sala, junto a la puerta de la habitación. Para encender la calefacción, girar el selector superior a la posicion central indicada con el simbolo del sol. La temperatura se regula con el mando inferior. La temperatura confort (22ºC) viene indicada por el punto del regulador de la parte inferior. Para apagar la calefacción volver a girar el selector a la izquierda (simbolo de luna). La posicion de la derecha (icono reloj) sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
+    "calefaccion_img": "images/heating_es.png",
+    "persiana_titulo": "Como funciona la persiana:",
+    "persiana_desc": "La persiana de la habitación se maneja con la correa ubicada a la izquierda de la puerta. Para levantarla, tirar de la correa hacia arriba. Para bajarla, desbloquear la correa tirado de la parte de abajo hacia uno mismo, y acompañarla hacia arriba. No tirar directamente hacia arriba, porque la persiana está bloqueada para evitar que deslice.",
+    "persiana_img": "images/blinds.png",
+    
+    "checkout_title": "Instrucciones de Check-out",
+    "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!",
+    
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
     //"mapa_titulo": "Haz clic en una dirección para verla en el mapa.",
@@ -85,23 +95,23 @@ const ES = {
     "addr_home": "Atalaia Terrace",
     "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
     "addr_home_tel": "",
-
+    
     "addr_ambulatorio": "Ambulatorio de Gros",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
     "addr_ambulatorio_tel": "943007909",
-
+    
     "addr_bengoetxea": "Casa de Socorro (17:00-8:00, Domingos 24h)",
     "addr_bengoetxea_desc": "Bengoetxea, 4",
     "addr_bengoetxea_tel": "943006537",
-
+    
     "addr_hospital": "Hospital Donostia",
     "addr_hospital_desc": "Pº Dr. Beguiristain, s/n",
     "addr_hospital_tel": "943007000",
-
+    
     "addr_policlinica": "Policlinica Gipuzkoa (Hospital Privado)",
     "addr_policlinica_desc": "Paseo de Miramon, 174.",
     "addr_policlinica_tel": "943002800",
-
+    
     "addr_pharmacy": "Farmacia más cercana",
     "addr_pharmacy_desc": "C/ San Francisco, 54",
     "addr_pharmacy_tel": "943275448",
@@ -113,19 +123,19 @@ const ES = {
     "addr_train": "Estación de Tren Adif",
     "addr_train_desc": "Pº de Francia, 22",    
     "addr_train_tel": "912320320",
-
+    
     "addr_train2": "Estación de Euskotren",
     "addr_train2_desc": "Plaza Easo, 9",
     "addr_train2_tel": "944333333",
-
+    
     "addr_bus": "Estación de Autobuses",
     "addr_bus_desc": "Pº Federico García Lorca, 1",
     "addr_bus_tel": "943475150",
-
+    
     "addr_taxi": "Parada de Taxi",
     "addr_taxi_desc": "Paseo de Colon, 16-20",
     "addr_taxi_tel": "943464646",
-
+    
     "info_hospitals_titulo": "Hospitales cercanos", 
     "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",
     "tel_emergencias": "Emergencias",
@@ -133,23 +143,37 @@ const ES = {
     "tel_ertzaintza": "Ertzaintza",
     "tel_municipal": "Policía Municipal",
     "tel_bomberos": "Bomberos",
-
+    
     "titulo_restaurantes": "Comer y Beber",
     "rest_1_nombre": "Bar La Plaza:",
     "rest_1_desc": "Las mejores tapas.",
     "rest_2_nombre": "Restaurante El Mar:",
     "rest_2_desc": "Pescado fresco.",
-
+    
     "titulo_actividades": "Qué hacer",
-    "act_1": "Actividad 1",
-    "act_2": "Actividad 2",
+    "btn_act_1": "Actividad 1",
+    "btn_act_2": "Actividad 2",
 
+    // INSTRUCCIÓN: Añade la clave para el botón de la nueva actividad aquí
+    "btn_act_3": "Actividad 3",
+    "btn_menu_consejos": "Consejos",
+    
     "titulo_tips": "Consejos",
-    "tip_1": "Tip 1",
-    "tip_2": "Tip 2",
-    "tip_3": "Tip 3",
+    "tip_1": "Tip 1", // Placeholder
+    "tip_2": "Tip 2", // Placeholder
+    "tip_3": "Tip 3", // Placeholder
 
-    "checkout_title": "Instrucciones de Check-out",
-    "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!"
-
+    // --- PANTALLAS DE ACTIVIDADES ---
+    "act_1_titulo": "Paseo por la Concha",
+    "act_1_desc": "La Playa de la Concha es el corazón de San Sebastián. [1] Disfruta de un relajante paseo por su icónica barandilla, toma el sol en su arena fina o date un chapuzón en sus tranquilas aguas. Es el lugar perfecto para disfrutar de las vistas de la bahía con la Isla de Santa Clara en el centro. [1]",
+    "act_1_img": "images/concha.jpg",
+    "act_2_titulo": "Ruta de Pintxos por lo Viejo",
+    "act_2_desc": "La Parte Vieja de San Sebastián es famosa mundialmente por sus bares de pintxos. [2] Piérdete por sus calles y descubre la increíble variedad de delicias culinarias en miniatura. Cada bar tiene su especialidad, ¡así que no dudes en probar varias!",
+    "act_2_img": "images/pintxos.jpg",
+    
+    // INSTRUCCIÓN: Añade las claves para el contenido de la nueva actividad aquí
+    // Asegúrate de que los números coinciden (act_3_titulo, act_3_desc, etc.)
+    "act_3_titulo": "Subida al Monte Urgull",
+    "act_3_desc": "Explora el Monte Urgull para disfrutar de unas vistas panorámicas espectaculares de la ciudad y sus playas. En la cima encontrarás el Castillo de la Mota y una estatua del Sagrado Corazón. Es un paseo agradable lleno de historia.",
+    "act_3_img": "images/urgull.jpg"
 };

@@ -51,12 +51,20 @@
 
                 <button class="menu-btn" onclick="showTab('appliances')">
                     <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
-                    <span data-key="titulo_electro">Instrucciones</span>
+                    <span data-key="btn_home_instrucciones">Instrucciones</span>
                 </button>
 
                 <button class="menu-btn" onclick="showTipDetail('checkout', 'btn_menu_checkout', 'atalaia')">
                     <img src="images/ic_info.png" class="btn-icon" alt="icon">
                     <span data-key="btn_menu_checkout">Check-out</span>
+                </button>
+
+                <!-- INSTRUCTION: To add a new button, copy the block below -->
+                <!-- Change the onclick function to show your new screen (e.g., showTab('garbage-screen')) -->
+                <!-- Update the icon source and the data-key for the button text -->
+                <button class="menu-btn" onclick="showTab('garbage-screen')">
+                    <img src="images/ic_garbage.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_home_garbage">Basura</span>
                 </button>
             </div>
         </div>
@@ -90,6 +98,24 @@
                 <img data-key="wifi_img" src="images/QR_wifi.jpg" alt="Código QR Wifi" class="appliance-img wifi-img-small">
             </div>
         </div>
+
+        <!-- INSTRUCTION: To add a new sub-section, copy this entire 'screen' block -->
+        <!-- Change the main div id to match what you used in the button's onclick (e.g., id="garbage-screen") -->
+        <div id="garbage-screen" class="screen">
+            <div class="header-row">
+                <!-- Make sure the back button's onclick takes the user back to the 'atalaia' screen -->
+                <button class="back-btn" onclick="showTab('atalaia')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
+                </button>
+                <!-- Update the data-key for the title -->
+                <h2 data-key="garbage_title">Basura</h2>
+            </div>
+            <hr>
+            <div class="text-frame">
+                <!-- Add your content here. Use unique data-keys for text and images to support multiple languages -->
+                <p data-key="garbage_desc"></p>
+            </div>
+        </div>
         
         <div id="appliances" class="screen">
             <div class="header-row">
@@ -101,7 +127,6 @@
                 <button id="back-to-appliance-menu" class="back-btn" onclick="showApplianceMenu()" style="display:none;">
                     <span class="arrow-icon">⬅</span> <span data-key="btn_atras_menu"></span>
                 </button>
-
                 <h2 data-key="titulo_electro">Instrucciones</h2>
             </div>
             <hr>
@@ -130,9 +155,9 @@
                     <h3 data-key="lavadora_titulo"></h3>
                 </div>
                 <hr>
+                <div id="washer-grid" class="grid-container"></div>
                 <p data-key="lavadora_desc"></p>
                 <div class="spacer-80"></div>
-                <div id="washer-grid" class="grid-container"></div>
             </div>
 
             <div id="toldo-content" class="appliance-content" style="display: none;">
@@ -160,7 +185,7 @@
                     <h3 data-key="persiana_titulo"></h3>
                 </div>
                 <hr>
-                <img data-key="persiana_img" class="appliance-img" alt="Persiana">
+                <img data-key="persiana_img" class="small-persiana" alt="Persiana">
                 <p data-key="persiana_desc"></p>
                 <div class="spacer-80"></div>
             </div>
@@ -179,22 +204,66 @@
 
         <div id="activities" class="screen">
             <div class="header-row">
+                <button id="back-to-activities-menu" class="back-btn" onclick="backToActivitiesMenu()" style="display:none;">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras_menu"></span>
+                </button>
                 <h2 data-key="titulo_actividades">Actividades</h2>
             </div>
             <hr>
-            <div class="vertical-menu">
-                <button class="menu-btn">
+            <!-- ID 'activities-menu' añadido aquí -->
+            <div id="activities-menu" class="vertical-menu">
+                <button class="menu-btn" onclick="showActivityDetail('1')">
                     <img src="images/ic_activities.png" class="btn-icon" alt="icon">
-                    <span data-key="act_1">Actividad 1</span>
+                    <span data-key="btn_act_1">Actividad 1</span>
                 </button>
-                <button class="menu-btn">
+                <button class="menu-btn" onclick="showActivityDetail('2')">
                     <img src="images/ic_activities.png" class="btn-icon" alt="icon">
-                    <span data-key="act_2">Actividad 2</span>
+                    <span data-key="btn_act_2">Actividad 2</span>
                 </button>
+                <!-- INSTRUCCIÓN: Para añadir una nueva actividad, copia y pega este bloque de botón -->
+                <!-- Cambia el '3' en showActivityDetail('3') por el nuevo número de actividad -->
+                <!-- Ver abajo como añadir la sub-seccion correspondiente al boton creado-->
+                <button class="menu-btn" onclick="showActivityDetail('3')">
+                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_act_3">Actividad 3</span>
+                </button>
+
+
+
+
                 <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos', 'activities')">
                     <img src="images/ic_tips.png" class="btn-icon" alt="icon">
                     <span data-key="btn_menu_consejos">Consejos</span>
                 </button>
+            </div>
+
+            <!-- Sub-sección para Actividad 1 -->
+            <div id="act-1" class="sub-section" style="display: none;">
+                <div class="text-frame">
+                    <h3 data-key="act_1_titulo">Título Actividad 1</h3>
+                    <p data-key="act_1_desc">Descripción detallada de la Actividad 1. Aquí puedes poner toda la información relevante, horarios, precios, cómo llegar, etc.</p>
+                    <img data-key="act_1_img" src="images/placeholder_activity1.jpg" alt="Actividad 1" class="appliance-img">
+                    <p data-key="act_1_desc2">Más detalles o un segundo párrafo para la actividad.</p>
+                </div>
+            </div>
+            <div id="act-2" class="sub-section" style="display: none;">
+                <div class="text-frame">
+                    <h3 data-key="act_2_titulo">Título Actividad 2</h3>
+                    <p data-key="act_2_desc">Descripción detallada de la Actividad 2. Aquí puedes poner toda la información relevante, horarios, precios, cómo llegar, etc.</p>
+                    <img data-key="act_2_img" src="images/placeholder_activity2.jpg" alt="Actividad 2" class="appliance-img">
+                    <p data-key="act_2_desc2">Más detalles o un segundo párrafo para la actividad.</p>
+                </div>
+            </div>
+
+            <!-- INSTRUCCIÓN: Para añadir el contenido de una nueva actividad, copia y pega este bloque -->
+            <!-- Cambia el id="act-3" para que coincida con el número que usaste en el botón (showActivityDetail('3')) -->
+            <!-- Asegúrate de que los 'data-key' (ej: act_3_titulo) son únicos para esta actividad -->
+            <div id="act-3" class="sub-section" style="display: none;">
+                <div class="text-frame">
+                    <h3 data-key="act_3_titulo">Título Actividad 3</h3>
+                    <p data-key="act_3_desc">Descripción detallada de la Actividad 3.</p>
+                    <img data-key="act_3_img" src="images/placeholder_activity3.jpg" alt="Actividad 3" class="appliance-img">
+                </div>
             </div>
         </div>
 
