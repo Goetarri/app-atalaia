@@ -1,9 +1,9 @@
 const ES = {
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenidos a Donosti!",
-    "bienvenida_desc": "Hemos recopilado en esta App información práctica para que podais aprovechar al máximo vuestra visita a San Sebastián. Desde la barra de navegación inferior podreis accederr a las diferentes secciones en las que hemos diviido la información. \n\nEn primer lugar, aquí teneis nuestros teléfonos por si necesitáis poneros en contacto con nosotros:",
+    "bienvenida_desc": "Hemos recopilado en esta App información práctica para que podais aprovechar al máximo vuestra visita a San Sebastián.\n\nNo dudeis en poneros en contacto con nosotros para cualquier cosa que necesiteis. Estaremos encantados de ayudaros.",
     "bienvenida_desc2": "Y esta es la dirección completa del apartamento:",
-    "bienvenida_desc3": "No dudeis en poneros en contacto con nosotros para cualquier cosa que necesiteis. Estaremos encantados de ayudaros. \n\nOs deseamos una feliz estancia.",
+    "bienvenida_desc3": "Os deseamos una feliz estancia.",
     "bienvenida_desc4": "Leti e Igor",
 
     // --- NUEVAS CLAVES DE CONTACTO ---
@@ -84,7 +84,7 @@ const ES = {
     "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde. Para desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.",
     "toldo_img": "images/awning_es.png",
     "calefaccion_titulo": "Termostato de calefacción:",
-    "calefaccion_desc": "El termostato se encuentra en la sala, junto a la puerta de la habitación. Para encender la calefacción, girar el selector superior a la posicion central indicada con el simbolo del sol. La temperatura se regula con el mando inferior. La temperatura confort (22ºC) viene indicada por el punto del regulador de la parte inferior. Para apagar la calefacción volver a girar el selector a la izquierda (simbolo de luna). La posicion de la derecha (icono reloj) sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
+    "calefaccion_desc": "El termostato se encuentra en la sala, junto a la puerta de la habitación. Para encender la calefacción, girar el selector superior a la posicion central indicada con el simbolo del sol. La temperatura se regula con el mando inferior. La temperatura confort (22ºC) viene indicada por un punto sobre el regulador. Para apagar la calefacción volver a girar el selector a la izquierda (simbolo de luna). La posicion de la derecha (icono reloj) sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
     "calefaccion_img": "images/heating_es.png",
     "persiana_titulo": "Como funciona la persiana:",
     "persiana_desc": "La persiana de la habitación se maneja con la correa ubicada a la izquierda de la puerta. Para levantarla, tirar de la correa hacia arriba. Para bajarla, desbloquear la correa tirado de la parte de abajo hacia uno mismo, y acompañarla hacia arriba. No tirar directamente hacia arriba, porque la persiana está bloqueada para evitar que deslice.",
@@ -92,7 +92,13 @@ const ES = {
     
     "checkout_title": "Instrucciones de Check-out",
     "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!",
-    
+    "checkout_1":"No hay que hacer nada especial. Simplemente dejad las llaves en el apartamento antes de salir. Agradecemos un mensaje para saber que os habéis ido.",
+    "checkout_2":"No hace falta que saquéis la basura. Nosotros nos encargaremos.",
+    "checkout_3":"Aseguraros por favor de que las luces y el aire acondicionado/calefacción quedan apagados antes de marcharos.",
+    "checkout_4":"Recordad cerrar sesión en cualquier servicio de streaming que hayáis utilizado durante vuestra estancia (Netflix, HBO, etc.).",
+    "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos guardar vuestro equipaje. Solo tenéis que decírnoslo.",
+
+
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
     //"mapa_titulo": "Haz clic en una dirección para verla en el mapa.",

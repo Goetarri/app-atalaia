@@ -1,9 +1,9 @@
 const EN = {
     "titulo_app": "Atalaia Terrace - Guest App",
     "bienvenida": "Welcome to Donostia!",
-    "bienvenida_desc": "We have collected in this App helpful information so that you can take the most out of your visit to San Sebastian. User the toolbar at the bottom to navigate through the different information screens.\n\n First of all, Should you need to contact us, here are our numbers:",
+    "bienvenida_desc": "We have collected in this App helpful information so that you can get the most out of your visit to San Sebastian. \n\n Do not hesitate to contact us for anything you might need. We'll be happy to help.",
     "bienvenida_desc2": "And this is the full address of the apartment:",
-    "bienvenida_desc3": "Do not hesitate to contact us for anything you might need. We'll be happy to help.\n\n We wish you a pleasant stay.",
+    "bienvenida_desc3": "n\n We wish you a pleasant stay.",
     "bienvenida_desc4": "Leti and Igor",
 
     // --- NUEVAS CLAVES DE CONTACTO ---
@@ -82,7 +82,7 @@ const EN = {
     "toldo_desc": "The awnings are controlled from the remote control located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\n\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. To extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level",
     "toldo_img": "images/awning_en.png",
     "calefaccion_titulo": "Heating Thermostat:",
-    "calefaccion_desc": "The thermostat is located in the living room. To turn on the heating, turn the upper selector to the central position indicated with a sun symbol. The temperature is regulated using the lower dial. The comfort temperature (22ºC) is indicated with a dot on the lower knob. To turn off the heating turn the dial back to the  left (moon symbol). The right positon (Clock symbol) is used to program the heating. Should you wish to program it, please let us know and we will be happy to help you.",
+    "calefaccion_desc": "The thermostat is located in the living room. To turn on the heating, turn the upper selector to the central position indicated with a sun symbol. The temperature is regulated using the lower dial. The comfort temperature (22ºC) is indicated with a dot above the knob. To turn off the heating turn the dial back to the  left (Moon symbol). The right positon (Clock symbol) is used to program the heating. Should you wish to program it, please let us know and we will be happy to help you.",
     "calefaccion_img": "images/heating_en.png",
     "persiana_titulo": "How do blinds work:",
     "persiana_desc": "Blinds in the bedroom are operated using the strap located on the left side of the door. To raise the blinds, pull the strap downwards. To lower it, unlock the strap by pulling the bottom part towards you, and then guide it upwards. Do not pull directly upwards, as the blinds are locked to prevent slipping.",
@@ -90,6 +90,11 @@ const EN = {
     
     "checkout_title": "Check-out Instructions",
     "checkout_desc": "Please leave the keys on the living room table before you leave. Thank you and have a safe trip back!",
+    "checkout_1":"There is nothing particular you need to do for check-out. Just leave both key sets in the small wooden box and close behind.  A message is always welcome to know you already left. ",
+    "checkout_2":"No need to take the garbage out, we will take care of that.",
+    "checkout_3":"Please make sure that lights and the heating/air conditioning are off before leaving the apartment.",
+    "checkout_4":"Remember to logout from any streaming services you may have used during your stay (Netflix, HBO, etc.).",
+    "checkout_5":"We remind you that check-out time is 11am. If you are planning to stay longer in San Sebastian, we can take care of your luggage. Just let us know. ",
 
     "info_info_titulo": "Useful Directions:", 
     "mapa_titulo": "Click on an address to view it on the map.",

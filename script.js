@@ -166,12 +166,10 @@ function showTipDetail(tipId, titleKey, origin) {
 
 // MODIFICADA: Restablece el título por defecto
 function backToTipsMenu() {
-    // --- CORRECCIÓN DE NAVEGACIÓN ---
-    // Si el origen guardado es 'atalaia', volvemos a esa pantalla.
-    if (currentTipInfo && (currentTipInfo.origin === 'atalaia' || currentTipInfo.origin === 'activities')) {
-        // CORRECCIÓN: Volver a la pantalla de origen (Atalaia o Activities)
-        showTab(currentTipInfo.origin);
-        return; // Importante salir para no ejecutar el resto de la función.
+    // If the origin was 'activities', return there. The 'atalaia' origin is no longer handled here.
+    if (currentTipInfo && currentTipInfo.origin === 'activities') {
+        showTab('activities');
+        return;
     }
 
     currentTipInfo = { titleKey: null, tipId: null, origin: null };
