@@ -38,6 +38,7 @@
             
         </div>
 
+        <!-- ===================== HOME SCREEN ===================== -->
         <div id="atalaia" class="screen">
             <div class="header-row">
                 <h2 data-key="titulo_home">Información del Apartamento</h2>
@@ -74,6 +75,7 @@
             </div>
         </div>
 
+        <!-- Sub-screens for HOME -->
         <div id="wifi-screen" class="screen">
             <div class="header-row">
                 <button class="back-btn" onclick="showTab('atalaia')">
@@ -104,8 +106,6 @@
             </div>
         </div>
 
-        <!-- INSTRUCTION: To add a new sub-section, copy this entire 'screen' block -->
-        <!-- Change the main div id to match what you used in the button's onclick (e.g., id="garbage-screen") -->
         <div id="garbage-screen" class="screen">
             <div class="header-row">
                 <!-- Make sure the back button's onclick takes the user back to the 'atalaia' screen -->
@@ -117,7 +117,6 @@
             </div>
             <hr>
             <div class="text-frame">
-                <!-- Add your content here. Use unique data-keys for text and images to support multiple languages -->
                 <p data-key="garbage_desc"></p>
             </div>
         </div>
@@ -133,7 +132,6 @@
             </div>
             <hr>
             <div class="text-frame">
-                <!-- Add your content here. Use unique data-keys for text and images to support multiple languages -->
                 <p data-key="homerules_desc"></p>
             </div>
         </div>
@@ -148,7 +146,6 @@
             </div>
             <hr>
             <div class="text-frame">
-                <!-- Add your content here. Use unique data-keys for text and images to support multiple languages -->
                 <ul>
                     <li data-key="checkout_1">Check-Out 1</li>
                     <li data-key="checkout_2">Check-Out 2</li>
@@ -233,6 +230,7 @@
             </div>
         </div>
 
+        <!-- ===================== EAT SCREEN ===================== -->
         <div id="restaurants" class="screen">
             <div class="header-row">
                 <h2 data-key="titulo_restaurantes">Restaurantes</h2>
@@ -244,6 +242,7 @@
             </ul>
         </div>
 
+        <!-- ===================== ACTIVITIES SCREEN ===================== -->
         <div id="activities" class="screen">
             <div class="header-row">
                 <button id="back-to-activities-menu" class="back-btn" onclick="backToActivitiesMenu()" style="display:none;">
@@ -252,7 +251,6 @@
                 <h2 data-key="titulo_actividades">Actividades</h2>
             </div>
             <hr>
-            <!-- ID 'activities-menu' añadido aquí -->
             <div id="activities-menu" class="vertical-menu">
                 <button class="menu-btn" onclick="showActivityDetail('1')">
                     <img src="images/ic_activities.png" class="btn-icon" alt="icon">
@@ -263,9 +261,6 @@
                     <span data-key="btn_act_2">Actividad 2</span>
                 </button>
 
-                <!-- INSTRUCCIÓN: Para añadir una nueva actividad, copia y pega este bloque de botón -->
-                <!-- Cambia el '3' en showActivityDetail('3') por el nuevo número de actividad -->
-                <!-- Ver abajo como añadir la sub-seccion correspondiente al boton creado-->
                 <button class="menu-btn" onclick="showActivityDetail('3')">
                     <img src="images/ic_activities.png" class="btn-icon" alt="icon">
                     <span data-key="btn_act_3">Actividad 3</span>
@@ -276,7 +271,7 @@
                 </button>
             </div>
 
-            <!-- Sub-sección para Actividad 1 -->
+            <!-- Sub-sections for ACTIVITIES -->
             <div id="act-1" class="sub-section" style="display: none;">
                 <div class="text-frame">
                     <h3 data-key="act_1_titulo">Título Actividad 1</h3>
@@ -294,9 +289,6 @@
                 </div>
             </div>
 
-            <!-- INSTRUCCIÓN: Para añadir el contenido de una nueva actividad, copia y pega este bloque -->
-            <!-- Cambia el id="act-3" para que coincida con el número que usaste en el botón (showActivityDetail('3')) -->
-            <!-- Asegúrate de que los 'data-key' (ej: act_3_titulo) son únicos para esta actividad -->
             <div id="act-3" class="sub-section" style="display: none;">
                 <div class="text-frame">
                     <h3 data-key="act_3_titulo">Título Actividad 3</h3>
@@ -306,6 +298,7 @@
             </div>
         </div>
 
+        <!-- ===================== INFO/TIPS SCREEN ===================== -->
         <div id="tips-main" class="screen">
              <div class="header-row">
                  <button id="back-to-tips-menu" class="back-btn" onclick="backToTipsMenu()" style="display:none;">
@@ -332,6 +325,7 @@
                 </button>
             </div>
 
+            <!-- Sub-sections for INFO/TIPS -->
             <div id="info-emergency" class="sub-section" style="display: none;">
                 <div class="text-frame">
                     <p data-key="info_intro" style="margin-top: 0;"></p>
