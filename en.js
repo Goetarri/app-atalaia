@@ -94,7 +94,7 @@ const EN = {
     "checkout_2":"No need to take the garbage out, we will take care of that.",
     "checkout_3":"Please make sure that lights and the heating/air conditioning are off before leaving the apartment.",
     "checkout_4":"Remember to logout from any streaming services you may have used during your stay (Netflix, HBO, etc.).",
-    "checkout_5":"We remind you that check-out time is 11am. If you are planning to stay longer in San Sebastian, we can take care of your luggage. Just let us know. ",
+    "checkout_5":"We remind you that check-out time is 11am. If you are planning to stay longer in San Sebastian, we can take care of your luggage. Just let us know. \n\nAnd that's all! We hope you enjoyed your stay.",
 
     "info_info_titulo": "Useful Directions:", 
     "mapa_titulo": "Click on an address to view it on the map.",

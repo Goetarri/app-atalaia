@@ -93,11 +93,11 @@ const ES = {
     "checkout_title": "Instrucciones de Check-out",
     "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!",
     "checkout_1":"No hay que hacer nada especial. Simplemente dejad las llaves en el apartamento antes de salir. Agradecemos un mensaje para saber que os habéis ido.",
-    "checkout_2":"No hace falta que saquéis la basura. Nosotros nos encargaremos.",
+    "checkout_2":"No hace falta que saquéis la basura. Nosotros nos encargamos.",
     "checkout_3":"Aseguraros por favor de que las luces y el aire acondicionado/calefacción quedan apagados antes de marcharos.",
     "checkout_4":"Recordad cerrar sesión en cualquier servicio de streaming que hayáis utilizado durante vuestra estancia (Netflix, HBO, etc.).",
-    "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos guardar vuestro equipaje. Solo tenéis que decírnoslo.",
-
+    "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos guardar vuestro equipaje. Solo tenéis que decírnoslo.\n\nY eso es todo! Esperamos que hayáis disfrutado de la estancia.",
+    "checkout_desc": "Y eso es todo! Esperamos que hayáis disfrutado de la estancia.",
 
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
