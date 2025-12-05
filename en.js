@@ -42,7 +42,13 @@ const EN = {
     
     //HOME RULES
     "homerules_title": "Home Rules",
-    "homerules_desc": "Description of Home Rules",
+    "homerules_desc": "We would like to remind you of a few things for the time you spend in the apartment:",
+    "homerules_1":"Smoking is not allowed inside the apartment. Please use the terrace if you wish to smoke.",
+    "homerules_2":"Respect your neighbours: please do not throw cigarette butts or any other objects out of the terrace or the kitchen window.",
+    "homerules_3":"It is forbidden by the San Sebastián City Council to hang clothes on the main facades of buildings.",
+    "homerules_4":"PLease do not return from the beach soaking wet or covered in sand. A neighbour could slip and fall.",
+    "homerules_5":"Respect the neighbours' right to rest. Please avoid making noise after 10:00 PM.",
+
     
     // TIPS MENU BUTTONS
     "btn_menu_emergencias": "Emergency numbers",

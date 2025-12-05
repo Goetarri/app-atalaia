@@ -50,8 +50,13 @@ const ES = {
 
     //HOME RULES
     "homerules_title": "Normas de la casa",
-    "homerules_desc": "Descripcion normativa",
-   
+    "homerules_desc": "Nos gustaría recordaros algunas cosas para el tiempo que paséis en el apartamento:",
+    "homerules_1":"Está prohibido fumar dentro del apartamento.",
+    "homerules_2":"Por respeto a los vecinos, evitad arrojar colillas o cualquier otro objeto tanto a la terraza de abajo como al patio interior.",
+    "homerules_3":"El Ayuntamiento de San Sebastián prohíbe tender prendas en las fachadas principales de los edificios. ",
+    "homerules_4":"Por favor, no vuelvas de la playa empapado o lleno de arena. Algún vecino podría resbalar y caer. ",
+    "homerules_5":"Respetad el derecho al descanso de los vecinos. Evitad hacer ruido a partir de las 22:00h",
+
 
     // BOTONES TIPS (Menú)
     "btn_menu_emergencias": "Emergencias",
@@ -97,7 +102,6 @@ const ES = {
     "checkout_3":"Aseguraros por favor de que las luces y el aire acondicionado/calefacción quedan apagados antes de marcharos.",
     "checkout_4":"Recordad cerrar sesión en cualquier servicio de streaming que hayáis utilizado durante vuestra estancia (Netflix, HBO, etc.).",
     "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos guardar vuestro equipaje. Solo tenéis que decírnoslo.\n\nY eso es todo! Esperamos que hayáis disfrutado de la estancia.",
-    "checkout_desc": "Y eso es todo! Esperamos que hayáis disfrutado de la estancia.",
 
     // INFO PRACTICA / TIPS CONTENIDO
     "info_info_titulo": "Direcciones útiles:", 
