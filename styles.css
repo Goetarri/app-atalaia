@@ -141,7 +141,11 @@ h1 { margin: 0; font-size: 1.2rem; }
     margin-bottom: 15px; /* Adjust this value for more or less space 
 }
 */
-.welcome-frame { border-left: 5px solid #2ecc71; font-size: 1.4rem; }
+.welcome-frame {
+    border-left: 5px solid #2ecc71; 
+    font-size: 1.4rem;
+    margin-top: 0px;
+ }
 
 /* SUB-SECCIONES Y DETALLES */
 .sub-section { display: none; } /* Oculto por defecto */
@@ -199,10 +203,17 @@ td { padding: 12px; border-bottom: 1px solid #eee; }
 tr:last-child td { border-bottom: none; }
 
 /* Reducir espaciado vertical en tablas específicas */
-#owner-contact-table td,
-#info-table td {
+#owner-contact-table td {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: auto; /* Para centrar la tabla en horizontal*/
+    margin-right: auto; /* Para centrar la tabla en horizontal*/
+}
+info-table td {
     padding-top: 4px;
     padding-bottom: 4px;
+    margin-left: auto; /* Para centrar la tabla en horizontal*/
+    margin-right: auto; /* Para centrar la tabla en horizontal*/
 }
 
 /* ESTILOS PARA LAS FILAS CLICABLES (Direcciones/Hospitales) */
