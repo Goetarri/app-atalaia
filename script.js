@@ -1,4 +1,4 @@
-let currentLang = 'es'; 
+let currentLang = 'en'; 
 let currentImageIndex = 0; 
 let currentImagePaths = []; 
 let currentTipInfo = { titleKey: null, tipId: null, origin: null };

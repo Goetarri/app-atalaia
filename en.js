@@ -3,7 +3,7 @@ const EN = {
     "bienvenida": "Welcome to Donostia!",
     "bienvenida_desc": "We have collected in this App helpful information so that you can get the most out of your visit to San Sebastian. \n\n Do not hesitate to contact us for anything you might need. We'll be happy to help.",
     "bienvenida_desc2": "And this is the full address of the apartment:",
-    "bienvenida_desc3": "\n\n We wish you a pleasant stay.",
+    "bienvenida_desc3": "We wish you a pleasant stay.",
     "bienvenida_desc4": "Leti and Igor",
 
     // --- NUEVAS CLAVES DE CONTACTO ---
