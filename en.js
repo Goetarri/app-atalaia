@@ -38,7 +38,8 @@ const EN = {
 
     // --- GARBAGE SCREEN ---
     "garbage_title": "Garbage Disposal",
-    "garbage_desc": "Please dispose of garbage in the corresponding containers on the street. There are separate bins for organic, paper, packaging, and glass. Thank you for your cooperation!",
+    "garbage_desc": "Although it is not mandatory to separate the garbage, it is a practice respectful to the environment. If you need to take it out, you will find the containers on the opposite sidewalk. There are containers for paper, packaging, glass, and general waste. Thank you for your cooperation!",
+    "garbage_img": "images/recycle.png",
     
     //HOME RULES
     "homerules_title": "Home Rules",

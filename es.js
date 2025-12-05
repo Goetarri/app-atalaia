@@ -46,7 +46,8 @@ const ES = {
    
     // --- PANTALLA BASURA ---
     "garbage_title": "Gestión de Basuras",
-    "garbage_desc": "Por favor, depositad la basura en los contenedores correspondientes que se encuentran en la calle. Hay contenedores para orgánico, papel, envases y vidrio. ¡Gracias por vuestra colaboración!",
+    "garbage_desc": "No es obligatorio separar la basura, pero si una práctica respetuosa con el medio ambiente. Si neceitais sacarla, encontrareis los contenedores en la acera de enfrente. Hay contenedores para papel, envases, vidrio y rechazo. ¡Gracias por vuestra colaboración!",
+    "garbage_img": "images/recycle.png",
 
     //HOME RULES
     "homerules_title": "Normas de la casa",
@@ -62,7 +63,6 @@ const ES = {
     "btn_menu_emergencias": "Emergencias",
     "btn_menu_direcciones": "Info de Transporte",
     "btn_menu_hospitales": "Asistencia Médica",
-    
     
     "btn_atras": "Atrás",
     "btn_atras_menu": "Atrás",
