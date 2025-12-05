@@ -50,16 +50,16 @@
                     <span data-key="btn_home_wifi">Wifi</span>
                 </button>
 
+                <button class="menu-btn" onclick="showTab('homerules-screen')">
+                    <img src="images/ic_rules.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_home_rules">Normas</span>
+                </button>
+
                 <button class="menu-btn" onclick="showTab('appliances')">
                     <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
                     <span data-key="btn_home_instrucciones">Instrucciones</span>
                 </button>
-
-                <button class="menu-btn" onclick="showTab('checkout-screen')">
-                    <img src="images/ic_checkout.png" class="btn-icon" alt="icon">
-                    <span data-key="btn_menu_checkout">Check-out</span>
-                </button>
-
+                
                 <!-- INSTRUCTION: To add a new button, copy the block below -->
                 <!-- Change the onclick function to show your new screen (e.g., showTab('garbage-screen')) -->
                 <!-- Update the icon source and the data-key for the button text -->
@@ -67,10 +67,11 @@
                     <img src="images/ic_basura.png" class="btn-icon" alt="icon">
                     <span data-key="btn_home_garbage">Basura</span>
                 </button>
+                
 
-                <button class="menu-btn" onclick="showTab('homerules-screen')">
-                    <img src="images/ic_rules.png" class="btn-icon" alt="icon">
-                    <span data-key="btn_home_rules">Normas</span>
+                <button class="menu-btn" onclick="showTab('checkout-screen')">
+                    <img src="images/ic_checkout.png" class="btn-icon" alt="icon">
+                    <span data-key="btn_menu_checkout">Check-out</span>
                 </button>
             </div>
         </div>
@@ -145,8 +146,8 @@
                 <h2 data-key="btn_menu_checkout">Check-out</h2>
             </div>
             <hr>
-            <div class="text-frame">
-                <ul>
+            <div class="list-frame">
+                <ul">
                     <li data-key="checkout_1">Check-Out 1</li>
                     <li data-key="checkout_2">Check-Out 2</li>
                     <li data-key="checkout_3">Check-Out 3</li>

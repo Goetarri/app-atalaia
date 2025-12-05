@@ -30,7 +30,7 @@ const ES = {
     "nav_tips": "Información",
 
     // BOTONES HOME
-    "btn_home_wifi": "Acceso Wifi",
+    "btn_home_wifi": "Wifi",
     "btn_home_instrucciones": "Instrucciones de casa",
     "btn_menu_checkout": "Check-out",
     "btn_home_garbage": "Basura",
