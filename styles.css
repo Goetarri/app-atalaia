@@ -355,7 +355,7 @@ info-table td {
     border: 1px solid #000; /* NEGRO PURO */
     border-radius: 8px;
     border-collapse: collapse;
-    width: 60%; /*Ancho que ocupa la tabla*/
+    width: 100%; /*Ancho que ocupa la tabla*/
     overflow: visible; /* AÑADIDO: Evita que el borde sea recortado por estilos generales */
     margin-left: auto; /* Para centrar la tabla en horizontal*/
     margin-right: auto; /* Para centrar la tabla en horizontal*/
