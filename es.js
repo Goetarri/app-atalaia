@@ -1,4 +1,5 @@
 const ES = {
+    // --- CLAVES PARA LA PANTALLA WELCOME ---
     "titulo_app": "Atalaia Terrace - App del Huésped",
     "bienvenida": "¡Bienvenidos a Donosti!",
     "bienvenida_desc": "Hemos recopilado en esta App información práctica para que podais aprovechar al máximo vuestra visita a San Sebastián.\n\nNo dudeis en poneros en contacto con nosotros para cualquier cosa que necesiteis. Estaremos encantados de ayudaros.",
@@ -20,7 +21,7 @@ const ES = {
     "addr_piso_gmaps": "Segundo Izpizua 7, 20001 Donostia",
 
     // --- CLAVES PARA LA PANTALLA HOME ---
-    "titulo_home": "Información del Apartamento",
+    "titulo_home": "Guía del Apartamento",
 
     // BARRA INFERIOR
     "nav_welcome": "Welcome",
@@ -52,20 +53,20 @@ const ES = {
     //HOME RULES
     "homerules_title": "Normas de la casa",
     "homerules_desc": "Nos gustaría recordaros algunas cosas para el tiempo que paséis en el apartamento:",
-    "homerules_1":"Está prohibido fumar dentro del apartamento.",
+    "homerules_1":"Está prohibido fumar dentro del apartamento. Por favor, usad la terraza si queréis fumar.",
     "homerules_2":"Por respeto a los vecinos, evitad arrojar colillas o cualquier otro objeto tanto a la terraza de abajo como al patio interior.",
     "homerules_3":"El Ayuntamiento de San Sebastián prohíbe tender prendas en las fachadas principales de los edificios. ",
-    "homerules_4":"Por favor, no vuelvas de la playa empapado o lleno de arena. Algún vecino podría resbalar y caer. ",
+    "homerules_4":"Por favor, no vuelvas de la playa empapado o lleno de arena. Alguien podría resbalar y caer. ",
     "homerules_5":"Respetad el derecho al descanso de los vecinos. Evitad hacer ruido a partir de las 22:00h",
-
+    "homerules_desc2": "¡Gracias por vuestra colaboración!",
 
     // BOTONES TIPS (Menú)
     "btn_menu_emergencias": "Emergencias",
     "btn_menu_direcciones": "Info de Transporte",
     "btn_menu_hospitales": "Asistencia Médica",
     
+    // BOTÓN ATRÁS
     "btn_atras": "Atrás",
-    "btn_atras_menu": "Atrás",
     
     // WIFI
     "wifi_titulo": "Cómo conectarse al wifi:",
@@ -77,7 +78,7 @@ const ES = {
     "wifi_desc2": "También os podéis conectar escaneando el siguiente código QR.",
     "wifi_img": "images/QR_wifi.jpg",
     
-    // Mantener el resto de tu contenido existente...
+    // Lavadora
     "lavadora_titulo": "Cómo utilizar la lavadora:",
     "lavadora_desc": "1. Vaciar los bolsillos.\n2. Colocar la ropa dentro del tambor.\n3. Añadir la pastilla de detergente dentro del tambor.\n4. Cerrar la puerta.\n5. Seleccionar el programa girando el selector. El programa más común es 'Sintéticos'.\n6. Seleccionar la temperatura y el tiempo. Al pulsar el botón 'Rápido/Perfecto' se reduce el tiempo de lavado.\n7. Pulsar el botón ⏯ para iniciar la lavadora.\n8. Una vez finalizado el lavado, girar el selector a la posición superior (parada).\n9. Abrir la puerta y sacar la ropa.",
     "lavadora_img": [
@@ -85,33 +86,62 @@ const ES = {
         "images/wash_04_es.png", "images/wash_05_es.png", "images/wash_06_es.png",
         "images/wash_07_es.png", "images/wash_08_es.png", "images/wash_09_es.png"
     ],
+
+    // Toldo
     "toldo_titulo": "Como funcionan los toldos:",
     "toldo_desc": "Los toldos se controlan desde el mando que está a la izquierda de la puerta de la sala que da a la terraza. La terraza tiene tres toldos que se pueden controlar independientemente mediante los botones de la izquierda. Se puede activar uno o varios toldos simultáneamente. Cuando un toldo está seleccionado se ilumina el pulsador en color verde. Para desplegar o recoger los toldos pulsar los botones de arriba (replegar) o abajo (desplegar). El botón 'my' detiene el movimiento. Si se pulsa el botón 'my' estando el toldo parado, baja automáticamente hasta la barandilla.",
     "toldo_img": "images/awning_es.png",
+
+    // Calefaccion
     "calefaccion_titulo": "Termostato de calefacción:",
     "calefaccion_desc": "El termostato se encuentra en la sala, junto a la puerta de la habitación. Para encender la calefacción, girar el selector superior a la posicion central indicada con el simbolo del sol. La temperatura se regula con el mando inferior. La temperatura confort (22ºC) viene indicada por un punto sobre el regulador. Para apagar la calefacción volver a girar el selector a la izquierda (simbolo de luna). La posicion de la derecha (icono reloj) sirve para programar la calefacción. Si deseáis programarla, decídnoslo y os ayudaremos encantados.",
     "calefaccion_img": "images/heating_es.png",
+
+    // Persiana
     "persiana_titulo": "Como funciona la persiana:",
     "persiana_desc": "La persiana de la habitación se maneja con la correa ubicada a la izquierda de la puerta. Para levantarla, tirar de la correa hacia arriba. Para bajarla, desbloquear la correa tirado de la parte de abajo hacia uno mismo, y acompañarla hacia arriba. No tirar directamente hacia arriba, porque la persiana está bloqueada para evitar que deslice.",
     "persiana_img": "images/blinds.png",
     
+    // CHECKOUT
     "checkout_title": "Instrucciones de Check-out",
-    "checkout_desc": "Por favor, dejad las llaves en la mesa del salón antes de salir. ¡Gracias y buen viaje de vuelta!",
+    "checkout_desc": "Y eso es todo! Esperamos que hayáis disfrutado de la estancia.",
     "checkout_1":"No hay que hacer nada especial. Simplemente dejad las llaves en el apartamento antes de salir. Agradecemos un mensaje para saber que os habéis ido.",
     "checkout_2":"No hace falta que saquéis la basura. Nosotros nos encargamos.",
     "checkout_3":"Aseguraros por favor de que las luces y el aire acondicionado/calefacción quedan apagados antes de marcharos.",
     "checkout_4":"Recordad cerrar sesión en cualquier servicio de streaming que hayáis utilizado durante vuestra estancia (Netflix, HBO, etc.).",
-    "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos guardar vuestro equipaje. Solo tenéis que decírnoslo.\n\nY eso es todo! Esperamos que hayáis disfrutado de la estancia.",
+    "checkout_5":"Os recordamos que la hora limite de salida son las 11:00. Si tenéis previsto quedaros más tiempo en San Sebastián, podemos hacernos cargo de vuestro equipaje. Solo tenéis que decírnoslo.",
 
-    // INFO PRACTICA / TIPS CONTENIDO
+    // INFO PRACTICA
     "info_info_titulo": "Direcciones útiles:", 
     //"mapa_titulo": "Haz clic en una dirección para verla en el mapa.",
     
-    // Tablas de direcciones (Mantener tus claves existentes addr_home, addr_ambulatorio, etc.)
-    "addr_home": "Atalaia Terrace",
-    "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
-    "addr_home_tel": "",
+    // --- PANTALLA DIRECCIONES ---
+    "addr_train": "Estación de Tren Adif",
+    "addr_train_desc": "Pº de Francia, 22",    
+    "addr_train_tel": "912320320",
     
+    "addr_train2": "Estación de Euskotren",
+    "addr_train2_desc": "Plaza Easo, 9",
+    "addr_train2_tel": "944333333",
+    
+    "addr_bus": "Estación de Autobuses",
+    "addr_bus_desc": "Pº Federico García Lorca, 1",
+    "addr_bus_tel": "943475150",
+    
+    "addr_taxi": "Parada de Taxi",
+    "addr_taxi_desc": "Paseo de Colon, 16-20",
+    "addr_taxi_tel": "943464646",
+    
+    // --- PANTALLA EMERGENCIAS ---
+    "info_hospitals_titulo": "Hospitales cercanos", 
+    "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",
+    "tel_emergencias": "Emergencias",
+    "tel_ambulancia": "Ambulancia",
+    "tel_ertzaintza": "Ertzaintza",
+    "tel_municipal": "Policía Municipal",
+    "tel_bomberos": "Bomberos",
+
+    // --- PANTALLA HOSPITALES ---
     "addr_ambulatorio": "Ambulatorio de Gros",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
     "addr_ambulatorio_tel": "943007909",
@@ -136,59 +166,33 @@ const ES = {
     "addr_pharmacy24H_desc": "C/ Idiakez, 4",
     "addr_pharmacy24H_tel": "943427050",
 
-    "addr_train": "Estación de Tren Adif",
-    "addr_train_desc": "Pº de Francia, 22",    
-    "addr_train_tel": "912320320",
-    
-    "addr_train2": "Estación de Euskotren",
-    "addr_train2_desc": "Plaza Easo, 9",
-    "addr_train2_tel": "944333333",
-    
-    "addr_bus": "Estación de Autobuses",
-    "addr_bus_desc": "Pº Federico García Lorca, 1",
-    "addr_bus_tel": "943475150",
-    
-    "addr_taxi": "Parada de Taxi",
-    "addr_taxi_desc": "Paseo de Colon, 16-20",
-    "addr_taxi_tel": "943464646",
-    
-    "info_hospitals_titulo": "Hospitales cercanos", 
-    "info_intro": "Llamadas de emergencia gratuitas desde cualquier teléfono:",
-    "tel_emergencias": "Emergencias",
-    "tel_ambulancia": "Ambulancia",
-    "tel_ertzaintza": "Ertzaintza",
-    "tel_municipal": "Policía Municipal",
-    "tel_bomberos": "Bomberos",
-    
+    // --- PANTALLA COMER Y BEBER ---
     "titulo_restaurantes": "Comer y Beber",
     "rest_1_nombre": "Bar La Plaza:",
     "rest_1_desc": "Las mejores tapas.",
     "rest_2_nombre": "Restaurante El Mar:",
     "rest_2_desc": "Pescado fresco.",
     
-    "titulo_actividades": "Qué hacer",
-    "btn_act_1": "Actividad 1",
-    "btn_act_2": "Actividad 2",
-
-    // INSTRUCCIÓN: Añade la clave para el botón de la nueva actividad aquí
-    "btn_act_3": "Actividad 3",
-    "btn_menu_consejos": "Consejos",
-    
+    // --- PANTALLA ACTIVIDADES ---
     "titulo_tips": "Consejos",
     "tip_1": "Tip 1", // Placeholder
     "tip_2": "Tip 2", // Placeholder
     "tip_3": "Tip 3", // Placeholder
+    
+    // --- MENU DE ACTIVIDADES ---
+    "titulo_actividades": "Qué hacer",
+    "btn_act_1": "Actividad 1",
+    "btn_act_2": "Actividad 2",
+    "btn_act_3": "Actividad 3",
+    "btn_menu_consejos": "Consejos",
 
-    // --- PANTALLAS DE ACTIVIDADES ---
+    // --- PANTALLA ACTIVIDADES CONTENIDO ---
     "act_1_titulo": "Paseo por la Concha",
     "act_1_desc": "La Playa de la Concha es el corazón de San Sebastián. [1] Disfruta de un relajante paseo por su icónica barandilla, toma el sol en su arena fina o date un chapuzón en sus tranquilas aguas. Es el lugar perfecto para disfrutar de las vistas de la bahía con la Isla de Santa Clara en el centro. [1]",
     "act_1_img": "images/concha.jpg",
     "act_2_titulo": "Ruta de Pintxos por lo Viejo",
     "act_2_desc": "La Parte Vieja de San Sebastián es famosa mundialmente por sus bares de pintxos. [2] Piérdete por sus calles y descubre la increíble variedad de delicias culinarias en miniatura. Cada bar tiene su especialidad, ¡así que no dudes en probar varias!",
     "act_2_img": "images/pintxos.jpg",
-    
-    // INSTRUCCIÓN: Añade las claves para el contenido de la nueva actividad aquí
-    // Asegúrate de que los números coinciden (act_3_titulo, act_3_desc, etc.)
     "act_3_titulo": "Subida al Monte Urgull",
     "act_3_desc": "Explora el Monte Urgull para disfrutar de unas vistas panorámicas espectaculares de la ciudad y sus playas. En la cima encontrarás el Castillo de la Mota y una estatua del Sagrado Corazón. Es un paseo agradable lleno de historia.",
     "act_3_img": "images/urgull.jpg"

@@ -1,4 +1,5 @@
 const EN = {
+    // --- PANTALLA DE BIENVENIDA ---
     "titulo_app": "Atalaia Terrace - Guest App",
     "bienvenida": "Welcome to Donostia!",
     "bienvenida_desc": "We have collected in this App helpful information so that you can get the most out of your visit to San Sebastian. \n\n Do not hesitate to contact us for anything you might need. We'll be happy to help.",
@@ -20,7 +21,7 @@ const EN = {
     "addr_piso_gmaps": "Segundo Izpizua 7, 20001 Donostia",
     
     // --- CLAVES PARA LA PANTALLA HOME ---
-    "titulo_home": "Home Instructions",
+    "titulo_home": "Apartment Guidelines",
 
     // BOTTOM BAR
     "nav_welcome": "Welcome",
@@ -47,15 +48,16 @@ const EN = {
     "homerules_1":"Smoking is not allowed inside the apartment. Please use the terrace if you wish to smoke.",
     "homerules_2":"Respect your neighbours: please do not throw cigarette butts or any other objects out of the terrace or the kitchen window.",
     "homerules_3":"It is forbidden by the San Sebastián City Council to hang clothes on the main facades of buildings.",
-    "homerules_4":"PLease do not return from the beach soaking wet or covered in sand. A neighbour could slip and fall.",
-    "homerules_5":"Respect the neighbours' right to rest. Please avoid making noise after 10:00 PM.",
-
+    "homerules_4":"Please do not return from the beach soaking wet or covered in sand. Someone could slip and fall!",
+    "homerules_5":"Respect your neighbours' right to rest. Please avoid making noise after 10:00 PM.",
+    "homerules_desc2": "Thanks for your cooperation!",
     
-    // TIPS MENU BUTTONS
+    // INFO MENU BUTTONS
     "btn_menu_emergencias": "Emergency numbers",
     "btn_menu_direcciones": "Transportation Info?",
     "btn_menu_hospitales": "Medical Assistance",
     
+    // INFO SCREEN
     "titulo_info": "Practical Information",
     "titulo_electro": "Instructions",
     "sub_lavadora": "Washer",
@@ -63,8 +65,8 @@ const EN = {
     "sub_calefaccion": "Heating",
     "sub_persiana": "Blinds",
     
+    // BACK BUTTON
     "btn_atras": "Back",
-    "btn_atras_menu": "Back",
 
     // WIFI
     "wifi_titulo": "How to connect to the wifi network:",
@@ -76,8 +78,7 @@ const EN = {
     "wifi_desc2": "You can also connect to the wifi by scanning the following QR code.",
     "wifi_img": "images/QR_wifi.jpg",
     
-    
-    // Keep existing content...
+    // WASHER INSTRUCTIONS
     "lavadora_titulo": "How to use the washer:",
     "lavadora_desc": "1. Empty pockets.\n2. Place clothes inside the drum.\n3. Add detergent pill inside the drum.\n4. Close the door.\n5. Select the program by turning the knob. Most common program is 'Sinteticos (synthetics)'.\n6. Select temperature and time. Pressing the 'Speed/Perfect' button reduces washing time.\n7. Press '⏯' button to start the washer.\n8. Once washing is finished, turn the knob back to the top (stop) position.\n9. Open the door and take out the clothes.",
     "lavadora_img": [
@@ -85,31 +86,62 @@ const EN = {
         "images/wash_04_en.png", "images/wash_05_en.png", "images/wash_06_en.png",
         "images/wash_07_en.png", "images/wash_08_en.png", "images/wash_09_en.png"
     ],
+
+    // AWNING INSTRUCTIONS
     "toldo_titulo": "How to control the awnings:",
     "toldo_desc": "The awnings are controlled from the remote control located to the left of the living room door that leads to the terrace. The terrace has three awnings, which can be controlled independently using the buttons on the left side of the remote.\n\nOne or more awnings can be activated simultaneously. When an awning is selected, its corresponding button illuminates green. To extend or retract the awnings, press the top up-arrow (retract) or the bottom down-arrow (extend). The 'my' button stops the movement. If the 'my' button is pressed while the awning is stationary, it will automatically move down to the railing level",
     "toldo_img": "images/awning_en.png",
+
+    // HEATING INSTRUCTIONS
     "calefaccion_titulo": "Heating Thermostat:",
     "calefaccion_desc": "The thermostat is located in the living room. To turn on the heating, turn the upper selector to the central position indicated with a sun symbol. The temperature is regulated using the lower dial. The comfort temperature (22ºC) is indicated with a dot above the knob. To turn off the heating turn the dial back to the  left (Moon symbol). The right positon (Clock symbol) is used to program the heating. Should you wish to program it, please let us know and we will be happy to help you.",
     "calefaccion_img": "images/heating_en.png",
+
+    // BLINDS INSTRUCTIONS
     "persiana_titulo": "How do blinds work:",
     "persiana_desc": "Blinds in the bedroom are operated using the strap located on the left side of the door. To raise the blinds, pull the strap downwards. To lower it, unlock the strap by pulling the bottom part towards you, and then guide it upwards. Do not pull directly upwards, as the blinds are locked to prevent slipping.",
     "persiana_img": "images/blinds.png",
     
+    // CHECKOUT INSTRUCTIONS
     "checkout_title": "Check-out Instructions",
-    "checkout_desc": "Please leave the keys on the living room table before you leave. Thank you and have a safe trip back!",
+    "checkout_desc": "And that's all! Hope you enjoyed your stay.",
     "checkout_1":"There is nothing particular you need to do for check-out. Just leave both key sets in the small wooden box and close behind.  A message is always welcome to know you already left. ",
     "checkout_2":"No need to take the garbage out, we will take care of that.",
     "checkout_3":"Please make sure that lights and the heating/air conditioning are off before leaving the apartment.",
     "checkout_4":"Remember to logout from any streaming services you may have used during your stay (Netflix, HBO, etc.).",
-    "checkout_5":"We remind you that check-out time is 11am. If you are planning to stay longer in San Sebastian, we can take care of your luggage. Just let us know. \n\nAnd that's all! We hope you enjoyed your stay.",
+    "checkout_5":"We remind you that check-out time is 11am. If you intend to stay longer in San Sebastian, we can take care of your luggage. Just let us know.",
 
+    // DIRECTIONS SCREEN
     "info_info_titulo": "Useful Directions:", 
     "mapa_titulo": "Click on an address to view it on the map.",
     
-    "addr_home": "Atalaia Terrace",
-    "addr_home_desc": "Segundo Izpizua 7, 20001 Donostia",
-    "addr_home_tel": "",
+    "addr_train": "Central Train Station",
+    "addr_train_desc": "Pº de Francia, 22",    
+    "addr_train_tel": "+34912320320",
     
+    "addr_train2": "Euskotren Station",
+    "addr_train2_desc": "Plaza Easo, 9",
+    "addr_train2_tel": "+34944333333",
+    
+    "addr_bus": "Central Bus Station",
+    "addr_bus_desc": "Pº Federico García Lorca, 1",
+    "addr_bus_tel": "+34943475150",
+    
+    "addr_taxi": "Taxi Stand",
+    "addr_taxi_desc": "Paseo de Colon, 16-20",
+    "addr_taxi_tel": "+34943464646",
+
+    // --- EMERGENCY NUMBERS SCREEN ---
+    "info_intro": "Free emergency calls from any phone:",
+    "tel_emergencias": "Emergency",
+    "tel_titulo": "Phone",
+    "tel_ambulancia": "Ambulance",
+    "tel_ertzaintza": "Ertzaintza (Basque Police)",
+    "tel_municipal": "Local Police",
+    "tel_bomberos": "Firefighters",
+
+    // --- HOSPITALES PANTALLA ---
+    "info_hospitals_titulo": "Nearby Hospitals",
     "addr_ambulatorio": "Gros Outpatient Clinic",
     "addr_ambulatorio_desc": "Avenida de Navarra, 14",
     "addr_ambulatorio_tel": "+34943007909",
@@ -133,45 +165,19 @@ const EN = {
     "addr_pharmacy24H": "24H Pharmacy",
     "addr_pharmacy24H_desc": "C/ Idiakez, 4",
     "addr_pharmacy24H_tel": "+34943427050",
-    
-    "addr_train": "Central Train Station",
-    "addr_train_desc": "Pº de Francia, 22",    
-    "addr_train_tel": "+34912320320",
 
-    "addr_train2": "Euskotren Station",
-    "addr_train2_desc": "Plaza Easo, 9",
-    "addr_train2_tel": "+34944333333",
-    
-    "addr_bus": "Central Bus Station",
-    "addr_bus_desc": "Pº Federico García Lorca, 1",
-    "addr_bus_tel": "+34943475150",
-    
-    "addr_taxi": "Taxi Stand",
-    "addr_taxi_desc": "Paseo de Colon, 16-20",
-    "addr_taxi_tel": "+34943464646",
-
-    "info_hospitals_titulo": "Nearby Hospitals",
-    "info_intro": "Free emergency calls from any phone:",
-    "tel_emergencias": "Emergency",
-    "tel_titulo": "Phone",
-    "tel_ambulancia": "Ambulance",
-    "tel_ertzaintza": "Ertzaintza (Basque Police)",
-    "tel_municipal": "Local Police",
-    "tel_bomberos": "Firefighters",
-    
+    // --- EAT & DRINK SCREEN ---
     "titulo_restaurantes": "Eat & Drink",
     "rest_1_nombre": "Bar La Plaza:",
     "rest_1_desc": "Best tapas.",
     "rest_2_nombre": "Seafood Place:",
     "rest_2_desc": "Fresh fish.",
-
+    
+    // --- ACTIVITIES MENU SCREEN ---
     "titulo_actividades": "What to do",
     "btn_act_1": "Activity 1",
     "btn_act_2": "Activity 2",
-
-    // INSTRUCTION: Add the key for the new activity button here
     "btn_act_3": "Activity 3",
-
     "btn_menu_consejos": "Our Tips",
     
     
