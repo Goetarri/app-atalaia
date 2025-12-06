@@ -185,17 +185,17 @@ const ES = {
         },
         {
             "neib": "Gros",
-            "name": "Bodega Donostiarra",
-            "addr": "Peña y Goñi Kalea, 13",
-            "tel": "943 01 13 80",
-            "map": "Peña y Goñi Kalea, 13, 20002 Donostia"
-        },
-        {
-            "neib": "Gros",
             "name": "Eguzki Bistro&Bar",
             "addr": "Secundino Esnaola Kalea, 44",
             "tel": "943 28 30 63",
             "map": "Secundino Esnaola Kalea, 44, 20001 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Gros",
+            "name": "Bodega Donostiarra",
+            "addr": "Peña y Goñi Kalea, 13",
+            "tel": "943 01 13 80",
+            "map": "Peña y Goñi Kalea, 13, 20002 Donostia"
         },
         {
             "neib": "Gros",
@@ -233,6 +233,60 @@ const ES = {
             "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa"
         },
     ],
+
+    //  RESTAURANTES VASCOS SCREEN
+    "basque_restaurants": [
+        { 
+            "neib": "Parte Vieja",
+            "name": "Bodegón Alejandro", 
+            "address": "Fermín Calbetón Kalea, 4", 
+            "tel": "943 42 71 58",
+            "price": "€€€",
+            "map": "Fermín Calbetón Kalea, 4, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        { 
+            "neib": "Parte Vieja",
+            "name": "La Cepa de Bernardo", 
+            "address": "31 de Agosto Kalea, 7", 
+            "tel": "943 42 63 94",
+            "price": "€€",
+            "map": "31 de Agosto Kalea, 7, 20003 Donostia, Gipuzkoa"
+        },
+        { 
+            "neib": "Parte Vieja",
+            "name": "Casa Urola", 
+            "address": "Fermin Calbeton Kalea, 20", 
+            "tel": "943 44 13 71",
+            "price": "€€",
+            "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        { 
+            "neib": "Parte Vieja",
+            "name": "Astelena 1997", 
+            "address": "Euskal Herria Kalea, 3", 
+            "tel": "943 42 58 67",
+            "price": "€€€",
+            "map": "Euskal Herria Kalea, 3, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        { 
+            "neib": "Centro",
+            "name": "Bernardo etxea", 
+            "address": "Triunfo Kalea, 3", 
+            "tel": "943 42 20 55",
+            "price": "€€€",
+            "map": "Triunfo Kalea, 3, 20007 Donostia / San Sebastián, Gipuzkoa"
+        }
+    ],
+
+/*
+    "btn_rest_basque": "Restaurantes Vascos", // Corrected key
+    "btn_rest_pintxos": "Pintxos",
+    "rest_header_nombre": "Nombre",
+    "rest_header_desc": "Descripción",
+    "rest_header_precio": "Precio",
+    "maps": {}, // Added maps object */
+
+    
     // --- PANTALLA ACTIVIDADES ---
     "titulo_tips": "Consejos",
     "tip_1": "Tip 1", // Placeholder

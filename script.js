@@ -287,6 +287,7 @@ function updateText() {
     updateOwnerContactTable();
     updateApartmentAddressTable();
     updatePintxosTable();
+    updateBasqueTable();
 
     // Si una pantalla de actividad está abierta, refrescar su contenido
     // No es necesario hacer nada aquí, ya que el contenido de las actividades se actualiza con el resto del texto.
@@ -422,12 +423,14 @@ if (iframe) {
     // --- LÓGICA PARA RESALTAR LA FILA ---
     // 1. Determinar qué tabla estamos usando
     let tableId;
-    if (iframeId === 'google-map-embed') {
-        tableId = 'address-table';
-    } else if (iframeId === 'google-map-embed-hospital') {
-        tableId = 'hospital-table';
-    } else { // Assume it's the pintxos table
-        tableId = 'pintxos-table';
+    switch (iframeId) {
+        case 'google-map-embed':         tableId = 'address-table'; break;
+        case 'google-map-embed-hospital':tableId = 'hospital-table'; break;
+        case 'google-map-embed-pintxos': tableId = 'pintxos-table'; break;
+        case 'google-map-embed-basque':  tableId = 'basque-table'; break;
+        default:
+            // If no specific table is matched, we can't update rows.
+            return;
     }
     
     // 2. Desactivar todas las filas activas en esa tabla
@@ -535,4 +538,63 @@ function updateApartmentAddressTable() {
     // Usamos el color de texto gris que usan las tablas de direcciones/hospitales.
     row.innerHTML = `<td class="pin-icon">🏠</td>
                      <td><b>${name}</b><br><small style="color:#666">${addressDisplay}</small></td>`;
+}
+
+function showRestaurantCategory(category) {
+    if (category === 'basque') {
+        showTab('basque-screen');
+        return;
+    }
+    // Keep existing logic for other categories if any
+    // For example:
+    // const filteredRestaurants = allRestaurants.filter(r => r.category === category);
+    // displayRestaurants(filteredRestaurants);
+}
+
+function updateBasqueTable() {
+    // Use the global 'currentLang' and get the correct translation object
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('basque-table');
+    if (!table) {
+        return;
+    }
+    table.innerHTML = '';
+
+    const basqueRestaurants = translations.basque_restaurants || [];
+
+    // Create header
+    const thead = table.createTHead();
+    const headerRow = thead.insertRow();
+    // Using hardcoded headers as there are no translation keys for "Neighborhood"
+    const headers = [(currentLang === 'es' ? 'Barrio' : 'Neighborhood'), translations.rest_header_nombre, translations.rest_header_precio];
+    headers.forEach(headerText => {
+        const th = document.createElement('th');
+        th.textContent = headerText;
+        headerRow.appendChild(th);
+    });
+
+    // Create body
+    const tbody = table.createTBody();
+    basqueRestaurants.forEach(item => {
+        const row = tbody.insertRow();
+        row.onclick = function() { showMap('google-map-embed-basque', '#basque-map-container h3', item.map, item.name, this); };
+
+        const neibCell = row.insertCell();
+        const detailsCell = row.insertCell();
+        const priceCell = row.insertCell();
+
+        neibCell.innerHTML = `<span style="font-size: 1rem;">${item.neib || ''}</span>`;
+        priceCell.textContent = item.price || '';
+
+        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
+        detailsCell.innerHTML = `<b>${item.name}</b><br>
+                                 <small style="color:#666">${item.address}</small>
+                                 ${telLink}`;
+    });
+
+    // Load the first restaurant on the map by default
+    if (basqueRestaurants.length > 0) {
+        const firstRow = tbody.rows[0];
+        showMap('google-map-embed-basque', '#basque-map-container h3', basqueRestaurants[0].map, basqueRestaurants[0].name, firstRow);
+    }
 }

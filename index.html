@@ -250,7 +250,7 @@
                 <!-- INSTRUCTION: To add a new button, copy the block below -->
                 <!-- Change the onclick function and the data-key for the button text -->
                 <button class="menu-btn" onclick="showTab('pintxos-screen')">
-                    <img src="images/ic_pintxo.png" class="btn-icon-large" alt="icon">
+                    <img src="images/ic_pintxo.png" class="btn-icon-large" alt="Pintxos">
                     <span data-key="btn_rest_pintxos">Pintxos</span>
                 </button>
                 <button class="menu-btn" onclick="showRestaurantCategory('basque')">
@@ -289,6 +289,24 @@
             <!-- Table container -->
             <table id="pintxos-table" class="pintxos-table"></table>
         </div>
+        <!-- ===================== BASQUE SCREEN ===================== -->
+        <div id="basque-screen" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showTab('restaurants')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
+                </button>
+                <h2 data-key="btn_rest_basque">Basque Restaurants</h2>
+            </div>
+            <hr>
+            <!-- Map container -->
+            <div id="basque-map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed-basque" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+            <!-- Table container -->
+            <table id="basque-table" class="pintxos-table"></table>
+        </div>
+
         <!-- ===================== ACTIVITIES SCREEN ===================== -->
         <div id="activities" class="screen">
             <div class="header-row">
