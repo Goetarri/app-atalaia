@@ -173,13 +173,38 @@ const EN = {
     "rest_2_nombre": "Seafood Place:",
     "rest_2_desc": "Fresh fish.",
     
+    // PINTXOS SCREEN
+    "pintxos_titulo": "Pintxos Route",
+    "pintxos_list": [
+        {
+            "neib": "Gros",
+            "name": "Bar Bergara",
+            "addr": "General Artetxe, 8",
+            "tel": "+34943275026",
+            "map": "General Artetxe Kalea, 8, 20002 Donostia"
+        },
+        {
+            "neib": "Gros",
+            "name": "Bodega Donostiarra",
+            "addr": "Peña y Goñi Kalea, 13",
+            "tel": "+34943011380",
+            "map": "Peña y Goñi Kalea, 13, 20002 Donostia"
+        },
+        {
+            "neib": "Gros",
+            "name": "Casa Senra ",
+            "addr": "San Francisco, 32",
+            "tel": "+34943291200",
+            "map": "San Francisco Kalea, 32, 20002 Donostia / San Sebastián, Gipuzkoa"
+        }
+    ],
+
     // --- ACTIVITIES MENU SCREEN ---
     "titulo_actividades": "What to do",
     "btn_act_1": "Activity 1",
     "btn_act_2": "Activity 2",
     "btn_act_3": "Activity 3",
     "btn_menu_consejos": "Our Tips",
-    
     
     // --- ACTIVITY SCREENS ---
     "act_1_titulo": "Walk along La Concha",

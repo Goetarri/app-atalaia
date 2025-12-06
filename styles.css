@@ -210,7 +210,7 @@ tr:last-child td { border-bottom: none; }
     margin-left: auto; /* Para centrar la tabla en horizontal*/
     margin-right: auto; /* Para centrar la tabla en horizontal*/
 }
-info-table td {
+.info-table td {
     padding-top: 4px;
     padding-bottom: 4px;
     margin-left: auto; /* Para centrar la tabla en horizontal*/
@@ -369,6 +369,7 @@ info-table td {
     border-left: 1px solid #000; /* NEGRO PURO */
     text-align: center; /* Centra el texto de la columna de la dirección */
 }
+
 
 /* --- ESTILO PARA AJUSTAR EL ANCHO DE LA COLUMNA DEL ICONO --- */
 #apartment-address-table .pin-icon {

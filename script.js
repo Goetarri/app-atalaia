@@ -286,6 +286,7 @@ function updateText() {
     updateHospitalTable();
     updateOwnerContactTable();
     updateApartmentAddressTable();
+    updatePintxosTable();
 
     // Si una pantalla de actividad está abierta, refrescar su contenido
     // No es necesario hacer nada aquí, ya que el contenido de las actividades se actualiza con el resto del texto.
@@ -350,6 +351,33 @@ function updateHospitalTable() {
     populateMapTable(table, hospitalData, 'google-map-embed-hospital', '#hospital-map-container h3', translations);
 }
 
+function updatePintxosTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('pintxos-table');
+    if (!table) return;
+    table.innerHTML = '';
+
+    const pintxosData = (translations.pintxos_list || []).map(pintxo => {
+        // We need to create temporary, unique keys for the populateMapTable function to work,
+        // as it expects translation keys rather than direct values.
+        const nameKey = `pintxo_name_${pintxo.name.replace(/\s/g, '_')}`;
+        translations[nameKey] = pintxo.name;
+
+        // The populateMapTable helper expects a translation key for the phone, not a direct value.
+        // We create a temporary key for it.
+        const telKey = `pintxo_tel_${pintxo.name.replace(/\s/g, '_')}`;
+        translations[telKey] = pintxo.tel;
+        
+        return [`<span style="font-size: 1rem;">${pintxo.neib}</span>`, nameKey, pintxo.addr, telKey, pintxo.map];
+    });
+
+    if (pintxosData.length > 0) {
+        populateMapTable(table, pintxosData, 'google-map-embed-pintxos', '#pintxos-map-container h3', translations);
+    } else {
+        console.error("Pintxos table or data not found!");
+    }
+}
+
 // Función helper para no repetir código de tablas
 // AÑADIMOS EL PARÁMETRO 'clickedRow' a la función showMap
 function populateMapTable(table, dataSet, iframeId, titleSelector, translations) {
@@ -390,7 +418,14 @@ if (iframe) {
 
     // --- LÓGICA PARA RESALTAR LA FILA ---
     // 1. Determinar qué tabla estamos usando
-    const tableId = (iframeId === 'google-map-embed') ? 'address-table' : 'hospital-table';
+    let tableId;
+    if (iframeId === 'google-map-embed') {
+        tableId = 'address-table';
+    } else if (iframeId === 'google-map-embed-hospital') {
+        tableId = 'hospital-table';
+    } else { // Assume it's the pintxos table
+        tableId = 'pintxos-table';
+    }
     
     // 2. Desactivar todas las filas activas en esa tabla
     const allRows = document.querySelectorAll(`#${tableId} tr`);

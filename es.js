@@ -172,6 +172,14 @@ const ES = {
     "rest_1_desc": "Las mejores tapas.",
     "rest_2_nombre": "Restaurante El Mar:",
     "rest_2_desc": "Pescado fresco.",
+
+        // PINTXOS SCREEN
+    "pintxos_titulo": "Pintxos Route",
+    "pintxos_neib_1": "Gros",
+    "pintxos_name_1": "Bar Bergara",
+    "pintxos_addr_1": "General Artetxe, 8",
+    "pintxos_tel_1": "+34943275026",
+    "pintxos_map_1": "Calle del, General Artetxe Kalea, 8, 20002 Donostia / San Sebastián, Gipuzkoa",
     
     // --- PANTALLA ACTIVIDADES ---
     "titulo_tips": "Consejos",
