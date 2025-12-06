@@ -45,17 +45,17 @@
             <hr>
             <div class="vertical-menu">
                 <button class="menu-btn" onclick="showWifiScreen()">
-                    <img src="images/ic_wifi.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_wifi.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_home_wifi">Wifi</span>
                 </button>
 
                 <button class="menu-btn" onclick="showTab('homerules-screen')">
-                    <img src="images/ic_rules.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_rules.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_home_rules">Normas</span>
                 </button>
 
                 <button class="menu-btn" onclick="showTab('appliances')">
-                    <img src="images/ic_electrodomestico.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_electrodomestico.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_home_instrucciones">Instrucciones</span>
                 </button>
                 
@@ -63,13 +63,13 @@
                 <!-- Change the onclick function to show your new screen (e.g., showTab('garbage-screen')) -->
                 <!-- Update the icon source and the data-key for the button text -->
                 <button class="menu-btn" onclick="showTab('garbage-screen')">
-                    <img src="images/ic_basura.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_basura.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_home_garbage">Basura</span>
                 </button>
                 
 
                 <button class="menu-btn" onclick="showTab('checkout-screen')">
-                    <img src="images/ic_checkout.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_checkout.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_menu_checkout">Check-out</span>
                 </button>
             </div>
@@ -182,19 +182,19 @@
 
             <div id="appliances-menu" class="vertical-menu">
                 <button class="menu-btn" onclick="showAppliance('lavadora')">
-                    <img src="images/ic_lavadora.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_lavadora.png" class="btn-icon-large" alt="icon">
                     <span data-key="sub_lavadora">Lavadora</span>
                 </button>
                 <button class="menu-btn" onclick="showAppliance('calefaccion')">
-                    <img src="images/ic_calefaccion.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_calefaccion.png" class="btn-icon-large" alt="icon">
                     <span data-key="sub_calefaccion">Calefacción</span>
                 </button>
                 <button class="menu-btn" onclick="showAppliance('toldo')">
-                    <img src="images/ic_toldo.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_toldo.png" class="btn-icon-large" alt="icon">
                     <span data-key="sub_toldo">Toldos</span>
                 </button>
                 <button class="menu-btn" onclick="showAppliance('persiana')">
-                    <img src="images/ic_persiana.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_persiana.png" class="btn-icon-large" alt="icon">
                     <span data-key="sub_persiana">Persianas</span>
                 </button>
             </div>
@@ -246,12 +246,31 @@
                 <h2 data-key="titulo_restaurantes">Restaurantes</h2>
             </div>
             <hr>
-            <ul>
-                <li><strong data-key="rest_1_nombre">Bar:</strong> <span data-key="rest_1_desc">Desc</span></li>
-                <li><strong data-key="rest_2_nombre">Restaurante:</strong> <span data-key="rest_2_desc">Desc</span></li>
-            </ul>
+            <div class="vertical-menu">
+                <!-- INSTRUCTION: To add a new button, copy the block below -->
+                <!-- Change the onclick function and the data-key for the button text -->
+                <button class="menu-btn" onclick="showRestaurantCategory('pintxos')">
+                    <img src="images/ic_pintxo.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_pintxos">Pintxos</span>
+                </button>
+                <button class="menu-btn" onclick="showRestaurantCategory('basque')">
+                    <img src="images/ic_basque.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_basque">Basque Restaurants</span>
+                </button>
+                <button class="menu-btn" onclick="showRestaurantCategory('michelin')">
+                    <img src="images/ic_michelin.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_michelin">Michelin Star</span>
+                </button>
+                <button class="menu-btn" onclick="showRestaurantCategory('txuleta')">
+                    <img src="images/ic_txuleta.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_txuleta">Txuleta Restaurants</span>
+                </button>
+                <button class="menu-btn" onclick="showRestaurantCategory('cyder')">
+                    <img src="images/ic_txotx.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_cyder">Cyder Houses</span>
+                </button>
+            </div>
         </div>
-
         <!-- ===================== ACTIVITIES SCREEN ===================== -->
         <div id="activities" class="screen">
             <div class="header-row">
@@ -263,20 +282,20 @@
             <hr>
             <div id="activities-menu" class="vertical-menu">
                 <button class="menu-btn" onclick="showActivityDetail('1')">
-                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_1">Actividad 1</span>
                 </button>
                 <button class="menu-btn" onclick="showActivityDetail('2')">
-                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_2">Actividad 2</span>
                 </button>
 
                 <button class="menu-btn" onclick="showActivityDetail('3')">
-                    <img src="images/ic_activities.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_3">Actividad 3</span>
                 </button>
                 <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos', 'activities')">
-                    <img src="images/ic_tips.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_tips.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_menu_consejos">Consejos</span>
                 </button>
             </div>
@@ -320,17 +339,17 @@
             
             <div id="tips-menu" class="vertical-menu">
                 <button class="menu-btn" onclick="showTipDetail('emergency', 'btn_menu_emergencias')">
-                    <img src="images/ic_telefono.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_telefono.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_menu_emergencias">Emergencia</span>
                 </button>
                 
                 <button class="menu-btn" onclick="showTipDetail('info', 'btn_menu_direcciones')">
-                    <img src="images/ic_transport.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_transport.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_menu_direcciones">Direcciones</span>
                 </button>
                 
                 <button class="menu-btn" onclick="showTipDetail('hospitals', 'btn_menu_hospitales')">
-                    <img src="images/ic_hospital.png" class="btn-icon" alt="icon">
+                    <img src="images/ic_hospital.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_menu_hospitales">Hospitales</span>
                 </button>
             </div>

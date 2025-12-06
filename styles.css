@@ -102,7 +102,7 @@ h1 { margin: 0; font-size: 1.2rem; }
     transition: transform 0.2s; 
 }
 .menu-btn:active { transform: scale(0.98); }
-.btn-icon { width: 24px; height: 24px; object-fit: contain; }
+.btn-icon { width: 24px; height: 24px; object-fit: contain; } /* Tamaño aumentado de los iconos de los botones del menú */
 .btn-icon-large { width: 32px; height: 32px; object-fit: contain; }
 .arrow-right { margin-left: auto; color: #ccc; }
 
