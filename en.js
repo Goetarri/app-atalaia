@@ -180,23 +180,58 @@ const EN = {
             "neib": "Gros",
             "name": "Bar Bergara",
             "addr": "General Artetxe, 8",
-            "tel": "+34943275026",
+            "tel": "+34 943 27 50 26",
             "map": "General Artetxe Kalea, 8, 20002 Donostia"
         },
         {
             "neib": "Gros",
             "name": "Bodega Donostiarra",
             "addr": "Peña y Goñi Kalea, 13",
-            "tel": "+34943011380",
+            "tel": "+34 943 01 13 80",
             "map": "Peña y Goñi Kalea, 13, 20002 Donostia"
         },
         {
             "neib": "Gros",
-            "name": "Casa Senra ",
+            "name": "Eguzki Bistro&Bar",
+            "addr": "Secundino Esnaola Kalea, 44",
+            "tel": "+34 943 28 30 63",
+            "map": "Secundino Esnaola Kalea, 44, 20001 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Gros",
+            "name": "Casa Senra",
             "addr": "San Francisco, 32",
-            "tel": "+34943291200",
+            "tel": "+34 943 29 12 00",
             "map": "San Francisco Kalea, 32, 20002 Donostia / San Sebastián, Gipuzkoa"
-        }
+        },
+        {
+            "neib": "Old Town",
+            "name": "Gandarias",
+            "addr": "31 de Agosto Kalea, 23",
+            "tel": "+34 943 42 63 62",
+            "map": "31 de Agosto Kalea, 23, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Old Town",
+            "name": "Ganbara",
+            "addr": "San Jerónimo, 21",
+            "tel": "+34 943 42 63 62",
+            "map": "C. de San Jerónimo, 21, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Old Town",
+            "name": "Baztan",
+            "addr": "Portu Kalea, 8",
+            "tel": "+34 943 42 42 72",
+            "map": "Portu Kalea, 8, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Old Town",
+            "name": "Casa Urola",
+            "addr": "Fermin Calbeton Kalea, 20",
+            "tel": "+34 943 44 13 71",
+            "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa"
+        },
     ],
 
     // --- ACTIVITIES MENU SCREEN ---

@@ -390,8 +390,11 @@ function populateMapTable(table, dataSet, iframeId, titleSelector, translations)
         const row = table.insertRow();
         // USAMOS 'this' para pasar la referencia de la fila al manejador de eventos
         row.onclick = function() { showMap(iframeId, titleSelector, mapQuery, name, this); };
-        
-        row.innerHTML = `<td class="tel-col-icon">${icon}</td>
+
+        // Para la tabla de pintxos, no queremos la clase de ancho fijo 'tel-col-icon' en la primera celda.
+        const firstCellClass = (table.id === 'pintxos-table') ? '' : 'class="tel-col-icon"';
+
+        row.innerHTML = `<td ${firstCellClass}>${icon}</td>
                          <td>
                             <b>${name}</b><br>
                             <small style="color:#666">${desc}</small><br>
