@@ -279,6 +279,7 @@ tr:last-child td { border-bottom: none; }
     pointer-events: none; 
 }
 
+
 /* Control tamaño iconos de la barra de herramientas inferior */
 .nav-icon-img {
     height: 24px;

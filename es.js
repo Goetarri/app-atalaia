@@ -237,6 +237,22 @@ const ES = {
     //  RESTAURANTES VASCOS SCREEN
     "basque_restaurants": [
         { 
+            "neib": "Gros",
+            "name": "Saltxipi", 
+            "address": "Ategorrietako Galtzada Zaharra, 3", 
+            "tel": "+34 943 32 33 10",
+            "price": "€€€",
+            "map": "Ategorrietako Galtzada Zaharra, 3, 20013 Donostia / San Sebastián, Gipuzkoa"
+        },
+        { 
+            "neib": "Gros",
+            "name": "Zelai Txiki", 
+            "address": "Rodil kalea, 79", 
+            "tel": "+34 688 61 15 81",
+            "price": "€€",
+            "map": "Rodil kalea, 79, 20013 Donostia / San Sebastián, Gipuzkoa"
+        },
+        { 
             "neib": "Parte Vieja",
             "name": "Bodegón Alejandro", 
             "address": "Fermín Calbetón Kalea, 4", 
@@ -278,15 +294,135 @@ const ES = {
         }
     ],
 
-/*
     "btn_rest_basque": "Restaurantes Vascos", // Corrected key
     "btn_rest_pintxos": "Pintxos",
+    "btn_rest_michelin": "Restaurantes Michelin",
+    "btn_rest_txuleta": "Txuleta",
+    "btn_rest_cider_house": "Sidrerías",
     "rest_header_nombre": "Nombre",
     "rest_header_desc": "Descripción",
     "rest_header_precio": "Precio",
-    "maps": {}, // Added maps object */
+    "maps": {}, // Added maps object
 
-    
+    // MICHELIN RESTAURANTS SCREEN
+    "michelin_titulo": "Restaurantes con Estrella Michelin",
+    "michelin_restaurants": [
+        {
+            "neib": "Gros",
+            "name": "Arzak",
+            "address": "Av. Alcalde José Elosegi, 273",
+            "tel": "+34 943 27 84 65",
+            "price": "€€€€",
+            "map": "Av. Alcalde José Elosegi, 273, 20015 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Igueldo",
+            "name": "Akelarre",
+            "address": "Paseo del Padre Orcolaga, 56",
+            "tel": "+34 943 31 12 09",
+            "price": "€€€€",
+            "map": "Paseo del Padre Orcolaga, 56, 20008 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Ulia",
+            "name": "Mirador de Ulia",
+            "address": "Ulia Pasealekua, 193",
+            "tel": "+34 943 27 27 07",
+            "price": "€€€€",
+            "map": "Mirador de Ulia, Ulia Pasealekua, 193, 20013 Donostia"
+        },
+        {
+            "neib": "Parte Vieja",
+            "name": "Kokotxa",
+            "address": "Kanpandegi Kalea, 11",
+            "tel": "+34 943 42 19 04",
+            "price": "€€€€",
+            "map": "Restaurante Kokotxa, Kanpandegi Kalea, 11, 20003 Donostia"
+        },
+        {
+            "neib": "Lasarte-Oria",
+            "name": "Martín Berasategui",
+            "address": "Loidi Kalea, 4",
+            "tel": "+34 943 36 64 71",
+            "price": "€€€€",
+            "map": "Loidi Kalea, 4, 20160 Lasarte-Oria, Gipuzkoa"
+        }
+
+    ],
+
+    // TXULETA RESTAURANTS SCREEN
+    "txuleta_titulo": "Restaurantes de Txuleta",
+    "txuleta_restaurants": [
+        {
+            "neib": "Gros",
+            "name": "Txuleteria de Iraeta",
+            "address": "Padre Larroca, 6",
+            "tel": "+34 943 32 16 36",
+            "price": "€€€",
+            "map": "Padre Larroca Kalea, 6, 20001 Donostia"
+        },
+        {
+            "neib": "Gros",
+            "name": "Txuleteria Gallery",
+            "address": "Secundino Esnaola Kalea, 20",
+            "tel": "+34 943 88 38 57",
+            "price": "€€€",
+            "map": "Secundino Esnaola Kalea, 20, 20001 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Old Town",
+            "name": "Nestor",
+            "address": "Arrandegi Kalea, 11,",
+            "tel": "+34 943 42 48 73",
+            "price": "€€",
+            "map": "Arrandegi Kalea, 11, 20003 Donostia / San Sebastián, Gipuzkoa",
+        },
+        {
+            "neib": "Old Town",
+            "name": "Txuleta",
+            "address": "Pl. de la Trinidad, 2",
+            "tel": "+34 943 44 10 07",
+            "price": "€€",
+            "map": "Pl. de la Trinidad, 2, 20003 Donostia / San Sebastián, Gipuzkoa",   
+        },
+        {
+            "neib": "Igara",
+            "name": "Asador Portuetxe",
+            "address": "Igara Bidea, 71",
+            "tel": "+34 943 21 50 18",
+            "price": "€€€",
+            "map": "Igara Bidea, 71, 20018 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Tolosa",
+            "name": "Casa Julián",
+            "address": "Sta. Klara Kalea, 6",
+            "tel": "+34 943 42 09 81",
+            "price": "€€€",
+            "map": "Sta. Klara Kalea, 6, 20400 Tolosa, Gipuzkoa"
+        }
+    ],
+
+    // CIDER HOUSE RESTAURANTS SCREEN
+    "cider_house_titulo": "Sidrerías",
+    "cider_house_restaurants": [
+        {
+            "neib": "Hernani",
+            "name": "Zapiain Sagardotegia",
+            "address": "Astigarraga Errepidea, 26",
+            "tel": "+34 943 55 00 55",
+            "price": "€€",
+            "map": "Astigarraga Errepidea, 26, 20120 Hernani, Gipuzkoa"
+        },
+        {
+            "neib": "Astigarraga",
+            "name": "Petritegi Sagardotegia",
+            "address": "Petritegi Bidea, 20",
+            "tel": "+34 943 45 71 88",
+            "price": "€€",
+            "map": "Petritegi Bidea, 20, 20115 Astigarraga, Gipuzkoa"
+        }
+    ],
     // --- PANTALLA ACTIVIDADES ---
     "titulo_tips": "Consejos",
     "tip_1": "Tip 1", // Placeholder

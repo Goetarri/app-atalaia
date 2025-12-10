@@ -288,6 +288,9 @@ function updateText() {
     updateApartmentAddressTable();
     updatePintxosTable();
     updateBasqueTable();
+    updateMichelinTable();
+    updateTxuletaTable();
+    updateCiderHouseTable();
 
     // Si una pantalla de actividad está abierta, refrescar su contenido
     // No es necesario hacer nada aquí, ya que el contenido de las actividades se actualiza con el resto del texto.
@@ -440,6 +443,14 @@ if (iframe) {
     // 3. Activar la fila pulsada (o la primera si es la carga inicial)
     if (clickedRow) {
         clickedRow.classList.add('address-row-active');
+    } else {
+        // Fallback for initial load if clickedRow isn't passed but we have a table
+        const table = document.getElementById(tableId);
+        if (table && table.rows.length > 0) {
+            // This assumes the first data row is at index 0 of the tbody,
+            // or index 0 of the table if there's no thead.
+            table.rows[0].classList.add('address-row-active');
+        }
     }
     // ------------------------------------------
 
@@ -543,12 +554,13 @@ function updateApartmentAddressTable() {
 function showRestaurantCategory(category) {
     if (category === 'basque') {
         showTab('basque-screen');
-        return;
+    } else if (category === 'michelin') {
+        showTab('michelin-screen');
+    } else if (category === 'txuleta') {
+        showTab('txuleta-screen');
+    } else if (category === 'cider_house') {
+        showTab('cider_house-screen');
     }
-    // Keep existing logic for other categories if any
-    // For example:
-    // const filteredRestaurants = allRestaurants.filter(r => r.category === category);
-    // displayRestaurants(filteredRestaurants);
 }
 
 function updateBasqueTable() {
@@ -561,17 +573,6 @@ function updateBasqueTable() {
     table.innerHTML = '';
 
     const basqueRestaurants = translations.basque_restaurants || [];
-
-    // Create header
-    const thead = table.createTHead();
-    const headerRow = thead.insertRow();
-    // Using hardcoded headers as there are no translation keys for "Neighborhood"
-    const headers = [(currentLang === 'es' ? 'Barrio' : 'Neighborhood'), translations.rest_header_nombre, translations.rest_header_precio];
-    headers.forEach(headerText => {
-        const th = document.createElement('th');
-        th.textContent = headerText;
-        headerRow.appendChild(th);
-    });
 
     // Create body
     const tbody = table.createTBody();
@@ -597,4 +598,82 @@ function updateBasqueTable() {
         const firstRow = tbody.rows[0];
         showMap('google-map-embed-basque', '#basque-map-container h3', basqueRestaurants[0].map, basqueRestaurants[0].name, firstRow);
     }
+}
+
+function updateMichelinTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('michelin-table');
+    if (!table) return;
+    table.innerHTML = '';
+
+    const restaurants = translations.michelin_restaurants || [];
+
+    const tbody = table.createTBody();
+    restaurants.forEach(item => {
+        const row = tbody.insertRow();
+        row.onclick = function() { showMap('google-map-embed-michelin', '#michelin-map-container h3', item.map, item.name, this); };
+
+        const neibCell = row.insertCell();
+        const detailsCell = row.insertCell();
+        const priceCell = row.insertCell();
+
+        neibCell.innerHTML = `<span style="font-size: 1rem;">${item.neib || ''}</span>`;
+        priceCell.textContent = item.price || '';
+
+        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
+        detailsCell.innerHTML = `<b>${item.name}</b><br>
+                                 <small style="color:#666">${item.address}</small>
+                                 ${telLink}`;
+    });
+
+    if (restaurants.length > 0) {
+        const firstRow = tbody.rows[0];
+        showMap('google-map-embed-michelin', '#michelin-map-container h3', restaurants[0].map, restaurants[0].name, firstRow);
+    }
+}
+
+function updateTxuletaTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('txuleta-table');
+    if (!table) return;
+    table.innerHTML = '';
+
+    const restaurants = translations.txuleta_restaurants || [];
+
+    const tbody = table.createTBody();
+    restaurants.forEach(item => {
+        const row = tbody.insertRow();
+        row.onclick = function() { showMap('google-map-embed-txuleta', '#txuleta-map-container h3', item.map, item.name, this); };
+
+        const neibCell = row.insertCell();
+        const detailsCell = row.insertCell();
+        const priceCell = row.insertCell();
+
+        neibCell.innerHTML = `<span style="font-size: 1rem;">${item.neib || ''}</span>`;
+        priceCell.textContent = item.price || '';
+
+        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
+        detailsCell.innerHTML = `<b>${item.name}</b><br>
+                                 <small style="color:#666">${item.address}</small>
+                                 ${telLink}`;
+    });
+
+    if (restaurants.length > 0) {
+        const firstRow = tbody.rows[0];
+        showMap('google-map-embed-txuleta', '#txuleta-map-container h3', restaurants[0].map, restaurants[0].name, firstRow);
+    }
+}
+
+function updateCiderHouseTable() {
+    const translations = (currentLang === 'es') ? ES : EN;
+    const table = document.getElementById('cider_house-table');
+    if (!table) return;
+    table.innerHTML = '';
+
+    const restaurants = translations.cider_house_restaurants || [];
+
+    const ciderData = restaurants.map(r => [`<img src="images/ic_txotx.png" class="btn-icon-small">`, r.name, r.address, r.tel, r.map]);
+    
+    // Now we pass the correct iframe and title selector for the cider house map.
+    populateMapTable(table, ciderData, 'google-map-embed-cider_house', '#cider_house-map-container h3', translations);
 }

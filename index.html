@@ -265,9 +265,9 @@
                     <img src="images/ic_txuleta.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_rest_txuleta">Txuleta Restaurants</span>
                 </button>
-                <button class="menu-btn" onclick="showRestaurantCategory('cyder')">
+                <button class="menu-btn" onclick="showRestaurantCategory('cider_house')">
                     <img src="images/ic_txotx.png" class="btn-icon-large" alt="icon">
-                    <span data-key="btn_rest_cyder">Cyder Houses</span>
+                    <span data-key="btn_rest_cider_house">Cider Houses</span>
                 </button>
             </div>
         </div>
@@ -305,6 +305,59 @@
                 </div>
             <!-- Table container -->
             <table id="basque-table" class="pintxos-table"></table>
+        </div>
+
+        <!-- ===================== MICHELIN SCREEN ===================== -->
+        <div id="michelin-screen" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showTab('restaurants')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
+                </button>
+                <h2 data-key="btn_rest_michelin">Michelin Star Restaurants</h2>
+            </div>
+            <hr>
+            <!-- Map container -->
+            <div id="michelin-map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed-michelin" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+            <!-- Table container -->
+            <table id="michelin-table" class="pintxos-table"></table>
+        </div>
+
+        <!-- ===================== TXULETA SCREEN ===================== -->
+        <div id="txuleta-screen" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showTab('restaurants')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
+                </button>
+                <h2 data-key="btn_rest_txuleta">Txuleta Restaurants</h2>
+            </div>
+            <hr>
+            <!-- Map container -->
+            <div id="txuleta-map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed-txuleta" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+            <!-- Table container -->
+            <table id="txuleta-table" class="pintxos-table"></table>
+        </div>
+
+        <!-- ===================== CIDER HOUSE SCREEN ===================== -->
+        <div id="cider_house-screen" class="screen">
+            <div class="header-row">
+                <button class="back-btn" onclick="showTab('restaurants')">
+                    <span class="arrow-icon">⬅</span> <span data-key="btn_atras"></span>
+                </button>
+                <h2 data-key="btn_rest_cider_house">Cider Houses</h2>
+            </div>
+            <hr>
+            <!-- Map container -->
+            <div id="cider_house-map-container">
+                    <h3 data-key="mapa_titulo">Mapa</h3>
+                    <iframe id="google-map-embed-cider_house" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer" src=""></iframe>
+                </div>
+            <table id="cider_house-table" class="pintxos-table"></table>
         </div>
 
         <!-- ===================== ACTIVITIES SCREEN ===================== -->
