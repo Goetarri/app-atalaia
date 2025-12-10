@@ -300,6 +300,7 @@ const EN = {
     "btn_rest_txuleta": "Txuleta Restaurants",
     "btn_rest_cider_house": "Cider Houses",
     "rest_header_nombre": "Name",
+    "map_title_for_restaurant": "Location of ",
     "rest_header_desc": "Description",
     "rest_header_precio": "Price",
     "maps": {},

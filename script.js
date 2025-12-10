@@ -164,7 +164,7 @@ function showTipDetail(tipId, titleKey, origin) {
     if (tipId === 'hospitals') updateHospitalTable();
 }
 
-// MODIFICADA: Restablece el título por defecto
+
 function backToTipsMenu() {
     // If the origin was 'activities', return there. The 'atalaia' origin is no longer handled here.
     if (currentTipInfo && currentTipInfo.origin === 'activities') {
@@ -193,9 +193,8 @@ function backToTipsMenu() {
     document.getElementById('tips-menu').style.display = 'block';
 }
 
-// --- NUEVA FUNCIÓN ---
-// Se llama desde el botón de la barra de navegación.
-// Su única misión es mostrar la pantalla de tips y asegurarse de que se vea el menú principal.
+
+// Mostrar la pantalla de tips y asegurarse de que se vea el menú principal.
 function resetToTipsMenu() {
     // 1. Mostrar la pantalla principal de 'tips'
     showTab('tips-main');
@@ -431,6 +430,8 @@ if (iframe) {
         case 'google-map-embed-hospital':tableId = 'hospital-table'; break;
         case 'google-map-embed-pintxos': tableId = 'pintxos-table'; break;
         case 'google-map-embed-basque':  tableId = 'basque-table'; break;
+        case 'google-map-embed-michelin': tableId = 'michelin-table'; break;
+        case 'google-map-embed-txuleta': tableId = 'txuleta-table'; break;
         default:
             // If no specific table is matched, we can't update rows.
             return;
@@ -454,10 +455,13 @@ if (iframe) {
     }
     // ------------------------------------------
 
-    const title = document.querySelector(titleSelector);
-    if (title) {
-        const prefix = (currentLang === 'es') ? 'Ubicación de ' : 'Location of ';
-        title.innerText = prefix + name;
+    const translations = (currentLang === 'es') ? ES : EN;
+    const newTitle = translations.map_title_for_restaurant + name;
+
+    // Update the map title (h3)
+    const mapTitle = document.querySelector(titleSelector);
+    if (mapTitle) {
+        mapTitle.innerText = newTitle;
     }
 }
 
@@ -553,13 +557,17 @@ function updateApartmentAddressTable() {
 
 function showRestaurantCategory(category) {
     if (category === 'basque') {
-        showTab('basque-screen');
+        showTab('basque-screen', 'restaurants');
+        updateBasqueTable();
     } else if (category === 'michelin') {
-        showTab('michelin-screen');
+        showTab('michelin-screen', 'restaurants');
+        updateMichelinTable();
     } else if (category === 'txuleta') {
-        showTab('txuleta-screen');
+        showTab('txuleta-screen', 'restaurants');
+        updateTxuletaTable();
     } else if (category === 'cider_house') {
-        showTab('cider_house-screen');
+        showTab('cider_house-screen', 'restaurants');
+        updateCiderHouseTable();
     }
 }
 
@@ -611,21 +619,32 @@ function updateMichelinTable() {
     const tbody = table.createTBody();
     restaurants.forEach(item => {
         const row = tbody.insertRow();
-        row.onclick = function() { showMap('google-map-embed-michelin', '#michelin-map-container h3', item.map, item.name, this); };
+        row.onclick = function() {
+            // Call showMap to update the map and highlight the row
+            showMap('google-map-embed-michelin', '#michelin-map-container h3', item.map, item.name, this);
 
-        const neibCell = row.insertCell();
+            // Also, update the main screen header
+            const michelinHeader = document.querySelector('#michelin-screen .header-row h3');
+            if (michelinHeader) {
+                michelinHeader.textContent = item.name;
+            }
+        };
+
+        // Create cells for the restaurant details and price
         const detailsCell = row.insertCell();
         const priceCell = row.insertCell();
 
-        neibCell.innerHTML = `<span style="font-size: 1rem;">${item.neib || ''}</span>`;
+        // Set the content for the price cell
         priceCell.textContent = item.price || '';
 
+        // Build the HTML for the main details cell, including the name, address, and a clickable phone number
         const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
         detailsCell.innerHTML = `<b>${item.name}</b><br>
                                  <small style="color:#666">${item.address}</small>
                                  ${telLink}`;
     });
 
+    // Load the map for the first restaurant in the list by default
     if (restaurants.length > 0) {
         const firstRow = tbody.rows[0];
         showMap('google-map-embed-michelin', '#michelin-map-container h3', restaurants[0].map, restaurants[0].name, firstRow);
@@ -643,7 +662,16 @@ function updateTxuletaTable() {
     const tbody = table.createTBody();
     restaurants.forEach(item => {
         const row = tbody.insertRow();
-        row.onclick = function() { showMap('google-map-embed-txuleta', '#txuleta-map-container h3', item.map, item.name, this); };
+        row.onclick = function() {
+            // Update the map and highlight the row
+            showMap('google-map-embed-txuleta', '#txuleta-map-container h3', item.map, item.name, this);
+
+            // Update the main screen header with the restaurant name
+            const txuletaHeader = document.querySelector('#txuleta-screen .header-row h3');
+            if (txuletaHeader) {
+                txuletaHeader.textContent = item.name;
+            }
+        };
 
         const neibCell = row.insertCell();
         const detailsCell = row.insertCell();
