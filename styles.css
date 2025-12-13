@@ -200,7 +200,7 @@ h1 { margin: 0; font-size: 1.2rem; }
 
 /* TABLAS */
 table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; border-radius: 8px; overflow: hidden; }
-td { padding: 12px; border-bottom: 1px solid #eee; }
+td { padding: 5px; border-bottom: 1px solid #eee; }
 tr:last-child td { border-bottom: none; }
 
 /* Reducir espaciado vertical en tablas específicas */
@@ -370,7 +370,6 @@ tr:last-child td { border-bottom: none; }
     border-left: 1px solid #000; /* NEGRO PURO */
     text-align: center; /* Centra el texto de la columna de la dirección */
 }
-
 
 /* --- ESTILO PARA AJUSTAR EL ANCHO DE LA COLUMNA DEL ICONO --- */
 #apartment-address-table .pin-icon {
