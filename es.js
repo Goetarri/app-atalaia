@@ -480,9 +480,9 @@ const ES = {
     
     // --- MENU DE ACTIVIDADES ---
     "titulo_actividades": "Qué hacer",
-    "btn_act_1": "Actividad 1",
-    "btn_act_2": "Actividad 2",
-    "btn_act_3": "Actividad 3",
+    "btn_act_1": "Al aire libre",
+    "btn_act_2": "Planes de interior",
+    "btn_act_3": "Más allá de Donostia",
     "btn_menu_consejos": "Consejos",
 
     // --- PANTALLA ACTIVIDADES CONTENIDO ---

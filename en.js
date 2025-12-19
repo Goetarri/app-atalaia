@@ -320,7 +320,7 @@ const EN = {
 
     "btn_rest_basque": "Basque Restaurants",
     "btn_rest_pintxos": "Pintxos",
-    "btn_rest_michelin": "Michelin Stars",
+    "btn_rest_michelin": "Michelin Star",
     "btn_rest_txuleta": "Txuleta Restaurants",
     "btn_rest_cider_house": "Cider Houses",
     "rest_header_nombre": "Name",
@@ -472,9 +472,9 @@ const EN = {
     ],
     // --- ACTIVITIES MENU SCREEN ---
     "titulo_actividades": "What to do",
-    "btn_act_1": "Activity 1",
-    "btn_act_2": "Activity 2",
-    "btn_act_3": "Activity 3",
+    "btn_act_1": "Outdoor",
+    "btn_act_2": "Indoor",
+    "btn_act_3": "Beyond Donostia",
     "btn_menu_consejos": "Our Tips",
     
     // --- ACTIVITY SCREENS ---
@@ -489,7 +489,7 @@ const EN = {
     "act_3_img": "images/urgull.jpg",
     
     "titulo_tips": "Tips",
-    "tip_1": "Tip 1",
-    "tip_2": "Tip 2",
-    "tip_3": "Tip 3",
+    "tip_1": "Fotos: Museo urgull terraza, Igeldo",
+    "tip_2": "pintxo pote",
+    "tip_3": "supermarkets",
 };

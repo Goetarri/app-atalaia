@@ -257,10 +257,6 @@
                     <img src="images/ic_basque.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_rest_basque">Basque Restaurants</span>
                 </button>
-                <button class="menu-btn" onclick="showRestaurantCategory('michelin')">
-                    <img src="images/ic_michelin.png" class="btn-icon-large" alt="icon">
-                    <span data-key="btn_rest_michelin">Michelin Star</span>
-                </button>
                 <button class="menu-btn" onclick="showRestaurantCategory('txuleta')">
                     <img src="images/ic_txuleta.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_rest_txuleta">Txuleta Restaurants</span>
@@ -268,6 +264,10 @@
                 <button class="menu-btn" onclick="showRestaurantCategory('cider_house')">
                     <img src="images/ic_txotx.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_rest_cider_house">Cider Houses</span>
+                </button>
+                <button class="menu-btn" onclick="showRestaurantCategory('michelin')">
+                    <img src="images/ic_michelin.png" class="btn-icon-large" alt="icon">
+                    <span data-key="btn_rest_michelin">Michelin Star</span>
                 </button>
             </div>
         </div>
@@ -371,16 +371,16 @@
             <hr>
             <div id="activities-menu" class="vertical-menu">
                 <button class="menu-btn" onclick="showActivityDetail('1')">
-                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
+                    <img src="images/ic_outdoor.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_1">Actividad 1</span>
                 </button>
                 <button class="menu-btn" onclick="showActivityDetail('2')">
-                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
+                    <img src="images/ic_indoor.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_2">Actividad 2</span>
                 </button>
 
                 <button class="menu-btn" onclick="showActivityDetail('3')">
-                    <img src="images/ic_activities.png" class="btn-icon-large" alt="icon">
+                    <img src="images/ic_beyond.png" class="btn-icon-large" alt="icon">
                     <span data-key="btn_act_3">Actividad 3</span>
                 </button>
                 <button class="menu-btn" onclick="showTipDetail('consejos', 'btn_menu_consejos', 'activities')">
@@ -395,7 +395,7 @@
                     <h3 data-key="act_1_titulo">Título Actividad 1</h3>
                     <p data-key="act_1_desc">Descripción detallada de la Actividad 1. Aquí puedes poner toda la información relevante, horarios, precios, cómo llegar, etc.</p>
                     <img data-key="act_1_img" src="images/placeholder_activity1.jpg" alt="Actividad 1" class="appliance-img">
-                    <p data-key="act_1_desc2">Más detalles o un segundo párrafo para la actividad.</p>
+                    <p data-key="act_1_desc2">Ideas: ver actividades hosts, hiking, urgull </p>
                 </div>
             </div>
             <div id="act-2" class="sub-section" style="display: none;">
@@ -403,7 +403,7 @@
                     <h3 data-key="act_2_titulo">Título Actividad 2</h3>
                     <p data-key="act_2_desc">Descripción detallada de la Actividad 2. Aquí puedes poner toda la información relevante, horarios, precios, cómo llegar, etc.</p>
                     <img data-key="act_2_img" src="images/placeholder_activity2.jpg" alt="Actividad 2" class="appliance-img">
-                    <p data-key="act_2_desc2">Más detalles o un segundo párrafo para la actividad.</p>
+                    <p data-key="act_2_desc2">Museos, cine Trueba (VO),la perla</p>
                 </div>
             </div>
 
@@ -412,7 +412,18 @@
                     <h3 data-key="act_3_titulo">Título Actividad 3</h3>
                     <p data-key="act_3_desc">Descripción detallada de la Actividad 3.</p>
                     <img data-key="act_3_img" src="images/placeholder_activity3.jpg" alt="Actividad 3" class="appliance-img">
+                    <p data-key="act_3_desc2">one day plans (zumaia, onyarbi), gaztelugatxe, Bilbo,bodegas, caserio </p>
                 </div>
+            </div>
+        </div>
+        <div id="info-consejos" class="sub-section" style="display: none;">
+            <div class="text-frame">
+                <h3 data-key="titulo_tips"></h3>
+                <ul>
+                   <li data-key="tip_1">Tip 1</li>
+                   <li data-key="tip_2">Tip 2</li>
+                   <li data-key="tip_3">Tip 3</li>
+               </ul>
             </div>
         </div>
 
@@ -475,16 +486,6 @@
                 <table id="hospital-table"></table>
             </div>
 
-            <div id="info-consejos" class="sub-section" style="display: none;">
-                <div class="text-frame">
-                    <h3 data-key="titulo_tips"></h3>
-                    <ul>
-                       <li data-key="tip_1">Tip 1</li>
-                       <li data-key="tip_2">Tip 2</li>
-                       <li data-key="tip_3">Tip 3</li>
-                   </ul>
-                </div>
-            </div>
 
         </div>
     </div>
