@@ -206,7 +206,7 @@ const ES = {
             "addr": "San Francisco, 32",
             "tel": "943 29 12 00",
             "map": "San Francisco Kalea, 32, 20002 Donostia / San Sebastián, Gipuzkoa",
-            "recomendacion": "Huevo a baja temperatura, Foie a la plancha."
+            "recomendacion": "Gambón con bacon y patatas"
         },
         {
             "neib": "Parte Vieja",
@@ -239,6 +239,22 @@ const ES = {
             "tel": "943 44 13 71",
             "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa",
             "recomendacion": "Vieira asada, Kokotxas, Gilda de antxoa."
+        },
+        {
+            "neib": "Parte Vieja",
+            "name": "La Mejillonera",
+            "addr": "Portu Kalea, 15",
+            "tel": "943 42 94 59",
+            "map": "Portu Kalea, 15, 20003 Donostia / San Sebastián, Gipuzkoa",
+            "recomendacion": "Patatas bravas."
+        },
+        {
+            "neib": "Parte Vieja",
+            "name": "La Viña",
+            "addr": "31 de Agosto Kalea, 3",
+            "tel": "943 42 74 95",
+            "map": "31 de Agosto Kalea, 3, 20003 Donostia / San Sebastián, Gipuzkoa",
+            "recomendacion": "Tarta de queso."
         },
     ],
 

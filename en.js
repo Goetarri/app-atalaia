@@ -206,7 +206,7 @@ const EN = {
             "addr": "San Francisco, 32",
             "tel": "+34 943 29 12 00",
             "map": "San Francisco Kalea, 32, 20002 Donostia / San Sebastián, Gipuzkoa",
-            "recommendation": "Low-temperature egg, Grilled foie gras."
+            "recommendation": "Gambón con bacon y patatas"
         },
         {
             "neib": "Old Town",
@@ -239,6 +239,22 @@ const EN = {
             "tel": "+34 943 44 13 71",
             "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa",
             "recommendation": "Roasted scallop, Kokotxas, Anchovy 'Gilda'."
+        },
+        {
+            "neib": "Old Town",
+            "name": "La Mejillonera",
+            "addr": "Portu Kalea, 15",
+            "tel": "+34 943 42 94 59",
+            "map": "Portu Kalea, 15, 20003 Donostia / San Sebastián, Gipuzkoa",
+            "recommendation": "Patatas bravas (for the spicy ones)."
+        },
+        {
+            "neib": "Old Town",
+            "name": "La Viña",
+            "addr": "31 de Agosto Kalea, 3",
+            "tel": "+34 943 42 74 95",
+            "map": "31 de Agosto Kalea, 3, 20003 Donostia / San Sebastián, Gipuzkoa",
+            "recommendation": "Cheesecake."
         },
     ],
 
