@@ -358,24 +358,33 @@ function updatePintxosTable() {
     const translations = (currentLang === 'es') ? ES : EN;
     const table = document.getElementById('pintxos-table');
     if (!table) return;
-    table.innerHTML = '';
+    table.innerHTML = ''; // Clear existing table content
 
-    const pintxosData = (translations.pintxos_list || []).map(pintxo => {
-        // We need to create temporary, unique keys for the populateMapTable function to work,
-        // as it expects translation keys rather than direct values.
-        const nameKey = `pintxo_name_${pintxo.name.replace(/\s/g, '_')}`;
-        translations[nameKey] = pintxo.name;
-
-        // The populateMapTable helper expects a translation key for the phone, not a direct value.
-        // We create a temporary key for it.
-        const telKey = `pintxo_tel_${pintxo.name.replace(/\s/g, '_')}`;
-        translations[telKey] = pintxo.tel;
-        
-        return [`<span style="font-size: 1rem;">${pintxo.neib}</span>`, nameKey, pintxo.addr, telKey, pintxo.map];
-    });
+    const pintxosData = translations.pintxos_list || [];
 
     if (pintxosData.length > 0) {
-        populateMapTable(table, pintxosData, 'google-map-embed-pintxos', '#pintxos-map-container h3', translations);
+        // Create table body
+        const tbody = table.createTBody();
+        pintxosData.forEach(pintxo => {
+            const row = tbody.insertRow();
+            row.onclick = function() { showMap('google-map-embed-pintxos', '#pintxos-map-container h3', pintxo.map, pintxo.name, this); };
+
+            const neibCell = row.insertCell();
+            const nameCell = row.insertCell();
+            const recCell = row.insertCell();
+
+            neibCell.innerHTML = `<span style="font-size: 1rem;">${pintxo.neib}</span>`;
+            nameCell.innerHTML = `<b>${pintxo.name}</b>`;
+            
+            const recommendation = (currentLang === 'es') ? pintxo.recomendacion : pintxo.recommendation;
+            recCell.innerHTML = `<small style="color:#666">${recommendation || ''}</small>`;
+        });
+
+        // Load the first one on the map
+        if (tbody.rows.length > 0) {
+            const firstRow = tbody.rows[0];
+            showMap('google-map-embed-pintxos', '#pintxos-map-container h3', pintxosData[0].map, pintxosData[0].name, firstRow);
+        }
     } else {
         console.error("Pintxos table or data not found!");
     }
@@ -640,7 +649,7 @@ function updateMichelinTable() {
         // Build the HTML for the main details cell, including the name, address, and a clickable phone number
         const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
         detailsCell.innerHTML = `<b>${item.name}</b><br>
-                                 <small style="color:#666">${item.address}</small>
+                                 <small style="color:#666">${item.neib}</small>
                                  ${telLink}`;
     });
 
