@@ -441,6 +441,7 @@ if (iframe) {
         case 'google-map-embed-basque':  tableId = 'basque-table'; break;
         case 'google-map-embed-michelin': tableId = 'michelin-table'; break;
         case 'google-map-embed-txuleta': tableId = 'txuleta-table'; break;
+        case 'google-map-embed-cider_house': tableId = 'cider_house-table'; break;
         default:
             // If no specific table is matched, we can't update rows.
             return;
@@ -644,13 +645,11 @@ function updateMichelinTable() {
         const priceCell = row.insertCell();
 
         // Set the content for the price cell
-        priceCell.textContent = item.price || '';
+        priceCell.innerHTML = item.tel ? `<a href="tel:${item.tel.replace(/\s/g, '')}" style="color: blue; font-weight: bold; text-decoration: none; font-size: 0.9rem;">${item.tel}</a>` : '';
 
         // Build the HTML for the main details cell, including the name, address, and a clickable phone number
-        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
         detailsCell.innerHTML = `<b>${item.name}</b><br>
-                                 <small style="color:#666">${item.neib}</small>
-                                 ${telLink}`;
+                                 <small style="color:#666">${item.neib}</small>`;
     });
 
     // Load the map for the first restaurant in the list by default
@@ -708,9 +707,31 @@ function updateCiderHouseTable() {
     table.innerHTML = '';
 
     const restaurants = translations.cider_house_restaurants || [];
+    const tbody = table.createTBody();
 
-    const ciderData = restaurants.map(r => [`<img src="images/ic_txotx.png" class="btn-icon-small">`, r.name, r.address, r.tel, r.map]);
-    
-    // Now we pass the correct iframe and title selector for the cider house map.
-    populateMapTable(table, ciderData, 'google-map-embed-cider_house', '#cider_house-map-container h3', translations);
+    restaurants.forEach(item => {
+        const row = tbody.insertRow();
+        row.onclick = function() {
+            showMap('google-map-embed-cider_house', '#cider_house-map-container h3', item.map, item.name, this);
+            const mapTitle = document.querySelector('#cider_house-map-container h3');
+            if (mapTitle) mapTitle.innerText = "Location of " + item.name;
+        };
+
+        const detailsCell = row.insertCell();
+        const priceCell = row.insertCell();
+
+        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
+        detailsCell.innerHTML = `<b>${item.name}</b><br>
+                                 <small style="color:#666">${item.neib}</small>
+                                 ${telLink}`;
+        
+        priceCell.textContent = item.price || '';
+    });
+
+    if (restaurants.length > 0) {
+        const firstRow = tbody.rows[0];
+        showMap('google-map-embed-cider_house', '#cider_house-map-container h3', restaurants[0].map, restaurants[0].name, firstRow);
+        const mapTitle = document.querySelector('#cider_house-map-container h3');
+        if (mapTitle) mapTitle.innerText = "Location of " + restaurants[0].name;
+    }
 }

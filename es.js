@@ -214,7 +214,7 @@ const ES = {
             "addr": "31 de Agosto Kalea, 23",
             "tel": "943 42 63 62",
             "map": "31 de Agosto Kalea, 23, 20003 Donostia / San Sebastián, Gipuzkoa",
-            "recomendacion": "Brocheta de riñones, Solomillo, Gilda."
+            "recomendacion": "Solomillo con pimiento verde."
         },
         {
             "neib": "Parte Vieja",
@@ -238,7 +238,7 @@ const ES = {
             "addr": "Fermin Calbeton Kalea, 20",
             "tel": "943 44 13 71",
             "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa",
-            "recomendacion": "Vieira asada, Kokotxas, Gilda de antxoa."
+            "recomendacion": "Vieira asada, Kokotxas"
         },
         {
             "neib": "Parte Vieja",
@@ -436,7 +436,7 @@ const ES = {
             "name": "Zapiain Sagardotegia",
             "address": "Astigarraga Errepidea, 26",
             "tel": "+34 943 55 00 55",
-            "price": "€€",
+            "price": "45-50€",
             "map": "Astigarraga Errepidea, 26, 20120 Hernani, Gipuzkoa"
         },
         {
@@ -444,8 +444,32 @@ const ES = {
             "name": "Petritegi Sagardotegia",
             "address": "Petritegi Bidea, 20",
             "tel": "+34 943 45 71 88",
-            "price": "€€",
+            "price": "40-45€",
             "map": "Petritegi Bidea, 20, 20115 Astigarraga, Gipuzkoa"
+        },
+        {
+            "neib": "Hernani",
+            "name": "Zelaia Sagardotegia",
+            "address": "Martindegi Auzoa, 29",
+            "tel": "+34 943 55 58 51",
+            "price": "40-45€",
+            "map": "Martindegi Auzoa, 29, 20120 Hernani, Gipuzkoa"
+        },
+        {
+            "neib": "Astigarraga",
+            "name": "Alorrenea Sagardotegia",
+            "address": "Alorrene Bidea, 4",
+            "tel": "+34 943 33 69 99",
+            "price": "35-40€",
+            "map": "Alorrene Bidea, 4, 20115 Astigarraga, Gipuzkoa"
+        },
+        {
+            "neib": "Donostia",
+            "name": "Gartziategi Sagardotegia",
+            "address": "Martutene Pasealekua, 139",
+            "tel": "+34 943 46 96 74",
+            "price": "35-40€",
+            "map": "Martutene Pasealekua, 139, 20014 Donostia"
         }
     ],
     // --- PANTALLA ACTIVIDADES ---

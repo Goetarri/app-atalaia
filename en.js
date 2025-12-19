@@ -214,7 +214,7 @@ const EN = {
             "addr": "31 de Agosto Kalea, 23",
             "tel": "+34 943 42 63 62",
             "map": "31 de Agosto Kalea, 23, 20003 Donostia / San Sebastián, Gipuzkoa",
-            "recommendation": "Kidney skewer, Sirloin, 'Gilda'."
+            "recommendation": "Sirloin with green pepper.",
         },
         {
             "neib": "Old Town",
@@ -238,7 +238,7 @@ const EN = {
             "addr": "Fermin Calbeton Kalea, 20",
             "tel": "+34 943 44 13 71",
             "map": "Fermin Calbeton Kalea, 20, 20003 Donostia / San Sebastián, Gipuzkoa",
-            "recommendation": "Roasted scallop, Kokotxas, Anchovy 'Gilda'."
+            "recommendation": "Roasted scallop, Kokotxas"
         },
         {
             "neib": "Old Town",
@@ -320,7 +320,7 @@ const EN = {
 
     "btn_rest_basque": "Basque Restaurants",
     "btn_rest_pintxos": "Pintxos",
-    "btn_rest_michelin": "Michelin Star Restaurants",
+    "btn_rest_michelin": "Michelin Stars",
     "btn_rest_txuleta": "Txuleta Restaurants",
     "btn_rest_cider_house": "Cider Houses",
     "rest_header_nombre": "Name",
@@ -430,20 +430,44 @@ const EN = {
     "cider_house_titulo": "Cider Houses",
     "cider_house_restaurants": [
         {
-            "neib": "Hernani",
-            "name": "Zapiain Sagardotegia",
-            "address": "Astigarraga Errepidea, 26",
-            "tel": "+34 943 55 00 55",
-            "price": "€€",
-            "map": "Astigarraga Errepidea, 26, 20120 Hernani, Gipuzkoa"
-        },
-        {
             "neib": "Astigarraga",
             "name": "Petritegi Sagardotegia",
             "address": "Petritegi Bidea, 20",
             "tel": "+34 943 45 71 88",
-            "price": "€€",
+            "price": "€40-45",
             "map": "Petritegi Bidea, 20, 20115 Astigarraga, Gipuzkoa"
+        },
+        {
+            "neib": "Astigarraga",
+            "name": "Alorrenea Sagardotegia",
+            "address": "Alorrene Bidea, 4",
+            "tel": "+34 943 33 69 99",
+            "price": "€35-40",
+            "map": "Alorrene Bidea, 4, 20115 Astigarraga, Gipuzkoa"
+        },
+        {
+            "neib": "Martutene, Donostia",
+            "name": "Gartziategi Sagardotegia",
+            "address": "Martutene Pasealekua, 139",
+            "tel": "+34 943 46 96 74",
+            "price": "€35-40",
+            "map": "Martutene Pasealekua, 139, 20014 Donostia"
+        },
+        {
+            "neib": "Hernani",
+            "name": "Zapiain Sagardotegia",
+            "address": "Astigarraga Errepidea, 26",
+            "tel": "+34 943 55 00 55",
+            "price": "€45-50",
+            "map": "Astigarraga Errepidea, 26, 20120 Hernani, Gipuzkoa"
+        },
+        {
+            "neib": "Hernani",
+            "name": "Zelaia Sagardotegia",
+            "address": "Martindegi Auzoa, 29",
+            "tel": "+34 943 55 58 51",
+            "price": "€40-45",
+            "map": "Martindegi Auzoa, 29, 20120 Hernani, Gipuzkoa"
         }
     ],
     // --- ACTIVITIES MENU SCREEN ---
