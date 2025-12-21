@@ -644,12 +644,15 @@ function updateMichelinTable() {
         const detailsCell = row.insertCell();
         const priceCell = row.insertCell();
 
-        // Set the content for the price cell
-        priceCell.innerHTML = item.tel ? `<a href="tel:${item.tel.replace(/\s/g, '')}" style="color: blue; font-weight: bold; text-decoration: none; font-size: 0.9rem;">${item.tel}</a>` : '';
+        // Set the content for the right column (Stars)
+        priceCell.innerHTML = item.stars ? `<span style="font-size: 1.2rem;">${item.stars} ⭐</span>` : '';
+        priceCell.style.textAlign = 'center';
 
-        // Build the HTML for the main details cell, including the name, address, and a clickable phone number
+        // Build the HTML for the main details cell: Name, Neib, Phone
+        const telLink = item.tel ? `<br><small><a href="tel:${item.tel.replace(/\s/g, '')}">${item.tel}</a></small>` : '';
         detailsCell.innerHTML = `<b>${item.name}</b><br>
-                                 <small style="color:#666">${item.neib}</small>`;
+                                 <small style="color:#666">${item.neib}</small>
+                                 ${telLink}`;
     });
 
     // Load the map for the first restaurant in the list by default

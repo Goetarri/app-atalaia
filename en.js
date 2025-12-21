@@ -338,6 +338,7 @@ const EN = {
             "address": "Av. Alcalde José Elosegi, 273",
             "tel": "+34 943 27 84 65",
             "price": "€€€€",
+            "stars": 3,
             "map": "Av. Alcalde José Elosegi, 273, 20015 Donostia / San Sebastián, Gipuzkoa"
         },
         {
@@ -346,7 +347,26 @@ const EN = {
             "address": "Paseo del Padre Orcolaga, 56",
             "tel": "+34 943 31 12 09",
             "price": "€€€€",
+            "stars": 3,
             "map": "Paseo del Padre Orcolaga, 56, 20008 Donostia / San Sebastián, Gipuzkoa"
+        },
+        {
+            "neib": "Lasarte-Oria",
+            "name": "Martín Berasategui",
+            "address": "Loidi Kalea, 4",
+            "tel": "+34 943 36 64 71",
+            "price": "€€€€",
+            "stars": 3,
+            "map": "Loidi Kalea, 4, 20160 Lasarte-Oria, Gipuzkoa"
+        },
+        {
+            "neib": "City Center",
+            "name": "Amelia",
+            "address": "Zubieta Kalea, 26",
+            "tel": "+34 943 84 56 47",
+            "price": "€€€€",
+            "stars": 2,
+            "map": "Amelia by Paulo Airaudo, Zubieta Kalea, 26, 20007 Donostia"
         },
         {
             "neib": "Ulia",
@@ -354,6 +374,7 @@ const EN = {
             "address": "Ulia Pasealekua, 193",
             "tel": "+34 943 27 27 07",
             "price": "€€€€",
+            "stars": 1,
             "map": "Mirador de Ulia, Ulia Pasealekua, 193, 20013 Donostia"
         },
         {
@@ -362,16 +383,9 @@ const EN = {
             "address": "Kanpandegi Kalea, 11",
             "tel": "+34 943 42 19 04",
             "price": "€€€€",
+            "stars": 1,
             "map": "Restaurante Kokotxa, Kanpandegi Kalea, 11, 20003 Donostia"
         },
-        {
-            "neib": "Lasarte-Oria",
-            "name": "Martín Berasategui",
-            "address": "Loidi Kalea, 4",
-            "tel": "+34 943 36 64 71",
-            "price": "€€€€",
-            "map": "Loidi Kalea, 4, 20160 Lasarte-Oria, Gipuzkoa"
-        }
     ],
 
     // TXULETA RESTAURANTS SCREEN
