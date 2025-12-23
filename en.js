@@ -54,7 +54,7 @@ const EN = {
     
     // INFO MENU BUTTONS
     "btn_menu_emergencias": "Emergency numbers",
-    "btn_menu_direcciones": "Transportation Info?",
+    "btn_menu_direcciones": "Transportation Info",
     "btn_menu_hospitales": "Medical Assistance",
     
     // INFO SCREEN
