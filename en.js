@@ -501,7 +501,6 @@ const EN = {
     "act_3_titulo": "Hike up Mount Urgull",
     "act_3_desc": "Explore Mount Urgull to enjoy spectacular panoramic views of the city and its beaches. At the top, you will find the Mota Castle and a statue of the Sacred Heart. It is a pleasant walk full of history.",
     "act_3_img": "images/urgull.jpg",
-    
     "titulo_tips": "Tips",
     "tip_1": "Fotos: Museo urgull terraza, Igeldo",
     "tip_2": "pintxo pote",
