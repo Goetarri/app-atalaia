@@ -1,38 +1,44 @@
-!/bin/bash
+#!/bin/bash
 
-# 1. Verificar si estamos en un repositorio de Git
+# 1. Capturar el primer argumento enviado al script
+commit_message=$1
+
+# 2. Verificar si estamos en un repositorio de Git
 if [ ! -d .git ]; then
-    echo "Error: No se detectó un repositorio de Git en este directorio."
+    echo "❌ Error: No se detectó un repositorio de Git aquí."
     exit 1
 fi
 
-# 2. Mostrar el estado actual (opcional, ayuda al usuario a ver qué va a subir)
-echo "Estado actual del repositorio:"
-git status -s
+# 3. Validar si el mensaje se pasó por argumento o pedirlo si no
+if [ -z "$commit_message" ]; then
+    echo "⚠️ No se detectó mensaje de commit en el comando."
+    while [ -z "$commit_message" ]; do
+        read -p "Introduce el mensaje del commit (obligatorio): " commit_message
+        if [ -z "$commit_message" ]; then
+            echo "El mensaje no puede estar vacío."
+        fi
+    done
+fi
 
-# 3. Añadir todos los cambios al área de preparación (staging)
+# 4. Proceso de Git
+echo "📦 Preparando cambios..."
 git add .
 
-# 4. Solicitar el comentario del commit de forma obligatoria
-commit_message=""
-while [ -z "$commit_message" ]; do
-    read -p "Introduce el mensaje del commit (obligatorio): " commit_message
-    
-    if [ -z "$commit_message" ]; then
-        echo "El mensaje no puede estar vacío. Por favor, escribe algo."
-    fi
-done
-
-# 5. Realizar el commit
+echo "💾 Realizando commit: \"$commit_message\""
 git commit -m "$commit_message"
 
-# 6. Sincronizar con el servidor remoto (GitHub)
-# Primero intentamos bajar cambios para evitar conflictos (pull)
-echo "Sincronizando con GitHub..."
-git pull origin $(git branch --show-current) --rebase
+# Detectar rama actual
+current_branch=$(git branch --show-current)
 
-# Finalmente subimos los cambios (push)
-git push origin $(git branch --show-current)
+echo "🔄 Sincronizando con rama '$current_branch' en GitHub..."
+# Pull con rebase para mantener historial limpio
+git pull origin "$current_branch" --rebase
 
-echo "---------------------------------------"
-echo "✅ ¡Sincronización completada con éxito!"
+# Push final
+if git push origin "$current_branch"; then
+    echo "---------------------------------------"
+    echo "✅ ¡Todo listo! Cambios subidos correctamente."
+else
+    echo "❌ Hubo un error al subir los cambios."
+    exit 1
+fi
